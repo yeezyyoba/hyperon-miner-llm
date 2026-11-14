@@ -23,7 +23,7 @@ number of candidate patterns explodes and which limited the PeTTa miner to 3 con
 | 1. Problem | [docs/01-problem.md](docs/01-problem.md) | ✅ six issues, with evidence |
 | 2. Hypothesis | docs/02-hypothesis.md | ⏳ phase 3 |
 | 3. Architecture | docs/03-architecture.md | ⏳ phase 3 |
-| 4. Prototype | `experiments/llm-guided-miner/`, `minerllm/` | ⏳ phases 2–3 |
+| 4. Prototype | `minerllm/` (harness, oracle, data) · `experiments/llm-guided-miner/` | 🟡 harness + oracle done, guided miner in phase 3 |
 | 5. Baseline | docs/05-baseline.md | ⏳ phase 4 |
 | 6. Results | docs/06-results.md | ⏳ phase 4 |
 
@@ -34,9 +34,9 @@ number of candidate patterns explodes and which limited the PeTTa miner to 3 con
 | 1 | Documented entry point does not run | returns `(partial pattern-miner …)`: 8 args passed to a 9-arg function |
 | 2 | CI tracks PeTTa HEAD | **8/8** tests pass on pinned PeTTa, **3/8** on HEAD |
 | 3 | End-to-end tests never run their assertions | corrupting an expected value still passes CI |
-| 4 | `isurp` silently drops a pattern | 12 frequent patterns in, 11 scored out |
+| 4 | Output full of clause-order duplicates | 801 printed vs 137 distinct patterns at 4 conjuncts (83 %) |
 | 5 | Global spaces leak state between runs | 2nd run returns 32 patterns instead of 20 |
-| **6** | **Conjunction expansion explodes** | 2→3 conjuncts costs **3×** time at 200 atoms, **10×** at 800; 4 conjuncts on 200 atoms takes 97 s |
+| **6** | **Conjunction expansion explodes** | 2→3 conjuncts costs **3×** time at 200 atoms, **10×** at 800; 4 conjuncts on 200 atoms takes 90 s |
 
 ## Quick start
 
@@ -54,7 +54,23 @@ make test                # Python tests
 make test-metta          # MeTTa tests with live assertions
 make reproduce-issues    # regenerate the Step 1 evidence
 make profile             # regenerate docs/evidence/baseline-profile.md
+make datasets            # regenerate experiments/data (deterministic)
+make mine CONFIG=configs/university.yaml   # mine + verify every support with the oracle
 ```
+
+## How we know the symbolic side is right
+
+The LLM integration is only trustworthy if the miner's own answers are. So the
+harness never takes a printed support on faith. `minerllm/oracle.py` is an
+**independent Python re-implementation** of upstream's support definition (no MeTTa
+involved), and every run is cross-checked against it:
+
+* it reproduces all 7 expected supports from upstream's own test file (10 … 12000),
+* across the full baseline profile, **1,163 distinct mined patterns, 0 mismatches**.
+
+Synthetic graphs with **planted** patterns (`minerllm datagen`) give an answer key:
+upstream's `isurp` ranks the three planted patterns **#1, #2, #3 of 343**
+([evidence](docs/evidence/synthetic-validation.md)).
 
 ## Repository layout
 
@@ -62,7 +78,15 @@ make profile             # regenerate docs/evidence/baseline-profile.md
 external/hyperon-miner/        iCog's miner, git submodule pinned to petta-main @ 7461878
 run_miner.metta                working entry point for the upstream miner (Issue 1 fix)
 setup.sh                       pinned PeTTa + dependency checks (Issue 2 fix)
+configs/                       YAML miner configurations (dataset, minsup, depth, scorer)
+minerllm/                      Python package
+  sexpr.py, patterns.py        MeTTa parsing + canonical pattern form (Issue 4)
+  oracle.py                    independent support counter
+  petta.py, harness.py         run PeTTa from a config, verify, save artefacts
+  datagen.py, datasets.py      synthetic graphs with planted patterns, Galaxy subsets
+  cli.py                       `python -m minerllm mine | datagen | galaxy | support | stats`
 experiments/
+  data/                        evaluation datasets (+ planted-pattern answer keys)
   upstream-regression/tests/   live-assertion tests of the upstream pipeline (Issues 3–5)
 scripts/
   run_metta_tests.py           strict MeTTa test runner
