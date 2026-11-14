@@ -1,0 +1,9 @@
+{
+  "strategy": "llm",
+  "budget": 0.3,
+  "providers": ["mock"],
+  "batch_size": 60,
+  "cache_dir": null,
+  "trace_path": "runs/guided-demo.trace.jsonl",
+  "dataset": "experiments/data/university_s0_st80.metta"
+}
