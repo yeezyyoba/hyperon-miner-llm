@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 import json
+import sys
+import threading
 import time
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -86,8 +88,33 @@ def read_trace(path: Path) -> list[dict]:
     return [json.loads(l) for l in path.read_text().splitlines() if l.strip()]
 
 
+def _follow_trace(trace: Path, stop: threading.Event) -> None:
+    """Print one short line per trace event while the miner runs (to stderr)."""
+    seen = 0
+    while not stop.is_set():
+        time.sleep(1.0)
+        events = read_trace(trace)
+        for e in events[seen:]:
+            ev, t = e["event"], f"[{e['t']:7.1f}s]"
+            if ev == "llm_batch":
+                what = (f"{e['provider']}/{e['model']}" + (" (cached)" if e.get("cached") else "")
+                        if "provider" in e else f"FAILED -> heuristic ({e.get('failed', '')[:70]})")
+                msg = f"LLM batch {e['batch']}/{e['of']}: {what}, {e['seconds']}s"
+            elif ev == "select":
+                msg = (f"level {e['level']}: {e['generated']} candidates, {e['unique']} unique, "
+                       f"verifying {e['selected']}")
+            elif ev == "verify":
+                msg = f"level {e['level']}: {e['kept']} frequent patterns kept ({e['seconds']}s)"
+            elif ev == "configure":
+                msg = f"started: strategy={e['strategy']} budget={e['budget']}"
+            else:
+                continue
+            print(f"{t} {msg}", file=sys.stderr, flush=True)
+        seen = len(events)
+
+
 def run_guided(cfg: MinerConfig, ranker, out_dir: Path | None = None, label: str | None = None,
-               verify: bool = True) -> tuple[PettaRun, Verification | None, dict]:
+               verify: bool = True, progress: bool = False) -> tuple[PettaRun, Verification | None, dict]:
     """Run the guided miner. Returns (run, oracle verification, trace summary)."""
     from .config import render_guided_script
     label = label or ranker.label
@@ -103,7 +130,17 @@ def run_guided(cfg: MinerConfig, ranker, out_dir: Path | None = None, label: str
                                     "dataset": str(cfg.dataset_path())}, indent=2))
     script = out_dir / f"{label}.metta"
     script.write_text(render_guided_script(cfg, run_json))
-    run = run_script(script, timeout=cfg.timeout)
+    stop = threading.Event()
+    watcher = None
+    if progress:
+        watcher = threading.Thread(target=_follow_trace, args=(trace, stop), daemon=True)
+        watcher.start()
+    try:
+        run = run_script(script, timeout=cfg.timeout)
+    finally:
+        stop.set()
+        if watcher:
+            watcher.join(timeout=3)
     events = read_trace(trace)
     summary = next((e for e in reversed(events) if e["event"] == "finish"), {})
     summary["levels"] = [e for e in events if e["event"] in ("select", "verify")]

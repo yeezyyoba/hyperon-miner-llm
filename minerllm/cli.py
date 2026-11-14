@@ -32,7 +32,7 @@ def cmd_guided(args) -> int:
     rc = RankerConfig(strategy=args.strategy, budget=args.budget, seed=args.seed,
                       providers=args.providers.split(","), batch_size=args.batch_size,
                       cache_dir=None if args.no_cache else ".cache/llm")
-    run, ver, s = run_guided(cfg, rc, Path(args.out) if args.out else None)
+    run, ver, s = run_guided(cfg, rc, Path(args.out) if args.out else None, progress=True)
     ranked = sorted(run.patterns, key=lambda p: -(p.surprisingness or 0))
     for mp in ranked[: args.top]:
         score = f"{mp.surprisingness:.3f}" if mp.surprisingness is not None else "  -  "
@@ -44,6 +44,35 @@ def cmd_guided(args) -> int:
           f"tokens, {s.get('fallback_batches', 0)}/{s.get('batches', 0)} batches fell back | "
           f"supports vs oracle: {'ok' if ver.ok else 'MISMATCH'}")
     return 0 if run.ok and ver.ok else 1
+
+
+def cmd_models(args) -> int:
+    """List the model IDs each configured provider offers this account (keys from .env)."""
+    try:
+        from dotenv import load_dotenv
+        load_dotenv()
+    except ImportError:
+        pass
+    import os
+    from .llm.base import LLMError
+    from .llm.providers import DEFAULT_MODELS, list_models
+    envs = {"gemini": "GEMINI_API_KEY", "groq": "GROQ_API_KEY", "nvidia": "NVIDIA_API_KEY"}
+    for prov in args.providers.split(","):
+        current = os.environ.get(f"{prov.upper()}_MODEL", DEFAULT_MODELS[prov])
+        if not os.environ.get(envs[prov]):
+            print(f"\n{prov}: no {envs[prov]} set")
+            continue
+        try:
+            ids = list_models(prov)
+        except (LLMError, Exception) as e:      # noqa: BLE001 - report and continue
+            print(f"\n{prov}: could not list models ({str(e)[:120]})")
+            continue
+        shown = [m for m in ids if not args.filter or args.filter.lower() in m.lower()]
+        status = "OK" if current in ids else "NOT AVAILABLE for this key"
+        print(f"\n{prov}: {len(ids)} models | configured: {current} -> {status}")
+        for m in shown[: args.limit]:
+            print(f"  {m}")
+    return 0
 
 
 def cmd_datagen(args) -> int:
@@ -103,6 +132,12 @@ def main(argv: list[str] | None = None) -> int:
     gm.add_argument("--top", type=int, default=15)
     gm.add_argument("--out")
     gm.set_defaults(func=cmd_guided)
+
+    md = sub.add_parser("models", help="list model IDs your API keys can use")
+    md.add_argument("--providers", default="gemini,groq,nvidia")
+    md.add_argument("--filter", default="", help="only show IDs containing this text")
+    md.add_argument("--limit", type=int, default=60)
+    md.set_defaults(func=cmd_models)
 
     g = sub.add_parser("datagen", help="write a synthetic university graph with planted patterns")
     g.add_argument("--students", type=int, default=60)
