@@ -1,0 +1,20 @@
+# ADR 0006 — Gemini → Groq → NVIDIA, disk cache, offline mock
+
+**Status:** accepted
+
+**Context.** Hosted LLMs fail: rate limits, outages, malformed answers. Evaluation runs must
+be repeatable, and CI has no API keys.
+
+**Decision.**
+* **Chain:** Gemini, then Groq, then NVIDIA (same order as AIRA). Up to 2 retries with
+  exponential backoff on retryable errors. A fatal error or an answer that fails validation
+  moves to the next provider. If all fail, the batch uses the heuristic order.
+* **Cache:** answers are stored by `sha256(system + prompt)`. A re-run replays the same
+  scores at zero cost; invalid cached answers are never replayed.
+* **Mock:** `MockLLM` parses the prompt and answers in the expected format, with fault modes
+  (`garbage`, `partial`, `out_of_range`, `duplicates`, `error`, `fatal`, …) to test every failure
+  path. Its scores are hash-based, so mock runs test plumbing, never quality.
+* Temperature 0, JSON mode, keys only from the environment (sent in headers, never in URLs).
+
+**Consequences.** Mining never stops because of the LLM. CI runs the full pipeline offline.
+Results state which provider answered each batch (in the trace).
