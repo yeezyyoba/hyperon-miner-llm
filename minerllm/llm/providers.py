@@ -21,7 +21,7 @@ from .base import LLMClient, LLMError, LLMResponse
 
 DEFAULT_MODELS = {
     "gemini": "gemini-3.8-flash",
-    "groq": "llama-3.3-70b-versatile",
+    "groq": "openai/gpt-oss-120b",
     "nvidia": "meta/llama-3.3-70b-instruct",
 }
 
@@ -133,3 +133,24 @@ def groq_client(**kw) -> OpenAICompatibleClient:
 def nvidia_client(**kw) -> OpenAICompatibleClient:
     return OpenAICompatibleClient("nvidia", "https://integrate.api.nvidia.com/v1/chat/completions",
                                   "NVIDIA_API_KEY", **kw)
+
+
+def list_models(provider: str, timeout: float = 30.0) -> list[str]:
+    """Model IDs this account can use, straight from the provider's models endpoint."""
+    if provider == "gemini":
+        key = os.environ.get("GEMINI_API_KEY", "")
+        resp = requests.get("https://generativelanguage.googleapis.com/v1beta/models",
+                            params={"pageSize": 1000}, headers={"x-goog-api-key": key},
+                            timeout=timeout)
+        _raise_for(resp, provider)
+        return sorted(m["name"].removeprefix("models/") if hasattr(str, "removeprefix")
+                      else m["name"].split("/", 1)[-1]
+                      for m in resp.json().get("models", [])
+                      if "generateContent" in m.get("supportedGenerationMethods", []))
+    urls = {"groq": ("https://api.groq.com/openai/v1/models", "GROQ_API_KEY"),
+            "nvidia": ("https://integrate.api.nvidia.com/v1/models", "NVIDIA_API_KEY")}
+    url, env = urls[provider]
+    resp = requests.get(url, headers={"Authorization": f"Bearer {os.environ.get(env, '')}"},
+                        timeout=timeout)
+    _raise_for(resp, provider)
+    return sorted(m["id"] for m in resp.json().get("data", []))

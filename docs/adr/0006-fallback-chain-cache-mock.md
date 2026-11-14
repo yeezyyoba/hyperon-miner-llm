@@ -14,7 +14,7 @@ be repeatable, and CI has no API keys.
 * **Mock:** `MockLLM` parses the prompt and answers in the expected format, with fault modes
   (`garbage`, `partial`, `out_of_range`, `duplicates`, `error`, `fatal`, …) to test every failure
   path. Its scores are hash-based, so mock runs test plumbing, never quality.
-* Default models: `gemini-3.8-flash` (thinking level `low`), `llama-3.3-70b-versatile` (Groq),
+* Default models: `gemini-3.8-flash` (thinking level `low`), `openai/gpt-oss-120b` (Groq),
   `meta/llama-3.3-70b-instruct` (NVIDIA), all overridable in `.env`. JSON mode; temperature 0
   where honoured (Gemini 3.x ignores sampling parameters). Keys come only from the environment
   and are sent in headers, never in URLs.
