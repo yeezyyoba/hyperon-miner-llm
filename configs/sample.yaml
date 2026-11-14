@@ -1,0 +1,7 @@
+# Upstream sample data (40 Inheritance atoms) — fast smoke test
+dataset: external/hyperon-miner/experiments/data/ugly_man_sodaDrinker
+minsup: 10
+depth: 0          # 2 conjuncts
+surp_mode: isurp
+normalize: true
+db_ratio: 0.5

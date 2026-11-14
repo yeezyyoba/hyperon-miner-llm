@@ -1,0 +1,8 @@
+# Real data: 400-atom deterministic sample of the Galaxy workflow graph (minerllm galaxy 400)
+dataset: experiments/data/galaxy_400
+minsup: 5
+depth: 1          # 3 conjuncts
+surp_mode: isurp
+normalize: true
+db_ratio: 0.5
+timeout: 1800

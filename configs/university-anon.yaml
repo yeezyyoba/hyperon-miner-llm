@@ -1,0 +1,8 @@
+# Same graph with relations/entities renamed to R1..R9 / e1..eN (ablation control)
+dataset: experiments/data/university_s0_st80_anon
+minsup: 10
+depth: 1
+surp_mode: isurp
+normalize: true
+db_ratio: 0.5
+timeout: 1800

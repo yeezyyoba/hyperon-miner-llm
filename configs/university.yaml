@@ -1,0 +1,8 @@
+# Synthetic university graph with planted patterns (minerllm datagen --seed 0 --strength 0.8)
+dataset: experiments/data/university_s0_st80
+minsup: 10
+depth: 1          # 3 conjuncts — where the cost explodes
+surp_mode: isurp
+normalize: true
+db_ratio: 0.5
+timeout: 1800
