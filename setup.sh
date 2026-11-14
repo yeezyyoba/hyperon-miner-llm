@@ -38,7 +38,7 @@ SWIPL_VERSION="$(swipl --dump-runtime-variables | sed -n 's/^PLVERSION="\([0-9]*
 # PLVERSION is e.g. 90334 for 9.3.34
 want=$(echo "$MIN_SWIPL" | awk -F. '{printf "%d%02d%02d", $1, $2, $3}')
 [ "$SWIPL_VERSION" -ge "$want" ] || fail "SWI-Prolog >= $MIN_SWIPL required (found PLVERSION=$SWIPL_VERSION)."
-swipl -g "use_module(library(janus)),halt" -t "halt(1)" 2>/dev/null \
+swipl -g "use_module(library(janus)),halt" -t "halt(1)" </dev/null >/dev/null 2>&1 \
   || fail "SWI-Prolog was built without janus (the Python bridge). Reinstall it with Python support."
 say "SWI-Prolog OK (PLVERSION=$SWIPL_VERSION, janus available)"
 
