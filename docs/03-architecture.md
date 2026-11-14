@@ -87,7 +87,7 @@ sequenceDiagram
 | `minerllm_bridge.configure(path)` | MeTTa → Python | JSON: `strategy, budget, seed, providers, batch_size, cache_dir, trace_path, dataset` |
 | `minerllm_bridge.select(reprs, level) → [int]` | MeTTa ↔ Python | list of pattern **strings** in, list of **positions** out |
 | `verify_started / verify_finished(level, kept)` | MeTTa → Python | timing + survivor count for the trace |
-| LLM request | Python → API | schema description + numbered joins (or candidates); temperature 0; JSON mode |
+| LLM request | Python → API | schema description + numbered joins (or candidates); JSON mode; temperature 0 (Groq, NVIDIA) or low thinking level (Gemini 3.8 Flash) |
 | LLM response | API → Python | `{"scores": [{"id": int, "score": 0-10}, …]}` |
 | Trace | Python → disk | JSON lines: `configure`, `select` (sizes, batches, provider, tokens, issues), `verify`, `finish` |
 
