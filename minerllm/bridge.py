@@ -46,12 +46,23 @@ class _Session:
                                  max_retries=int(cfg.get("max_retries", 2)),
                                  timeout_s=float(cfg.get("timeout_s", 60)))
         self.ranker = make_ranker(cfg["strategy"], seed=int(cfg.get("seed", 0)), client=client,
-                                  batch_size=int(cfg.get("batch_size", 60)))
+                                  batch_size=int(cfg.get("batch_size", 60)),
+                                  timeout_s=float(cfg.get("timeout_s", 180)),
+                                  workers=int(cfg.get("workers", 4)),
+                                  on_batch=self._on_batch)
         self.t0 = time.time()
         self.verify_t: dict[int, float] = {}
         self.totals = {"generated": 0, "unique": 0, "selected": 0, "kept": 0,
                        "llm_seconds": 0.0, "verify_seconds": 0.0, "input_tokens": 0,
                        "output_tokens": 0, "fallback_batches": 0, "batches": 0}
+
+    def _on_batch(self, i, n, resp, err, secs) -> None:
+        """Called as each LLM batch finishes, so long runs show progress in the trace."""
+        if resp is not None:
+            self.log("llm_batch", batch=i + 1, of=n, provider=resp.provider, model=resp.model,
+                     cached=resp.cached, seconds=round(secs, 2))
+        else:
+            self.log("llm_batch", batch=i + 1, of=n, failed=str(err)[:160], seconds=round(secs, 2))
 
     def log(self, event: str, **data) -> None:
         rec = {"t": round(time.time() - self.t0, 3), "event": event, **data}

@@ -68,7 +68,8 @@ class RankerConfig:
     providers: list = field(default_factory=lambda: ["gemini", "groq", "nvidia"])
     batch_size: int = 60
     max_retries: int = 2
-    timeout_s: float = 120.0
+    timeout_s: float = 180.0
+    workers: int = 4                      # LLM batches sent in parallel
     cache_dir: str | None = ".cache/llm"
     min_select: int = 1
 

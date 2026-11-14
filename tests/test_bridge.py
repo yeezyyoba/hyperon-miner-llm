@@ -62,8 +62,10 @@ def test_llm_strategy_with_mock_and_full_trace(tmp_path):
     bridge.verify_finished(0, 1)
     bridge.finish()
     ev = _events(trace)
-    assert [e["event"] for e in ev] == ["configure", "select", "verify", "finish"]
-    assert ev[1]["batches"][0]["provider"] == "mock"
+    assert [e["event"] for e in ev] == ["configure", "llm_batch", "llm_batch", "llm_batch",
+                                        "select", "verify", "finish"]   # 171 joins = 3 batches
+    assert ev[4]["batches"][0]["provider"] == "mock"
+    assert sorted(e["batch"] for e in ev if e["event"] == "llm_batch") == [1, 2, 3]
     assert ev[-1]["selected"] == 2 and ev[-1]["kept"] == 1
 
 
@@ -91,3 +93,9 @@ def test_select_before_configure_fails_loudly(monkeypatch):
     monkeypatch.setattr(bridge, "_S", None)
     with pytest.raises(AssertionError):
         bridge.select(REPRS, 0)
+
+
+def test_timeout_and_workers_reach_the_ranker(tmp_path):
+    _configure(tmp_path, strategy="llm", providers=["mock"], cache_dir=None, timeout_s=222,
+               workers=2)
+    assert bridge._S.ranker.timeout_s == 222 and bridge._S.ranker.workers == 2

@@ -178,3 +178,45 @@ def test_join_prompt_has_no_data_atoms():
     LLMJoinRanker(FallbackChain([Spy("gemini")])).rank(CANDS, STATS)
     assert seen and all("student_" not in p and "course_" not in p for p in seen)
     assert "ADVISED_BY.arg2 = " in "".join(seen) or "= ADVISED_BY.arg2" in "".join(seen)
+
+
+
+def test_batches_run_in_parallel_and_keep_their_order():
+    import threading
+    import time as _t
+
+    active, peak = [0], [0]
+    lock = threading.Lock()
+
+    class Slow(MockLLM):
+        def complete(self, prompt, system="", timeout=60.0):
+            with lock:
+                active[0] += 1
+                peak[0] = max(peak[0], active[0])
+            _t.sleep(0.2)
+            try:
+                return super().complete(prompt, system, timeout)
+            finally:
+                with lock:
+                    active[0] -= 1
+
+    seen = []
+    r = LLMJoinRanker(FallbackChain([Slow("gemini")]), workers=3,
+                      on_batch=lambda i, n, resp, err, secs: seen.append((i, n)))
+    start = _t.time()
+    res = r.rank(CANDS, STATS)
+    assert peak[0] == 3 and _t.time() - start < 0.5          # 3 batches at once, not 0.6 s
+    assert sorted(seen) == [(0, 3), (1, 3), (2, 3)]
+    assert [b["kind"] for b in res.batches] == ["joins"] * 3 and res.fallback_batches == 0
+
+
+def test_timeout_is_passed_to_the_client():
+    got = []
+
+    class Spy(MockLLM):
+        def complete(self, prompt, system="", timeout=60.0):
+            got.append(timeout)
+            return super().complete(prompt, system, timeout)
+
+    LLMJoinRanker(Spy("gemini"), timeout_s=180, workers=1).rank(CANDS, STATS)
+    assert got and set(got) == {180}

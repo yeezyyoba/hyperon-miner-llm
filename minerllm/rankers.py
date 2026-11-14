@@ -26,6 +26,7 @@ import math
 import random
 import re
 import time
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass, field
 
 from .datasets import DatasetStats
@@ -250,6 +251,56 @@ Return exactly: {{"scores": [{{"id": <int>, "score": <0-10>}}, ...]}} with every
 """
 
 
+# ------------------------------------------------------------------ batch runner
+
+
+def _ask(client, prompt: str, ids: set, timeout_s: float):
+    """One validated LLM call. Returns (response or None, error or None, seconds)."""
+    from .llm import LLMError
+    start = time.time()
+    try:
+        try:
+            resp = client.complete(prompt, SYSTEM_PROMPT, timeout_s,
+                                   validate=lambda t: validate_scores(t, ids).accepted)
+        except TypeError:                       # plain client without a validate hook
+            resp = client.complete(prompt, SYSTEM_PROMPT, timeout_s)
+        return resp, None, time.time() - start
+    except LLMError as e:
+        return None, e, time.time() - start
+
+
+def run_batches(client, prompts: list[tuple[str, set]], timeout_s: float, workers: int,
+                on_batch=None) -> list[tuple]:
+    """Send all batch prompts, ``workers`` at a time. Order of results = order of prompts."""
+    def job(i_p):
+        i, (prompt, ids) = i_p
+        out = _ask(client, prompt, ids, timeout_s)
+        if on_batch:
+            resp, err, secs = out
+            on_batch(i, len(prompts), resp, err, secs)
+        return out
+    if workers <= 1 or len(prompts) <= 1:
+        return [job(x) for x in enumerate(prompts)]
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        return list(pool.map(job, enumerate(prompts)))
+
+
+def _record(level, kind, size, resp, err, secs, ids) -> tuple[dict, "Validation | None"]:
+    record: dict = {"level": level, "kind": kind, "size": size}
+    if err is not None:
+        record.update(fallback=True, reason=f"llm unavailable: {err}"[:200],
+                      attempts=getattr(err, "attempts", []), latency_s=round(secs, 3))
+        return record, None
+    v = validate_scores(resp.text, ids)
+    record.update(provider=resp.provider, model=resp.model, cached=resp.cached,
+                  input_tokens=resp.input_tokens, output_tokens=resp.output_tokens,
+                  latency_s=round(resp.latency_s, 3), coverage=round(v.coverage, 3),
+                  issues=v.issues[:10], attempts=resp.attempts)
+    if not v.accepted:
+        record.update(fallback=True, reason="validation failed")
+    return record, v
+
+
 # ------------------------------------------------------------------------ rankers
 
 
@@ -292,55 +343,38 @@ class LLMRanker(Ranker):
 
     strategy = "llm-direct"
 
-    def __init__(self, client, batch_size: int = 60, timeout_s: float = 60.0):
+    def __init__(self, client, batch_size: int = 60, timeout_s: float = 180.0, workers: int = 4,
+                 on_batch=None):
         self.client = client
         self.batch_size = batch_size
         self.timeout_s = timeout_s
+        self.workers = workers
+        self.on_batch = on_batch
 
     def rank(self, cands, stats=None, level=0):
-        from .llm import LLMError
         schema = stats.describe() if stats else "(schema unavailable)"
         ordered = sorted(cands, key=lambda c: c.pattern)    # stable prompts -> cache hits
-        result = RankResult([], self.strategy)
+        batches = [ordered[b:b + self.batch_size] for b in range(0, len(ordered), self.batch_size)]
+        prompts = [(build_prompt(bt, list(range(len(bt))), schema), set(range(len(bt))))
+                   for bt in batches]
+        t0 = time.time()
+        outs = run_batches(self.client, prompts, self.timeout_s, self.workers, self.on_batch)
+        result = RankResult([], self.strategy, llm_seconds=time.time() - t0)
         llm_score: dict[int, float] = {}
-        for b in range(0, len(ordered), self.batch_size):
-            batch = ordered[b:b + self.batch_size]
-            local = list(range(len(batch)))
-            prompt = build_prompt(batch, local, schema)
-            record: dict = {"level": level, "size": len(batch)}
-            start = time.time()
-            ids = set(local)
-            try:
-                try:
-                    resp = self.client.complete(prompt, SYSTEM_PROMPT, self.timeout_s,
-                                                validate=lambda t: validate_scores(t, ids).accepted)
-                except TypeError:                   # plain client without a validate hook
-                    resp = self.client.complete(prompt, SYSTEM_PROMPT, self.timeout_s)
-            except LLMError as e:
-                record.update(fallback=True, reason=f"llm unavailable: {e}"[:200],
-                              attempts=getattr(e, "attempts", []))
-                result.batches.append(record)
-                result.llm_seconds += time.time() - start
-                continue
-            result.llm_seconds += resp.latency_s
-            result.input_tokens += resp.input_tokens
-            result.output_tokens += resp.output_tokens
-            v = validate_scores(resp.text, ids)
-            record.update(provider=resp.provider, model=resp.model, cached=resp.cached,
-                          input_tokens=resp.input_tokens, output_tokens=resp.output_tokens,
-                          latency_s=round(resp.latency_s, 3), coverage=round(v.coverage, 3),
-                          issues=v.issues[:10], attempts=resp.attempts)
-            if v.accepted:
-                for lid, s in v.scores.items():
-                    llm_score[batch[lid].idx] = s
-            else:
-                record.update(fallback=True, reason="validation failed")
+        for bt, (prompt, ids), (resp, err, secs) in zip(batches, prompts, outs):
+            record, v = _record(level, "candidates", len(bt), resp, err, secs, ids)
+            if resp is not None:
+                result.input_tokens += resp.input_tokens
+                result.output_tokens += resp.output_tokens
+            if v is not None and v.accepted:
+                for lid, sc in v.scores.items():
+                    llm_score[bt[lid].idx] = sc
             result.batches.append(record)
 
         # scored candidates first (by LLM score), then unscored ones; heuristic breaks ties
         def key(c: Candidate):
-            s = llm_score.get(c.idx)
-            return (0 if s is not None else 1, -(s or 0), -heuristic_score(c.pattern), c.pattern)
+            sc = llm_score.get(c.idx)
+            return (0 if sc is not None else 1, -(sc or 0), -heuristic_score(c.pattern), c.pattern)
 
         result.order = [c.idx for c in sorted(cands, key=key)]
         return result
@@ -352,49 +386,33 @@ class LLMJoinRanker(Ranker):
 
     strategy = "llm"
 
-    def __init__(self, client, batch_size: int = 60, timeout_s: float = 60.0):
+    def __init__(self, client, batch_size: int = 60, timeout_s: float = 180.0, workers: int = 4,
+                 on_batch=None):
         self.client = client
         self.batch_size = batch_size
         self.timeout_s = timeout_s
+        self.workers = workers
+        self.on_batch = on_batch
         self.join_scores: dict[tuple, float] | None = None
-        self.join_batches: list[dict] = []
 
     def _score_joins(self, stats: DatasetStats, result: RankResult) -> None:
-        from .llm import LLMError
         joins = schema_joins(stats)
         schema = stats.describe()
+        batches = [joins[b:b + self.batch_size] for b in range(0, len(joins), self.batch_size)]
+        prompts = [(JOIN_TEMPLATE.format(schema=schema, joins="\n".join(
+                        f"[{i}] {_fmt_join(j)}" for i, j in enumerate(bt))), set(range(len(bt))))
+                   for bt in batches]
+        t0 = time.time()
+        outs = run_batches(self.client, prompts, self.timeout_s, self.workers, self.on_batch)
+        result.llm_seconds += time.time() - t0          # wall time, batches run in parallel
         scores: dict[tuple, float] = {}
-        for b in range(0, len(joins), self.batch_size):
-            batch = joins[b:b + self.batch_size]
-            ids = set(range(len(batch)))
-            prompt = JOIN_TEMPLATE.format(schema=schema, joins="\n".join(
-                f"[{i}] {_fmt_join(j)}" for i, j in enumerate(batch)))
-            record: dict = {"kind": "joins", "size": len(batch)}
-            start = time.time()
-            try:
-                try:
-                    resp = self.client.complete(prompt, SYSTEM_PROMPT, self.timeout_s,
-                                                validate=lambda t: validate_scores(t, ids).accepted)
-                except TypeError:
-                    resp = self.client.complete(prompt, SYSTEM_PROMPT, self.timeout_s)
-            except LLMError as e:
-                record.update(fallback=True, reason=f"llm unavailable: {e}"[:200],
-                              attempts=getattr(e, "attempts", []))
-                result.batches.append(record)
-                result.llm_seconds += time.time() - start
-                continue
-            v = validate_scores(resp.text, ids)
-            result.llm_seconds += resp.latency_s
-            result.input_tokens += resp.input_tokens
-            result.output_tokens += resp.output_tokens
-            record.update(provider=resp.provider, model=resp.model, cached=resp.cached,
-                          input_tokens=resp.input_tokens, output_tokens=resp.output_tokens,
-                          latency_s=round(resp.latency_s, 3), coverage=round(v.coverage, 3),
-                          issues=v.issues[:10], attempts=resp.attempts)
-            if v.accepted:
-                scores.update({batch[i]: s for i, s in v.scores.items()})
-            else:
-                record.update(fallback=True, reason="validation failed")
+        for bt, (prompt, ids), (resp, err, secs) in zip(batches, prompts, outs):
+            record, v = _record(0, "joins", len(bt), resp, err, secs, ids)
+            if resp is not None:
+                result.input_tokens += resp.input_tokens
+                result.output_tokens += resp.output_tokens
+            if v is not None and v.accepted:
+                scores.update({bt[i]: sc for i, sc in v.scores.items()})
             result.batches.append(record)
         self.join_scores = scores
         self.top_joins = sorted(scores.items(), key=lambda kv: -kv[1])[:15]
@@ -422,7 +440,8 @@ class LLMJoinRanker(Ranker):
         return result
 
 
-def make_ranker(strategy: str, seed: int = 0, client=None, batch_size: int = 60) -> Ranker:
+def make_ranker(strategy: str, seed: int = 0, client=None, batch_size: int = 60,
+                timeout_s: float = 180.0, workers: int = 4, on_batch=None) -> Ranker:
     if strategy == "exhaustive":
         return ExhaustiveRanker()
     if strategy == "random":
@@ -433,5 +452,6 @@ def make_ranker(strategy: str, seed: int = 0, client=None, batch_size: int = 60)
         if client is None:
             raise ValueError(f"{strategy} strategy needs an LLM client")
         cls = LLMJoinRanker if strategy == "llm" else LLMRanker
-        return cls(client, batch_size=batch_size)
+        return cls(client, batch_size=batch_size, timeout_s=timeout_s, workers=workers,
+                   on_batch=on_batch)
     raise ValueError(f"unknown strategy {strategy!r}")
