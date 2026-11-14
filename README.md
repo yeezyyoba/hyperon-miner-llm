@@ -58,7 +58,9 @@ miner's output (precision is 100 %), and at budget 100 % it **equals** the upstr
 
 ## Quick start
 
-Requirements: SWI-Prolog ≥ 9.1.22 **with janus** (the Python bridge), Python ≥ 3.10, git.
+Requirements: SWI-Prolog ≥ 9.1.22 **with janus** (the Python bridge), Python ≥ 3.9, git.
+The Python used for the venv must be the **same minor version** as janus's Python
+(`make doctor` checks this).
 
 ```bash
 git clone --recurse-submodules https://github.com/yeezyyoba/hyperon-miner-llm.git
@@ -95,6 +97,20 @@ involved), and every run is cross-checked against it:
 Synthetic graphs with **planted** patterns (`minerllm datagen`) give an answer key:
 upstream's `isurp` ranks the three planted patterns **#1, #2, #3 of 343**
 ([evidence](docs/evidence/synthetic-validation.md)).
+
+### macOS (Homebrew) note
+
+Homebrew's SWI-Prolog links janus against Apple's Python 3.9 framework, but looks for it
+inside Xcode. If `make doctor` reports `Library not loaded: @rpath/Python3.framework/…`:
+
+```bash
+J=$(find "$(brew --prefix swi-prolog)/" -name janus.so | head -1)
+chmod +w "$J"
+install_name_tool -add_rpath /Library/Developer/CommandLineTools/Library/Frameworks "$J"
+chmod -w "$J"
+codesign -f -s - "$J"
+/usr/bin/python3 -m venv .venv && source .venv/bin/activate   # Apple's 3.9, matching janus
+```
 
 ## Repository layout
 
