@@ -1,0 +1,6 @@
+{
+  "strategy": "exhaustive",
+  "budget": 1.0,
+  "trace_path": "_exhaustive.trace.jsonl",
+  "dataset": "../../../external/hyperon-miner/experiments/data/ugly_man_sodaDrinker.metta"
+}

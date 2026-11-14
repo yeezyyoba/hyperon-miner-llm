@@ -26,3 +26,6 @@ _generated/
 .vscode/
 .idea/
 .DS_Store
+
+# MeTTa test traces
+experiments/**/tests/_*.jsonl
