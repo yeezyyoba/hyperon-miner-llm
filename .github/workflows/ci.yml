@@ -1,0 +1,50 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  python:
+    name: Python unit tests (no PeTTa, mock LLM)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt && pip install -e .
+      - run: python -m pytest -q -m "not petta"
+
+  metta:
+    name: MeTTa tests (pinned PeTTa)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install SWI-Prolog (with janus)
+        run: |
+          sudo apt-add-repository -y ppa:swi-prolog/stable
+          sudo apt-get update
+          sudo apt-get install -y swi-prolog-nox
+      - name: Cache pinned PeTTa
+        uses: actions/cache@v4
+        with:
+          path: .petta
+          key: petta-${{ hashFiles('setup.sh') }}
+      - name: Setup (pinned PeTTa + Python deps)
+        run: ./setup.sh
+      - name: MeTTa tests
+        run: make test-metta
+      - name: Integration tests (Python harness driving PeTTa)
+        run: python -m pytest -q -m petta
