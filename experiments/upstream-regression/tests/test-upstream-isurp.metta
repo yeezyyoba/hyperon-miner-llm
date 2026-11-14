@@ -1,8 +1,13 @@
 ;; =============================================================================
-;; Upstream miner + isurp scoring — characterisation of Issue 4.
-;; 12 frequent patterns go in (test-upstream-depth0), only 11 come out scored:
-;; (, (Inheritance $v $a) (Inheritance $v man)) is silently dropped.
-;; If this test starts failing, the bug was fixed upstream: update the docs.
+;; Upstream miner + isurp scoring — characterisation of Issue 4 (duplicates).
+;;
+;; The frequent miner prints 12 patterns at minsup 10 / depth 0, but two of them
+;; are the same pattern with the clauses in a different order:
+;;     (, (Inheritance $v man) (Inheritance $v $a))
+;;     (, (Inheritance $v $a) (Inheritance $v man))
+;; Scoring keeps one copy, so 11 scored patterns come out. Nothing is lost, but
+;; the frequent output is redundant: on a 200-atom Galaxy subset at 3 conjuncts,
+;; 121 printed patterns are only 46 distinct ones (minerllm.patterns.canonical).
 ;; =============================================================================
 ;; --- upstream modules (same order as upstream test-pattern-miner.metta) ---
 !(import! &self ../../../external/hyperon-miner/experiments/utils/surp-utils/boost_petta.py)
@@ -41,10 +46,15 @@
 ;; hit more general stored patterns. =alpha compares up to variable renaming.
 (= (score-of $space $tag $pattern)
    (collapse (match $space ($tag $p $s) (if (=alpha $p $pattern) $s (empty)))))
+
 !(import! &db ../../../external/hyperon-miner/experiments/data/ugly_man_sodaDrinker)
 !(bind! &res (new-space))
 
 !(pattern-miner &res &db $x 10 0 isurp True 0.5 True)
+;; 11 scored = 12 printed frequent patterns minus 1 clause-order duplicate
 !(test (size-atom (collapse (get-atoms &res))) 11)
+;; one spelling of the duplicated pattern is scored ...
+!(test (score-of &res surprisingnessOf (, (Inheritance $v man) (Inheritance $v $a))) (0.6666666666666667))
+;; ... and the other spelling is not scored a second time
 !(test (score-of &res surprisingnessOf (, (Inheritance $v $a) (Inheritance $v man))) ())
 !(test (score-of &res surprisingnessOf (, (Inheritance $v $a) (Inheritance $w $a))) (0.925))

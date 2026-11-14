@@ -17,5 +17,5 @@ def test_fixed_entry_point_scores_patterns(root):
     assert proc.returncode == 0
     assert "(partial pattern-miner" not in out
     scored = re.findall(r"^\(surprisingnessOf .* ([0-9.]+)\)$", out, re.M)
-    assert len(scored) == 11          # 12 frequent patterns, 1 dropped by Issue 4
+    assert len(scored) == 11          # 12 printed frequent patterns, 1 clause-order duplicate (Issue 4)
     assert all(0.0 <= float(s) <= 1.0 for s in scored)

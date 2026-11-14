@@ -13,6 +13,7 @@ All evidence was collected on `iCog-Labs-Dev/hyperon-miner` **petta-main @ `7461
 ```bash
 make reproduce-issues   # Issues 1, 2   -> runs/issues/*.log
 make test-metta         # Issues 3, 4, 5 (characterisation tests)
+make test-all          # + harness vs independent oracle
 make profile            # Issue 6       -> docs/evidence/baseline-profile.md
 ```
 
@@ -21,7 +22,7 @@ make profile            # Issue 6       -> docs/evidence/baseline-profile.md
 | 1 | The documented entry point does not run | usability | fixed (`run_miner.metta`) + [upstream patch](../patches/) |
 | 2 | CI depends on PeTTa HEAD: 8/8 tests pass pinned, 3/8 on HEAD | reproducibility | fixed (`setup.sh` pins PeTTa) + upstream patch |
 | 3 | End-to-end tests never execute their assertions | correctness | fixed (strict runner + live regression tests) |
-| 4 | `isurp` silently drops a frequent pattern | correctness | documented by a characterisation test |
+| 4 | Output is full of clause-order duplicates (62–83 % at 3–4 conjuncts) | correctness / performance | detected and merged by `minerllm.patterns.canonical` |
 | 5 | Global spaces leak state between miner runs | correctness | worked around (one process per run) |
 | **6** | **Conjunction expansion cost explodes with depth** | **performance** | **target of the LLM integration** |
 
@@ -84,18 +85,38 @@ results. [`experiments/upstream-regression/tests/`](../experiments/upstream-regr
 re-states upstream's expectations with live `!(test …)` assertions (11 assertions, all
 passing).
 
-## Issue 4 — `isurp` silently drops a pattern
+## Issue 4 — The output is full of duplicate patterns
 
-With minsup 10, depth 0, the frequent miner returns **12** patterns. With
-`isurp` scoring enabled, only **11** come back scored: the pattern
+The frequent miner prints the same pattern several times, with the clauses in a different
+order, for example on the sample data:
 
 ```
-(, (Inheritance $v $a) (Inheritance $v man))     ; support 30
+(supportOf (, (Inheritance $_0 man) (Inheritance $_0 $_1)) 30)
+(supportOf (, (Inheritance $_0 $_1) (Inheritance $_0 man)) 30)
 ```
 
-disappears without an error or a warning. We did not trace the root cause, because it's
-outside the scope of this project. `test-upstream-isurp.metta` pins the current
-behaviour, so a future fix will show up as a test change.
+At minsup 10 / depth 0 this makes 12 printed patterns but only 11 distinct ones. Scoring
+then keeps one copy, so an `isurp` run returns 11. *(An earlier draft of this document
+called that a "silently dropped" pattern. The canonical-form check in Phase 2 showed it's a
+duplicate, and the characterisation test now asserts the correct behaviour.)*
+
+The redundancy grows with depth (Galaxy subsets, minsup 5):
+
+| conjuncts | printed | distinct | duplicates |
+|---:|---:|---:|---:|
+| 2 | 30 – 161 | 22 – 99 | 27 – 39 % |
+| 3 | 121 – 1104 | 46 – 418 | 61 – 63 % |
+| 4 (200 atoms) | 801 | 137 | **83 %** |
+
+This isn't just cosmetic. Every printed duplicate also went through a separate support
+count, and at depth > 0 each duplicate is expanded again at the next level. That
+feeds directly into Issue 6.
+
+**Fix in this repo:** `minerllm/patterns.py` puts every pattern in a canonical form (clause
+order and variable names normalised). All result sets in this project are compared in
+that form, and the guided miner deduplicates candidates **before** paying for support.
+Duplicate groups always carry identical supports (checked on every profiled run), so
+merging them loses nothing.
 
 ## Issue 5 — Global spaces leak state between runs
 
@@ -122,14 +143,14 @@ nothing frequent is lost, but it prunes **after** paying for the support count, 
 
 **Measurement** (unmodified upstream miner, Galaxy workflow graph, minsup 5):
 
-| Galaxy atoms | 2 conjuncts | 3 conjuncts | 4 conjuncts | 3 ÷ 2 |
+| Galaxy atoms | 2 conjuncts | 3 conjuncts | 4 conjuncts | time 3 ÷ 2 |
 |---:|---:|---:|---:|---:|
-| 200 | 1.6 s · 30 patterns | 5.1 s · 121 patterns | 97.4 s · 801 patterns | **3.2×** |
-| 400 | 2.6 s · 50 patterns | 12.7 s · 296 patterns | – | **4.9×** |
-| 600 | 4.1 s · 99 patterns | 30.5 s · 613 patterns | – | **7.4×** |
-| 800 | 5.8 s · 161 patterns | 57.2 s · 1104 patterns | – | **9.9×** |
+| 200 | 1.5 s · 22 patterns | 4.9 s · 46 patterns | 90.2 s · 137 patterns | **3.3×** |
+| 400 | 2.4 s · 35 patterns | 12.2 s · 115 patterns | – | **5.1×** |
+| 600 | 3.8 s · 62 patterns | 28.0 s · 229 patterns | – | **7.4×** |
+| 800 | 5.7 s · 99 patterns | 54.7 s · 418 patterns | – | **9.6×** |
 
-The 2→3 multiplier itself grows with data size (3.2× → 9.9×). Going to **4 conjuncts on only 200 atoms takes 97 s, 19× the 3-conjunct run**. Full data: [evidence/baseline-profile.md](evidence/baseline-profile.md).
+(patterns = distinct patterns, see Issue 4.) The 2→3 multiplier itself grows with data size (3.3× → 9.6×). Going to **4 conjuncts on only 200 atoms takes 90 s, 18× the 3-conjunct run**. Every printed support in these runs was re-counted by the independent oracle: **0 mismatches**. Full data: [evidence/baseline-profile.md](evidence/baseline-profile.md).
 
 **Why Galaxy.** It has 9 relation types with meaningful names (`HAS_STEP`,
 `STEP_USES_TOOL`, `FEEDS_INTO`, …). That makes the candidate space large and makes the
