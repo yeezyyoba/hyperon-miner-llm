@@ -1,0 +1,4 @@
+[submodule "external/hyperon-miner"]
+	path = external/hyperon-miner
+	url = https://github.com/iCog-Labs-Dev/hyperon-miner.git
+	branch = petta-main
