@@ -23,6 +23,29 @@ def cmd_mine(args) -> int:
     return 0 if run.ok and (ver is None or ver.ok) else 1
 
 
+def cmd_guided(args) -> int:
+    from .config import RankerConfig
+    from .harness import run_guided
+    cfg = MinerConfig.from_yaml(args.config)
+    if args.depth is not None:
+        cfg.depth = args.depth
+    rc = RankerConfig(strategy=args.strategy, budget=args.budget, seed=args.seed,
+                      providers=args.providers.split(","), batch_size=args.batch_size,
+                      cache_dir=None if args.no_cache else ".cache/llm")
+    run, ver, s = run_guided(cfg, rc, Path(args.out) if args.out else None)
+    ranked = sorted(run.patterns, key=lambda p: -(p.surprisingness or 0))
+    for mp in ranked[: args.top]:
+        score = f"{mp.surprisingness:.3f}" if mp.surprisingness is not None else "  -  "
+        print(f"{score}  sup={mp.support:<6} {mp.pattern}")
+    print(f"\n{len(run.patterns)} patterns in {run.seconds:.1f}s | strategy={rc.strategy} "
+          f"budget={rc.budget:.0%} | candidates generated={s.get('generated')} "
+          f"unique={s.get('unique')} verified={s.get('selected')} | "
+          f"LLM {s.get('llm_seconds', 0):.1f}s, {s.get('input_tokens', 0)}+{s.get('output_tokens', 0)} "
+          f"tokens, {s.get('fallback_batches', 0)}/{s.get('batches', 0)} batches fell back | "
+          f"supports vs oracle: {'ok' if ver.ok else 'MISMATCH'}")
+    return 0 if run.ok and ver.ok else 1
+
+
 def cmd_datagen(args) -> int:
     from .datagen import UniversitySpec, write_dataset
     spec = UniversitySpec(students=args.students, strength=args.strength, seed=args.seed,
@@ -66,6 +89,20 @@ def main(argv: list[str] | None = None) -> int:
     m.add_argument("--top", type=int, default=15)
     m.add_argument("--out")
     m.set_defaults(func=cmd_mine)
+
+    gm = sub.add_parser("guided", help="run the LLM-guided miner (or a baseline ranker)")
+    gm.add_argument("--config", default="configs/university.yaml")
+    gm.add_argument("--strategy", default="llm", choices=["exhaustive", "random", "heuristic", "llm", "llm-direct"])
+    gm.add_argument("--budget", type=float, default=0.3, help="fraction of candidates verified")
+    gm.add_argument("--providers", default="gemini,groq,nvidia",
+                    help="comma-separated; 'mock' runs offline")
+    gm.add_argument("--batch-size", type=int, default=60)
+    gm.add_argument("--seed", type=int, default=0)
+    gm.add_argument("--depth", type=int)
+    gm.add_argument("--no-cache", action="store_true")
+    gm.add_argument("--top", type=int, default=15)
+    gm.add_argument("--out")
+    gm.set_defaults(func=cmd_guided)
 
     g = sub.add_parser("datagen", help="write a synthetic university graph with planted patterns")
     g.add_argument("--students", type=int, default=60)
