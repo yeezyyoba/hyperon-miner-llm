@@ -14,16 +14,34 @@ This project answers the assignment question:
 **Aspect chosen: performance**, specifically the conjunction expansion step, where the
 number of candidate patterns explodes and which limited the PeTTa miner to 3 conjuncts.
 
-> 🚧 Work in progress. This README grows phase by phase.
+> 🚧 Work in progress (phase 3 of 5). Real-LLM results arrive in phase 4.
+
+## How the LLM is integrated, in one picture
+
+```
+             upstream miner (unmodified, MeTTa)          our module (MeTTa)            Python
+ frequent clauses ──► GENERATE linked candidates ──► SELECT ──py-call──► dedupe → rank → top budget %
+                       (no support counted)            │                     │
+                                                       │            LLM scores schema JOINS
+                                                       ▼            (Gemini → Groq → NVIDIA,
+                                     VERIFY: MeTTa counts support,    validated, cached;
+                                     minsup + redundancy filter        heuristic on failure)
+                                                       │
+                                     score with upstream isurp ──► output ──► oracle re-counts every support
+```
+
+The LLM only changes **which candidates are verified first**. It can't add a pattern,
+change a support, or stop the run. At any budget the output is a subset of the full
+miner's output (precision is 100 %), and at budget 100 % it **equals** the upstream output.
 
 ## The six steps
 
 | Step | Document | Status |
 |---|---|---|
 | 1. Problem | [docs/01-problem.md](docs/01-problem.md) | ✅ six issues, with evidence |
-| 2. Hypothesis | docs/02-hypothesis.md | ⏳ phase 3 |
-| 3. Architecture | docs/03-architecture.md | ⏳ phase 3 |
-| 4. Prototype | `minerllm/` (harness, oracle, data) · `experiments/llm-guided-miner/` | 🟡 harness + oracle done, guided miner in phase 3 |
+| 2. Hypothesis | [docs/02-hypothesis.md](docs/02-hypothesis.md) | ✅ H1 + H2, rejection criteria fixed in advance |
+| 3. Architecture | [docs/03-architecture.md](docs/03-architecture.md) · [ADRs](docs/adr/) | ✅ components, flows, boundary, validator, failure path |
+| 4. Prototype | [docs/04-prototype.md](docs/04-prototype.md) · `experiments/llm-guided-miner/` · `minerllm/` | ✅ equals upstream at 100 %; tested failure paths |
 | 5. Baseline | docs/05-baseline.md | ⏳ phase 4 |
 | 6. Results | docs/06-results.md | ⏳ phase 4 |
 
@@ -56,6 +74,12 @@ make reproduce-issues    # regenerate the Step 1 evidence
 make profile             # regenerate docs/evidence/baseline-profile.md
 make datasets            # regenerate experiments/data (deterministic)
 make mine CONFIG=configs/university.yaml   # mine + verify every support with the oracle
+
+# the LLM-guided miner
+cp .env.example .env                                  # add GEMINI / GROQ / NVIDIA keys
+python -m minerllm guided --strategy llm --budget 0.3  # real LLMs
+python -m minerllm guided --providers mock             # offline, no keys
+bash .petta/run.sh run_guided.metta                    # plain MeTTa entry point (mock)
 ```
 
 ## How we know the symbolic side is right
@@ -77,6 +101,7 @@ upstream's `isurp` ranks the three planted patterns **#1, #2, #3 of 343**
 ```
 external/hyperon-miner/        iCog's miner, git submodule pinned to petta-main @ 7461878
 run_miner.metta                working entry point for the upstream miner (Issue 1 fix)
+run_guided.metta               entry point for the LLM-guided miner (offline mock config)
 setup.sh                       pinned PeTTa + dependency checks (Issue 2 fix)
 configs/                       YAML miner configurations (dataset, minsup, depth, scorer)
 minerllm/                      Python package
@@ -84,9 +109,13 @@ minerllm/                      Python package
   oracle.py                    independent support counter
   petta.py, harness.py         run PeTTa from a config, verify, save artefacts
   datagen.py, datasets.py      synthetic graphs with planted patterns, Galaxy subsets
-  cli.py                       `python -m minerllm mine | datagen | galaxy | support | stats`
+  bridge.py                    py-call API used by MeTTa: dedupe → rank → budget → trace
+  rankers.py                   exhaustive · random · heuristic · llm (joins) · llm-direct + validator
+  llm/                         Gemini → Groq → NVIDIA chain, retries, disk cache, offline mock
+  cli.py                       `python -m minerllm mine | guided | datagen | galaxy | support | stats`
 experiments/
   data/                        evaluation datasets (+ planted-pattern answer keys)
+  llm-guided-miner/            guided conjunction expansion (MeTTa) + py-call shim + tests
   upstream-regression/tests/   live-assertion tests of the upstream pipeline (Issues 3–5)
 scripts/
   run_metta_tests.py           strict MeTTa test runner
