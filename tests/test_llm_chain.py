@@ -1,0 +1,89 @@
+"""Provider chain: fallback order, retries, non-retryable errors, cache."""
+from __future__ import annotations
+
+import pytest
+
+from minerllm.llm import AllProvidersFailed, FallbackChain, build_chain
+from minerllm.llm.cache import DiskCache
+from minerllm.llm.mock import MockLLM
+from minerllm.llm.providers import GeminiClient, groq_client, nvidia_client
+
+PROMPT = "## Candidates\n[0] (, (A $v0) (B $v0))\n[1] (, (A $v0) (C $v0))\n"
+
+
+def test_first_healthy_provider_answers():
+    chain = FallbackChain([MockLLM("gemini"), MockLLM("groq")], backoff_s=0)
+    resp = chain.complete(PROMPT)
+    assert resp.provider == "gemini"
+    assert [a["provider"] for a in resp.attempts] == ["gemini"]
+
+
+def test_falls_back_after_retries_exhausted():
+    gemini = MockLLM("gemini", fault="error")
+    chain = FallbackChain([gemini, MockLLM("groq"), MockLLM("nvidia")], max_retries=2, backoff_s=0)
+    resp = chain.complete(PROMPT)
+    assert resp.provider == "groq"
+    assert gemini.calls == 3                              # 1 try + 2 retries
+    assert [a["provider"] for a in resp.attempts] == ["gemini"] * 3 + ["groq"]
+
+
+def test_non_retryable_error_skips_straight_to_next_provider():
+    gemini = MockLLM("gemini", fault="fatal")
+    resp = FallbackChain([gemini, MockLLM("groq")], max_retries=2, backoff_s=0).complete(PROMPT)
+    assert gemini.calls == 1 and resp.provider == "groq"
+
+
+def test_transient_failure_recovers_on_retry():
+    flaky = MockLLM("gemini", fail_times=1)
+    resp = FallbackChain([flaky, MockLLM("groq")], max_retries=2, backoff_s=0).complete(PROMPT)
+    assert resp.provider == "gemini" and flaky.calls == 2
+
+
+def test_all_providers_failing_raises_with_attempt_log():
+    chain = FallbackChain([MockLLM("gemini", fault="error"), MockLLM("groq", fault="fatal"),
+                           MockLLM("nvidia", fault="error")], max_retries=1, backoff_s=0)
+    with pytest.raises(AllProvidersFailed) as exc:
+        chain.complete(PROMPT)
+    assert [a["provider"] for a in exc.value.attempts] == ["gemini", "gemini", "groq", "nvidia", "nvidia"]
+
+
+def test_cache_replays_without_calling_providers(tmp_path):
+    first = MockLLM("gemini")
+    chain = FallbackChain([first], cache=DiskCache(tmp_path))
+    a = chain.complete(PROMPT, "sys")
+    second = MockLLM("groq", fault="fatal")               # would fail if called
+    b = FallbackChain([second], cache=DiskCache(tmp_path)).complete(PROMPT, "sys")
+    assert b.cached and b.text == a.text and b.provider == "gemini" and second.calls == 0
+
+
+def test_unconfigured_providers_are_skipped(monkeypatch):
+    for k in ("GEMINI_API_KEY", "GROQ_API_KEY", "NVIDIA_API_KEY"):
+        monkeypatch.delenv(k, raising=False)
+    assert not GeminiClient().available()
+    assert not groq_client().available() and not nvidia_client().available()
+    monkeypatch.setenv("GROQ_API_KEY", "x")
+    chain = FallbackChain([GeminiClient(), groq_client(), nvidia_client()])
+    assert [c.name for c in chain.clients] == ["groq"]
+
+
+def test_build_chain_parses_mock_fault_specs():
+    chain = build_chain(["mock:garbage", "mock"])
+    assert [c.model for c in chain.clients] == ["mock-garbage", "mock-ok"]
+    with pytest.raises(ValueError):
+        build_chain(["openai"])
+
+
+def test_invalid_answer_moves_to_next_provider():
+    bad = MockLLM("gemini", fault="garbage")
+    chain = FallbackChain([bad, MockLLM("groq")], max_retries=2, backoff_s=0)
+    resp = chain.complete(PROMPT, validate=lambda t: t.startswith("{"))
+    assert resp.provider == "groq" and bad.calls == 1        # no retries on bad content
+    assert resp.attempts[0]["error"] == "answer failed validation"
+
+
+def test_cached_invalid_answer_is_not_replayed(tmp_path):
+    cache = DiskCache(tmp_path)
+    FallbackChain([MockLLM("gemini", fault="garbage")], cache=cache).complete(PROMPT)
+    resp = FallbackChain([MockLLM("groq")], cache=cache).complete(
+        PROMPT, validate=lambda t: t.startswith("{"))
+    assert resp.provider == "groq" and not resp.cached
