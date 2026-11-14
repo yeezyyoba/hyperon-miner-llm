@@ -3,7 +3,9 @@ from __future__ import annotations
 
 import os
 import re
+import site
 import subprocess
+import sys
 import time
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -66,6 +68,29 @@ def parse_results(stdout: str) -> list[MinedPattern]:
     return list(merged.values())
 
 
+def python_path(existing: str = "") -> str:
+    """PYTHONPATH for PeTTa's embedded Python (janus).
+
+    janus runs the Python that SWI-Prolog was built with, not the caller's
+    virtualenv, so packages installed in the venv (scipy, requests, ...) would be
+    invisible to py-call. We pass this repo plus the current interpreter's
+    site-packages. This only works when both Pythons have the same minor version
+    (check with `make doctor`).
+    """
+    paths = [str(ROOT)]
+    try:
+        paths += site.getsitepackages()
+    except AttributeError:          # very old virtualenv
+        pass
+    paths += [p for p in sys.path if p.endswith("site-packages")]
+    if existing:
+        paths.append(existing)
+    seen: dict[str, None] = {}
+    for p in paths:
+        seen.setdefault(p, None)
+    return os.pathsep.join(seen)
+
+
 def run_script(script: str | Path, timeout: float = 1800, cwd: str | Path | None = None,
                env: dict | None = None) -> PettaRun:
     """Run one MeTTa file in a fresh PeTTa process (fresh state: see Issue 5)."""
@@ -73,8 +98,7 @@ def run_script(script: str | Path, timeout: float = 1800, cwd: str | Path | None
         raise PettaNotInstalled("pinned PeTTa not found — run ./setup.sh")
     script = Path(script).resolve()
     full_env = dict(os.environ, LANG="C.UTF-8", LC_ALL="C.UTF-8")
-    full_env["PYTHONPATH"] = os.pathsep.join(
-        p for p in [str(ROOT), full_env.get("PYTHONPATH", "")] if p)
+    full_env["PYTHONPATH"] = python_path(full_env.get("PYTHONPATH", ""))
     if env:
         full_env.update(env)
     start = time.time()
