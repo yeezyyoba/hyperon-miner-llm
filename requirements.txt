@@ -1,0 +1,13 @@
+# Needed by the upstream miner (py-call into scipy for beta CDFs, regex helpers)
+numpy>=1.26
+scipy>=1.11
+regex>=2023.12.25
+
+# Harness, LLM layer and evaluation
+pyyaml>=6.0
+requests>=2.31
+python-dotenv>=1.0
+matplotlib>=3.8
+
+# Tests
+pytest>=8.0

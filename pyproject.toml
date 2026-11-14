@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "minerllm"
+version = "0.1.0"
+description = "LLM-guided candidate ranking for the Hyperon (PeTTa) Pattern Miner"
+readme = "README.md"
+license = { text = "AGPL-3.0-or-later" }
+requires-python = ">=3.10"
+authors = [{ name = "Eyob Nebyou" }]
+dependencies = [
+  "numpy>=1.26",
+  "scipy>=1.11",
+  "regex>=2023.12.25",
+  "pyyaml>=6.0",
+  "requests>=2.31",
+  "python-dotenv>=1.0",
+  "matplotlib>=3.8",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+minerllm = "minerllm.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["minerllm*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+  "petta: needs the pinned PeTTa toolchain (run ./setup.sh first)",
+]
