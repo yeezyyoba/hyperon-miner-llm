@@ -1,0 +1,72 @@
+diff --git a/run_miner.metta b/run_miner.metta
+index 05bfe00..5556aeb 100644
+--- a/run_miner.metta
++++ b/run_miner.metta
+@@ -18,6 +18,7 @@
+ !(import! &self experiments/utils/surp-utils/binomialMetta)
+ !(import! &self experiments/utils/surp-utils/beta-dist)
+ !(import! &self experiments/utils/surp-utils/surp-utils)
++!(import! &self experiments/utils/surp-utils/IIsurp_utils)
+ !(import! &self experiments/utils/sort)
+ !(import! &self experiments/utils/variable-combinations)
+ !(import! &self experiments/utils/surp-utils/blk-abstractness)
+@@ -35,12 +36,15 @@
+ !(import! &self experiments/surprisingness/isurp)
+ !(import! &self experiments/surprisingness/isurp-old)
+ !(import! &self experiments/surprisingness/jsd)
++!(import! &self experiments/surprisingness/IIsurp-old)
+ 
+ ;; Frequent Pattern Miner Components
+-!(import! &self experiments/frequent-pattern-miner/build-specialization)
+-!(import! &self experiments/frequent-pattern-miner/candidate-patterns)
++!(import! &self experiments/frequent-pattern-miner/valuation)
++!(import! &self experiments/frequent-pattern-miner/shallow-abstractions)
++!(import! &self experiments/frequent-pattern-miner/specialization)
++!(import! &self experiments/frequent-pattern-miner/candidate)
+ !(import! &self experiments/frequent-pattern-miner/conjunction-expansion)
+-!(import! &self experiments/frequent-pattern-miner/frequent-pattern-miner)
++!(import! &self experiments/frequent-pattern-miner/frequent-pattern-miner-generic)
+ 
+ ;; Main Miner Entry Point
+ !(import! &self experiments/pattern-miner/pattern-miner)
+@@ -55,13 +59,14 @@
+ 
+ 
+ ;; --- 3. Run Miner ---
+-;; The miner function takes 8 arguments:
+-;; (pattern-miner <output-space> <input-db> <min-support> <depth> <mode> <normalization> <db-ratio> <conj-exp>)
++;; The miner function takes 9 arguments:
++;; (pattern-miner <output-space> <input-db> <initial-pattern> <min-support> <depth> <mode> <normalization> <db-ratio> <conj-exp>)
+ ;;
+ ;; PARAMETERS EXPLAINED:
+ ;; ---------------------
+ ;; 1. <output-space>:  (&res) The place where results will be stored.
+ ;; 2. <input-db>:      (&db) The dataset you imported above.
++;; 2b. <initial-pattern>: ($x) Start from the most abstract pattern.
+ ;; 3. <min-support>:   (Integer) The minimum number of times a pattern must occur to be considered "frequent". 
+ ;;                     Example: 10 means the pattern must appear at least 10 times.
+ ;; 4. <depth>:         (Integer) Controls how complex the mined patterns are.
+@@ -85,7 +90,7 @@
+ ;;                     False -> Stick to basic specialized patterns.
+ 
+ ;; EXAMPLE CONFIGURATION:
+-!(pattern-miner &res &db 3 0 none none none True)
++!(pattern-miner &res &db $x 3 0 none none none True)
+ 
+ 
+ ;; --- 4. View Results ---
+diff --git a/setup.sh b/setup.sh
+index 56fc130..f0afd36 100644
+--- a/setup.sh
++++ b/setup.sh
+@@ -5,7 +5,9 @@ git clone https://github.com/patham9/PeTTa
+ cd PeTTa || exit 1
+ 
+ git fetch origin
+-git checkout "$(git rev-parse origin/HEAD)"
++# Pin PeTTa: HEAD moves fast and breaks this repo's tests (3/8 pass on 2026-10-28 HEAD).
++PETTA_COMMIT="${PETTA_COMMIT:-9e5929ad577121bfcf6287d4de6d7649f1d98b91}"
++git checkout "$PETTA_COMMIT"
+ 
+ # Ensure run.sh has a proper bash shebang
+ if ! grep -q "^#!/bin/bash" run.sh; then
