@@ -87,3 +87,53 @@ def test_cached_invalid_answer_is_not_replayed(tmp_path):
     resp = FallbackChain([MockLLM("groq")], cache=cache).complete(
         PROMPT, validate=lambda t: t.startswith("{"))
     assert resp.provider == "groq" and not resp.cached
+
+
+# ------------------------------------------------- Gemini request/response shape (no network)
+
+class _FakeResp:
+    status_code = 200
+
+    def __init__(self, payload):
+        self._p = payload
+        self.text = ""
+
+    def json(self):
+        return self._p
+
+
+def _capture(monkeypatch, payload):
+    sent = {}
+
+    def fake_post(url, json=None, timeout=None, headers=None):
+        sent.update(url=url, body=json, headers=headers)
+        return _FakeResp(payload)
+
+    monkeypatch.setattr("minerllm.llm.providers.requests.post", fake_post)
+    return sent
+
+
+ANSWER = {"candidates": [{"content": {"parts": [
+    {"text": "thinking about joins...", "thought": True},
+    {"text": '{"scores": [{"id": 0, "score": 8}]}'}]}}],
+    "usageMetadata": {"promptTokenCount": 100, "candidatesTokenCount": 20, "thoughtsTokenCount": 30}}
+
+
+def test_gemini_defaults_to_3_8_flash_with_low_thinking(monkeypatch):
+    monkeypatch.delenv("GEMINI_MODEL", raising=False)
+    monkeypatch.delenv("GEMINI_THINKING_LEVEL", raising=False)
+    sent = _capture(monkeypatch, ANSWER)
+    resp = GeminiClient(api_key="k").complete("p", "sys")
+    assert "models/gemini-3.8-flash:generateContent" in sent["url"]
+    assert "key=" not in sent["url"] and sent["headers"]["x-goog-api-key"] == "k"
+    cfg = sent["body"]["generationConfig"]
+    assert cfg["thinkingConfig"] == {"thinkingLevel": "low"} and "temperature" not in cfg
+    assert resp.text == '{"scores": [{"id": 0, "score": 8}]}'     # thought part skipped
+    assert (resp.input_tokens, resp.output_tokens) == (100, 50)    # thinking billed as output
+
+
+def test_gemini_2_x_still_gets_temperature_zero(monkeypatch):
+    sent = _capture(monkeypatch, ANSWER)
+    GeminiClient(model="gemini-2.5-flash", api_key="k").complete("p")
+    cfg = sent["body"]["generationConfig"]
+    assert cfg["temperature"] == 0 and "thinkingConfig" not in cfg

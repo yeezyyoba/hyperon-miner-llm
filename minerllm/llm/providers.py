@@ -5,9 +5,10 @@ Keys come from the environment (or a local ``.env``), never from code or URLs:
     GEMINI_API_KEY   GROQ_API_KEY   NVIDIA_API_KEY
 
 Models can be overridden with GEMINI_MODEL / GROQ_MODEL / NVIDIA_MODEL.
-All requests use temperature 0 and ask for JSON output, to keep runs as
-repeatable as hosted models allow. The disk cache (cache.py) makes
-re-runs exact.
+All requests ask for JSON output. Temperature 0 is sent where the model honours
+it. Gemini 3.x ignores sampling parameters, so for it we set a low thinking
+level instead (GEMINI_THINKING_LEVEL = low | medium | high). The disk cache
+(cache.py) makes re-runs exact either way.
 """
 from __future__ import annotations
 
@@ -19,7 +20,7 @@ import requests
 from .base import LLMClient, LLMError, LLMResponse
 
 DEFAULT_MODELS = {
-    "gemini": "gemini-2.5-flash",
+    "gemini": "gemini-3.8-flash",
     "groq": "llama-3.3-70b-versatile",
     "nvidia": "meta/llama-3.3-70b-instruct",
 }
@@ -44,10 +45,21 @@ class GeminiClient(LLMClient):
     def available(self) -> bool:
         return bool(self._key)
 
+    def generation_config(self) -> dict:
+        cfg: dict = {"responseMimeType": "application/json"}
+        major = self.model.split("-")[1].split(".")[0] if self.model.count("-") >= 1 else "0"
+        if major.isdigit() and int(major) >= 3:
+            # Gemini 3.x: sampling params are ignored; thinking level controls latency/cost
+            cfg["thinkingConfig"] = {
+                "thinkingLevel": os.environ.get("GEMINI_THINKING_LEVEL", "low")}
+        else:
+            cfg["temperature"] = 0
+        return cfg
+
     def complete(self, prompt: str, system: str = "", timeout: float = 60.0) -> LLMResponse:
         body = {
             "contents": [{"role": "user", "parts": [{"text": prompt}]}],
-            "generationConfig": {"temperature": 0, "responseMimeType": "application/json"},
+            "generationConfig": self.generation_config(),
         }
         if system:
             body["systemInstruction"] = {"parts": [{"text": system}]}
@@ -60,13 +72,18 @@ class GeminiClient(LLMClient):
         _raise_for(resp, self.name)
         data = resp.json()
         try:
-            text = "".join(p.get("text", "") for p in data["candidates"][0]["content"]["parts"])
+            parts = data["candidates"][0]["content"]["parts"]
+            text = "".join(p.get("text", "") for p in parts if not p.get("thought"))
         except (KeyError, IndexError):
             raise LLMError(f"gemini returned no text (finishReason="
                            f"{data.get('candidates', [{}])[0].get('finishReason')})") from None
+        if not text.strip():
+            raise LLMError("gemini returned an empty answer")
         usage = data.get("usageMetadata", {})
+        # thinking tokens are billed as output, so count them as output
+        out = usage.get("candidatesTokenCount", 0) + usage.get("thoughtsTokenCount", 0)
         return LLMResponse(text, self.name, self.model, usage.get("promptTokenCount", 0),
-                           usage.get("candidatesTokenCount", 0), time.time() - start)
+                           out, time.time() - start)
 
 
 class OpenAICompatibleClient(LLMClient):
