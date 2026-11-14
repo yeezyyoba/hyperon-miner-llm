@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Secrets
+.env
+
+# Local toolchain (installed by setup.sh)
+.petta/
+
+# Generated run artefacts
+runs/
+.cache/
+_generated/
+*.log
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
