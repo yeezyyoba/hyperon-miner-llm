@@ -5,13 +5,15 @@
 #   make test-metta        MeTTa tests (needs PeTTa)
 #   make reproduce-issues  re-run the evidence behind docs/01-problem.md
 #   make profile           measure the conjunction-expansion blow-up
+#   make datasets          regenerate experiments/data (synthetic + Galaxy subset)
+#   make mine CONFIG=...   run the upstream miner from a YAML config, verify with the oracle
 
 PYTHON ?= python3
 PETTA  ?= bash .petta/run.sh
 export LANG := C.UTF-8
 export LC_ALL := C.UTF-8
 
-.PHONY: help setup run test test-metta test-all reproduce-issues profile clean
+.PHONY: help setup run test test-metta test-all reproduce-issues profile datasets mine clean
 
 help:
 	@grep -E '^#   make' Makefile | sed 's/^#   //'
@@ -37,6 +39,17 @@ reproduce-issues:
 profile:
 	$(PYTHON) scripts/profile_baseline.py --sizes 200 400 600 800 --depths 0 1
 	$(PYTHON) scripts/profile_baseline.py --sizes 200 --depths 2 --timeout 1800 --append
+
+CONFIG ?= configs/sample.yaml
+
+datasets:
+	$(PYTHON) -m minerllm datagen --seed 0 --strength 0.8
+	$(PYTHON) -m minerllm datagen --seed 0 --strength 0.8 --anonymize
+	$(PYTHON) -m minerllm datagen --seed 0 --strength 0.0
+	$(PYTHON) -m minerllm galaxy 400
+
+mine:
+	$(PYTHON) -m minerllm mine --config $(CONFIG)
 
 clean:
 	rm -rf runs/ .cache/ _generated/ .pytest_cache
