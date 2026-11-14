@@ -70,7 +70,7 @@ def save_run(run: PettaRun, cfg: MinerConfig, out_dir: Path, label: str,
 def run_upstream(cfg: MinerConfig, out_dir: Path | None = None, label: str = "upstream",
                  verify: bool = True) -> tuple[PettaRun, Verification | None]:
     """Run the unmodified upstream miner (via the fixed entry point) for ``cfg``."""
-    out_dir = out_dir or RUNS / f"{time.strftime('%Y%m%d-%H%M%S')}-{cfg.fingerprint()}"
+    out_dir = (out_dir or RUNS / f"{time.strftime('%Y%m%d-%H%M%S')}-{cfg.fingerprint()}").resolve()
     out_dir.mkdir(parents=True, exist_ok=True)
     script = out_dir / f"{label}.metta"
     script.write_text(render_upstream_script(cfg))
@@ -78,3 +78,37 @@ def run_upstream(cfg: MinerConfig, out_dir: Path | None = None, label: str = "up
     verification = verify_supports(run, Oracle(load_atoms(cfg.dataset_path()))) if verify else None
     save_run(run, cfg, out_dir, label, verification)
     return run, verification
+
+
+def read_trace(path: Path) -> list[dict]:
+    if not path.exists():
+        return []
+    return [json.loads(l) for l in path.read_text().splitlines() if l.strip()]
+
+
+def run_guided(cfg: MinerConfig, ranker, out_dir: Path | None = None, label: str | None = None,
+               verify: bool = True) -> tuple[PettaRun, Verification | None, dict]:
+    """Run the guided miner. Returns (run, oracle verification, trace summary)."""
+    from .config import render_guided_script
+    label = label or ranker.label
+    out_dir = (out_dir or RUNS / f"{time.strftime('%Y%m%d-%H%M%S')}-{cfg.fingerprint()}").resolve()
+    out_dir.mkdir(parents=True, exist_ok=True)
+    trace = out_dir / f"{label}.trace.jsonl"
+    run_json = out_dir / f"{label}.run.json"
+    cache_dir = ranker.cache_dir
+    if cache_dir and not Path(cache_dir).is_absolute():
+        cache_dir = str(ROOT / cache_dir)
+    run_json.write_text(json.dumps({**ranker.to_dict(), "cache_dir": cache_dir,
+                                    "trace_path": str(trace),
+                                    "dataset": str(cfg.dataset_path())}, indent=2))
+    script = out_dir / f"{label}.metta"
+    script.write_text(render_guided_script(cfg, run_json))
+    run = run_script(script, timeout=cfg.timeout)
+    events = read_trace(trace)
+    summary = next((e for e in reversed(events) if e["event"] == "finish"), {})
+    summary["levels"] = [e for e in events if e["event"] in ("select", "verify")]
+    verification = verify_supports(run, Oracle(load_atoms(cfg.dataset_path()))) if verify else None
+    save_run(run, cfg, out_dir, label, verification,
+             extra={"ranker": ranker.to_dict(),
+                    "trace_summary": {k: v for k, v in summary.items() if k != "levels"}})
+    return run, verification, summary

@@ -59,6 +59,34 @@ class MinerConfig:
         return asdict(self)
 
 
+@dataclass
+class RankerConfig:
+    """How the guided miner chooses which candidates to verify."""
+    strategy: str = "exhaustive"          # exhaustive | random | heuristic | llm | llm-direct
+    budget: float = 1.0                   # fraction of unique candidates verified per level
+    seed: int = 0
+    providers: list = field(default_factory=lambda: ["gemini", "groq", "nvidia"])
+    batch_size: int = 60
+    max_retries: int = 2
+    timeout_s: float = 60.0
+    cache_dir: str | None = ".cache/llm"
+    min_select: int = 1
+
+    def __post_init__(self):
+        if self.strategy not in {"exhaustive", "random", "heuristic", "llm", "llm-direct"}:
+            raise ValueError(f"unknown strategy {self.strategy!r}")
+        if not 0 < self.budget <= 1:
+            raise ValueError("budget must be in (0, 1]")
+
+    @property
+    def label(self) -> str:
+        return f"{self.strategy}-b{int(round(self.budget * 100))}" + \
+               (f"-s{self.seed}" if self.strategy == "random" else "")
+
+    def to_dict(self) -> dict:
+        return asdict(self)
+
+
 def _metta_bool(b: bool) -> str:
     return "True" if b else "False"
 
@@ -78,4 +106,24 @@ def render_upstream_script(cfg: MinerConfig) -> str:
     src = re.sub(r"^!\(pattern-miner &res .*\)$",
                  f"!(pattern-miner &res &db $x {cfg.minsup} {cfg.depth} {surp} {norm} {ratio} True)",
                  src, flags=re.M)
+    return src
+
+
+GUIDED_DIR = ROOT / "experiments" / "llm-guided-miner"
+
+
+def render_guided_script(cfg: MinerConfig, run_json: Path) -> str:
+    """Same imports as the entry point, plus the guided module, calling guided-pattern-miner."""
+    src = render_upstream_script(cfg)
+    src = src.replace(
+        f"!(import! &self {ROOT}/external/hyperon-miner/experiments/pattern-miner/pattern-miner)",
+        f"!(import! &self {ROOT}/external/hyperon-miner/experiments/pattern-miner/pattern-miner)\n"
+        f"!(import! &self {GUIDED_DIR}/minerllm_bridge.py)\n"
+        f"!(import! &self {GUIDED_DIR}/guided-conjunction-expansion)")
+    surp = cfg.surp_mode
+    norm = _metta_bool(cfg.normalize) if surp != "none" else "none"
+    ratio = cfg.db_ratio if surp != "none" else "none"
+    src = re.sub(r"^!\(pattern-miner &res .*\)$",
+                 f'!(guided-pattern-miner &res &db $x {cfg.minsup} {cfg.depth} {surp} {norm} '
+                 f'{ratio} "{run_json}")', src, flags=re.M)
     return src
