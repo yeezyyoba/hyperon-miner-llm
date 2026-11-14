@@ -1,5 +1,6 @@
 # hyperon-miner-llm — one-command entry points
 #   make setup             install pinned PeTTa + Python deps
+#   make doctor            check the toolchain (swipl, janus, Python, PeTTa, keys)
 #   make run               run the (fixed) upstream miner on the sample data
 #   make test              Python unit tests (no PeTTa needed)
 #   make test-metta        MeTTa tests (needs PeTTa)
@@ -13,13 +14,16 @@ PETTA  ?= bash .petta/run.sh
 export LANG := C.UTF-8
 export LC_ALL := C.UTF-8
 
-.PHONY: help setup run test test-metta test-all reproduce-issues profile datasets mine clean
+.PHONY: help setup doctor run test test-metta test-all reproduce-issues profile datasets mine clean
 
 help:
 	@grep -E '^#   make' Makefile | sed 's/^#   //'
 
 setup:
 	./setup.sh
+
+doctor:
+	bash scripts/doctor.sh
 
 run:
 	$(PETTA) run_miner.metta
