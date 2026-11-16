@@ -23,7 +23,7 @@ number of candidate patterns explodes and which limited the PeTTa miner to 3 con
  frequent clauses ──► GENERATE linked candidates ──► SELECT ──py-call──► dedupe → rank → top budget %
                        (no support counted)            │                     │
                                                        │            LLM scores schema JOINS
-                                                       ▼            (Gemini → Groq → NVIDIA,
+                                                       ▼            (Groq → NVIDIA → Gemini,
                                      VERIFY: MeTTa counts support,    validated, cached;
                                      minsup + redundancy filter        heuristic on failure)
                                                        │
@@ -54,6 +54,7 @@ miner's output (precision is 100 %), and at budget 100 % it **equals** the upstr
 | 3 | End-to-end tests never run their assertions | corrupting an expected value still passes CI |
 | 4 | Output full of clause-order duplicates | 801 printed vs 137 distinct patterns at 4 conjuncts (83 %) |
 | 5 | Global spaces leak state between runs | 2nd run returns 32 patterns instead of 20 |
+| 7 | Scoring silently drops ~half the patterns | 641 frequent patterns in, 343 scored out: `add-atom-nodup` unifies instead of comparing |
 | **6** | **Conjunction expansion explodes** | 2→3 conjuncts costs **3×** time at 200 atoms, **10×** at 800; 4 conjuncts on 200 atoms takes 90 s |
 
 ## Quick start
@@ -127,7 +128,7 @@ minerllm/                      Python package
   datagen.py, datasets.py      synthetic graphs with planted patterns, Galaxy subsets
   bridge.py                    py-call API used by MeTTa: dedupe → rank → budget → trace
   rankers.py                   exhaustive · random · heuristic · llm (joins) · llm-direct + validator
-  llm/                         Gemini → Groq → NVIDIA chain, retries, disk cache, offline mock
+  llm/                         Groq → NVIDIA → Gemini chain, retries, disk cache, offline mock
   cli.py                       `python -m minerllm mine | guided | datagen | galaxy | support | stats`
 experiments/
   data/                        evaluation datasets (+ planted-pattern answer keys)

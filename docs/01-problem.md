@@ -3,8 +3,8 @@
 > *Select one concrete problem and support it with an observation, example or measurement.*
 
 Before an LLM can improve the miner, we need a miner we can run and measure reliably.
-Setting that baseline up surfaced **five reliability issues** in the upstream repository
-(Issues 1–5). We fixed or worked around all of them, and they matter because they decide
+Setting that baseline up surfaced **six reliability issues** in the upstream repository
+(Issues 1–5 and 7). We fixed or worked around all of them, and they matter because they decide
 whether any later measurement can be trusted. **Issue 6 is the problem the LLM targets.**
 
 All evidence was collected on `iCog-Labs-Dev/hyperon-miner` **petta-main @ `7461878`**
@@ -24,6 +24,7 @@ make profile            # Issue 6       -> docs/evidence/baseline-profile.md
 | 3 | End-to-end tests never execute their assertions | correctness | fixed (strict runner + live regression tests) |
 | 4 | Output is full of clause-order duplicates (62–83 % at 3–4 conjuncts) | correctness / performance | detected and merged by `minerllm.patterns.canonical` |
 | 5 | Global spaces leak state between miner runs | correctness | worked around (one process per run) |
+| 7 | Scoring silently drops ~half the patterns (`add-atom-nodup` unifies) | correctness | fixed in the guided miner + [upstream patch](../patches/) + characterisation test |
 | **6** | **Conjunction expansion cost explodes with depth** | **performance** | **target of the LLM integration** |
 
 ---
@@ -127,6 +128,43 @@ returns **32** patterns for depth 1 instead of the **20** a fresh process return
 configurations in one file, so it would fail if Issue 3 did not hide it.
 
 **Workaround:** every miner run in this repo uses a fresh PeTTa process.
+
+## Issue 7 — Scoring silently drops about half of the patterns
+
+*(Found in Phase 4, while building the evaluation reference.)*
+
+On the university graph (minsup 10, 3 conjuncts) the frequent miner finds **641**
+patterns, but upstream's full `isurp` run outputs only **343** scored patterns. There's no
+error. Which patterns disappear depends on the size of the run: a pattern unscored in the
+full run gets a score in a smaller run, and whenever a pattern is scored, the value is
+always the same (3,443 scores compared across 90 runs, 0 differences).
+
+**Root cause:** scores are stored with `add-atom-nodup`:
+
+```metta
+(= (add-atom-nodup $space $atom)
+   (case (match $space $atom $atom) (($atom ()) (Empty (add-atom $space $atom)))))
+```
+
+`match` **unifies**, so a new pattern whose variables can bind to another pattern's
+constants is treated as already present, provided the two have the same score:
+
+```metta
+!(add-atom &kb (surprisingnessOf (, (R $x a)) 0.5))
+!(add-atom-nodup &kb (surprisingnessOf (, (R b $y)) 0.5))   ; silently dropped
+```
+
+`isurp` scores tie heavily (0.881, 0.952, 0.992, …), so the more patterns a run scores, the
+more of them collide.
+
+**Fixes:**
+* `test-upstream-nodup.metta` pins the behaviour (3 live assertions).
+* The guided miner calls upstream's `isurp` directly and stores with `add-atom` (its
+  candidates are already deduplicated): **641/641** patterns scored, every score identical
+  to upstream's.
+* The evaluation reference scores each pattern in its own space (`minerllm/reference.py`).
+* [`patches/0002-…`](../patches/) changes `add-atom-nodup` to test alpha-equivalence
+  (`=alpha`) instead of unification.
 
 ---
 
