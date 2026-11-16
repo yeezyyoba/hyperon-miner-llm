@@ -11,7 +11,7 @@ flowchart LR
     H["harness.py<br/>run + save + verify"]
     O["oracle.py<br/>independent support counter"]
     B["bridge.py<br/>select() — the boundary"]
-    R["rankers.py<br/>exhaustive · random · heuristic<br/>llm (joins) · llm-direct"]
+    R["rankers.py<br/>exhaustive · random · heuristic · cardinality<br/>llm (joins) · llm-direct"]
     V["validator<br/>validate_scores()"]
     C["llm/chain.py<br/>Groq → NVIDIA → Gemini"]
     K[("llm/cache.py<br/>disk cache")]
@@ -41,7 +41,7 @@ flowchart LR
 | Upstream miner | `external/hyperon-miner` (submodule, untouched) | candidate clauses, linkage, redundancy filter, support counting, `isurp`/`jsd` scoring |
 | Guided expansion | `experiments/llm-guided-miner/guided-conjunction-expansion.metta` | splits each level into GENERATE → SELECT → VERIFY |
 | Bridge | `minerllm/bridge.py` (+ `minerllm_bridge.py` shim) | the `py-call` API: dedupe, rank, apply budget, log |
-| Rankers | `minerllm/rankers.py` | turn candidates into an *order* |
+| Rankers | `minerllm/rankers.py` | turn candidates into an *order*: exhaustive, random, structural heuristic, cardinality (schema statistics), llm (joins), llm-direct |
 | Validator | `rankers.validate_scores` | decide whether an LLM answer may be used |
 | LLM chain | `minerllm/llm/` | providers, retries, fallback, cache, mock |
 | Harness + oracle | `minerllm/harness.py`, `minerllm/oracle.py` | run configs, re-check every support independently, save artefacts |
@@ -67,13 +67,13 @@ sequenceDiagram
     opt strategy llm (first level only)
       R->>L: score schema joins (≈3 calls)
       L-->>R: JSON scores
-      R->>R: validate; invalid batch → heuristic
+      R->>R: validate; invalid batch → cardinality order
     end
     R-->>B: permutation of candidates
     B-->>M: positions of top ⌈budget × unique⌉
     M->>M: VERIFY: sup-num ≥ minsup, then redundancy filter
   end
-  M->>M: score survivors with upstream isurp / jsd
+  M->>M: score survivors with upstream isurp (stored without add-atom-nodup, ADR 0007)
   M->>B: finish()
   M-->>H: printed (supportOf …) / (surprisingnessOf …)
   H->>H: oracle re-counts every support; save JSON + trace
@@ -150,15 +150,16 @@ flowchart TD
   P2 -- "ok + valid" --> USE
   P2 -- "fails" --> P3{"Gemini"}
   P3 -- "ok + valid" --> USE
-  P3 -- "fails" --> FB["heuristic order for this batch<br/>(logged: fallback=true, reason)"]
+  P3 -- "fails" --> FB["cardinality order for this batch<br/>(logged: fallback=true, reason)"]
   USE --> SEL["select top budget"]
   FB --> SEL
   SEL --> VER["MeTTa verifies"]
-  X["ranker raises / returns a non-permutation"] --> FB2["bridge: heuristic for the level<br/>(logged: ranker_error)"] --> SEL
+  X["ranker raises / returns a non-permutation"] --> FB2["bridge: cardinality order for the level<br/>(logged: ranker_error)"] --> SEL
 ```
 
-Mining **never** stops because of the LLM. A total outage degrades to the heuristic
-ranker, and the trace records every attempt (`test_total_llm_outage_still_completes`).
+Mining **never** stops because of the LLM. A total outage degrades to the cardinality
+order (the strongest non-LLM baseline, ADR 0008), and the trace records every attempt
+(`test_total_llm_outage_still_completes`).
 
 ## 7. Design decisions
 
@@ -172,5 +173,7 @@ Recorded as ADRs in [docs/adr/](adr/):
 | [0004](adr/0004-join-level-scoring.md) | Score schema joins, not candidates (cost) |
 | [0005](adr/0005-dedupe-and-filter-order.md) | Deduplicate before counting; filter redundancy after counting |
 | [0006](adr/0006-fallback-chain-cache-mock.md) | Groq → NVIDIA → Gemini chain, disk cache, offline mock |
+| [0007](adr/0007-separate-search-from-scoring.md) | Separate search from scoring; never score through `add-atom-nodup` |
+| [0008](adr/0008-cardinality-baseline.md) | Cardinality baseline; LLM ties and failures fall back to it |
 
 → Prototype details: [Step 4 — Prototype](04-prototype.md).

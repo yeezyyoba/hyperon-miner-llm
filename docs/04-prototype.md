@@ -11,11 +11,15 @@
 bash .petta/run.sh run_guided.metta               # plain MeTTa entry point
 python -m minerllm guided --providers mock        # + oracle check + summary
 
+# live demo for the presentation (problem → equivalence → LLM → failure path → results)
+make demo
+
 # real LLMs: put keys in .env (see .env.example)
 python -m minerllm guided --config configs/university.yaml --strategy llm --budget 0.3
 python -m minerllm guided --config configs/galaxy400.yaml  --strategy llm --budget 0.3
 
 # baselines, same interface
+python -m minerllm guided --strategy cardinality --budget 0.3
 python -m minerllm guided --strategy heuristic --budget 0.3
 python -m minerllm guided --strategy random    --budget 0.3 --seed 2
 python -m minerllm guided --strategy exhaustive --budget 1.0      # == upstream output
@@ -59,6 +63,8 @@ Each run writes into `runs/<timestamp>-<config hash>/`:
 | exhaustive @ 100 % equals upstream (MeTTa, live assertions) | `experiments/llm-guided-miner/tests/test-guided-equivalence.metta` |
 | budget output meets minsup (MeTTa) | `experiments/llm-guided-miner/tests/test-guided-budget.metta` |
 | equals upstream; subset at any budget; LLM garbage → next provider; total outage completes; works with `isurp` | `tests/test_guided_petta.py` (real PeTTa) |
+| upstream's `add-atom-nodup` collision (Issue 7) | `experiments/upstream-regression/tests/test-upstream-nodup.metta` |
+| evaluation metrics: tie-aware top-K, seed averaging, verdict rules | `tests/test_evaluate.py` |
 | validator, every mock fault mode, chain order/retries/cache, join extraction, prompts contain no data atoms | `tests/test_rankers.py`, `tests/test_llm_chain.py`, `tests/test_bridge.py` |
 
 Verified equivalence with upstream (exhaustive, budget 100 %):
