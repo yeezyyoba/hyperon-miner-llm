@@ -62,6 +62,7 @@ class Arm:
     seed: int = 0
     provider: str | None = None          # single provider for llm arms
     only: tuple = ()                     # restrict to these datasets (empty = all)
+    repeat: int = 0                      # >0: fresh LLM answers (cache off) for a stability check
 
     def ranker(self) -> RankerConfig:
         # Groq's on-demand tier allows 8,000 tokens/minute: send its batches one at a time
@@ -69,7 +70,8 @@ class Arm:
         groq = self.provider == "groq"
         return RankerConfig(strategy=self.strategy, budget=self.budget, seed=self.seed,
                             providers=[self.provider] if self.provider else None,
-                            max_retries=4 if groq else 2, workers=1 if groq else 4)
+                            max_retries=4 if groq else 2, workers=1 if groq else 4,
+                            cache_dir=None if self.repeat else ".cache/llm")
 
     @property
     def family(self) -> str:
@@ -112,6 +114,14 @@ def _done(path: Path) -> bool:
         return bool(json.loads(path.read_text()).get("ok"))
     except json.JSONDecodeError:
         return False
+
+
+def repeat_arms(providers=PROVIDERS, budget: float = 0.3, repeats: int = 3) -> list[Arm]:
+    """Stability check: the same LLM arm again with the cache off, so each repeat gets
+    fresh answers. Grouped with the original run (same family and budget), so tables
+    report mean ± sd over 1 + repeats LLM samples."""
+    return [Arm(f"llm-{p}-{pct(budget)}-r{r}", "llm", budget, seed=r, provider=p, repeat=r)
+            for p in providers for r in range(1, repeats + 1)]
 
 
 def run_matrix(datasets: list[str], arms: list[Arm], upstream: bool = False,
@@ -452,7 +462,7 @@ def results_tables(summary: list[dict], rows: list[dict]) -> str:
             if s["family"] in ("exhaustive", "upstream"):
                 continue
             rc = _fmt(s["recall@10"], True)
-            if s["family"] == "random" and s["recall@10_sd"] is not None:
+            if s["runs"] > 1 and s["recall@10_sd"] is not None:
                 rc += f" ± {s['recall@10_sd'] * 100:.0f}"
             planted = (f"{s['planted_found']:.1f}/3" if s["planted_found"] is not None else "–")
             tok = (f"{s['tokens_in']:.0f} / {s['tokens_out']:.0f}" if s["tokens_in"] else "–")
@@ -484,13 +494,14 @@ def verdict_table(v: dict) -> str:
 def headline(summary: list[dict], budget: float = 0.3) -> str:
     """Compact table for the README: recall@10 and planted patterns at one budget."""
     fams = ["random", "heuristic", "cardinality"] + sorted(
-        {s["family"] for s in summary if s["family"].startswith("llm")})
+        {s["family"] for s in summary if s["family"].startswith("llm:")})
     label = {"random": "random (5 seeds)", "heuristic": "structural heuristic",
              "cardinality": "cardinality (schema stats)"}
     ds_list = [d for d in DATASETS if any(s["dataset"] == d for s in summary)]
     head = "| method | " + " | ".join(ds_list) + " |"
     lines = [f"Recall@10 of the full miner's top patterns when only **{budget * 100:.0f} %** of "
-             "candidates are verified (planted patterns found in brackets, synthetic graphs only):", "",
+             "candidates are verified (planted patterns found in brackets, synthetic graphs only; "
+             "± = sd over random seeds / repeated LLM samples):", "",
              head, "|---|" + "---:|" * len(ds_list)]
     for fam in fams:
         cells = []
@@ -501,8 +512,10 @@ def headline(summary: list[dict], budget: float = 0.3) -> str:
                 cells.append("–")
                 continue
             c = f"{s['recall@10'] * 100:.0f} %"
+            if s["runs"] > 1 and s.get("recall@10_sd") is not None:
+                c += f" ± {s['recall@10_sd'] * 100:.0f}"
             if s.get("planted_found") is not None:
-                c += f" ({s['planted_found']:.1f}/3)" if fam == "random" else f" ({s['planted_found']:.0f}/3)"
+                c += f" ({s['planted_found']:.1f}/3)" if s["runs"] > 1 else f" ({s['planted_found']:.0f}/3)"
             cells.append(c)
         if any(c != "–" for c in cells):
             lines.append(f"| {label.get(fam, fam.replace('llm:', 'LLM joins · '))} | " + " | ".join(cells) + " |")
@@ -549,7 +562,8 @@ def report(log=print) -> dict:
 def main(argv=None) -> int:
     import argparse
     ap = argparse.ArgumentParser(prog="minerllm eval")
-    ap.add_argument("part", choices=["baselines", "llm", "report"])
+    ap.add_argument("part", choices=["baselines", "llm", "repeats", "report"])
+    ap.add_argument("--repeats", type=int, default=3, help="for `repeats`: extra LLM samples")
     ap.add_argument("--datasets", default=",".join(DATASETS))
     ap.add_argument("--providers", default=",".join(PROVIDERS))
     ap.add_argument("--budgets", default=",".join(str(b) for b in BUDGETS))
@@ -561,6 +575,10 @@ def main(argv=None) -> int:
     log = lambda m: print(m, file=sys.stderr, flush=True)  # noqa: E731
     if args.part == "baselines":
         run_matrix(ds, baseline_arms(budgets), upstream=True, force=args.force, log=log)
+    elif args.part == "repeats":
+        run_matrix(ds, repeat_arms([p for p in args.providers.split(",") if p],
+                                   budgets[0] if len(budgets) == 1 else 0.3, args.repeats),
+                   force=args.force, log=log)
     elif args.part == "llm":
         run_matrix(ds, llm_arms([p for p in args.providers.split(",") if p], budgets,
                                 direct=not args.no_direct), force=args.force, log=log)

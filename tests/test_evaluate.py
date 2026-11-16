@@ -71,3 +71,11 @@ def test_groq_arms_are_sequential_and_direct_arm_runs_on_nvidia_university_only(
     direct = arms["llm-direct-nvidia-b30"]
     assert direct.only == ("university",) and direct.ranker().providers == ["nvidia"]
     assert "llm-direct-groq-b30" not in arms
+
+
+def test_repeat_arms_disable_the_cache_and_group_with_the_original():
+    from minerllm.evaluate import repeat_arms
+    arms = repeat_arms(["groq"], 0.3, repeats=2)
+    assert [a.name for a in arms] == ["llm-groq-b30-r1", "llm-groq-b30-r2"]
+    assert all(a.ranker().cache_dir is None and a.family == "llm:groq" for a in arms)
+    assert llm_arms(["groq"], [0.3])[0].ranker().cache_dir == ".cache/llm"
