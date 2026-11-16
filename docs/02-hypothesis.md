@@ -60,14 +60,32 @@ we say so.
   every candidate (≈ 1 call per 60 candidates per level). Same quality question,
   very different cost.
 
+## Amendment (Phase 4, 2026-11-16, before the LLM evaluation runs)
+
+The first baseline runs showed that the structural `heuristic` is **degenerate**: at 10–30 %
+budget it finds **0 patterns** on the university graph. It favours rare multi-relation joins,
+which miss minsup, so the next level has nothing to extend. Beating it would prove
+nothing. We therefore added a stronger cheap baseline, **`cardinality`**: estimated support
+under independence, computed from the same schema statistics the LLM is shown. That makes
+the test **stricter**:
+
+* H1 now requires the LLM to beat the **best** of random, structural and cardinality.
+* H2 measures the LLM's gap over the **cardinality** baseline.
+* LLM rankers break ties (and fall back) using the cardinality order, so the LLM is
+  measured as *what it adds on top of* the best cheap signal.
+
+Before this amendment, only plumbing smoke runs of the LLM ranker had been made (single runs
+at 30 % on the university graph, used to debug providers). They aren't part of the
+evaluation.
+
 ## Rejection criteria (stated in advance)
 
 | Outcome | Verdict |
 |---|---|
-| LLM recall@10 ≥ 90 % at 30 % **and** > heuristic and > mean of 5 random seeds | H1 supported |
-| LLM recall@10 ≥ 90 % but ≤ heuristic | H1 **rejected**: the cheap heuristic is enough, so no LLM is needed |
+| LLM recall@10 ≥ 90 % at 30 % **and** > every cheap baseline (random mean of 5 seeds, structural, cardinality) | H1 supported |
+| LLM recall@10 ≥ 90 % but ≤ a cheap baseline | H1 **rejected**: a cheap baseline is enough, so no LLM is needed |
 | LLM recall@10 < 90 % at 30 % | H1 **rejected** at this budget; report the budget at which 90 % is reached, if any |
-| LLM − heuristic on anonymised data ≤ 5 points while > 5 on named data | H2 supported |
+| LLM − cardinality on anonymised data ≤ 5 points while > 5 on named data | H2 supported |
 
 ## Setup (identical for every compared method)
 
@@ -76,7 +94,7 @@ we say so.
 | data | `university_s0_st80` | `university_s0_st80_anon` | `galaxy_400` |
 | minsup / conjuncts | 10 / 3 | 10 / 3 | 5 / 3 |
 | scorer | `isurp`, normalised, db-ratio 0.5 | same | same |
-| methods | upstream · exhaustive · random ×5 seeds · heuristic · llm · llm-direct | same | same |
+| methods | upstream · exhaustive · random ×5 seeds · structural heuristic · cardinality · llm (per provider) · llm-direct | same | same |
 | budgets | 10, 20, 30, 50, 100 % | same | same |
 
 → Continued in [Step 3 — Architecture](03-architecture.md).
