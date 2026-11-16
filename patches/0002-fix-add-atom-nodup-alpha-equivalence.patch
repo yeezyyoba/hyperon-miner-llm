@@ -1,0 +1,23 @@
+diff --git a/experiments/utils/common-utils.metta b/experiments/utils/common-utils.metta
+index 223140b..9400b3c 100644
+--- a/experiments/utils/common-utils.metta
++++ b/experiments/utils/common-utils.metta
+@@ -132,10 +132,15 @@
+             (cdr-atom $element)
+             $element)))
+ 
++;; Add $atom unless an alpha-equivalent atom (equal up to variable renaming) is
++;; already in $space. The previous version tested with (match $space $atom $atom),
++;; which UNIFIES: a different pattern whose variables can bind to another pattern's
++;; constants (and that has the same score) was treated as a duplicate and silently
++;; dropped. On a 504-atom graph that lost 298 of 641 scored patterns.
+ (= (add-atom-nodup $space $atom)
+-   (case (match $space $atom $atom)
+-     (($atom ())
+-      (Empty (add-atom $space $atom)))))
++   (if (== (collapse (match $space $x (if (=alpha $x $atom) $x (empty)))) ())
++       (add-atom $space $atom)
++       ()))
+ 
+       
+ ;; =============================================================================
