@@ -40,14 +40,23 @@ patterns explodes with each extra conjunct, which kept the PeTTa miner at 3 conj
 
 ## Results
 
+**Verdict: the evidence does not support the hypothesis.** At a 30 % budget the LLM rankers
+were less accurate on average than a deterministic schema-statistics baseline (cardinality),
+and unstable across samples. In all 135 runs, the architecture's guarantee held: **100 %
+precision, every support verified**, even under the worst LLM rankings. The LLM-free
+pipeline finds the same frequent patterns **3× faster** than upstream and scores all of them
+(641 vs 343). Details, traces, cost and failures: [docs/06-results.md](docs/06-results.md).
+
 <!-- BEGIN HEADLINE -->
-Recall@10 of the full miner's top patterns when only **30 %** of candidates are verified (planted patterns found in brackets, synthetic graphs only):
+Recall@10 of the full miner's top patterns when only **30 %** of candidates are verified (planted patterns found in brackets, synthetic graphs only; ± = sd over random seeds / repeated LLM samples):
 
 | method | university | university-anon | galaxy400 |
 |---|---:|---:|---:|
-| random (5 seeds) | 28 % (1.2/3) | 22 % (0.4/3) | 24 % |
+| random (5 seeds) | 28 % ± 10 (1.2/3) | 22 % ± 11 (0.4/3) | 24 % ± 8 |
 | structural heuristic | 0 % (0/3) | 0 % (0/3) | 0 % |
 | cardinality (schema stats) | 67 % (0/3) | 67 % (0/3) | 30 % |
+| LLM joins · groq | 33 % ± 26 (0.2/3) | 31 % ± 32 (1.5/3) | 22 % ± 23 |
+| LLM joins · nvidia | 48 % ± 4 (0.0/3) | 8 % ± 0 (0.0/3) | 42 % ± 43 |
 <!-- END HEADLINE -->
 
 ![recall vs budget](results/figures/recall_vs_budget.png)
