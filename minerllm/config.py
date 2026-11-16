@@ -65,7 +65,7 @@ class RankerConfig:
     strategy: str = "exhaustive"          # exhaustive | random | heuristic | llm | llm-direct
     budget: float = 1.0                   # fraction of unique candidates verified per level
     seed: int = 0
-    providers: list = field(default_factory=lambda: ["gemini", "groq", "nvidia"])
+    providers: list | None = None          # None -> MINERLLM_PROVIDERS env, else gemini,groq,nvidia
     batch_size: int = 60
     max_retries: int = 2
     timeout_s: float = 180.0

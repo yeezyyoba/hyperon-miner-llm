@@ -1,7 +1,12 @@
 """Command-line interface:  ``minerllm <command> ...``  (or ``python -m minerllm``)."""
 from __future__ import annotations
 
-import argparse
+import warnings
+
+# Apple's Python 3.9 is built against LibreSSL; urllib3 warns about it on import. Harmless here.
+warnings.filterwarnings("ignore", message=".*urllib3 v2 only supports OpenSSL.*")
+
+import argparse  # noqa: E402
 import json
 import sys
 from pathlib import Path
@@ -30,7 +35,8 @@ def cmd_guided(args) -> int:
     if args.depth is not None:
         cfg.depth = args.depth
     rc = RankerConfig(strategy=args.strategy, budget=args.budget, seed=args.seed,
-                      providers=args.providers.split(","), batch_size=args.batch_size,
+                      providers=args.providers.split(",") if args.providers else None,
+                      batch_size=args.batch_size,
                       cache_dir=None if args.no_cache else ".cache/llm")
     run, ver, s = run_guided(cfg, rc, Path(args.out) if args.out else None, progress=True)
     ranked = sorted(run.patterns, key=lambda p: -(p.surprisingness or 0))
@@ -123,8 +129,9 @@ def main(argv: list[str] | None = None) -> int:
     gm.add_argument("--config", default="configs/university.yaml")
     gm.add_argument("--strategy", default="llm", choices=["exhaustive", "random", "heuristic", "llm", "llm-direct"])
     gm.add_argument("--budget", type=float, default=0.3, help="fraction of candidates verified")
-    gm.add_argument("--providers", default="gemini,groq,nvidia",
-                    help="comma-separated; 'mock' runs offline")
+    gm.add_argument("--providers", default=None,
+                    help="comma-separated order, e.g. groq,gemini,nvidia; 'mock' runs offline "
+                         "(default: MINERLLM_PROVIDERS from .env, else gemini,groq,nvidia)")
     gm.add_argument("--batch-size", type=int, default=60)
     gm.add_argument("--seed", type=int, default=0)
     gm.add_argument("--depth", type=int)
