@@ -98,3 +98,7 @@ evaluation.
 | budgets | 10, 20, 30, 50, 100 % | same | same |
 
 → Continued in [Step 3 — Architecture](03-architecture.md).
+
+## Outcome
+
+Judged against these criteria in [Step 6](06-results.md#verdict-in-one-paragraph): **H1 rejected** (no dataset reaches 90 %; on average the LLM rankers trail the cardinality baseline) and **H2 not supported**.
