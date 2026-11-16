@@ -5,7 +5,8 @@
 Override with MINERLLM_PROVIDERS.)
 
 Per provider: up to ``max_retries`` retries on *retryable* errors (timeouts,
-429, 5xx) with exponential backoff. A non-retryable error (bad key, 400) moves
+429, 5xx) with exponential backoff; on HTTP 429 we wait as long as the provider
+asks ("try again in 12.3s" / Retry-After), capped at ``max_wait_s``. A non-retryable error (bad key, 400) moves
 straight to the next provider. If the caller passes ``validate``, an answer that
 fails validation also moves on to the next provider (a model that returns
 malformed output once usually does so again, so we don't retry it). If every provider fails, ``AllProvidersFailed``
@@ -33,12 +34,14 @@ class FallbackChain(LLMClient):
     name = "chain"
 
     def __init__(self, clients: list[LLMClient], max_retries: int = 2, backoff_s: float = 1.0,
-                 timeout_s: float = 60.0, cache: DiskCache | None = None):
+                 timeout_s: float = 60.0, cache: DiskCache | None = None,
+                 max_wait_s: float = 65.0):
         self.clients = [c for c in clients if c.available()]
         self.max_retries = max_retries
         self.backoff_s = backoff_s
         self.timeout_s = timeout_s
         self.cache = cache
+        self.max_wait_s = max_wait_s
         self.model = "+".join(f"{c.name}:{c.model}" for c in self.clients) or "none"
 
     def available(self) -> bool:
@@ -63,7 +66,11 @@ class FallbackChain(LLMClient):
                     if not e.retryable:
                         break
                     if attempt < self.max_retries:
-                        time.sleep(self.backoff_s * (2 ** attempt))
+                        wait = self.backoff_s * (2 ** attempt)
+                        if getattr(e, "retry_after", None):
+                            wait = max(wait, min(e.retry_after + 0.5, self.max_wait_s))
+                        attempts[-1]["waited_s"] = round(wait, 2)
+                        time.sleep(wait)
                     continue
                 if validate is not None and not validate(resp.text):
                     attempts.append({"provider": client.name, "attempt": attempt + 1,

@@ -13,6 +13,7 @@ level instead (GEMINI_THINKING_LEVEL = low | medium | high). The disk cache
 from __future__ import annotations
 
 import os
+import re
 import time
 
 import requests
@@ -26,12 +27,34 @@ DEFAULT_MODELS = {
 }
 
 
+_TRY_AGAIN = re.compile(r"try again in\s+(?:(\d+)m)?([\d.]+)(ms|s)", re.I)
+
+
+def retry_after_seconds(resp: requests.Response) -> float | None:
+    """How long a rate-limited provider asks us to wait: Retry-After header, or the
+    'Please try again in 12.3s' / '1m5.2s' / '450ms' text Groq puts in the body."""
+    hdr = resp.headers.get("retry-after") if hasattr(resp, "headers") else None
+    if hdr:
+        try:
+            return float(hdr)
+        except ValueError:
+            pass
+    m = _TRY_AGAIN.search(resp.text or "")
+    if not m:
+        return None
+    minutes, value, unit = m.groups()
+    secs = float(value) / (1000 if unit.lower() == "ms" else 1)
+    return secs + 60 * int(minutes or 0)
+
+
 def _raise_for(resp: requests.Response, provider: str) -> None:
     if resp.status_code == 200:
         return
     retryable = resp.status_code in (408, 409, 429) or resp.status_code >= 500
+    wait = retry_after_seconds(resp) if resp.status_code == 429 else None
     # never echo request headers (they hold the key); body is the provider's error text
-    raise LLMError(f"{provider} HTTP {resp.status_code}: {resp.text[:300]}", retryable=retryable)
+    raise LLMError(f"{provider} HTTP {resp.status_code}: {resp.text[:300]}", retryable=retryable,
+                   retry_after=wait)
 
 
 class GeminiClient(LLMClient):
@@ -106,13 +129,18 @@ class OpenAICompatibleClient(LLMClient):
         body = {"model": self.model, "messages": messages, "temperature": 0}
         if self.json_mode:
             body["response_format"] = {"type": "json_object"}
+        if "gpt-oss" in self.model:
+            # gpt-oss spends hidden reasoning tokens; low effort keeps them (and rate-limit use) down
+            body["reasoning_effort"] = os.environ.get(f"{self.name.upper()}_REASONING_EFFORT", "low")
         start = time.time()
         try:
             resp = requests.post(self.url, json=body, timeout=timeout,
                                  headers={"Authorization": f"Bearer {self._key}"})
         except requests.RequestException as e:
             raise LLMError(f"{self.name} network error: {type(e).__name__}") from None
-        if resp.status_code == 400 and self.json_mode and "response_format" in resp.text:
+        if resp.status_code == 400 and self.json_mode and (
+                "response_format" in resp.text or "validate JSON" in resp.text
+                or "json_validate_failed" in resp.text):
             # some hosted models reject JSON mode: retry once without it (validator still applies)
             body.pop("response_format", None)
             try:

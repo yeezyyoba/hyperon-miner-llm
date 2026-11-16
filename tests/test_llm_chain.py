@@ -172,3 +172,59 @@ def test_json_mode_rejected_retries_without_it(monkeypatch):
     assert resp.text == '{"scores": []}' and len(calls) == 2
     assert "response_format" in calls[0] and "response_format" not in calls[1]
     assert nvidia_client(api_key="k").model == "minimaxai/minimax-m3.1-flash"
+
+
+# ------------------------------------------------------------------ rate limits (Groq 429)
+
+class _R:
+    def __init__(self, code, text="", headers=None, payload=None):
+        self.status_code, self.text, self.headers, self._p = code, text, headers or {}, payload
+
+    def json(self):
+        return self._p
+
+
+@pytest.mark.parametrize("text,headers,expected", [
+    ('{"error":{"message":"Rate limit ... Please try again in 7.66s. Need more tokens?"}}', {}, 7.66),
+    ('{"error":{"message":"... Please try again in 1m5.5s"}}', {}, 65.5),
+    ('{"error":{"message":"... Please try again in 450ms"}}', {}, 0.45),
+    ("rate limited", {"retry-after": "12"}, 12.0),
+    ("rate limited", {}, None),
+])
+def test_retry_after_parsing(text, headers, expected):
+    from minerllm.llm.providers import retry_after_seconds
+    got = retry_after_seconds(_R(429, text, headers))
+    assert got == pytest.approx(expected) if expected is not None else got is None
+
+
+def test_chain_waits_as_long_as_the_provider_asks(monkeypatch):
+    from minerllm.llm.base import LLMError
+    slept = []
+    monkeypatch.setattr("minerllm.llm.chain.time.sleep", lambda s: slept.append(s))
+
+    class Limited(MockLLM):
+        def complete(self, prompt, system="", timeout=60.0):
+            self.calls += 1
+            if self.calls == 1:
+                raise LLMError("groq HTTP 429", retryable=True, retry_after=9.0)
+            return super().complete(prompt, system, timeout)
+
+    resp = FallbackChain([Limited("groq")], max_retries=2, backoff_s=1.0).complete(PROMPT)
+    assert resp.provider == "groq" and slept == [9.5]          # waited 9 s + margin, not 1 s
+    assert resp.attempts[0]["waited_s"] == 9.5
+
+
+def test_gpt_oss_gets_low_reasoning_effort_and_json_validation_retry(monkeypatch):
+    sent = []
+
+    def fake_post(url, json=None, timeout=None, headers=None):
+        sent.append(dict(json))
+        if len(sent) == 1:
+            return _R(400, '{"error":{"message":"Failed to validate JSON.","code":"json_validate_failed"}}')
+        return _R(200, payload={"choices": [{"message": {"content": '{"scores": []}'}}], "usage": {}})
+
+    monkeypatch.setattr("minerllm.llm.providers.requests.post", fake_post)
+    monkeypatch.delenv("GROQ_REASONING_EFFORT", raising=False)
+    resp = groq_client(api_key="k").complete("p")
+    assert sent[0]["reasoning_effort"] == "low" and sent[0]["model"] == "openai/gpt-oss-120b"
+    assert "response_format" not in sent[1] and resp.text == '{"scores": []}'

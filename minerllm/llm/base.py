@@ -7,9 +7,10 @@ from dataclasses import dataclass, field
 class LLMError(RuntimeError):
     """A provider failed (network, HTTP error, timeout, empty answer, rate limit)."""
 
-    def __init__(self, message: str, retryable: bool = True):
+    def __init__(self, message: str, retryable: bool = True, retry_after: float | None = None):
         super().__init__(message)
         self.retryable = retryable
+        self.retry_after = retry_after      # seconds the provider asked us to wait (HTTP 429)
 
 
 @dataclass
