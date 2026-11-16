@@ -355,7 +355,7 @@ def figures(summary: list[dict], rows: list[dict]) -> list[Path]:
         fig, axes = plt.subplots(1, len(ds_list), figsize=(5.2 * len(ds_list), 4.2), squeeze=False)
         for ax, ds in zip(axes[0], ds_list):
             for fam, col in colors.items():
-                pts = sorted((s["budget"], s["recall@10"], s["recall@10_sd"]) for s in summary
+                pts = sorted((s["budget"], s["recall@10"], s["recall@10_sd"], s["runs"]) for s in summary
                              if s["dataset"] == ds and s["family"] == fam
                              and s["recall@10"] is not None and s["budget"] < 1)
                 if not pts:
@@ -363,6 +363,11 @@ def figures(summary: list[dict], rows: list[dict]) -> list[Path]:
                 xs = [p[0] * 100 for p in pts]
                 ys = [p[1] * 100 for p in pts]
                 ax.plot(xs, ys, marker="o", color=col, label=names[fam], linewidth=2)
+                if fam.startswith("llm"):          # repeated LLM samples: show their spread
+                    for x, p in zip(xs, pts):
+                        if p[3] > 1 and p[2]:
+                            ax.errorbar(x, p[1] * 100, yerr=p[2] * 100, color=col, capsize=4,
+                                        linewidth=1.5)
                 if fam == "random":
                     lo = [(p[1] - (p[2] or 0)) * 100 for p in pts]
                     hi = [(p[1] + (p[2] or 0)) * 100 for p in pts]
@@ -373,9 +378,13 @@ def figures(summary: list[dict], rows: list[dict]) -> list[Path]:
             ax.set_xlabel("budget: % of unique candidates verified per level")
             ax.set_ylim(-3, 103)
             ax.grid(alpha=0.3)
-        axes[0][0].set_ylabel("recall@10 of the exhaustive miner's top patterns (%)")
-        axes[0][-1].legend(fontsize=8, loc="lower right")
-        fig.tight_layout()
+        axes[0][0].set_ylabel("recall@10 of the full miner's top patterns (%)")
+        handles, labels = axes[0][0].get_legend_handles_labels()
+        fig.legend(handles, labels, loc="lower center", ncol=5, fontsize=8, frameon=False)
+        fig.text(0.5, 0.075, "LLM points at 30 % = mean of 4 independent LLM samples, error bar = ± sd; "
+                 "other LLM points = 1 sample; random = mean ± sd of 5 seeds",
+                 ha="center", fontsize=7.5, color="#5f6368")
+        fig.tight_layout(rect=(0, 0.12, 1, 1))
         p = FIGURES / "recall_vs_budget.png"
         fig.savefig(p, dpi=150)
         plt.close(fig)
