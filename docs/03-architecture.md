@@ -13,7 +13,7 @@ flowchart LR
     B["bridge.py<br/>select() — the boundary"]
     R["rankers.py<br/>exhaustive · random · heuristic<br/>llm (joins) · llm-direct"]
     V["validator<br/>validate_scores()"]
-    C["llm/chain.py<br/>Gemini → Groq → NVIDIA"]
+    C["llm/chain.py<br/>Groq → NVIDIA → Gemini"]
     K[("llm/cache.py<br/>disk cache")]
     T[("trace.jsonl")]
   end
@@ -143,12 +143,12 @@ Consequences, all tested:
 
 ```mermaid
 flowchart TD
-  Q["batch prompt"] --> P1{"Gemini"}
+  Q["batch prompt"] --> P1{"Groq"}
   P1 -- "ok + valid" --> USE["use scores"]
   P1 -- "retryable error<br/>(timeout, 429, 5xx)" --> RT1["retry ≤ 2, backoff"] --> P1
-  P1 -- "fatal error / retries used /<br/>answer failed validation" --> P2{"Groq"}
+  P1 -- "fatal error / retries used /<br/>answer failed validation" --> P2{"NVIDIA"}
   P2 -- "ok + valid" --> USE
-  P2 -- "fails" --> P3{"NVIDIA"}
+  P2 -- "fails" --> P3{"Gemini"}
   P3 -- "ok + valid" --> USE
   P3 -- "fails" --> FB["heuristic order for this batch<br/>(logged: fallback=true, reason)"]
   USE --> SEL["select top budget"]
@@ -171,6 +171,6 @@ Recorded as ADRs in [docs/adr/](adr/):
 | [0003](adr/0003-llm-orders-never-decides.md) | The LLM only orders candidates; symbolic code decides truth |
 | [0004](adr/0004-join-level-scoring.md) | Score schema joins, not candidates (cost) |
 | [0005](adr/0005-dedupe-and-filter-order.md) | Deduplicate before counting; filter redundancy after counting |
-| [0006](adr/0006-fallback-chain-cache-mock.md) | Gemini → Groq → NVIDIA chain, disk cache, offline mock |
+| [0006](adr/0006-fallback-chain-cache-mock.md) | Groq → NVIDIA → Gemini chain, disk cache, offline mock |
 
 → Prototype details: [Step 4 — Prototype](04-prototype.md).

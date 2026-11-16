@@ -47,13 +47,19 @@ def test_all_providers_failing_raises_with_attempt_log():
     assert [a["provider"] for a in exc.value.attempts] == ["gemini", "gemini", "groq", "nvidia", "nvidia"]
 
 
-def test_cache_replays_without_calling_providers(tmp_path):
-    first = MockLLM("gemini")
-    chain = FallbackChain([first], cache=DiskCache(tmp_path))
-    a = chain.complete(PROMPT, "sys")
-    second = MockLLM("groq", fault="fatal")               # would fail if called
-    b = FallbackChain([second], cache=DiskCache(tmp_path)).complete(PROMPT, "sys")
-    assert b.cached and b.text == a.text and b.provider == "gemini" and second.calls == 0
+def test_cache_replays_same_configuration_without_calling_providers(tmp_path):
+    a = FallbackChain([MockLLM("gemini")], cache=DiskCache(tmp_path)).complete(PROMPT, "sys")
+    again = MockLLM("gemini", fault="fatal")              # same name/model -> same namespace
+    again.model = "mock-ok"
+    b = FallbackChain([again], cache=DiskCache(tmp_path)).complete(PROMPT, "sys")
+    assert b.cached and b.text == a.text and again.calls == 0
+
+
+def test_cache_never_mixes_providers(tmp_path):
+    FallbackChain([MockLLM("gemini")], cache=DiskCache(tmp_path)).complete(PROMPT, "sys")
+    groq = MockLLM("groq")
+    b = FallbackChain([groq], cache=DiskCache(tmp_path)).complete(PROMPT, "sys")
+    assert not b.cached and b.provider == "groq" and groq.calls == 1
 
 
 def test_unconfigured_providers_are_skipped(monkeypatch):

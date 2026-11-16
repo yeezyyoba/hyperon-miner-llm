@@ -1,4 +1,8 @@
-"""Provider fallback chain: Gemini → Groq → NVIDIA (the same order as AIRA).
+"""Provider fallback chain. Default order: Groq → NVIDIA → Gemini.
+
+(AIRA used Gemini first. Here Gemini 3.8 Flash was repeatedly overloaded, with
+180 s timeouts and 503 "high demand", while Groq answered in ~7 s, so Groq leads.
+Override with MINERLLM_PROVIDERS.)
 
 Per provider: up to ``max_retries`` retries on *retryable* errors (timeouts,
 429, 5xx) with exponential backoff. A non-retryable error (bad key, 400) moves
@@ -14,6 +18,9 @@ import time
 
 from .base import LLMClient, LLMError, LLMResponse
 from .cache import DiskCache
+
+
+DEFAULT_ORDER = ("groq", "nvidia", "gemini")
 
 
 class AllProvidersFailed(LLMError):
@@ -32,15 +39,16 @@ class FallbackChain(LLMClient):
         self.backoff_s = backoff_s
         self.timeout_s = timeout_s
         self.cache = cache
-        self.model = "+".join(c.name for c in self.clients) or "none"
+        self.model = "+".join(f"{c.name}:{c.model}" for c in self.clients) or "none"
 
     def available(self) -> bool:
         return bool(self.clients) or self.cache is not None
 
     def complete(self, prompt: str, system: str = "", timeout: float | None = None,
                  validate=None) -> LLMResponse:
+        ns = self.model                              # e.g. "groq+nvidia+gemini"
         if self.cache:
-            hit = self.cache.get(prompt, system)
+            hit = self.cache.get(prompt, system, ns)
             if hit and (validate is None or validate(hit.text)):
                 return hit
         attempts: list[dict] = []
@@ -66,7 +74,7 @@ class FallbackChain(LLMClient):
                                  "seconds": round(time.time() - start, 2)})
                 resp.attempts = attempts
                 if self.cache:
-                    self.cache.put(prompt, system, resp)
+                    self.cache.put(prompt, system, resp, ns)
                 return resp
         raise AllProvidersFailed(attempts)
 
@@ -86,7 +94,7 @@ def build_chain(providers: list[str] | None = None, cache_dir: str | None = None
     import os
     env_order = os.environ.get("MINERLLM_PROVIDERS", "")
     providers = providers or [p.strip() for p in env_order.split(",") if p.strip()] \
-        or ["gemini", "groq", "nvidia"]
+        or list(DEFAULT_ORDER)
     clients: list[LLMClient] = []
     for p in providers:
         if p == "gemini":
