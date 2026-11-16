@@ -4,9 +4,6 @@ The instructor said he'll look at: **what issues we found · what architecture a
 we chose · the prototype's quality (automation)**. The talk follows the six required steps
 and answers those three as it goes.
 
-> ⏳ Numbers marked **[LLM]** come from `make eval-llm` + `make report`
-> ([Step 6](06-results.md)). Fill them in once the LLM runs are done.
-
 ---
 
 ## 0. One-sentence pitch (30 s)
@@ -82,19 +79,29 @@ exhaustive miner (reference), random ×5 seeds, structural heuristic, cardinalit
   separately, not to the LLM.
 * At 30 %: random 28 %, structural **0 %** (degenerate), cardinality **67 %** recall@10.
 
-## 6. Results (2 min)  → [docs/06](06-results.md)
+## 6. Results (2.5 min)  → [docs/06](06-results.md)
 
-Show `results/figures/recall_vs_budget.png` and the verdict table.
+Show `results/figures/recall_vs_budget.png`, then the per-sample table.
 
-* **[LLM]** recall@10 at 30 %: Groq … / NVIDIA … vs cardinality 67 %
-* **[LLM]** planted patterns found: … / 3 (cardinality: 0/3)
-* **[LLM]** H1 verdict … · H2 verdict …
-* **[LLM]** cost: … tokens, $… per run; LLM time … s
-* Failures observed: Gemini overloaded (180 s timeouts, 503), Groq and NVIDIA retired
-  models during the project, NVIDIA lists retired models (hence `models --probe`)
+* **Verdict: the evidence does not support the hypothesis.** At 30 %, the mean recall@10
+  over 4 LLM samples was Groq 33 % / NVIDIA 48 % on the university graph, vs **cardinality
+  67 %** with no LLM. H1 is rejected everywhere; H2 is not supported.
+* **Unstable:** Groq gave 0–75 % on identical input (temperature 0). NVIDIA's 90 % on Galaxy
+  came with two 0 % samples.
+* **Why (from the traces):** the LLM mixes good joins with type errors (room = course,
+  professor = course); `isurp`'s saturated top-10 rewards frequency, which cardinality
+  targets directly. On the anonymised data, Groq's useful joins came from **reasoning about
+  the statistics** (it found all student = student joins), not from names.
+* **What held in all 135 runs:** 100 % precision, 0 oracle mismatches. *"A bad LLM cost us
+  recall, never correctness: that's the architecture working."*
+* **Cost:** 3 calls, ~10k tokens, **< $0.01 per dataset**; per-candidate scoring would need
+  ~150 calls (rate-limited out on Groq).
+* **Failures observed:** Gemini overloaded; 3 models retired mid-project; Groq's 8k tokens
+  per minute limit. All handled by the chain, logged, and fixed.
 
-*Say it plainly if the hypothesis is rejected:* the brief asks whether the evidence supports
-the hypothesis, not for it to be true.
+*Say it plainly:* "The brief asks whether the evidence supports the hypothesis. It doesn't,
+and we can show exactly why. The parts that worked, verifiability and the 3× LLM-free
+speed-up, are measured just as carefully."
 
 ---
 
@@ -117,6 +124,11 @@ controlled ablation, and Galaxy-400 is the real-data check.
 **What if the LLM is down during the demo?** That's step 4 of the demo: it falls back and
 completes.
 
-**What would you do next?** Upstream the patches (0001, 0002), fix the scorers' saturation,
-try 4-conjunct runs where the budget matters more, and combine the LLM's join scores with
-the cardinality estimate (surprise = actual / estimated).
+**So was the LLM a failure?** As a ranker, here, yes, and the evaluation is designed to say
+so. But it showed where an LLM could help: type reasoning (it found the student = student
+joins without names), and the planted patterns that statistics rank low (Groq found 3/3 in
+two samples, cardinality 0/3).
+
+**What would you do next?** Use the LLM as a *filter* on the cardinality order (demote
+type-incompatible joins) instead of replacing it; combine several samples (self-consistency);
+test at 4 conjuncts and on larger real graphs; send patches 0001 and 0002 upstream.
