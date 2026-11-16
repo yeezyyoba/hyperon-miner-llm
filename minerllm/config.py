@@ -65,7 +65,7 @@ class RankerConfig:
     strategy: str = "exhaustive"          # exhaustive | random | heuristic | llm | llm-direct
     budget: float = 1.0                   # fraction of unique candidates verified per level
     seed: int = 0
-    providers: list | None = None          # None -> MINERLLM_PROVIDERS env, else gemini,groq,nvidia
+    providers: list | None = None          # None -> MINERLLM_PROVIDERS env, else groq,nvidia,gemini
     batch_size: int = 60
     max_retries: int = 2
     timeout_s: float = 180.0
@@ -74,7 +74,7 @@ class RankerConfig:
     min_select: int = 1
 
     def __post_init__(self):
-        if self.strategy not in {"exhaustive", "random", "heuristic", "llm", "llm-direct"}:
+        if self.strategy not in {"exhaustive", "random", "heuristic", "cardinality", "llm", "llm-direct"}:
             raise ValueError(f"unknown strategy {self.strategy!r}")
         if not 0 < self.budget <= 1:
             raise ValueError("budget must be in (0, 1]")

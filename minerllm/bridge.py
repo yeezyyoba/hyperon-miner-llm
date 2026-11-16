@@ -27,7 +27,7 @@ from pathlib import Path
 
 from .datasets import load_atoms, stats
 from .patterns import canonical
-from .rankers import Candidate, heuristic_order, make_ranker
+from .rankers import Candidate, cardinality_order, make_ranker
 
 
 class _Session:
@@ -96,14 +96,14 @@ def select(reprs, level) -> list[int]:
         _S.log("select", level=level, generated=len(reprs), unique=0, selected=0)
         return []
 
-    # 2. rank (any failure inside the ranker degrades to the heuristic; mining goes on)
+    # 2. rank (any failure inside the ranker degrades to the cardinality order; mining goes on)
     try:
         res = _S.ranker.rank(cands, _S.stats, level)
         order, meta = res.order, res
         if sorted(order) != list(range(len(cands))):      # ranker must return a permutation
             raise ValueError("ranker did not return a permutation")
     except Exception as e:                                # noqa: BLE001 - deliberate safety net
-        order, meta = heuristic_order(cands), None
+        order, meta = cardinality_order(cands, _S.stats), None
         _S.log("ranker_error", level=level, error=f"{type(e).__name__}: {e}",
                trace=traceback.format_exc(limit=3))
 

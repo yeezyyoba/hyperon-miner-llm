@@ -12,12 +12,14 @@ Strategies (same interface, so the evaluation compares like with like):
     exhaustive  identity order (with budget 1.0, reproduces the upstream miner)
     random      seeded shuffle (the "no information" baseline)
     heuristic   schema-only structural score (the "cheap, no LLM" baseline)
+    cardinality schema-statistics baseline: estimated support under independence, most
+                likely frequent first (the strong "cheap, no LLM" baseline)
     llm         the LLM scores JOINS between relation arguments (schema-level, a few
                 calls per dataset, cached); candidates are scored from their joins
     llm-direct  the LLM scores every candidate pattern (many calls; kept to compare
                 cost vs. quality against `llm`)
 
-LLM answers are validated; invalid batches fall back to the heuristic.
+LLM answers are validated. Ties and invalid batches fall back to the cardinality order.
 """
 from __future__ import annotations
 
@@ -73,6 +75,44 @@ def heuristic_score(pattern: str) -> float:
 
 def heuristic_order(cands: list[Candidate]) -> list[int]:
     return [c.idx for c in sorted(cands, key=lambda c: (-heuristic_score(c.pattern), c.pattern))]
+
+
+def estimated_support(pattern: str, stats: DatasetStats) -> float:
+    """Expected support if every relation were independent (textbook join-size estimate).
+
+    Uses only the schema statistics an LLM is also shown: atoms per relation and distinct
+    values per argument. Each clause contributes its relation's size; each extra
+    occurrence of a join variable divides by the largest distinct count among its slots;
+    each constant divides by its slot's distinct count.
+    """
+    from .patterns import clauses
+    est = 1.0
+    slots_of: dict = {}
+    for c in clauses(parse(pattern)):
+        if not isinstance(c, tuple) or not c:
+            continue
+        head = str(c[0])
+        est *= max(1, stats.relations.get(head, 1))
+        distinct = stats.distinct_args.get(head, [])
+        for pos, arg in enumerate(c[1:]):
+            d = distinct[pos] if pos < len(distinct) else 1
+            vs = variables(arg)
+            if not vs:
+                est /= max(1, d)                    # constant: one of d values
+            for v in vs:
+                slots_of.setdefault(v, []).append(d)
+    for ds in slots_of.values():
+        for _ in range(len(ds) - 1):
+            est /= max(1, max(ds))
+    return est
+
+
+def cardinality_order(cands: list[Candidate], stats: DatasetStats | None) -> list[int]:
+    """Most-likely-frequent first; falls back to the structural heuristic without stats."""
+    if stats is None:
+        return heuristic_order(cands)
+    return [c.idx for c in sorted(cands, key=lambda c: (-estimated_support(c.pattern, stats),
+                                                         -heuristic_score(c.pattern), c.pattern))]
 
 
 # ---------------------------------------------------------------------- validator
@@ -338,6 +378,15 @@ class HeuristicRanker(Ranker):
         return RankResult(heuristic_order(cands), self.strategy)
 
 
+class CardinalityRanker(Ranker):
+    """Schema-statistics baseline: verify the candidates most likely to be frequent first."""
+
+    strategy = "cardinality"
+
+    def rank(self, cands, stats=None, level=0):
+        return RankResult(cardinality_order(cands, stats), self.strategy)
+
+
 class LLMRanker(Ranker):
     """llm-direct: scores every candidate in batches with an LLM client (usually a FallbackChain)."""
 
@@ -371,10 +420,13 @@ class LLMRanker(Ranker):
                     llm_score[bt[lid].idx] = sc
             result.batches.append(record)
 
-        # scored candidates first (by LLM score), then unscored ones; heuristic breaks ties
+        # scored candidates first (by LLM score), then unscored ones; ties and unscored
+        # candidates follow the cardinality baseline (so failures degrade to it)
+        base = {idx: r for r, idx in enumerate(cardinality_order(cands, stats))}
+
         def key(c: Candidate):
             sc = llm_score.get(c.idx)
-            return (0 if sc is not None else 1, -(sc or 0), -heuristic_score(c.pattern), c.pattern)
+            return (0 if sc is not None else 1, -(sc or 0), base[c.idx])
 
         result.order = [c.idx for c in sorted(cands, key=key)]
         return result
@@ -431,10 +483,13 @@ class LLMJoinRanker(Ranker):
                 raise ValueError("join-level ranking needs dataset statistics")
             self._score_joins(stats, result)          # first level only; reused afterwards
         scored = {c.idx: self.candidate_score(c.pattern) for c in cands}
+        base = {idx: r for r, idx in enumerate(cardinality_order(cands, stats))}
 
+        # LLM join score first; ties (common: many candidates share a mean) and unscored
+        # candidates follow the cardinality baseline, so the LLM's effect is measured on top of it
         def key(c: Candidate):
             s = scored[c.idx]
-            return (0 if s is not None else 1, -(s or 0), -heuristic_score(c.pattern), c.pattern)
+            return (0 if s is not None else 1, -(s or 0), base[c.idx])
 
         result.order = [c.idx for c in sorted(cands, key=key)]
         return result
@@ -448,6 +503,8 @@ def make_ranker(strategy: str, seed: int = 0, client=None, batch_size: int = 60,
         return RandomRanker(seed)
     if strategy == "heuristic":
         return HeuristicRanker()
+    if strategy == "cardinality":
+        return CardinalityRanker()
     if strategy in ("llm", "llm-direct"):
         if client is None:
             raise ValueError(f"{strategy} strategy needs an LLM client")

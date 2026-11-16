@@ -160,10 +160,11 @@ def test_join_ranker_orders_by_mean_join_score():
     assert r.candidate_score(CANDS[1].pattern) is None      # no known joins -> after scored ones
 
 
-def test_join_ranker_outage_falls_back_to_heuristic():
+def test_join_ranker_outage_falls_back_to_cardinality():
+    from minerllm.rankers import cardinality_order
     chain = FallbackChain([MockLLM("gemini", fault="fatal")], max_retries=0)
     r = LLMJoinRanker(chain).rank(CANDS, STATS)
-    assert r.order == heuristic_order(CANDS)
+    assert r.order == cardinality_order(CANDS, STATS)
     assert r.fallback_batches == len(r.batches) == 3
 
 
@@ -220,3 +221,18 @@ def test_timeout_is_passed_to_the_client():
 
     LLMJoinRanker(Spy("gemini"), timeout_s=180, workers=1).rank(CANDS, STATS)
     assert got and set(got) == {180}
+
+
+
+def test_estimated_support_is_the_independence_join_estimate():
+    from minerllm.rankers import estimated_support
+    # 60 MAJORS_IN atoms, 4 departments: |R|*|R| / d = 60*60/4 = 900
+    assert estimated_support("(, (MAJORS_IN $a $d) (MAJORS_IN $b $d))", STATS) == 900
+    # a constant divides by the slot's distinct count: 60 / 4 = 15
+    assert estimated_support("(MAJORS_IN $a dept_0)", STATS) == 15
+
+
+def test_cardinality_ranker_puts_likely_frequent_first():
+    order = make_ranker("cardinality").rank(CANDS, STATS).order
+    assert sorted(order) == list(range(len(CANDS)))
+    assert order[0] == 1               # three unlinked USES clauses: huge expected support
