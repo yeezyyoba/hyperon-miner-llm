@@ -100,8 +100,20 @@
          (guided-levels $db $next $singles $minsup $k (+ $level 1)))))
 
 ;; Emit one final pattern through upstream's scoring dispatcher.
+;; isurp / isurp-old: call upstream's scoring function directly and store with a plain
+;; add-atom. Upstream's do-surp stores with add-atom-nodup, whose duplicate check is
+;; a two-way `match`: a new pattern that UNIFIES with a stored one (variables bind
+;; to constants) and has the SAME score is silently dropped. Scores tie a lot, so a
+;; full university run loses 269 of 641 patterns (docs/01-problem.md, Issue 7).
+;; Our candidates are already deduplicated in Python, so plain add-atom is safe.
+;; Other modes (jsd, IIsurp, none) still go through upstream's dispatcher.
 (= (guided-emit $kb $db ($cand $sup) $surp-mode $normalization $db-ratio)
-   (call-surprisingness $kb $db (supportOf (guided-flat $cand) $sup) $surp-mode $normalization $db-ratio))
+   (let $p (guided-flat $cand)
+     (if (== $surp-mode isurp)
+         (let $s (isurp $p $db $normalization $db-ratio) (add-atom $kb (surprisingnessOf $p $s)))
+         (if (== $surp-mode isurp-old)
+             (let $s (isurp-old $p $db $normalization) (add-atom $kb (surprisingnessOf $p $s)))
+             (call-surprisingness $kb $db (supportOf $p $sup) $surp-mode $normalization $db-ratio)))))
 
 ;; -----------------------------------------------------------------------------
 ;; guided-pattern-miner — same contract as upstream pattern-miner, plus the path
