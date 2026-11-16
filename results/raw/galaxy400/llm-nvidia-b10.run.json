@@ -1,0 +1,16 @@
+{
+  "strategy": "llm",
+  "budget": 0.1,
+  "seed": 0,
+  "providers": [
+    "nvidia"
+  ],
+  "batch_size": 60,
+  "max_retries": 2,
+  "timeout_s": 180.0,
+  "workers": 4,
+  "cache_dir": "/Users/eyobnebyou/Documents/hyperon-miner-llm/.cache/llm",
+  "min_select": 1,
+  "trace_path": "/Users/eyobnebyou/Documents/hyperon-miner-llm/results/raw/galaxy400/llm-nvidia-b10.trace.jsonl",
+  "dataset": "/Users/eyobnebyou/Documents/hyperon-miner-llm/experiments/data/galaxy_400.metta"
+}

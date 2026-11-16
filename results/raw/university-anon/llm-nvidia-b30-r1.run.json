@@ -1,0 +1,16 @@
+{
+  "strategy": "llm",
+  "budget": 0.3,
+  "seed": 1,
+  "providers": [
+    "nvidia"
+  ],
+  "batch_size": 60,
+  "max_retries": 2,
+  "timeout_s": 180.0,
+  "workers": 4,
+  "cache_dir": null,
+  "min_select": 1,
+  "trace_path": "/Users/eyobnebyou/Documents/hyperon-miner-llm/results/raw/university-anon/llm-nvidia-b30-r1.trace.jsonl",
+  "dataset": "/Users/eyobnebyou/Documents/hyperon-miner-llm/experiments/data/university_s0_st80_anon.metta"
+}

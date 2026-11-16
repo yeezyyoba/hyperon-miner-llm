@@ -1,0 +1,394 @@
+{
+  "label": "llm-nvidia-b30-r1",
+  "config": {
+    "dataset": "experiments/data/galaxy_400",
+    "minsup": 5,
+    "depth": 1,
+    "surp_mode": "isurp",
+    "normalize": true,
+    "db_ratio": 0.5,
+    "timeout": 1800,
+    "extra": {}
+  },
+  "ok": true,
+  "returncode": 0,
+  "timed_out": false,
+  "seconds": 47.363,
+  "n_patterns": 55,
+  "patterns": [
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL $v3 $v1))",
+      "raw": "(surprisingnessOf (, (STEP_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_1) (HAS_TOOL $_3 $_1)) 0.8606666666666667)",
+      "support": 45,
+      "surprisingness": 0.8606666666666667
+    },
+    {
+      "pattern": "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (STEP_USES_TOOL $v1 $v0) (WORKFLOW_USES_TOOL $v2 $v0))",
+      "raw": "(surprisingnessOf (, (HAS_TOOL vgp_assembly_v2_7fb545de $_0) (WORKFLOW_USES_TOOL $_1 $_0) (STEP_USES_TOOL $_2 $_0)) 0.8801704545454545)",
+      "support": 44,
+      "surprisingness": 0.8801704545454545
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $v1))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $_0) (STEP_USES_TOOL $_1 $_0) (HAS_TOOL $_2 $_0)) 0.9083333333333333)",
+      "support": 6,
+      "surprisingness": 0.9083333333333333
+    },
+    {
+      "pattern": "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (STEP_USES_TOOL $v1 $v0) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $v0))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $_0) (STEP_USES_TOOL $_1 $_0) (HAS_TOOL vgp_assembly_v2_7fb545de $_0)) 0.9229166666666666)",
+      "support": 6,
+      "surprisingness": 0.9229166666666666
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v0 $v2) (WORKFLOW_USES_TOOL $v3 $v0))",
+      "raw": "(surprisingnessOf (, (TOOL_HAS_OUTPUT $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_0) (TOOL_HAS_OUTPUT $_0 $_3)) 0.6225675675675676)",
+      "support": 37,
+      "surprisingness": 0.6225675675675676
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL $v3 $v1))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_1) (HAS_TOOL $_3 $_1)) 0.8054411764705882)",
+      "support": 51,
+      "surprisingness": 0.8054411764705882
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v2 $v1) (STEP_USES_TOOL $v3 $v1))",
+      "raw": "(surprisingnessOf (, (HAS_TOOL $_0 $_1) (STEP_USES_TOOL $_2 $_1) (HAS_TOOL $_3 $_1)) 0.9277663934426229)",
+      "support": 122,
+      "surprisingness": 0.9277663934426229
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL $v3 $v1))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_1) (STEP_USES_TOOL $_3 $_1)) 0.846491935483871)",
+      "support": 62,
+      "surprisingness": 0.846491935483871
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v0) (WORKFLOW_USES_TOOL $v3 $v0))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_1) (TOOL_HAS_OUTPUT $_1 $_3)) 0.644390243902439)",
+      "support": 41,
+      "surprisingness": 0.644390243902439
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v2 $v1) (WORKFLOW_USES_TOOL $v3 $v1))",
+      "raw": "(surprisingnessOf (, (HAS_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_1) (HAS_TOOL $_3 $_1)) 0.7818877551020409)",
+      "support": 49,
+      "surprisingness": 0.7818877551020409
+    },
+    {
+      "pattern": "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (WORKFLOW_USES_TOOL $v1 $v0) (WORKFLOW_USES_TOOL $v2 $v0))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_1) (HAS_TOOL vgp_assembly_v2_7fb545de $_1)) 0.905813953488372)",
+      "support": 43,
+      "surprisingness": 0.905813953488372
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL vgp_assembly_v2_7fb545de $v1) (STEP_USES_TOOL $v2 $v1))",
+      "raw": "(surprisingnessOf (, (HAS_TOOL vgp_assembly_v2_7fb545de $_0) (STEP_USES_TOOL $_1 $_0) (HAS_TOOL $_2 $_0)) 0.9534234234234235)",
+      "support": 111,
+      "surprisingness": 0.9534234234234235
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL vgp_assembly_v2_7fb545de $v1) (WORKFLOW_USES_TOOL $v2 $v1))",
+      "raw": "(surprisingnessOf (, (HAS_TOOL vgp_assembly_v2_7fb545de $_0) (WORKFLOW_USES_TOOL $_1 $_0) (HAS_TOOL $_2 $_0)) 0.8541860465116279)",
+      "support": 43,
+      "surprisingness": 0.8541860465116279
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v0 $v2) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $v0))",
+      "raw": "(surprisingnessOf (, (TOOL_HAS_OUTPUT $_0 $_1) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $_0) (TOOL_HAS_OUTPUT $_0 $_2)) 0.825)",
+      "support": 7,
+      "surprisingness": 0.825
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $v1))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $_0) (WORKFLOW_USES_TOOL $_1 $_0) (HAS_TOOL $_2 $_0)) 0.804)",
+      "support": 5,
+      "surprisingness": 0.804
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $v1))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $_0) (WORKFLOW_USES_TOOL $_1 $_0) (STEP_USES_TOOL $_2 $_0)) 0.8433333333333333)",
+      "support": 6,
+      "surprisingness": 0.8433333333333333
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v0) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $v0))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $_0) (WORKFLOW_USES_TOOL $_1 $_0) (TOOL_HAS_OUTPUT $_0 $_2)) 0.8400000000000001)",
+      "support": 9,
+      "surprisingness": 0.8400000000000001
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v2 $v1) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $v1))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $_0) (HAS_TOOL $_1 $_0) (HAS_TOOL $_2 $_0)) 0.8125)",
+      "support": 5,
+      "surprisingness": 0.8125
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v0) (WORKFLOW_USES_TOOL $v2 $v3))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_0 $_2) (TOOL_HAS_OUTPUT $_2 $_3)) 0.6590909090909092)",
+      "support": 66,
+      "surprisingness": 0.6590909090909092
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v2 $v1) (WORKFLOW_USES_TOOL $v3 $v0))",
+      "raw": "(surprisingnessOf (, (TOOL_HAS_OUTPUT $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_3) (TOOL_HAS_OUTPUT $_3 $_1)) 0.6000000000000001)",
+      "support": 57,
+      "surprisingness": 0.6000000000000001
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL $v2 $v3))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_0 $_2) (HAS_TOOL $_3 $_2)) 0.7902397260273972)",
+      "support": 73,
+      "surprisingness": 0.7902397260273972
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL $v2 $v3))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_0 $_2) (STEP_USES_TOOL $_3 $_2)) 0.7988013698630138)",
+      "support": 73,
+      "surprisingness": 0.7988013698630138
+    },
+    {
+      "pattern": "(, (TOOL_HAS_INPUT $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v0) (WORKFLOW_USES_TOOL $v2 $v3))",
+      "raw": "(surprisingnessOf (, (TOOL_HAS_INPUT $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_0) (WORKFLOW_USES_TOOL $_2 $_3)) 0.45312499999999994)",
+      "support": 8,
+      "surprisingness": 0.45312499999999994
+    },
+    {
+      "pattern": "(, (HAS_TOOL epigenetics_132f58ce $v0) (WORKFLOW_USES_TOOL $v1 $v0) (WORKFLOW_USES_TOOL $v1 $v2))",
+      "raw": "(surprisingnessOf (, (HAS_TOOL epigenetics_132f58ce $_0) (WORKFLOW_USES_TOOL $_1 $_0) (WORKFLOW_USES_TOOL $_1 $_2)) 0.8046874999999999)",
+      "support": 8,
+      "surprisingness": 0.8046874999999999
+    },
+    {
+      "pattern": "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (WORKFLOW_USES_TOOL $v1 $v0) (WORKFLOW_USES_TOOL $v1 $v2))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_0 $_2) (HAS_TOOL vgp_assembly_v2_7fb545de $_2)) 0.8863636363636364)",
+      "support": 55,
+      "surprisingness": 0.8863636363636364
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v2 $v1) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $v0))",
+      "raw": "(surprisingnessOf (, (TOOL_HAS_OUTPUT $_0 $_1) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $_2) (TOOL_HAS_OUTPUT $_2 $_1)) 0.6666666666666666)",
+      "support": 6,
+      "surprisingness": 0.6666666666666666
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 out_file1_32a3e2ea) (WORKFLOW_USES_TOOL $v1 $v0) (WORKFLOW_USES_TOOL $v1 $v2))",
+      "raw": "(surprisingnessOf (, (TOOL_HAS_OUTPUT $_0 out_file1_32a3e2ea) (WORKFLOW_USES_TOOL $_1 $_0) (WORKFLOW_USES_TOOL $_1 $_2)) 0.6875)",
+      "support": 5,
+      "surprisingness": 0.6875
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 output_78e6221f) (WORKFLOW_USES_TOOL $v1 $v0) (WORKFLOW_USES_TOOL $v1 $v2))",
+      "raw": "(surprisingnessOf (, (TOOL_HAS_OUTPUT $_0 output_78e6221f) (WORKFLOW_USES_TOOL $_1 $_0) (WORKFLOW_USES_TOOL $_1 $_2)) 0.6875)",
+      "support": 5,
+      "surprisingness": 0.6875
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (STEP_USES_TOOL $v3 $v1))",
+      "raw": "(surprisingnessOf (, (STEP_USES_TOOL $_0 $_1) (STEP_USES_TOOL $_2 $_1) (HAS_TOOL $_3 $_1)) 0.93109375)",
+      "support": 144,
+      "surprisingness": 0.93109375
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL $v3 $v1))",
+      "raw": "(surprisingnessOf (, (STEP_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_1) (STEP_USES_TOOL $_3 $_1)) 0.8302573529411764)",
+      "support": 68,
+      "surprisingness": 0.8302573529411764
+    },
+    {
+      "pattern": "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (STEP_USES_TOOL $v1 $v0) (STEP_USES_TOOL $v2 $v0))",
+      "raw": "(surprisingnessOf (, (STEP_USES_TOOL $_0 $_1) (STEP_USES_TOOL $_2 $_1) (HAS_TOOL vgp_assembly_v2_7fb545de $_1)) 0.9677962962962962)",
+      "support": 135,
+      "surprisingness": 0.9677962962962962
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $v1))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $_0) (STEP_USES_TOOL $_1 $_0) (STEP_USES_TOOL $_2 $_0)) 0.8875000000000001)",
+      "support": 9,
+      "surprisingness": 0.8875000000000001
+    },
+    {
+      "pattern": "(, (WORKFLOW_USES_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v0 $v2) (WORKFLOW_USES_TOOL $v0 $v3))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_0 $_2) (WORKFLOW_USES_TOOL $_0 $_3)) 0.46364046973803086)",
+      "support": 369,
+      "surprisingness": 0.46364046973803086
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v2 $v1) (TOOL_HAS_OUTPUT $v3 $v1))",
+      "raw": "(surprisingnessOf (, (TOOL_HAS_OUTPUT $_0 $_1) (TOOL_HAS_OUTPUT $_2 $_1) (TOOL_HAS_OUTPUT $_3 $_1)) 0.6232339089481947)",
+      "support": 588,
+      "surprisingness": 0.6232339089481947
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v0 $v2) (TOOL_HAS_OUTPUT $v0 $v3))",
+      "raw": "(surprisingnessOf (, (TOOL_HAS_OUTPUT $_0 $_1) (TOOL_HAS_OUTPUT $_0 $_2) (TOOL_HAS_OUTPUT $_0 $_3)) 0.24615384615384614)",
+      "support": 156,
+      "surprisingness": 0.24615384615384614
+    },
+    {
+      "pattern": "(, (WORKFLOW_USES_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL $v3 $v1))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_1) (WORKFLOW_USES_TOOL $_3 $_1)) 0.37132352941176483)",
+      "support": 153,
+      "surprisingness": 0.37132352941176483
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v2 $v1) (HAS_TOOL $v3 $v1))",
+      "raw": "(surprisingnessOf (, (HAS_TOOL $_0 $_1) (HAS_TOOL $_2 $_1) (HAS_TOOL $_3 $_1)) 0.4500972617088134)",
+      "support": 163,
+      "surprisingness": 0.4500972617088134
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (STEP_USES_TOOL $v2 $v3))",
+      "raw": "(surprisingnessOf (, (STEP_USES_TOOL $_0 $_1) (STEP_USES_TOOL $_0 $_2) (HAS_TOOL $_3 $_2)) 0.8691477272727273)",
+      "support": 44,
+      "surprisingness": 0.8691477272727273
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (STEP_USES_TOOL $v0 $v2) (WORKFLOW_USES_TOOL $v3 $v1))",
+      "raw": "(surprisingnessOf (, (STEP_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_3) (STEP_USES_TOOL $_0 $_3)) 0.7608035714285715)",
+      "support": 28,
+      "surprisingness": 0.7608035714285715
+    },
+    {
+      "pattern": "(, (TOOL_HAS_INPUT $v0 $v1) (TOOL_HAS_INPUT $v2 $v1) (TOOL_HAS_INPUT $v3 $v1))",
+      "raw": "(surprisingnessOf (, (TOOL_HAS_INPUT $_0 $_1) (TOOL_HAS_INPUT $_2 $_1) (TOOL_HAS_INPUT $_3 $_1)) 0.1923076923076923)",
+      "support": 26,
+      "surprisingness": 0.1923076923076923
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v2 $v1) (HAS_TOOL epigenetics_132f58ce $v1))",
+      "raw": "(surprisingnessOf (, (HAS_TOOL epigenetics_132f58ce $_0) (HAS_TOOL $_1 $_0) (HAS_TOOL $_2 $_0)) 0.0)",
+      "support": 5,
+      "surprisingness": 0.0
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v2 $v1) (HAS_TOOL vgp_assembly_v2_7fb545de $v1))",
+      "raw": "(surprisingnessOf (, (HAS_TOOL vgp_assembly_v2_7fb545de $_0) (HAS_TOOL $_1 $_0) (HAS_TOOL $_2 $_0)) 0.7096399535423925)",
+      "support": 126,
+      "surprisingness": 0.7096399535423925
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v2 $v1) (HAS_TOOL virology_b765de61 $v1))",
+      "raw": "(surprisingnessOf (, (HAS_TOOL virology_b765de61 $_0) (HAS_TOOL $_1 $_0) (HAS_TOOL $_2 $_0)) 0.0)",
+      "support": 7,
+      "surprisingness": 0.0
+    },
+    {
+      "pattern": "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (STEP_USES_TOOL $v1 $v0) (STEP_USES_TOOL $v1 $v2))",
+      "raw": "(surprisingnessOf (, (STEP_USES_TOOL $_0 $_1) (STEP_USES_TOOL $_0 $_2) (HAS_TOOL vgp_assembly_v2_7fb545de $_2)) 0.8825000000000001)",
+      "support": 37,
+      "surprisingness": 0.8825000000000001
+    },
+    {
+      "pattern": "(, (WORKFLOW_USES_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $v1))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $_0) (WORKFLOW_USES_TOOL $_1 $_0) (WORKFLOW_USES_TOOL $_2 $_0)) 0.39732142857142866)",
+      "support": 14,
+      "surprisingness": 0.39732142857142866
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v0 $v2) (TOOL_HAS_OUTPUT $v0 out_file1_32a3e2ea))",
+      "raw": "(surprisingnessOf (, (TOOL_HAS_OUTPUT $_0 out_file1_32a3e2ea) (TOOL_HAS_OUTPUT $_0 $_1) (TOOL_HAS_OUTPUT $_0 $_2)) 0.0)",
+      "support": 5,
+      "surprisingness": 0.0
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v0 $v2) (TOOL_HAS_OUTPUT $v0 outfile_6279b3fa))",
+      "raw": "(surprisingnessOf (, (TOOL_HAS_OUTPUT $_0 outfile_6279b3fa) (TOOL_HAS_OUTPUT $_0 $_1) (TOOL_HAS_OUTPUT $_0 $_2)) 0.1833333333333334)",
+      "support": 12,
+      "surprisingness": 0.1833333333333334
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v0 $v2) (TOOL_HAS_OUTPUT $v0 output_78e6221f))",
+      "raw": "(surprisingnessOf (, (TOOL_HAS_OUTPUT $_0 output_78e6221f) (TOOL_HAS_OUTPUT $_0 $_1) (TOOL_HAS_OUTPUT $_0 $_2)) 0.41666666666666674)",
+      "support": 14,
+      "surprisingness": 0.41666666666666674
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (STEP_USES_TOOL $v2 toolshed_g2_bx_psu_edu_repos_iuc_compose_text_param_compose_text_param_0_b8f7250f))",
+      "raw": "(surprisingnessOf (, (STEP_USES_TOOL $_0 toolshed_g2_bx_psu_edu_repos_iuc_compose_text_param_compose_text_param_0_b8f7250f) (STEP_USES_TOOL $_0 $_1) (HAS_TOOL $_2 $_1)) 0.969375)",
+      "support": 20,
+      "surprisingness": 0.969375
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (STEP_USES_TOOL $v0 toolshed_g2_bx_psu_edu_repos_iuc_compose_text_param_compose_text_param_0_b8f7250f) (WORKFLOW_USES_TOOL $v2 $v1))",
+      "raw": "(surprisingnessOf (, (STEP_USES_TOOL $_0 toolshed_g2_bx_psu_edu_repos_iuc_compose_text_param_compose_text_param_0_b8f7250f) (WORKFLOW_USES_TOOL $_1 $_2) (STEP_USES_TOOL $_0 $_2)) 0.8575000000000002)",
+      "support": 5,
+      "surprisingness": 0.8575000000000002
+    },
+    {
+      "pattern": "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (STEP_USES_TOOL $v1 $v0) (STEP_USES_TOOL $v1 toolshed_g2_bx_psu_edu_repos_iuc_compose_text_param_compose_text_param_0_b8f7250f))",
+      "raw": "(surprisingnessOf (, (STEP_USES_TOOL $_0 toolshed_g2_bx_psu_edu_repos_iuc_compose_text_param_compose_text_param_0_b8f7250f) (STEP_USES_TOOL $_0 $_1) (HAS_TOOL vgp_assembly_v2_7fb545de $_1)) 0.9768749999999999)",
+      "support": 20,
+      "surprisingness": 0.9768749999999999
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (STEP_USES_TOOL $v3 $v1))",
+      "raw": "(surprisingnessOf (, (STEP_USES_TOOL $_0 $_1) (STEP_USES_TOOL $_2 $_1) (STEP_USES_TOOL $_3 $_1)) 0.5214330609679447)",
+      "support": 215,
+      "surprisingness": 0.5214330609679447
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (STEP_USES_TOOL $v0 $v2) (STEP_USES_TOOL $v0 $v3))",
+      "raw": "(surprisingnessOf (, (STEP_USES_TOOL $_0 $_1) (STEP_USES_TOOL $_0 $_2) (STEP_USES_TOOL $_0 $_3)) 0.0)",
+      "support": 47,
+      "surprisingness": 0.0
+    },
+    {
+      "pattern": "(, (TOOL_HAS_INPUT $v0 $v1) (TOOL_HAS_INPUT $v0 $v2) (TOOL_HAS_INPUT $v0 $v3))",
+      "raw": "(surprisingnessOf (, (TOOL_HAS_INPUT $_0 $_1) (TOOL_HAS_INPUT $_0 $_2) (TOOL_HAS_INPUT $_0 $_3)) 0.13846153846153839)",
+      "support": 20,
+      "surprisingness": 0.13846153846153839
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (STEP_USES_TOOL $v0 $v2) (STEP_USES_TOOL $v0 toolshed_g2_bx_psu_edu_repos_iuc_compose_text_param_compose_text_param_0_b8f7250f))",
+      "raw": "(surprisingnessOf (, (STEP_USES_TOOL $_0 toolshed_g2_bx_psu_edu_repos_iuc_compose_text_param_compose_text_param_0_b8f7250f) (STEP_USES_TOOL $_0 $_1) (STEP_USES_TOOL $_0 $_2)) 0.0)",
+      "support": 5,
+      "surprisingness": 0.0
+    }
+  ],
+  "verification": {
+    "checked": 0,
+    "ok": true,
+    "mismatches": []
+  },
+  "ranker": {
+    "strategy": "llm",
+    "budget": 0.3,
+    "seed": 1,
+    "providers": [
+      "nvidia"
+    ],
+    "batch_size": 60,
+    "max_retries": 2,
+    "timeout_s": 180.0,
+    "workers": 4,
+    "cache_dir": null,
+    "min_select": 1
+  },
+  "trace_summary": {
+    "t": 45.606,
+    "event": "finish",
+    "wall_seconds": 45.606,
+    "generated": 7220,
+    "unique": 3933,
+    "selected": 1181,
+    "kept": 55,
+    "llm_seconds": 42.138,
+    "verify_seconds": 0.971,
+    "input_tokens": 4241,
+    "output_tokens": 1236,
+    "fallback_batches": 0,
+    "batches": 3
+  },
+  "arm": {
+    "name": "llm-nvidia-b30-r1",
+    "strategy": "llm",
+    "budget": 0.3,
+    "seed": 1,
+    "provider": "nvidia",
+    "only": [],
+    "repeat": 1,
+    "family": "llm:nvidia"
+  }
+}
