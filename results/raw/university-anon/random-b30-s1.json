@@ -1,0 +1,750 @@
+{
+  "label": "random-b30-s1",
+  "config": {
+    "dataset": "experiments/data/university_s0_st80_anon",
+    "minsup": 10,
+    "depth": 1,
+    "surp_mode": "isurp",
+    "normalize": true,
+    "db_ratio": 0.5,
+    "timeout": 1800,
+    "extra": {}
+  },
+  "ok": true,
+  "returncode": 0,
+  "timed_out": false,
+  "seconds": 7.521,
+  "n_patterns": 115,
+  "patterns": [
+    {
+      "pattern": "(, (R3 $v0 e1) (R8 $v0 $v1) (R8 $v2 $v1))",
+      "raw": "(surprisingnessOf (, (R8 $_0 $_1) (R8 $_2 $_1) (R3 $_2 e1)) 0.8900828768085405)",
+      "support": 113,
+      "surprisingness": 0.8900828768085405
+    },
+    {
+      "pattern": "(, (R5 $v0 $v1) (R5 $v2 $v1) (R6 $v0 $v3))",
+      "raw": "(surprisingnessOf (, (R6 $_0 $_1) (R5 $_0 $_2) (R5 $_3 $_2)) 0.8809523809523809)",
+      "support": 934,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R5 $v0 $v1) (R6 $v2 $v0) (R6 $v3 $v2))",
+      "raw": "(surprisingnessOf (, (R5 $_0 $_1) (R6 $_2 $_0) (R6 $_3 $_2)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R6 $v0 $v1) (R6 $v0 $v2) (R9 $v0 $v3))",
+      "raw": "(surprisingnessOf (, (R9 $_0 $_1) (R6 $_0 $_2) (R6 $_0 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R3 $v0 $v1) (R5 $v0 $v2) (R5 $v0 $v3))",
+      "raw": "(surprisingnessOf (, (R3 $_0 $_1) (R5 $_0 $_2) (R5 $_0 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R6 $v0 $v1) (R8 $v0 e2) (R9 $v1 $v2))",
+      "raw": "(surprisingnessOf (, (R9 $_0 $_1) (R8 $_2 e2) (R6 $_2 $_0)) 0.8809523809523809)",
+      "support": 12,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R6 $v0 $v1) (R6 $v0 $v2) (R9 $v1 $v3))",
+      "raw": "(surprisingnessOf (, (R9 $_0 $_1) (R6 $_2 $_0) (R6 $_2 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R5 $v0 $v1) (R5 $v0 $v2) (R8 $v0 e24))",
+      "raw": "(surprisingnessOf (, (R8 $_0 e24) (R5 $_0 $_1) (R5 $_0 $_2)) 0.880952380952381)",
+      "support": 13,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R2 $v0 $v1) (R3 $v2 $v0) (R4 $v0 $v3))",
+      "raw": "(surprisingnessOf (, (R4 $_0 $_1) (R3 $_2 $_0) (R2 $_0 $_3)) 0.9523809523809523)",
+      "support": 180,
+      "surprisingness": 0.9523809523809523
+    },
+    {
+      "pattern": "(, (R6 $v0 $v1) (R8 $v0 e14) (R9 $v0 $v2))",
+      "raw": "(surprisingnessOf (, (R6 $_0 $_1) (R8 $_0 e14) (R9 $_0 $_2)) 0.8809523809523809)",
+      "support": 10,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R5 $v0 e86) (R6 $v1 $v0) (R8 $v0 $v2))",
+      "raw": "(surprisingnessOf (, (R6 $_0 $_1) (R8 $_1 $_2) (R5 $_1 e86)) 0.8095238095238095)",
+      "support": 10,
+      "surprisingness": 0.8095238095238095
+    },
+    {
+      "pattern": "(, (R5 $v0 $v1) (R5 $v0 $v2) (R9 $v0 $v3))",
+      "raw": "(surprisingnessOf (, (R9 $_0 $_1) (R5 $_0 $_2) (R5 $_0 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R5 $v0 e21) (R6 $v1 $v0) (R6 $v2 $v1))",
+      "raw": "(surprisingnessOf (, (R5 $_0 e21) (R6 $_1 $_0) (R6 $_2 $_1)) 0.887218045112782)",
+      "support": 19,
+      "surprisingness": 0.887218045112782
+    },
+    {
+      "pattern": "(, (R6 $v0 $v1) (R6 $v0 $v2) (R8 $v0 e56))",
+      "raw": "(surprisingnessOf (, (R8 $_0 e56) (R6 $_0 $_1) (R6 $_0 $_2)) 0.8809523809523809)",
+      "support": 10,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R3 $v0 $v1) (R4 $v2 $v3) (R5 $v0 $v3))",
+      "raw": "(surprisingnessOf (, (R4 $_0 $_1) (R3 $_2 $_3) (R5 $_2 $_1)) 0.8809523809523809)",
+      "support": 1080,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R6 $v0 $v1) (R6 $v0 $v2) (R6 $v3 $v0))",
+      "raw": "(surprisingnessOf (, (R6 $_0 $_1) (R6 $_1 $_2) (R6 $_1 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R6 $v0 $v1) (R8 $v1 e2) (R9 $v0 $v2))",
+      "raw": "(surprisingnessOf (, (R8 $_0 e2) (R6 $_1 $_0) (R9 $_1 $_2)) 0.8701298701298701)",
+      "support": 11,
+      "surprisingness": 0.8701298701298701
+    },
+    {
+      "pattern": "(, (R5 $v0 $v1) (R6 $v0 $v2) (R9 $v0 $v3))",
+      "raw": "(surprisingnessOf (, (R5 $_0 $_1) (R6 $_0 $_2) (R9 $_0 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R2 $v0 $v1) (R3 $v2 $v0) (R5 $v2 e43))",
+      "raw": "(surprisingnessOf (, (R5 $_0 e43) (R3 $_0 $_1) (R2 $_1 $_2)) 0.880952380952381)",
+      "support": 30,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R3 $v0 $v1) (R8 $v0 $v2) (R8 $v0 e56))",
+      "raw": "(surprisingnessOf (, (R3 $_0 $_1) (R8 $_0 $_2) (R8 $_0 e56)) 0.880952380952381)",
+      "support": 30,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R5 $v0 e21) (R6 $v0 $v1) (R6 $v2 $v1))",
+      "raw": "(surprisingnessOf (, (R6 $_0 $_1) (R6 $_2 $_1) (R5 $_2 e21)) 0.875)",
+      "support": 34,
+      "surprisingness": 0.875
+    },
+    {
+      "pattern": "(, (R4 $v0 $v1) (R4 $v2 $v1) (R7 $v3 $v1))",
+      "raw": "(surprisingnessOf (, (R4 $_0 $_1) (R4 $_2 $_1) (R7 $_3 $_1)) 0.992063492063492)",
+      "support": 432,
+      "surprisingness": 0.992063492063492
+    },
+    {
+      "pattern": "(, (R6 $v0 $v1) (R6 $v0 $v2) (R6 $v1 $v3))",
+      "raw": "(surprisingnessOf (, (R6 $_0 $_1) (R6 $_2 $_0) (R6 $_2 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R8 $v0 e24) (R9 $v0 $v1) (R9 $v2 $v1))",
+      "raw": "(surprisingnessOf (, (R9 $_0 $_1) (R8 $_2 e24) (R9 $_2 $_1)) 0.8858201058201058)",
+      "support": 75,
+      "surprisingness": 0.8858201058201058
+    },
+    {
+      "pattern": "(, (R3 $v0 $v1) (R8 $v0 e14) (R9 $v0 $v2))",
+      "raw": "(surprisingnessOf (, (R3 $_0 $_1) (R8 $_0 e14) (R9 $_0 $_2)) 0.880952380952381)",
+      "support": 30,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R6 $v0 $v1) (R6 $v2 $v1) (R8 $v0 e2))",
+      "raw": "(surprisingnessOf (, (R6 $_0 $_1) (R8 $_2 e2) (R6 $_2 $_1)) 0.8846153846153847)",
+      "support": 26,
+      "surprisingness": 0.8846153846153847
+    },
+    {
+      "pattern": "(, (R3 $v0 $v1) (R3 $v2 $v1) (R5 $v0 $v3))",
+      "raw": "(surprisingnessOf (, (R3 $_0 $_1) (R3 $_2 $_1) (R5 $_2 $_3)) 0.8809523809523809)",
+      "support": 1452,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R6 $v0 $v1) (R7 $v2 $v3) (R9 $v0 $v2))",
+      "raw": "(surprisingnessOf (, (R7 $_0 $_1) (R6 $_2 $_3) (R9 $_2 $_0)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R3 $v0 $v1) (R6 $v0 $v2) (R8 $v2 e14))",
+      "raw": "(surprisingnessOf (, (R3 $_0 $_1) (R8 $_2 e14) (R6 $_0 $_2)) 0.880952380952381)",
+      "support": 36,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R6 $v0 $v1) (R9 $v0 $v2) (R9 $v0 $v3))",
+      "raw": "(surprisingnessOf (, (R9 $_0 $_1) (R6 $_0 $_2) (R9 $_0 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R3 $v0 e1) (R6 $v0 $v1) (R9 $v1 $v2))",
+      "raw": "(surprisingnessOf (, (R9 $_0 $_1) (R6 $_2 $_0) (R3 $_2 e1)) 0.8809523809523809)",
+      "support": 10,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R5 $v0 e38) (R6 $v0 $v1) (R6 $v2 $v0))",
+      "raw": "(surprisingnessOf (, (R5 $_0 e38) (R6 $_0 $_1) (R6 $_2 $_0)) 0.880952380952381)",
+      "support": 18,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R3 $v0 $v1) (R3 $v2 e1) (R6 $v2 $v0))",
+      "raw": "(surprisingnessOf (, (R3 $_0 $_1) (R6 $_2 $_0) (R3 $_2 e1)) 0.880952380952381)",
+      "support": 30,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R5 $v0 $v1) (R5 $v0 e86) (R6 $v2 $v0))",
+      "raw": "(surprisingnessOf (, (R6 $_0 $_1) (R5 $_1 $_2) (R5 $_1 e86)) 0.8095238095238095)",
+      "support": 10,
+      "surprisingness": 0.8095238095238095
+    },
+    {
+      "pattern": "(, (R8 $v0 e14) (R9 $v0 $v1) (R9 $v2 $v1))",
+      "raw": "(surprisingnessOf (, (R9 $_0 $_1) (R8 $_2 e14) (R9 $_2 $_1)) 0.8733211233211233)",
+      "support": 52,
+      "surprisingness": 0.8733211233211233
+    },
+    {
+      "pattern": "(, (R5 $v0 $v1) (R5 $v2 $v1) (R7 $v3 $v1))",
+      "raw": "(surprisingnessOf (, (R7 $_0 $_1) (R5 $_2 $_1) (R5 $_3 $_1)) 0.9920634920634921)",
+      "support": 2802,
+      "surprisingness": 0.9920634920634921
+    },
+    {
+      "pattern": "(, (R5 $v0 e43) (R6 $v0 $v1) (R6 $v1 $v2))",
+      "raw": "(surprisingnessOf (, (R5 $_0 e43) (R6 $_1 $_2) (R6 $_0 $_1)) 0.8809523809523809)",
+      "support": 10,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R5 $v0 e86) (R6 $v0 $v1) (R8 $v0 $v2))",
+      "raw": "(surprisingnessOf (, (R6 $_0 $_1) (R8 $_0 $_2) (R5 $_0 e86)) 0.8809523809523809)",
+      "support": 16,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R3 $v0 e1) (R6 $v0 $v1) (R8 $v1 $v2))",
+      "raw": "(surprisingnessOf (, (R8 $_0 $_1) (R6 $_2 $_0) (R3 $_2 e1)) 0.8809523809523809)",
+      "support": 10,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R3 $v0 $v1) (R6 $v2 $v0) (R6 $v3 $v2))",
+      "raw": "(surprisingnessOf (, (R3 $_0 $_1) (R6 $_2 $_0) (R6 $_3 $_2)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R8 $v0 $v1) (R8 $v0 $v2) (R8 $v0 e2))",
+      "raw": "(surprisingnessOf (, (R8 $_0 $_1) (R8 $_0 $_2) (R8 $_0 e2)) 0.0)",
+      "support": 12,
+      "surprisingness": 0.0
+    },
+    {
+      "pattern": "(, (R1 $v0 $v1) (R2 $v1 $v2) (R2 $v3 $v2))",
+      "raw": "(surprisingnessOf (, (R1 $_0 $_1) (R2 $_1 $_2) (R2 $_3 $_2)) 0.9523809523809523)",
+      "support": 86,
+      "surprisingness": 0.9523809523809523
+    },
+    {
+      "pattern": "(, (R3 $v0 $v1) (R6 $v2 $v0) (R9 $v0 $v3))",
+      "raw": "(surprisingnessOf (, (R6 $_0 $_1) (R3 $_1 $_2) (R9 $_1 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R3 $v0 $v1) (R3 $v0 e1) (R5 $v0 $v2))",
+      "raw": "(surprisingnessOf (, (R3 $_0 e1) (R3 $_0 $_1) (R5 $_0 $_2)) 0.880952380952381)",
+      "support": 30,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R5 $v0 e21) (R6 $v0 $v1) (R6 $v2 $v0))",
+      "raw": "(surprisingnessOf (, (R5 $_0 e21) (R6 $_0 $_1) (R6 $_2 $_0)) 0.880952380952381)",
+      "support": 18,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R3 $v0 $v1) (R5 $v0 $v2) (R8 $v0 e24))",
+      "raw": "(surprisingnessOf (, (R8 $_0 e24) (R3 $_0 $_1) (R5 $_0 $_2)) 0.8809523809523809)",
+      "support": 39,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R2 $v0 $v1) (R3 $v2 $v0) (R5 $v2 $v3))",
+      "raw": "(surprisingnessOf (, (R5 $_0 $_1) (R3 $_0 $_2) (R2 $_2 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R5 $v0 e43) (R6 $v0 $v1) (R9 $v0 $v2))",
+      "raw": "(surprisingnessOf (, (R5 $_0 e43) (R6 $_0 $_1) (R9 $_0 $_2)) 0.8809523809523809)",
+      "support": 10,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R5 $v0 $v1) (R5 $v0 $v2) (R8 $v0 e14))",
+      "raw": "(surprisingnessOf (, (R8 $_0 e14) (R5 $_0 $_1) (R5 $_0 $_2)) 0.8809523809523809)",
+      "support": 10,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R3 $v0 $v1) (R8 $v0 $v2) (R8 $v0 e2))",
+      "raw": "(surprisingnessOf (, (R3 $_0 $_1) (R8 $_0 $_2) (R8 $_0 e2)) 0.880952380952381)",
+      "support": 36,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R2 $v0 $v1) (R3 $v2 $v0) (R8 $v2 $v3))",
+      "raw": "(surprisingnessOf (, (R8 $_0 $_1) (R3 $_0 $_2) (R2 $_2 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R2 $v0 $v1) (R3 $v2 $v0) (R3 $v2 e91))",
+      "raw": "(surprisingnessOf (, (R3 $_0 e91) (R3 $_0 $_1) (R2 $_1 $_2)) 0.8809523809523809)",
+      "support": 33,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R5 $v0 e86) (R6 $v1 $v0) (R6 $v2 $v1))",
+      "raw": "(surprisingnessOf (, (R5 $_0 e86) (R6 $_1 $_0) (R6 $_2 $_1)) 0.8268398268398268)",
+      "support": 11,
+      "surprisingness": 0.8268398268398268
+    },
+    {
+      "pattern": "(, (R6 $v0 $v1) (R8 $v1 $v2) (R8 $v1 e2))",
+      "raw": "(surprisingnessOf (, (R6 $_0 $_1) (R8 $_1 $_2) (R8 $_1 e2)) 0.8701298701298701)",
+      "support": 11,
+      "surprisingness": 0.8701298701298701
+    },
+    {
+      "pattern": "(, (R8 $v0 $v1) (R8 $v2 $v1) (R8 $v3 $v1))",
+      "raw": "(surprisingnessOf (, (R8 $_0 $_1) (R8 $_2 $_1) (R8 $_3 $_1)) 0.07669616519174052)",
+      "support": 6780,
+      "surprisingness": 0.07669616519174052
+    },
+    {
+      "pattern": "(, (R4 $v0 $v1) (R5 $v2 $v1) (R5 $v3 $v1))",
+      "raw": "(surprisingnessOf (, (R4 $_0 $_1) (R5 $_2 $_1) (R5 $_3 $_1)) 0.9920634920634921)",
+      "support": 5604,
+      "surprisingness": 0.9920634920634921
+    },
+    {
+      "pattern": "(, (R3 $v0 $v1) (R6 $v0 $v2) (R9 $v0 $v3))",
+      "raw": "(surprisingnessOf (, (R6 $_0 $_1) (R3 $_0 $_2) (R9 $_0 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R3 $v0 $v1) (R6 $v0 $v2) (R6 $v2 $v3))",
+      "raw": "(surprisingnessOf (, (R3 $_0 $_1) (R6 $_2 $_3) (R6 $_0 $_2)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R6 $v0 $v1) (R8 $v1 e14) (R9 $v0 $v2))",
+      "raw": "(surprisingnessOf (, (R8 $_0 e14) (R6 $_1 $_0) (R9 $_1 $_2)) 0.8809523809523809)",
+      "support": 12,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R6 $v0 $v1) (R6 $v0 $v2) (R8 $v0 e24))",
+      "raw": "(surprisingnessOf (, (R8 $_0 e24) (R6 $_0 $_1) (R6 $_0 $_2)) 0.880952380952381)",
+      "support": 13,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R2 $v0 $v1) (R3 $v2 $v0) (R8 $v2 e14))",
+      "raw": "(surprisingnessOf (, (R2 $_0 $_1) (R8 $_2 e14) (R3 $_2 $_0)) 0.880952380952381)",
+      "support": 30,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R5 $v0 e43) (R6 $v0 $v1) (R6 $v2 $v0))",
+      "raw": "(surprisingnessOf (, (R5 $_0 e43) (R6 $_0 $_1) (R6 $_2 $_0)) 0.8809523809523809)",
+      "support": 14,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R3 $v0 e91) (R4 $v1 $v2) (R5 $v0 $v2))",
+      "raw": "(surprisingnessOf (, (R4 $_0 $_1) (R3 $_2 e91) (R5 $_2 $_1)) 0.8809523809523809)",
+      "support": 66,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R5 $v0 $v1) (R5 $v0 e86) (R7 $v2 $v1))",
+      "raw": "(surprisingnessOf (, (R7 $_0 $_1) (R5 $_2 $_1) (R5 $_2 e86)) 0.8809523809523809)",
+      "support": 48,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R5 $v0 e38) (R6 $v1 $v0) (R6 $v1 $v2))",
+      "raw": "(surprisingnessOf (, (R5 $_0 e38) (R6 $_1 $_0) (R6 $_1 $_2)) 0.880952380952381)",
+      "support": 18,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R7 $v0 $v1) (R9 $v2 $v0) (R9 $v3 $v0))",
+      "raw": "(surprisingnessOf (, (R9 $_0 $_1) (R9 $_2 $_1) (R7 $_1 $_3)) 0.9761904761904762)",
+      "support": 332,
+      "surprisingness": 0.9761904761904762
+    },
+    {
+      "pattern": "(, (R5 $v0 e21) (R6 $v1 $v0) (R9 $v1 $v2))",
+      "raw": "(surprisingnessOf (, (R5 $_0 e21) (R6 $_1 $_0) (R9 $_1 $_2)) 0.880952380952381)",
+      "support": 18,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R1 $v0 $v1) (R8 $v2 e56) (R9 $v2 $v0))",
+      "raw": "(surprisingnessOf (, (R1 $_0 $_1) (R8 $_2 e56) (R9 $_2 $_0)) 0.8809523809523809)",
+      "support": 20,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R3 $v0 e1) (R5 $v0 $v1) (R5 $v2 $v1))",
+      "raw": "(surprisingnessOf (, (R3 $_0 e1) (R5 $_0 $_1) (R5 $_2 $_1)) 0.8848959873804594)",
+      "support": 161,
+      "surprisingness": 0.8848959873804594
+    },
+    {
+      "pattern": "(, (R4 $v0 $v1) (R4 $v0 $v2) (R7 $v3 $v1))",
+      "raw": "(surprisingnessOf (, (R4 $_0 $_1) (R4 $_0 $_2) (R7 $_3 $_2)) 0.9523809523809524)",
+      "support": 72,
+      "surprisingness": 0.9523809523809524
+    },
+    {
+      "pattern": "(, (R6 $v0 $v1) (R9 $v0 $v2) (R9 $v3 $v2))",
+      "raw": "(surprisingnessOf (, (R9 $_0 $_1) (R6 $_2 $_3) (R9 $_2 $_1)) 0.8809523809523809)",
+      "support": 332,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R2 $v0 $v1) (R3 $v2 $v0) (R5 $v2 e21))",
+      "raw": "(surprisingnessOf (, (R5 $_0 e21) (R3 $_0 $_1) (R2 $_1 $_2)) 0.880952380952381)",
+      "support": 51,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R5 $v0 $v1) (R6 $v2 $v0) (R8 $v0 e2))",
+      "raw": "(surprisingnessOf (, (R6 $_0 $_1) (R8 $_1 e2) (R5 $_1 $_2)) 0.8701298701298701)",
+      "support": 11,
+      "surprisingness": 0.8701298701298701
+    },
+    {
+      "pattern": "(, (R3 $v0 $v1) (R5 $v0 e86) (R8 $v0 $v2))",
+      "raw": "(surprisingnessOf (, (R3 $_0 $_1) (R8 $_0 $_2) (R5 $_0 e86)) 0.8809523809523809)",
+      "support": 48,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R5 $v0 $v1) (R6 $v0 $v2) (R8 $v0 e2))",
+      "raw": "(surprisingnessOf (, (R6 $_0 $_1) (R8 $_0 e2) (R5 $_0 $_2)) 0.8809523809523809)",
+      "support": 12,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R3 $v0 $v1) (R5 $v0 $v2) (R5 $v0 e38))",
+      "raw": "(surprisingnessOf (, (R5 $_0 e38) (R3 $_0 $_1) (R5 $_0 $_2)) 0.8809523809523809)",
+      "support": 51,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R5 $v0 e21) (R6 $v1 $v0) (R6 $v1 $v2))",
+      "raw": "(surprisingnessOf (, (R5 $_0 e21) (R6 $_1 $_0) (R6 $_1 $_2)) 0.880952380952381)",
+      "support": 18,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R7 $v0 $v1) (R7 $v0 $v2) (R9 $v3 $v0))",
+      "raw": "(surprisingnessOf (, (R7 $_0 $_1) (R9 $_2 $_0) (R7 $_0 $_3)) 0.9761904761904763)",
+      "support": 60,
+      "surprisingness": 0.9761904761904763
+    },
+    {
+      "pattern": "(, (R5 $v0 $v1) (R8 $v0 e2) (R9 $v0 $v2))",
+      "raw": "(surprisingnessOf (, (R9 $_0 $_1) (R8 $_0 e2) (R5 $_0 $_2)) 0.8809523809523809)",
+      "support": 12,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R2 $v0 $v1) (R3 $v2 $v0) (R8 $v2 e56))",
+      "raw": "(surprisingnessOf (, (R8 $_0 e56) (R3 $_0 $_1) (R2 $_1 $_2)) 0.880952380952381)",
+      "support": 30,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R3 $v0 $v1) (R4 $v1 $v2) (R5 $v0 $v2))",
+      "raw": "(surprisingnessOf (, (R4 $_0 $_1) (R3 $_2 $_0) (R5 $_2 $_1)) 0.996134817563389)",
+      "support": 66,
+      "surprisingness": 0.996134817563389
+    },
+    {
+      "pattern": "(, (R1 $v0 $v1) (R3 $v2 $v1) (R9 $v2 $v0))",
+      "raw": "(surprisingnessOf (, (R1 $_0 $_1) (R3 $_2 $_1) (R9 $_2 $_0)) 0.9984815354713314)",
+      "support": 56,
+      "surprisingness": 0.9984815354713314
+    },
+    {
+      "pattern": "(, (R3 $v0 $v1) (R9 $v0 $v2) (R9 $v0 $v3))",
+      "raw": "(surprisingnessOf (, (R9 $_0 $_1) (R3 $_0 $_2) (R9 $_0 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R3 $v0 $v1) (R3 $v0 e91) (R8 $v0 $v2))",
+      "raw": "(surprisingnessOf (, (R3 $_0 e91) (R8 $_0 $_1) (R3 $_0 $_2)) 0.8809523809523809)",
+      "support": 33,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R6 $v0 $v1) (R8 $v0 e24) (R9 $v0 $v2))",
+      "raw": "(surprisingnessOf (, (R8 $_0 e24) (R6 $_0 $_1) (R9 $_0 $_2)) 0.880952380952381)",
+      "support": 13,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R6 $v0 $v1) (R6 $v1 $v2) (R8 $v1 e24))",
+      "raw": "(surprisingnessOf (, (R8 $_0 e24) (R6 $_0 $_1) (R6 $_2 $_0)) 0.880952380952381)",
+      "support": 17,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R5 $v0 e86) (R8 $v0 $v1) (R8 $v2 $v1))",
+      "raw": "(surprisingnessOf (, (R5 $_0 e86) (R8 $_0 $_1) (R8 $_2 $_1)) 0.8883538434100232)",
+      "support": 178,
+      "surprisingness": 0.8883538434100232
+    },
+    {
+      "pattern": "(, (R2 $v0 $v1) (R3 $v2 $v0) (R5 $v2 e86))",
+      "raw": "(surprisingnessOf (, (R5 $_0 e86) (R3 $_0 $_1) (R2 $_1 $_2)) 0.8809523809523809)",
+      "support": 48,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R4 $v0 $v1) (R5 $v2 $v1) (R5 $v2 e21))",
+      "raw": "(surprisingnessOf (, (R4 $_0 $_1) (R5 $_2 $_1) (R5 $_2 e21)) 0.880952380952381)",
+      "support": 102,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R5 $v0 $v1) (R6 $v2 $v0) (R8 $v0 e14))",
+      "raw": "(surprisingnessOf (, (R5 $_0 $_1) (R8 $_0 e14) (R6 $_2 $_0)) 0.8809523809523809)",
+      "support": 12,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R5 $v0 e21) (R6 $v0 $v1) (R6 $v1 $v2))",
+      "raw": "(surprisingnessOf (, (R5 $_0 e21) (R6 $_1 $_2) (R6 $_0 $_1)) 0.880952380952381)",
+      "support": 17,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R7 $v0 $v1) (R8 $v2 e56) (R9 $v2 $v0))",
+      "raw": "(surprisingnessOf (, (R7 $_0 $_1) (R8 $_2 e56) (R9 $_2 $_0)) 0.8809523809523809)",
+      "support": 10,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R5 $v0 $v1) (R5 $v0 $v2) (R6 $v0 $v3))",
+      "raw": "(surprisingnessOf (, (R6 $_0 $_1) (R5 $_0 $_2) (R5 $_0 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R3 $v0 $v1) (R6 $v2 $v0) (R9 $v2 $v3))",
+      "raw": "(surprisingnessOf (, (R3 $_0 $_1) (R6 $_2 $_0) (R9 $_2 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R1 $v0 $v1) (R4 $v2 $v3) (R7 $v0 $v3))",
+      "raw": "(surprisingnessOf (, (R1 $_0 $_1) (R4 $_2 $_3) (R7 $_0 $_3)) 0.9761904761904762)",
+      "support": 144,
+      "surprisingness": 0.9761904761904762
+    },
+    {
+      "pattern": "(, (R5 $v0 $v1) (R5 $v0 e21) (R6 $v0 $v2))",
+      "raw": "(surprisingnessOf (, (R5 $_0 $_1) (R6 $_0 $_2) (R5 $_0 e21)) 0.880952380952381)",
+      "support": 17,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R5 $v0 $v1) (R5 $v0 e86) (R9 $v0 $v2))",
+      "raw": "(surprisingnessOf (, (R9 $_0 $_1) (R5 $_0 $_2) (R5 $_0 e86)) 0.8809523809523809)",
+      "support": 16,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R3 $v0 $v1) (R5 $v0 $v2) (R6 $v0 $v3))",
+      "raw": "(surprisingnessOf (, (R6 $_0 $_1) (R3 $_0 $_2) (R5 $_0 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R5 $v0 e21) (R6 $v0 $v1) (R6 $v0 $v2))",
+      "raw": "(surprisingnessOf (, (R5 $_0 e21) (R6 $_0 $_1) (R6 $_0 $_2)) 0.880952380952381)",
+      "support": 17,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R6 $v0 $v1) (R6 $v1 $v2) (R9 $v2 $v3))",
+      "raw": "(surprisingnessOf (, (R9 $_0 $_1) (R6 $_2 $_0) (R6 $_3 $_2)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R3 $v0 $v1) (R5 $v0 e86) (R9 $v0 $v2))",
+      "raw": "(surprisingnessOf (, (R5 $_0 e86) (R3 $_0 $_1) (R9 $_0 $_2)) 0.8809523809523809)",
+      "support": 48,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R6 $v0 $v1) (R8 $v1 e24) (R9 $v0 $v2))",
+      "raw": "(surprisingnessOf (, (R8 $_0 e24) (R6 $_1 $_0) (R9 $_1 $_2)) 0.880952380952381)",
+      "support": 17,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R6 $v0 $v1) (R8 $v1 e14) (R9 $v1 $v2))",
+      "raw": "(surprisingnessOf (, (R6 $_0 $_1) (R8 $_1 e14) (R9 $_1 $_2)) 0.8809523809523809)",
+      "support": 12,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R5 $v0 e43) (R6 $v0 $v1) (R6 $v0 $v2))",
+      "raw": "(surprisingnessOf (, (R5 $_0 e43) (R6 $_0 $_1) (R6 $_0 $_2)) 0.8809523809523809)",
+      "support": 10,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R3 $v0 $v1) (R4 $v1 $v2) (R5 $v0 $v3))",
+      "raw": "(surprisingnessOf (, (R4 $_0 $_1) (R3 $_2 $_0) (R5 $_2 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R3 $v0 e1) (R6 $v0 $v1) (R6 $v2 $v1))",
+      "raw": "(surprisingnessOf (, (R6 $_0 $_1) (R6 $_2 $_1) (R3 $_2 e1)) 0.8529411764705883)",
+      "support": 17,
+      "surprisingness": 0.8529411764705883
+    },
+    {
+      "pattern": "(, (R5 $v0 e86) (R7 $v1 $v2) (R9 $v0 $v1))",
+      "raw": "(surprisingnessOf (, (R5 $_0 e86) (R9 $_0 $_1) (R7 $_1 $_2)) 0.8809523809523809)",
+      "support": 16,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R5 $v0 $v1) (R5 $v0 e21) (R8 $v0 $v2))",
+      "raw": "(surprisingnessOf (, (R8 $_0 $_1) (R5 $_0 $_2) (R5 $_0 e21)) 0.880952380952381)",
+      "support": 17,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R3 $v0 $v1) (R8 $v0 e2) (R9 $v0 $v2))",
+      "raw": "(surprisingnessOf (, (R8 $_0 e2) (R3 $_0 $_1) (R9 $_0 $_2)) 0.880952380952381)",
+      "support": 36,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R2 $v0 $v1) (R3 $v2 $v0) (R8 $v2 e24))",
+      "raw": "(surprisingnessOf (, (R8 $_0 e24) (R3 $_0 $_1) (R2 $_1 $_2)) 0.8809523809523809)",
+      "support": 39,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R5 $v0 e38) (R6 $v0 $v1) (R9 $v0 $v2))",
+      "raw": "(surprisingnessOf (, (R5 $_0 e38) (R6 $_0 $_1) (R9 $_0 $_2)) 0.880952380952381)",
+      "support": 17,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R3 $v0 $v1) (R8 $v0 $v2) (R9 $v0 $v3))",
+      "raw": "(surprisingnessOf (, (R8 $_0 $_1) (R3 $_0 $_2) (R9 $_0 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R4 $v0 $v1) (R7 $v2 $v1) (R7 $v2 $v3))",
+      "raw": "(surprisingnessOf (, (R7 $_0 $_1) (R4 $_2 $_3) (R7 $_0 $_3)) 0.9761904761904762)",
+      "support": 72,
+      "surprisingness": 0.9761904761904762
+    },
+    {
+      "pattern": "(, (R5 $v0 e38) (R8 $v0 $v1) (R8 $v2 $v1))",
+      "raw": "(surprisingnessOf (, (R5 $_0 e38) (R8 $_0 $_1) (R8 $_2 $_1)) 0.8757936507936509)",
+      "support": 170,
+      "surprisingness": 0.8757936507936509
+    },
+    {
+      "pattern": "(, (R3 $v0 $v1) (R6 $v2 $v0) (R6 $v2 $v3))",
+      "raw": "(surprisingnessOf (, (R3 $_0 $_1) (R6 $_2 $_0) (R6 $_2 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    }
+  ],
+  "verification": {
+    "checked": 0,
+    "ok": true,
+    "mismatches": []
+  },
+  "ranker": {
+    "strategy": "random",
+    "budget": 0.3,
+    "seed": 1,
+    "providers": null,
+    "batch_size": 60,
+    "max_retries": 2,
+    "timeout_s": 180.0,
+    "workers": 4,
+    "cache_dir": ".cache/llm",
+    "min_select": 1
+  },
+  "trace_summary": {
+    "t": 6.104,
+    "event": "finish",
+    "wall_seconds": 6.104,
+    "generated": 8814,
+    "unique": 5230,
+    "selected": 1570,
+    "kept": 115,
+    "llm_seconds": 0.0,
+    "verify_seconds": 3.064,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "fallback_batches": 0,
+    "batches": 0
+  },
+  "arm": {
+    "name": "random-b30-s1",
+    "strategy": "random",
+    "budget": 0.3,
+    "seed": 1,
+    "provider": null,
+    "family": "random"
+  }
+}

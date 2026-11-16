@@ -1,0 +1,186 @@
+{
+  "label": "random-b10-s3",
+  "config": {
+    "dataset": "experiments/data/university_s0_st80_anon",
+    "minsup": 10,
+    "depth": 1,
+    "surp_mode": "isurp",
+    "normalize": true,
+    "db_ratio": 0.5,
+    "timeout": 1800,
+    "extra": {}
+  },
+  "ok": true,
+  "returncode": 0,
+  "timed_out": false,
+  "seconds": 2.822,
+  "n_patterns": 21,
+  "patterns": [
+    {
+      "pattern": "(, (R8 $v0 $v1) (R8 $v0 e14) (R9 $v0 $v2))",
+      "raw": "(surprisingnessOf (, (R8 $_0 $_1) (R8 $_0 e14) (R9 $_0 $_2)) 0.8809523809523809)",
+      "support": 10,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R8 $v0 e14) (R9 $v0 $v1) (R9 $v0 $v2))",
+      "raw": "(surprisingnessOf (, (R9 $_0 $_1) (R8 $_0 e14) (R9 $_0 $_2)) 0.8809523809523809)",
+      "support": 10,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R6 $v0 $v1) (R6 $v0 $v2) (R6 $v3 $v0))",
+      "raw": "(surprisingnessOf (, (R6 $_0 $_1) (R6 $_0 $_2) (R6 $_3 $_0)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R6 $v0 $v1) (R6 $v0 $v2) (R8 $v1 e24))",
+      "raw": "(surprisingnessOf (, (R6 $_0 $_1) (R8 $_2 e24) (R6 $_0 $_2)) 0.880952380952381)",
+      "support": 17,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R5 $v0 $v1) (R6 $v0 $v2) (R6 $v3 $v0))",
+      "raw": "(surprisingnessOf (, (R5 $_0 $_1) (R6 $_0 $_2) (R6 $_3 $_0)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R3 $v0 e91) (R8 $v0 $v1) (R8 $v2 $v1))",
+      "raw": "(surprisingnessOf (, (R3 $_0 e91) (R8 $_0 $_1) (R8 $_2 $_1)) 0.8711066187481282)",
+      "support": 106,
+      "surprisingness": 0.8711066187481282
+    },
+    {
+      "pattern": "(, (R5 $v0 e43) (R6 $v0 $v1) (R6 $v1 $v2))",
+      "raw": "(surprisingnessOf (, (R5 $_0 e43) (R6 $_1 $_2) (R6 $_0 $_1)) 0.8809523809523809)",
+      "support": 10,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R2 $v0 $v1) (R3 $v2 $v0) (R8 $v2 e14))",
+      "raw": "(surprisingnessOf (, (R2 $_0 $_1) (R8 $_2 e14) (R3 $_2 $_0)) 0.880952380952381)",
+      "support": 30,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R6 $v0 $v1) (R6 $v1 $v2) (R8 $v1 $v3))",
+      "raw": "(surprisingnessOf (, (R8 $_0 $_1) (R6 $_0 $_2) (R6 $_3 $_0)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R6 $v0 $v1) (R6 $v1 $v2) (R8 $v0 e56))",
+      "raw": "(surprisingnessOf (, (R8 $_0 e56) (R6 $_1 $_2) (R6 $_0 $_1)) 0.8809523809523809)",
+      "support": 10,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R6 $v0 $v1) (R8 $v0 e14) (R9 $v0 $v2))",
+      "raw": "(surprisingnessOf (, (R6 $_0 $_1) (R8 $_0 e14) (R9 $_0 $_2)) 0.8809523809523809)",
+      "support": 10,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R3 $v0 $v1) (R3 $v0 e91) (R5 $v0 e38))",
+      "raw": "(surprisingnessOf (, (R5 $_0 e38) (R3 $_0 $_1) (R3 $_0 e91)) 0.880952380952381)",
+      "support": 18,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R3 $v0 $v1) (R5 $v0 e38) (R8 $v0 $v2))",
+      "raw": "(surprisingnessOf (, (R5 $_0 e38) (R8 $_0 $_1) (R3 $_0 $_2)) 0.8809523809523809)",
+      "support": 51,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R5 $v0 $v1) (R6 $v2 $v0) (R8 $v0 e24))",
+      "raw": "(surprisingnessOf (, (R5 $_0 $_1) (R8 $_0 e24) (R6 $_2 $_0)) 0.880952380952381)",
+      "support": 17,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R3 $v0 $v1) (R8 $v0 e14) (R9 $v0 $v2))",
+      "raw": "(surprisingnessOf (, (R3 $_0 $_1) (R8 $_0 e14) (R9 $_0 $_2)) 0.880952380952381)",
+      "support": 30,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R4 $v0 $v1) (R5 $v2 $v1) (R5 $v2 e21))",
+      "raw": "(surprisingnessOf (, (R5 $_0 e21) (R5 $_0 $_1) (R4 $_2 $_1)) 0.880952380952381)",
+      "support": 102,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R5 $v0 $v1) (R5 $v0 $v2) (R5 $v0 e38))",
+      "raw": "(surprisingnessOf (, (R5 $_0 e38) (R5 $_0 $_1) (R5 $_0 $_2)) 0.0)",
+      "support": 17,
+      "surprisingness": 0.0
+    },
+    {
+      "pattern": "(, (R5 $v0 $v1) (R6 $v0 $v2) (R8 $v2 e24))",
+      "raw": "(surprisingnessOf (, (R5 $_0 $_1) (R8 $_2 e24) (R6 $_0 $_2)) 0.880952380952381)",
+      "support": 17,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R3 $v0 $v1) (R6 $v0 $v2) (R8 $v2 e24))",
+      "raw": "(surprisingnessOf (, (R3 $_0 $_1) (R8 $_2 e24) (R6 $_0 $_2)) 0.8809523809523809)",
+      "support": 51,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (R3 $v0 $v1) (R6 $v0 $v2) (R8 $v2 e14))",
+      "raw": "(surprisingnessOf (, (R3 $_0 $_1) (R8 $_2 e14) (R6 $_0 $_2)) 0.880952380952381)",
+      "support": 36,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (R6 $v0 $v1) (R6 $v1 $v2) (R6 $v3 $v1))",
+      "raw": "(surprisingnessOf (, (R6 $_0 $_1) (R6 $_1 $_2) (R6 $_3 $_1)) 0.8809523809523809)",
+      "support": 126,
+      "surprisingness": 0.8809523809523809
+    }
+  ],
+  "verification": {
+    "checked": 0,
+    "ok": true,
+    "mismatches": []
+  },
+  "ranker": {
+    "strategy": "random",
+    "budget": 0.1,
+    "seed": 3,
+    "providers": null,
+    "batch_size": 60,
+    "max_retries": 2,
+    "timeout_s": 180.0,
+    "workers": 4,
+    "cache_dir": ".cache/llm",
+    "min_select": 1
+  },
+  "trace_summary": {
+    "t": 1.615,
+    "event": "finish",
+    "wall_seconds": 1.615,
+    "generated": 4406,
+    "unique": 2761,
+    "selected": 277,
+    "kept": 21,
+    "llm_seconds": 0.0,
+    "verify_seconds": 0.551,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "fallback_batches": 0,
+    "batches": 0
+  },
+  "arm": {
+    "name": "random-b10-s3",
+    "strategy": "random",
+    "budget": 0.1,
+    "seed": 3,
+    "provider": null,
+    "family": "random"
+  }
+}

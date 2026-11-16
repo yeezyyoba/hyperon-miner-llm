@@ -1,0 +1,126 @@
+{
+  "label": "random-b20-s0",
+  "config": {
+    "dataset": "experiments/data/galaxy_400",
+    "minsup": 5,
+    "depth": 1,
+    "surp_mode": "isurp",
+    "normalize": true,
+    "db_ratio": 0.5,
+    "timeout": 1800,
+    "extra": {}
+  },
+  "ok": true,
+  "returncode": 0,
+  "timed_out": false,
+  "seconds": 3.765,
+  "n_patterns": 11,
+  "patterns": [
+    {
+      "pattern": "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (STEP_USES_TOOL $v1 $v0) (STEP_USES_TOOL $v2 $v0))",
+      "raw": "(surprisingnessOf (, (STEP_USES_TOOL $_0 $_1) (STEP_USES_TOOL $_2 $_1) (HAS_TOOL vgp_assembly_v2_7fb545de $_1)) 0.9677962962962962)",
+      "support": 135,
+      "surprisingness": 0.9677962962962962
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL $v2 $v3))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_0 $_2) (HAS_TOOL $_3 $_2)) 0.7902397260273972)",
+      "support": 73,
+      "surprisingness": 0.7902397260273972
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v0 $v2) (WORKFLOW_USES_TOOL $v3 $v1))",
+      "raw": "(surprisingnessOf (, (HAS_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_3) (HAS_TOOL $_0 $_3)) 0.8374609375000001)",
+      "support": 448,
+      "surprisingness": 0.8374609375000001
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 output_78e6221f) (WORKFLOW_USES_TOOL $v1 $v0) (WORKFLOW_USES_TOOL $v1 $v2))",
+      "raw": "(surprisingnessOf (, (TOOL_HAS_OUTPUT $_0 output_78e6221f) (WORKFLOW_USES_TOOL $_1 $_0) (WORKFLOW_USES_TOOL $_1 $_2)) 0.6875)",
+      "support": 5,
+      "surprisingness": 0.6875
+    },
+    {
+      "pattern": "(, (FEEDS_INTO $v0 $v1) (FEEDS_INTO $v2 $v1) (HAS_STEP $v3 $v1))",
+      "raw": "(surprisingnessOf (, (FEEDS_INTO $_0 $_1) (HAS_STEP $_2 $_1) (FEEDS_INTO $_3 $_1)) 0.0)",
+      "support": 5,
+      "surprisingness": 0.0
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (HAS_TOOL vgp_assembly_v2_7fb545de $v2) (STEP_USES_TOOL $v1 $v2))",
+      "raw": "(surprisingnessOf (, (HAS_STEP $_0 $_1) (STEP_USES_TOOL $_1 $_2) (HAS_TOOL vgp_assembly_v2_7fb545de $_2)) 0.0)",
+      "support": 6,
+      "surprisingness": 0.0
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (HAS_STEP $v2 $v1) (HAS_STEP Scaffolding_with_Hi_C_data_VGP8_b4ee2f91 $v1))",
+      "raw": "(surprisingnessOf (, (HAS_STEP $_0 $_1) (HAS_STEP $_2 $_1) (HAS_STEP Scaffolding_with_Hi_C_data_VGP8_b4ee2f91 $_1)) 0.0)",
+      "support": 5,
+      "surprisingness": 0.0
+    },
+    {
+      "pattern": "(, (FEEDS_INTO $v0 $v1) (HAS_STEP $v2 $v1) (WORKFLOW_USES_TOOL $v2 $v3))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL $_0 $_1) (HAS_STEP $_0 $_2) (FEEDS_INTO $_3 $_2)) 0.0)",
+      "support": 7,
+      "surprisingness": 0.0
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v0 $v2) (TOOL_HAS_OUTPUT $v0 $v3))",
+      "raw": "(surprisingnessOf (, (TOOL_HAS_OUTPUT $_0 $_1) (TOOL_HAS_OUTPUT $_0 $_2) (TOOL_HAS_OUTPUT $_0 $_3)) 0.24615384615384614)",
+      "support": 156,
+      "surprisingness": 0.24615384615384614
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL vgp_assembly_v2_7fb545de $v1) (TOOL_HAS_OUTPUT $v1 $v2))",
+      "raw": "(surprisingnessOf (, (HAS_TOOL vgp_assembly_v2_7fb545de $_0) (TOOL_HAS_OUTPUT $_0 $_1) (HAS_TOOL $_2 $_0)) 0.76)",
+      "support": 33,
+      "surprisingness": 0.76
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (TOOL_HAS_OUTPUT $v1 $v2) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $v1))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $_0) (TOOL_HAS_OUTPUT $_0 $_1) (HAS_TOOL $_2 $_0)) 0.8775000000000001)",
+      "support": 5,
+      "surprisingness": 0.8775000000000001
+    }
+  ],
+  "verification": {
+    "checked": 0,
+    "ok": true,
+    "mismatches": []
+  },
+  "ranker": {
+    "strategy": "random",
+    "budget": 0.2,
+    "seed": 0,
+    "providers": null,
+    "batch_size": 60,
+    "max_retries": 2,
+    "timeout_s": 180.0,
+    "workers": 4,
+    "cache_dir": ".cache/llm",
+    "min_select": 1
+  },
+  "trace_summary": {
+    "t": 2.36,
+    "event": "finish",
+    "wall_seconds": 2.36,
+    "generated": 2808,
+    "unique": 1741,
+    "selected": 349,
+    "kept": 11,
+    "llm_seconds": 0.0,
+    "verify_seconds": 0.408,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "fallback_batches": 0,
+    "batches": 0
+  },
+  "arm": {
+    "name": "random-b20-s0",
+    "strategy": "random",
+    "budget": 0.2,
+    "seed": 0,
+    "provider": null,
+    "family": "random"
+  }
+}

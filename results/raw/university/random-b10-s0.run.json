@@ -1,0 +1,14 @@
+{
+  "strategy": "random",
+  "budget": 0.1,
+  "seed": 0,
+  "providers": null,
+  "batch_size": 60,
+  "max_retries": 2,
+  "timeout_s": 180.0,
+  "workers": 4,
+  "cache_dir": "/home/claude/hyperon-miner-llm/.cache/llm",
+  "min_select": 1,
+  "trace_path": "/home/claude/hyperon-miner-llm/results/raw/university/random-b10-s0.trace.jsonl",
+  "dataset": "/home/claude/hyperon-miner-llm/experiments/data/university_s0_st80.metta"
+}

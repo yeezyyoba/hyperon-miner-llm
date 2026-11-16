@@ -1,0 +1,742 @@
+{
+  "label": "frequent-b100",
+  "config": {
+    "dataset": "experiments/data/galaxy_400",
+    "minsup": 5,
+    "depth": 1,
+    "surp_mode": "none",
+    "normalize": true,
+    "db_ratio": 0.5,
+    "timeout": 1800,
+    "extra": {}
+  },
+  "ok": true,
+  "returncode": 0,
+  "timed_out": false,
+  "seconds": 6.985,
+  "n_patterns": 115,
+  "patterns": [
+    {
+      "pattern": "(, (FEEDS_INTO $v0 $v1) (FEEDS_INTO $v0 $v2) (FEEDS_INTO $v0 $v3))",
+      "raw": "(supportOf (, (FEEDS_INTO $_0 $_1) (FEEDS_INTO $_0 $_2) (FEEDS_INTO $_0 $_3)) 106)",
+      "support": 106,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FEEDS_INTO $v0 $v1) (FEEDS_INTO $v0 $v2) (HAS_STEP $v3 $v1))",
+      "raw": "(supportOf (, (HAS_STEP $_0 $_1) (FEEDS_INTO $_2 $_1) (FEEDS_INTO $_2 $_3)) 5)",
+      "support": 5,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FEEDS_INTO $v0 $v1) (FEEDS_INTO $v2 $v1) (FEEDS_INTO $v3 $v1))",
+      "raw": "(supportOf (, (FEEDS_INTO $_0 $_1) (FEEDS_INTO $_2 $_1) (FEEDS_INTO $_3 $_1)) 100)",
+      "support": 100,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FEEDS_INTO $v0 $v1) (FEEDS_INTO $v2 $v1) (HAS_STEP $v3 $v1))",
+      "raw": "(supportOf (, (HAS_STEP $_0 $_1) (FEEDS_INTO $_2 $_1) (FEEDS_INTO $_3 $_1)) 5)",
+      "support": 5,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FEEDS_INTO $v0 $v1) (HAS_STEP $v2 $v1) (HAS_STEP $v2 $v3))",
+      "raw": "(supportOf (, (HAS_STEP $_0 $_1) (HAS_STEP $_0 $_2) (FEEDS_INTO $_3 $_2)) 11)",
+      "support": 11,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FEEDS_INTO $v0 $v1) (HAS_STEP $v2 $v1) (HAS_STEP $v3 $v1))",
+      "raw": "(supportOf (, (HAS_STEP $_0 $_1) (HAS_STEP $_2 $_1) (FEEDS_INTO $_3 $_1)) 5)",
+      "support": 5,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FEEDS_INTO $v0 $v1) (HAS_STEP $v2 $v1) (WORKFLOW_USES_TOOL $v2 $v3))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL $_0 $_1) (HAS_STEP $_0 $_2) (FEEDS_INTO $_3 $_2)) 7)",
+      "support": 7,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (HAS_STEP $v2 $v1) (HAS_STEP Scaffolding_with_Hi_C_data_VGP8_b4ee2f91 $v1))",
+      "raw": "(supportOf (, (HAS_STEP $_0 $_1) (HAS_STEP $_2 $_1) (HAS_STEP Scaffolding_with_Hi_C_data_VGP8_b4ee2f91 $_1)) 5)",
+      "support": 5,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (HAS_STEP Scaffolding_with_Hi_C_data_VGP8_b4ee2f91 $v1) (WORKFLOW_USES_TOOL $v0 $v2))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL $_0 $_1) (HAS_STEP $_0 $_2) (HAS_STEP Scaffolding_with_Hi_C_data_VGP8_b4ee2f91 $_2)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FEEDS_INTO $v0 $v1) (HAS_STEP $v2 $v0) (HAS_STEP $v2 $v3))",
+      "raw": "(supportOf (, (FEEDS_INTO $_0 $_1) (HAS_STEP $_2 $_0) (HAS_STEP $_2 $_3)) 6)",
+      "support": 6,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (HAS_STEP $v0 $v2) (HAS_STEP $v0 $v3))",
+      "raw": "(supportOf (, (HAS_STEP $_0 $_1) (HAS_STEP $_0 $_2) (HAS_STEP $_0 $_3)) 497)",
+      "support": 497,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (HAS_STEP $v0 $v2) (STEP_USES_TOOL $v1 $v3))",
+      "raw": "(supportOf (, (STEP_USES_TOOL $_0 $_1) (HAS_STEP $_2 $_0) (HAS_STEP $_2 $_3)) 6)",
+      "support": 6,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (HAS_STEP $v0 $v2) (WORKFLOW_USES_TOOL $v0 $v3))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL $_0 $_1) (HAS_STEP $_0 $_2) (HAS_STEP $_0 $_3)) 248)",
+      "support": 248,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (HAS_STEP $v2 $v1) (HAS_STEP $v3 $v1))",
+      "raw": "(supportOf (, (HAS_STEP $_0 $_1) (HAS_STEP $_2 $_1) (HAS_STEP $_3 $_1)) 71)",
+      "support": 71,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (HAS_STEP $v2 $v1) (WORKFLOW_USES_TOOL $v0 $v3))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL $_0 $_1) (HAS_STEP $_0 $_2) (HAS_STEP $_3 $_2)) 92)",
+      "support": 92,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (HAS_TOOL vgp_assembly_v2_7fb545de $v2) (WORKFLOW_USES_TOOL $v0 $v2))",
+      "raw": "(supportOf (, (HAS_TOOL vgp_assembly_v2_7fb545de $_0) (WORKFLOW_USES_TOOL $_1 $_0) (HAS_STEP $_1 $_2)) 44)",
+      "support": 44,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (HAS_TOOL $v2 $v3) (WORKFLOW_USES_TOOL $v0 $v3))",
+      "raw": "(supportOf (, (HAS_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_1) (HAS_STEP $_2 $_3)) 51)",
+      "support": 51,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (STEP_USES_TOOL $v1 $v2) (WORKFLOW_USES_TOOL $v0 $v3))",
+      "raw": "(supportOf (, (STEP_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_3) (HAS_STEP $_2 $_0)) 7)",
+      "support": 7,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (STEP_USES_TOOL $v2 $v3) (WORKFLOW_USES_TOOL $v0 $v3))",
+      "raw": "(supportOf (, (STEP_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_1) (HAS_STEP $_2 $_3)) 52)",
+      "support": 52,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (TOOL_HAS_INPUT $v2 $v3) (WORKFLOW_USES_TOOL $v0 $v2))",
+      "raw": "(supportOf (, (TOOL_HAS_INPUT $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_0) (HAS_STEP $_2 $_3)) 5)",
+      "support": 5,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (TOOL_HAS_OUTPUT $v2 out_file1_32a3e2ea) (WORKFLOW_USES_TOOL $v0 $v2))",
+      "raw": "(supportOf (, (TOOL_HAS_OUTPUT $_0 out_file1_32a3e2ea) (WORKFLOW_USES_TOOL $_1 $_0) (HAS_STEP $_1 $_2)) 7)",
+      "support": 7,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (TOOL_HAS_OUTPUT $v2 output_78e6221f) (WORKFLOW_USES_TOOL $v0 $v2))",
+      "raw": "(supportOf (, (TOOL_HAS_OUTPUT $_0 output_78e6221f) (WORKFLOW_USES_TOOL $_1 $_0) (HAS_STEP $_1 $_2)) 7)",
+      "support": 7,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (TOOL_HAS_OUTPUT $v2 $v3) (WORKFLOW_USES_TOOL $v0 $v2))",
+      "raw": "(supportOf (, (TOOL_HAS_OUTPUT $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_0) (HAS_STEP $_2 $_3)) 54)",
+      "support": 54,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (WORKFLOW_USES_TOOL $v0 $v2) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $v2))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $_0) (WORKFLOW_USES_TOOL $_1 $_0) (HAS_STEP $_1 $_2)) 16)",
+      "support": 16,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (WORKFLOW_USES_TOOL $v0 $v2) (WORKFLOW_USES_TOOL $v0 $v3))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_0 $_2) (HAS_STEP $_0 $_3)) 232)",
+      "support": 232,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (WORKFLOW_USES_TOOL $v0 $v2) (WORKFLOW_USES_TOOL $v3 $v2))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_1) (HAS_STEP $_2 $_3)) 153)",
+      "support": 153,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v2 $v1) (HAS_TOOL virology_b765de61 $v1))",
+      "raw": "(supportOf (, (HAS_TOOL $_0 $_1) (HAS_TOOL $_2 $_1) (HAS_TOOL virology_b765de61 $_1)) 7)",
+      "support": 7,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v2 $v1) (HAS_TOOL vgp_assembly_v2_7fb545de $v1))",
+      "raw": "(supportOf (, (HAS_TOOL $_0 $_1) (HAS_TOOL $_2 $_1) (HAS_TOOL vgp_assembly_v2_7fb545de $_1)) 126)",
+      "support": 126,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL vgp_assembly_v2_7fb545de $v1) (STEP_USES_TOOL $v2 $v1))",
+      "raw": "(supportOf (, (STEP_USES_TOOL $_0 $_1) (HAS_TOOL $_2 $_1) (HAS_TOOL vgp_assembly_v2_7fb545de $_1)) 111)",
+      "support": 111,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL vgp_assembly_v2_7fb545de $v1) (TOOL_HAS_OUTPUT $v1 $v2))",
+      "raw": "(supportOf (, (TOOL_HAS_OUTPUT $_0 $_1) (HAS_TOOL $_2 $_0) (HAS_TOOL vgp_assembly_v2_7fb545de $_0)) 33)",
+      "support": 33,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL vgp_assembly_v2_7fb545de $v1) (WORKFLOW_USES_TOOL $v2 $v1))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL $_0 $_1) (HAS_TOOL $_2 $_1) (HAS_TOOL vgp_assembly_v2_7fb545de $_1)) 43)",
+      "support": 43,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (HAS_TOOL vgp_assembly_v2_7fb545de $v2) (STEP_USES_TOOL $v1 $v2))",
+      "raw": "(supportOf (, (HAS_STEP $_0 $_1) (STEP_USES_TOOL $_1 $_2) (HAS_TOOL vgp_assembly_v2_7fb545de $_2)) 6)",
+      "support": 6,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (STEP_USES_TOOL $v1 $v0) (STEP_USES_TOOL $v1 toolshed_g2_bx_psu_edu_repos_iuc_compose_text_param_compose_text_param_0_b8f7250f))",
+      "raw": "(supportOf (, (STEP_USES_TOOL $_0 toolshed_g2_bx_psu_edu_repos_iuc_compose_text_param_compose_text_param_0_b8f7250f) (STEP_USES_TOOL $_0 $_1) (HAS_TOOL vgp_assembly_v2_7fb545de $_1)) 20)",
+      "support": 20,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (STEP_USES_TOOL $v1 $v0) (STEP_USES_TOOL $v1 $v2))",
+      "raw": "(supportOf (, (STEP_USES_TOOL $_0 $_1) (STEP_USES_TOOL $_0 $_2) (HAS_TOOL vgp_assembly_v2_7fb545de $_2)) 37)",
+      "support": 37,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (STEP_USES_TOOL $v1 $v0) (STEP_USES_TOOL $v2 $v0))",
+      "raw": "(supportOf (, (STEP_USES_TOOL $_0 $_1) (STEP_USES_TOOL $_2 $_1) (HAS_TOOL vgp_assembly_v2_7fb545de $_1)) 135)",
+      "support": 135,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (STEP_USES_TOOL $v1 $v0) (TOOL_HAS_OUTPUT $v0 $v2))",
+      "raw": "(supportOf (, (TOOL_HAS_OUTPUT $_0 $_1) (STEP_USES_TOOL $_2 $_0) (HAS_TOOL vgp_assembly_v2_7fb545de $_0)) 39)",
+      "support": 39,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (STEP_USES_TOOL $v1 $v0) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $v0))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $_0) (STEP_USES_TOOL $_1 $_0) (HAS_TOOL vgp_assembly_v2_7fb545de $_0)) 6)",
+      "support": 6,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (STEP_USES_TOOL $v1 $v0) (WORKFLOW_USES_TOOL $v2 $v0))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL $_0 $_1) (STEP_USES_TOOL $_2 $_1) (HAS_TOOL vgp_assembly_v2_7fb545de $_1)) 44)",
+      "support": 44,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v0 $v2))",
+      "raw": "(supportOf (, (TOOL_HAS_OUTPUT $_0 $_1) (TOOL_HAS_OUTPUT $_0 $_2) (HAS_TOOL vgp_assembly_v2_7fb545de $_0)) 29)",
+      "support": 29,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v2 $v1))",
+      "raw": "(supportOf (, (TOOL_HAS_OUTPUT $_0 $_1) (TOOL_HAS_OUTPUT $_2 $_1) (HAS_TOOL vgp_assembly_v2_7fb545de $_2)) 46)",
+      "support": 46,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (TOOL_HAS_OUTPUT $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v0))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL $_0 $_1) (TOOL_HAS_OUTPUT $_1 $_2) (HAS_TOOL vgp_assembly_v2_7fb545de $_1)) 22)",
+      "support": 22,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (WORKFLOW_USES_TOOL $v1 $v0) (WORKFLOW_USES_TOOL $v1 $v2))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_0 $_2) (HAS_TOOL vgp_assembly_v2_7fb545de $_2)) 55)",
+      "support": 55,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (WORKFLOW_USES_TOOL $v1 $v0) (WORKFLOW_USES_TOOL $v2 $v0))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_1) (HAS_TOOL vgp_assembly_v2_7fb545de $_1)) 43)",
+      "support": 43,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v2 $v1) (HAS_TOOL epigenetics_132f58ce $v1))",
+      "raw": "(supportOf (, (HAS_TOOL $_0 $_1) (HAS_TOOL $_2 $_1) (HAS_TOOL epigenetics_132f58ce $_1)) 5)",
+      "support": 5,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v0 $v2) (HAS_TOOL $v0 $v3))",
+      "raw": "(supportOf (, (HAS_TOOL $_0 $_1) (HAS_TOOL $_0 $_2) (HAS_TOOL $_0 $_3)) 8557)",
+      "support": 8557,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v0 $v2) (STEP_USES_TOOL $v3 $v1))",
+      "raw": "(supportOf (, (STEP_USES_TOOL $_0 $_1) (HAS_TOOL $_2 $_1) (HAS_TOOL $_2 $_3)) 761)",
+      "support": 761,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v0 $v2) (TOOL_HAS_OUTPUT $v1 out_file1_32a3e2ea))",
+      "raw": "(supportOf (, (TOOL_HAS_OUTPUT $_0 out_file1_32a3e2ea) (HAS_TOOL $_1 $_0) (HAS_TOOL $_1 $_2)) 32)",
+      "support": 32,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v0 $v2) (TOOL_HAS_OUTPUT $v1 output_78e6221f))",
+      "raw": "(supportOf (, (TOOL_HAS_OUTPUT $_0 output_78e6221f) (HAS_TOOL $_1 $_0) (HAS_TOOL $_1 $_2)) 24)",
+      "support": 24,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v0 $v2) (TOOL_HAS_OUTPUT $v1 outfile_6279b3fa))",
+      "raw": "(supportOf (, (TOOL_HAS_OUTPUT $_0 outfile_6279b3fa) (HAS_TOOL $_1 $_0) (HAS_TOOL $_1 $_2)) 40)",
+      "support": 40,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v0 $v2) (TOOL_HAS_OUTPUT $v1 $v3))",
+      "raw": "(supportOf (, (TOOL_HAS_OUTPUT $_0 $_1) (HAS_TOOL $_2 $_0) (HAS_TOOL $_2 $_3)) 362)",
+      "support": 362,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v0 $v2) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $v1))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $_0) (HAS_TOOL $_1 $_0) (HAS_TOOL $_1 $_2)) 42)",
+      "support": 42,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v0 $v2) (WORKFLOW_USES_TOOL $v3 $v1))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL $_0 $_1) (HAS_TOOL $_2 $_1) (HAS_TOOL $_2 $_3)) 448)",
+      "support": 448,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v2 $v1) (HAS_TOOL $v3 $v1))",
+      "raw": "(supportOf (, (HAS_TOOL $_0 $_1) (HAS_TOOL $_2 $_1) (HAS_TOOL $_3 $_1)) 163)",
+      "support": 163,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v2 $v1) (STEP_USES_TOOL $v3 $v1))",
+      "raw": "(supportOf (, (STEP_USES_TOOL $_0 $_1) (HAS_TOOL $_2 $_1) (HAS_TOOL $_3 $_1)) 122)",
+      "support": 122,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v2 $v1) (TOOL_HAS_OUTPUT $v1 $v3))",
+      "raw": "(supportOf (, (TOOL_HAS_OUTPUT $_0 $_1) (HAS_TOOL $_2 $_0) (HAS_TOOL $_3 $_0)) 40)",
+      "support": 40,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v2 $v1) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $v1))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $_0) (HAS_TOOL $_1 $_0) (HAS_TOOL $_2 $_0)) 5)",
+      "support": 5,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v2 $v1) (WORKFLOW_USES_TOOL $v3 $v1))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL $_0 $_1) (HAS_TOOL $_2 $_1) (HAS_TOOL $_3 $_1)) 49)",
+      "support": 49,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (HAS_TOOL $v2 $v3) (STEP_USES_TOOL $v1 $v3))",
+      "raw": "(supportOf (, (HAS_STEP $_0 $_1) (STEP_USES_TOOL $_1 $_2) (HAS_TOOL $_3 $_2)) 7)",
+      "support": 7,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (STEP_USES_TOOL $v2 toolshed_g2_bx_psu_edu_repos_iuc_compose_text_param_compose_text_param_0_b8f7250f))",
+      "raw": "(supportOf (, (STEP_USES_TOOL $_0 toolshed_g2_bx_psu_edu_repos_iuc_compose_text_param_compose_text_param_0_b8f7250f) (STEP_USES_TOOL $_0 $_1) (HAS_TOOL $_2 $_1)) 20)",
+      "support": 20,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (STEP_USES_TOOL $v2 $v3))",
+      "raw": "(supportOf (, (STEP_USES_TOOL $_0 $_1) (STEP_USES_TOOL $_0 $_2) (HAS_TOOL $_3 $_2)) 44)",
+      "support": 44,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (STEP_USES_TOOL $v3 $v1))",
+      "raw": "(supportOf (, (STEP_USES_TOOL $_0 $_1) (STEP_USES_TOOL $_2 $_1) (HAS_TOOL $_3 $_1)) 144)",
+      "support": 144,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (TOOL_HAS_OUTPUT $v1 $v3))",
+      "raw": "(supportOf (, (TOOL_HAS_OUTPUT $_0 $_1) (STEP_USES_TOOL $_2 $_0) (HAS_TOOL $_3 $_0)) 39)",
+      "support": 39,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $v1))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $_0) (STEP_USES_TOOL $_1 $_0) (HAS_TOOL $_2 $_0)) 6)",
+      "support": 6,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL $v3 $v1))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL $_0 $_1) (STEP_USES_TOOL $_2 $_1) (HAS_TOOL $_3 $_1)) 45)",
+      "support": 45,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (TOOL_HAS_OUTPUT $v1 $v2) (TOOL_HAS_OUTPUT $v1 output_78e6221f))",
+      "raw": "(supportOf (, (TOOL_HAS_OUTPUT $_0 output_78e6221f) (TOOL_HAS_OUTPUT $_0 $_1) (HAS_TOOL $_2 $_0)) 6)",
+      "support": 6,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (TOOL_HAS_OUTPUT $v1 $v2) (TOOL_HAS_OUTPUT $v1 $v3))",
+      "raw": "(supportOf (, (TOOL_HAS_OUTPUT $_0 $_1) (TOOL_HAS_OUTPUT $_0 $_2) (HAS_TOOL $_3 $_0)) 38)",
+      "support": 38,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (TOOL_HAS_OUTPUT $v1 $v2) (TOOL_HAS_OUTPUT $v3 $v2))",
+      "raw": "(supportOf (, (TOOL_HAS_OUTPUT $_0 $_1) (TOOL_HAS_OUTPUT $_2 $_1) (HAS_TOOL $_3 $_2)) 69)",
+      "support": 69,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (TOOL_HAS_OUTPUT $v1 $v2) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $v1))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $_0) (TOOL_HAS_OUTPUT $_0 $_1) (HAS_TOOL $_2 $_0)) 5)",
+      "support": 5,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (TOOL_HAS_OUTPUT $v1 $v2) (WORKFLOW_USES_TOOL $v3 $v1))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL $_0 $_1) (TOOL_HAS_OUTPUT $_1 $_2) (HAS_TOOL $_3 $_1)) 23)",
+      "support": 23,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $v1))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $_0) (WORKFLOW_USES_TOOL $_1 $_0) (HAS_TOOL $_2 $_0)) 5)",
+      "support": 5,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL $v2 $v3))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_0 $_2) (HAS_TOOL $_3 $_2)) 73)",
+      "support": 73,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL $v3 $v1))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_1) (HAS_TOOL $_3 $_1)) 51)",
+      "support": 51,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (STEP_USES_TOOL $v0 $v2) (STEP_USES_TOOL $v0 toolshed_g2_bx_psu_edu_repos_iuc_compose_text_param_compose_text_param_0_b8f7250f))",
+      "raw": "(supportOf (, (STEP_USES_TOOL $_0 $_1) (STEP_USES_TOOL $_0 $_2) (STEP_USES_TOOL $_0 toolshed_g2_bx_psu_edu_repos_iuc_compose_text_param_compose_text_param_0_b8f7250f)) 5)",
+      "support": 5,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (STEP_USES_TOOL $v0 toolshed_g2_bx_psu_edu_repos_iuc_compose_text_param_compose_text_param_0_b8f7250f) (TOOL_HAS_OUTPUT $v1 $v2))",
+      "raw": "(supportOf (, (TOOL_HAS_OUTPUT $_0 $_1) (STEP_USES_TOOL $_2 $_0) (STEP_USES_TOOL $_2 toolshed_g2_bx_psu_edu_repos_iuc_compose_text_param_compose_text_param_0_b8f7250f)) 5)",
+      "support": 5,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (STEP_USES_TOOL $v0 toolshed_g2_bx_psu_edu_repos_iuc_compose_text_param_compose_text_param_0_b8f7250f) (WORKFLOW_USES_TOOL $v2 $v1))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL $_0 $_1) (STEP_USES_TOOL $_2 $_1) (STEP_USES_TOOL $_2 toolshed_g2_bx_psu_edu_repos_iuc_compose_text_param_compose_text_param_0_b8f7250f)) 5)",
+      "support": 5,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (STEP_USES_TOOL $v0 $v2) (STEP_USES_TOOL $v0 $v3))",
+      "raw": "(supportOf (, (STEP_USES_TOOL $_0 $_1) (STEP_USES_TOOL $_0 $_2) (STEP_USES_TOOL $_0 $_3)) 47)",
+      "support": 47,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (STEP_USES_TOOL $v0 $v2) (TOOL_HAS_OUTPUT $v1 $v3))",
+      "raw": "(supportOf (, (TOOL_HAS_OUTPUT $_0 $_1) (STEP_USES_TOOL $_2 $_0) (STEP_USES_TOOL $_2 $_3)) 24)",
+      "support": 24,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (STEP_USES_TOOL $v0 $v2) (WORKFLOW_USES_TOOL $v3 $v1))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL $_0 $_1) (STEP_USES_TOOL $_2 $_1) (STEP_USES_TOOL $_2 $_3)) 28)",
+      "support": 28,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (STEP_USES_TOOL $v1 $v2) (STEP_USES_TOOL $v3 $v2))",
+      "raw": "(supportOf (, (HAS_STEP $_0 $_1) (STEP_USES_TOOL $_1 $_2) (STEP_USES_TOOL $_3 $_2)) 8)",
+      "support": 8,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (STEP_USES_TOOL $v3 $v1))",
+      "raw": "(supportOf (, (STEP_USES_TOOL $_0 $_1) (STEP_USES_TOOL $_2 $_1) (STEP_USES_TOOL $_3 $_1)) 215)",
+      "support": 215,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (TOOL_HAS_OUTPUT $v1 $v3))",
+      "raw": "(supportOf (, (TOOL_HAS_OUTPUT $_0 $_1) (STEP_USES_TOOL $_2 $_0) (STEP_USES_TOOL $_3 $_0)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $v1))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $_0) (STEP_USES_TOOL $_1 $_0) (STEP_USES_TOOL $_2 $_0)) 9)",
+      "support": 9,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL $v3 $v1))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL $_0 $_1) (STEP_USES_TOOL $_2 $_1) (STEP_USES_TOOL $_3 $_1)) 68)",
+      "support": 68,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (TOOL_HAS_OUTPUT $v1 $v2) (TOOL_HAS_OUTPUT $v1 $v3))",
+      "raw": "(supportOf (, (TOOL_HAS_OUTPUT $_0 $_1) (TOOL_HAS_OUTPUT $_0 $_2) (STEP_USES_TOOL $_3 $_0)) 40)",
+      "support": 40,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (TOOL_HAS_OUTPUT $v1 $v2) (TOOL_HAS_OUTPUT $v3 $v2))",
+      "raw": "(supportOf (, (TOOL_HAS_OUTPUT $_0 $_1) (TOOL_HAS_OUTPUT $_2 $_1) (STEP_USES_TOOL $_3 $_2)) 58)",
+      "support": 58,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (TOOL_HAS_OUTPUT $v1 $v2) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $v1))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $_0) (TOOL_HAS_OUTPUT $_0 $_1) (STEP_USES_TOOL $_2 $_0)) 6)",
+      "support": 6,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (TOOL_HAS_OUTPUT $v1 $v2) (WORKFLOW_USES_TOOL $v3 $v1))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL $_0 $_1) (TOOL_HAS_OUTPUT $_1 $_2) (STEP_USES_TOOL $_3 $_1)) 23)",
+      "support": 23,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $v1))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $_0) (WORKFLOW_USES_TOOL $_1 $_0) (STEP_USES_TOOL $_2 $_0)) 6)",
+      "support": 6,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL $v2 $v3))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_0 $_2) (STEP_USES_TOOL $_3 $_2)) 73)",
+      "support": 73,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL $v3 $v1))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_1) (STEP_USES_TOOL $_3 $_1)) 62)",
+      "support": 62,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (TOOL_HAS_INPUT $v0 $v1) (TOOL_HAS_INPUT $v0 $v2) (TOOL_HAS_INPUT $v0 $v3))",
+      "raw": "(supportOf (, (TOOL_HAS_INPUT $_0 $_1) (TOOL_HAS_INPUT $_0 $_2) (TOOL_HAS_INPUT $_0 $_3)) 20)",
+      "support": 20,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (TOOL_HAS_INPUT $v0 $v1) (TOOL_HAS_INPUT $v0 $v2) (TOOL_HAS_OUTPUT $v0 $v3))",
+      "raw": "(supportOf (, (TOOL_HAS_OUTPUT $_0 $_1) (TOOL_HAS_INPUT $_0 $_2) (TOOL_HAS_INPUT $_0 $_3)) 5)",
+      "support": 5,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (TOOL_HAS_INPUT $v0 $v1) (TOOL_HAS_INPUT $v2 $v1) (TOOL_HAS_INPUT $v3 $v1))",
+      "raw": "(supportOf (, (TOOL_HAS_INPUT $_0 $_1) (TOOL_HAS_INPUT $_2 $_1) (TOOL_HAS_INPUT $_3 $_1)) 26)",
+      "support": 26,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (TOOL_HAS_INPUT $v0 $v1) (TOOL_HAS_INPUT $v2 $v1) (TOOL_HAS_OUTPUT $v0 $v3))",
+      "raw": "(supportOf (, (TOOL_HAS_OUTPUT $_0 $_1) (TOOL_HAS_INPUT $_0 $_2) (TOOL_HAS_INPUT $_3 $_2)) 5)",
+      "support": 5,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v0 $v2) (TOOL_HAS_OUTPUT $v0 out_file1_32a3e2ea))",
+      "raw": "(supportOf (, (TOOL_HAS_OUTPUT $_0 $_1) (TOOL_HAS_OUTPUT $_0 $_2) (TOOL_HAS_OUTPUT $_0 out_file1_32a3e2ea)) 5)",
+      "support": 5,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v0 $v2) (TOOL_HAS_OUTPUT $v0 output_78e6221f))",
+      "raw": "(supportOf (, (TOOL_HAS_OUTPUT $_0 $_1) (TOOL_HAS_OUTPUT $_0 $_2) (TOOL_HAS_OUTPUT $_0 output_78e6221f)) 14)",
+      "support": 14,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v0 $v2) (TOOL_HAS_OUTPUT $v0 outfile_6279b3fa))",
+      "raw": "(supportOf (, (TOOL_HAS_OUTPUT $_0 $_1) (TOOL_HAS_OUTPUT $_0 $_2) (TOOL_HAS_OUTPUT $_0 outfile_6279b3fa)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v0 $v2) (TOOL_HAS_OUTPUT $v0 $v3))",
+      "raw": "(supportOf (, (TOOL_HAS_OUTPUT $_0 $_1) (TOOL_HAS_OUTPUT $_0 $_2) (TOOL_HAS_OUTPUT $_0 $_3)) 156)",
+      "support": 156,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v0 $v2) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $v0))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $_0) (TOOL_HAS_OUTPUT $_0 $_1) (TOOL_HAS_OUTPUT $_0 $_2)) 7)",
+      "support": 7,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v0 $v2) (WORKFLOW_USES_TOOL $v3 $v0))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL $_0 $_1) (TOOL_HAS_OUTPUT $_1 $_2) (TOOL_HAS_OUTPUT $_1 $_3)) 37)",
+      "support": 37,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL virology_b765de61 $v0) (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v2 $v1))",
+      "raw": "(supportOf (, (HAS_TOOL virology_b765de61 $_0) (TOOL_HAS_OUTPUT $_0 $_1) (TOOL_HAS_OUTPUT $_2 $_1)) 5)",
+      "support": 5,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL epigenetics_132f58ce $v0) (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v2 $v1))",
+      "raw": "(supportOf (, (HAS_TOOL epigenetics_132f58ce $_0) (TOOL_HAS_OUTPUT $_0 $_1) (TOOL_HAS_OUTPUT $_2 $_1)) 5)",
+      "support": 5,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v2 $v1) (TOOL_HAS_OUTPUT $v3 $v1))",
+      "raw": "(supportOf (, (TOOL_HAS_OUTPUT $_0 $_1) (TOOL_HAS_OUTPUT $_2 $_1) (TOOL_HAS_OUTPUT $_3 $_1)) 588)",
+      "support": 588,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v2 $v1) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $v0))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $_0) (TOOL_HAS_OUTPUT $_0 $_1) (TOOL_HAS_OUTPUT $_2 $_1)) 6)",
+      "support": 6,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v2 $v1) (WORKFLOW_USES_TOOL $v3 $v0))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL $_0 $_1) (TOOL_HAS_OUTPUT $_1 $_2) (TOOL_HAS_OUTPUT $_3 $_2)) 57)",
+      "support": 57,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v0) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $v0))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $_1) (TOOL_HAS_OUTPUT $_1 $_2)) 9)",
+      "support": 9,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v0) (WORKFLOW_USES_TOOL $v2 $v3))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_0 $_2) (TOOL_HAS_OUTPUT $_2 $_3)) 66)",
+      "support": 66,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v0) (WORKFLOW_USES_TOOL $v3 $v0))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_1) (TOOL_HAS_OUTPUT $_1 $_3)) 41)",
+      "support": 41,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (WORKFLOW_USES_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $v1))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_1) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $_1)) 14)",
+      "support": 14,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HAS_TOOL epigenetics_132f58ce $v0) (WORKFLOW_USES_TOOL $v1 $v0) (WORKFLOW_USES_TOOL $v1 $v2))",
+      "raw": "(supportOf (, (HAS_TOOL epigenetics_132f58ce $_0) (WORKFLOW_USES_TOOL $_1 $_0) (WORKFLOW_USES_TOOL $_1 $_2)) 8)",
+      "support": 8,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (TOOL_HAS_INPUT $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v0) (WORKFLOW_USES_TOOL $v2 $v3))",
+      "raw": "(supportOf (, (TOOL_HAS_INPUT $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_0) (WORKFLOW_USES_TOOL $_2 $_3)) 8)",
+      "support": 8,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 out_file1_32a3e2ea) (WORKFLOW_USES_TOOL $v1 $v0) (WORKFLOW_USES_TOOL $v1 $v2))",
+      "raw": "(supportOf (, (TOOL_HAS_OUTPUT $_0 out_file1_32a3e2ea) (WORKFLOW_USES_TOOL $_1 $_0) (WORKFLOW_USES_TOOL $_1 $_2)) 5)",
+      "support": 5,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 output_78e6221f) (WORKFLOW_USES_TOOL $v1 $v0) (WORKFLOW_USES_TOOL $v1 $v2))",
+      "raw": "(supportOf (, (TOOL_HAS_OUTPUT $_0 output_78e6221f) (WORKFLOW_USES_TOOL $_1 $_0) (WORKFLOW_USES_TOOL $_1 $_2)) 5)",
+      "support": 5,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (WORKFLOW_USES_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v0 $v2) (WORKFLOW_USES_TOOL $v0 $v3))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_0 $_2) (WORKFLOW_USES_TOOL $_0 $_3)) 369)",
+      "support": 369,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (WORKFLOW_USES_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL $v3 $v1))",
+      "raw": "(supportOf (, (WORKFLOW_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_1) (WORKFLOW_USES_TOOL $_3 $_1)) 153)",
+      "support": 153,
+      "surprisingness": null
+    }
+  ],
+  "verification": {
+    "checked": 115,
+    "ok": true,
+    "mismatches": []
+  },
+  "ranker": {
+    "strategy": "exhaustive",
+    "budget": 1.0,
+    "seed": 0,
+    "providers": null,
+    "batch_size": 60,
+    "max_retries": 2,
+    "timeout_s": 180.0,
+    "workers": 4,
+    "cache_dir": ".cache/llm",
+    "min_select": 1
+  },
+  "trace_summary": {
+    "t": 5.624,
+    "event": "finish",
+    "wall_seconds": 5.624,
+    "generated": 7808,
+    "unique": 4267,
+    "selected": 4267,
+    "kept": 115,
+    "llm_seconds": 0.0,
+    "verify_seconds": 3.138,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "fallback_batches": 0,
+    "batches": 0
+  }
+}

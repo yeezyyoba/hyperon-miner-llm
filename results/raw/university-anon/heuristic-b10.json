@@ -1,0 +1,59 @@
+{
+  "label": "heuristic-b10",
+  "config": {
+    "dataset": "experiments/data/university_s0_st80_anon",
+    "minsup": 10,
+    "depth": 1,
+    "surp_mode": "isurp",
+    "normalize": true,
+    "db_ratio": 0.5,
+    "timeout": 1800,
+    "extra": {}
+  },
+  "ok": true,
+  "returncode": 0,
+  "timed_out": false,
+  "seconds": 1.862,
+  "n_patterns": 0,
+  "patterns": [],
+  "verification": {
+    "checked": 0,
+    "ok": true,
+    "mismatches": []
+  },
+  "ranker": {
+    "strategy": "heuristic",
+    "budget": 0.1,
+    "seed": 0,
+    "providers": null,
+    "batch_size": 60,
+    "max_retries": 2,
+    "timeout_s": 180.0,
+    "workers": 4,
+    "cache_dir": ".cache/llm",
+    "min_select": 1
+  },
+  "trace_summary": {
+    "t": 0.645,
+    "event": "finish",
+    "wall_seconds": 0.645,
+    "generated": 1559,
+    "unique": 1109,
+    "selected": 111,
+    "kept": 0,
+    "llm_seconds": 0.0,
+    "verify_seconds": 0.001,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "fallback_batches": 0,
+    "batches": 0
+  },
+  "arm": {
+    "name": "heuristic-b10",
+    "strategy": "heuristic",
+    "budget": 0.1,
+    "seed": 0,
+    "provider": null,
+    "family": "heuristic"
+  }
+}

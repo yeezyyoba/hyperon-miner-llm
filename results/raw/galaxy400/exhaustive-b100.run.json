@@ -1,0 +1,14 @@
+{
+  "strategy": "exhaustive",
+  "budget": 1.0,
+  "seed": 0,
+  "providers": null,
+  "batch_size": 60,
+  "max_retries": 2,
+  "timeout_s": 180.0,
+  "workers": 4,
+  "cache_dir": "/home/claude/hyperon-miner-llm/.cache/llm",
+  "min_select": 1,
+  "trace_path": "/home/claude/hyperon-miner-llm/results/raw/galaxy400/exhaustive-b100.trace.jsonl",
+  "dataset": "/home/claude/hyperon-miner-llm/experiments/data/galaxy_400.metta"
+}

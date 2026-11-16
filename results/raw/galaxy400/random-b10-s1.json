@@ -1,0 +1,66 @@
+{
+  "label": "random-b10-s1",
+  "config": {
+    "dataset": "experiments/data/galaxy_400",
+    "minsup": 5,
+    "depth": 1,
+    "surp_mode": "isurp",
+    "normalize": true,
+    "db_ratio": 0.5,
+    "timeout": 1800,
+    "extra": {}
+  },
+  "ok": true,
+  "returncode": 0,
+  "timed_out": false,
+  "seconds": 2.89,
+  "n_patterns": 1,
+  "patterns": [
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (TOOL_HAS_OUTPUT $v1 $v2) (WORKFLOW_USES_TOOL $v3 $v1))",
+      "raw": "(surprisingnessOf (, (TOOL_HAS_OUTPUT $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_0) (STEP_USES_TOOL $_3 $_0)) 0.7808695652173914)",
+      "support": 23,
+      "surprisingness": 0.7808695652173914
+    }
+  ],
+  "verification": {
+    "checked": 0,
+    "ok": true,
+    "mismatches": []
+  },
+  "ranker": {
+    "strategy": "random",
+    "budget": 0.1,
+    "seed": 1,
+    "providers": null,
+    "batch_size": 60,
+    "max_retries": 2,
+    "timeout_s": 180.0,
+    "workers": 4,
+    "cache_dir": ".cache/llm",
+    "min_select": 1
+  },
+  "trace_summary": {
+    "t": 1.699,
+    "event": "finish",
+    "wall_seconds": 1.699,
+    "generated": 1632,
+    "unique": 1084,
+    "selected": 109,
+    "kept": 1,
+    "llm_seconds": 0.0,
+    "verify_seconds": 0.086,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "fallback_batches": 0,
+    "batches": 0
+  },
+  "arm": {
+    "name": "random-b10-s1",
+    "strategy": "random",
+    "budget": 0.1,
+    "seed": 1,
+    "provider": null,
+    "family": "random"
+  }
+}

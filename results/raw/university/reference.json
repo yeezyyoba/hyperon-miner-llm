@@ -1,0 +1,2581 @@
+{
+ "config": {
+  "dataset": "experiments/data/university_s0_st80",
+  "minsup": 10,
+  "depth": 1,
+  "surp_mode": "isurp",
+  "normalize": true,
+  "db_ratio": 0.5,
+  "timeout": 1800,
+  "extra": {}
+ },
+ "frequent": 641,
+ "scored": 641,
+ "unscored": [],
+ "patterns": {
+  "(, (MEMBER_OF $v0 $v1) (MEMBER_OF $v0 $v2) (MEMBER_OF $v0 $v3))": {
+   "support": 12,
+   "score": 0.0
+  },
+  "(, (MEMBER_OF $v0 $v1) (MEMBER_OF $v0 $v2) (TEACHES $v0 $v3))": {
+   "support": 24,
+   "score": 0.9761904761904762
+  },
+  "(, (MEMBER_OF $v0 $v1) (MEMBER_OF $v0 $v2) (OFFERED_BY $v3 $v1))": {
+   "support": 72,
+   "score": 0.9761904761904762
+  },
+  "(, (ADVISED_BY $v0 $v1) (MEMBER_OF $v1 $v2) (MEMBER_OF $v1 $v3))": {
+   "support": 60,
+   "score": 0.9761904761904763
+  },
+  "(, (MAJORS_IN $v0 $v1) (MEMBER_OF $v2 $v1) (MEMBER_OF $v2 $v3))": {
+   "support": 180,
+   "score": 0.9761904761904762
+  },
+  "(, (MEMBER_OF $v0 $v1) (MEMBER_OF $v2 $v1) (MEMBER_OF $v3 $v1))": {
+   "support": 108,
+   "score": 1.255099539923532e-16
+  },
+  "(, (MEMBER_OF $v0 $v1) (MEMBER_OF $v2 $v1) (TEACHES $v0 $v3))": {
+   "support": 72,
+   "score": 0.9761904761904762
+  },
+  "(, (MEMBER_OF $v0 $v1) (MEMBER_OF $v2 $v1) (OFFERED_BY $v3 $v1))": {
+   "support": 216,
+   "score": 0.992063492063492
+  },
+  "(, (ADVISED_BY $v0 $v1) (MEMBER_OF $v1 $v2) (MEMBER_OF $v3 $v2))": {
+   "support": 180,
+   "score": 0.9761904761904762
+  },
+  "(, (MAJORS_IN $v0 $v1) (MEMBER_OF $v2 $v1) (MEMBER_OF $v3 $v1))": {
+   "support": 540,
+   "score": 0.992063492063492
+  },
+  "(, (MEMBER_OF $v0 $v1) (TEACHES $v0 $v2) (TEACHES $v0 $v3))": {
+   "support": 48,
+   "score": 0.9761904761904762
+  },
+  "(, (MEMBER_OF $v0 $v1) (TEACHES $v0 $v2) (TEACHES $v3 $v2))": {
+   "support": 24,
+   "score": 0.9523809523809523
+  },
+  "(, (MEMBER_OF $v0 $v1) (OFFERED_BY $v2 $v1) (TEACHES $v0 $v2))": {
+   "support": 24,
+   "score": 0.9997165532879818
+  },
+  "(, (MEMBER_OF $v0 $v1) (OFFERED_BY $v2 $v3) (TEACHES $v0 $v2))": {
+   "support": 24,
+   "score": 0.9523809523809523
+  },
+  "(, (MEMBER_OF $v0 $v1) (OFFERED_BY $v2 $v1) (TEACHES $v0 $v3))": {
+   "support": 144,
+   "score": 0.9761904761904762
+  },
+  "(, (HELD_IN $v0 $v1) (MEMBER_OF $v2 $v3) (TEACHES $v2 $v0))": {
+   "support": 24,
+   "score": 0.9523809523809523
+  },
+  "(, (ADVISED_BY $v0 $v1) (MEMBER_OF $v1 $v2) (TEACHES $v1 $v3))": {
+   "support": 120,
+   "score": 0.9761904761904763
+  },
+  "(, (MAJORS_IN $v0 $v1) (MEMBER_OF $v2 $v1) (TEACHES $v2 $v3))": {
+   "support": 360,
+   "score": 0.9761904761904762
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MEMBER_OF $v2 $v3) (TEACHES $v2 $v1))": {
+   "support": 180,
+   "score": 0.9523809523809523
+  },
+  "(, (MEMBER_OF $v0 $v1) (OFFERED_BY $v2 $v1) (TEACHES $v3 $v2))": {
+   "support": 72,
+   "score": 0.9523809523809524
+  },
+  "(, (MEMBER_OF $v0 $v1) (OFFERED_BY $v2 $v1) (OFFERED_BY $v2 $v3))": {
+   "support": 72,
+   "score": 0.9523809523809524
+  },
+  "(, (MEMBER_OF $v0 $v1) (OFFERED_BY $v2 $v1) (OFFERED_BY $v3 $v1))": {
+   "support": 432,
+   "score": 0.992063492063492
+  },
+  "(, (HELD_IN $v0 $v1) (MEMBER_OF $v2 $v3) (OFFERED_BY $v0 $v3))": {
+   "support": 72,
+   "score": 0.9523809523809524
+  },
+  "(, (ADVISED_BY $v0 $v1) (MEMBER_OF $v1 $v2) (OFFERED_BY $v3 $v2))": {
+   "support": 360,
+   "score": 0.9761904761904762
+  },
+  "(, (MAJORS_IN $v0 $v1) (MEMBER_OF $v2 $v1) (OFFERED_BY $v3 $v1))": {
+   "support": 1080,
+   "score": 0.992063492063492
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MEMBER_OF $v2 $v3) (OFFERED_BY $v1 $v3))": {
+   "support": 540,
+   "score": 0.9523809523809524
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (MEMBER_OF $v1 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (MEMBER_OF $v1 $v3))": {
+   "support": 332,
+   "score": 0.9761904761904762
+  },
+  "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 dept_0) (MEMBER_OF $v1 $v2))": {
+   "support": 16,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 dept_1) (MEMBER_OF $v1 $v2))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 dept_2) (MEMBER_OF $v1 $v2))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 dept_3) (MEMBER_OF $v1 $v2))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (MEMBER_OF $v1 $v2))": {
+   "support": 48,
+   "score": 0.9991142290249433
+  },
+  "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (MEMBER_OF $v1 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v2 $v3) (MEMBER_OF $v1 $v3))": {
+   "support": 923,
+   "score": 0.976783779600681
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_20) (MEMBER_OF $v1 $v2))": {
+   "support": 11,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_3) (MEMBER_OF $v1 $v2))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (MEMBER_OF $v1 $v3))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (MEMBER_OF $v1 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (MEMBER_OF $v1 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (MEMBER_OF $v1 $v2) (USES $v0 laptop_2))": {
+   "support": 12,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (MEMBER_OF $v1 $v2) (USES $v0 laptop_3))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (MEMBER_OF $v1 $v2) (USES $v0 laptop_1))": {
+   "support": 13,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (MEMBER_OF $v1 $v2) (USES $v0 laptop_0))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (MEMBER_OF $v1 $v2) (USES $v0 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (MEMBER_OF $v3 $v2))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 dept_0) (MEMBER_OF $v2 $v1))": {
+   "support": 48,
+   "score": 0.8809523809523809
+  },
+  "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 dept_1) (MEMBER_OF $v2 $v1))": {
+   "support": 51,
+   "score": 0.880952380952381
+  },
+  "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 dept_2) (MEMBER_OF $v2 $v1))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 dept_3) (MEMBER_OF $v2 $v1))": {
+   "support": 51,
+   "score": 0.880952380952381
+  },
+  "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MEMBER_OF $v3 $v1))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1) (MEMBER_OF $v3 $v1))": {
+   "support": 2802,
+   "score": 0.9920634920634921
+  },
+  "(, (ENROLLED_IN $v0 course_20) (MAJORS_IN $v0 $v1) (MEMBER_OF $v2 $v1))": {
+   "support": 33,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 course_3) (MAJORS_IN $v0 $v1) (MEMBER_OF $v2 $v1))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MEMBER_OF $v3 $v2))": {
+   "support": 540,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (MEMBER_OF $v3 $v2))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (MEMBER_OF $v3 $v2))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (MAJORS_IN $v0 $v1) (MEMBER_OF $v2 $v1) (USES $v0 laptop_2))": {
+   "support": 36,
+   "score": 0.880952380952381
+  },
+  "(, (MAJORS_IN $v0 $v1) (MEMBER_OF $v2 $v1) (USES $v0 laptop_3))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (MAJORS_IN $v0 $v1) (MEMBER_OF $v2 $v1) (USES $v0 laptop_1))": {
+   "support": 39,
+   "score": 0.8809523809523809
+  },
+  "(, (MAJORS_IN $v0 $v1) (MEMBER_OF $v2 $v1) (USES $v0 laptop_0))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (MAJORS_IN $v0 $v1) (MEMBER_OF $v2 $v1) (USES $v0 $v3))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (TEACHES $v0 $v1) (TEACHES $v0 $v2) (TEACHES $v0 $v3))": {
+   "support": 96,
+   "score": 0.0
+  },
+  "(, (OFFERED_BY $v0 $v1) (TEACHES $v2 $v0) (TEACHES $v2 $v3))": {
+   "support": 48,
+   "score": 0.9523809523809523
+  },
+  "(, (HELD_IN $v0 $v1) (TEACHES $v2 $v0) (TEACHES $v2 $v3))": {
+   "support": 48,
+   "score": 0.9523809523809523
+  },
+  "(, (ADVISED_BY $v0 $v1) (TEACHES $v1 $v2) (TEACHES $v1 $v3))": {
+   "support": 240,
+   "score": 0.9761904761904763
+  },
+  "(, (ENROLLED_IN $v0 $v1) (TEACHES $v2 $v1) (TEACHES $v2 $v3))": {
+   "support": 360,
+   "score": 0.9523809523809523
+  },
+  "(, (TEACHES $v0 $v1) (TEACHES $v2 $v1) (TEACHES $v3 $v1))": {
+   "support": 24,
+   "score": 0.0
+  },
+  "(, (OFFERED_BY $v0 $v1) (TEACHES $v2 $v0) (TEACHES $v3 $v0))": {
+   "support": 24,
+   "score": 0.9523809523809523
+  },
+  "(, (HELD_IN $v0 $v1) (TEACHES $v2 $v0) (TEACHES $v3 $v0))": {
+   "support": 24,
+   "score": 0.9523809523809523
+  },
+  "(, (ADVISED_BY $v0 $v1) (TEACHES $v1 $v2) (TEACHES $v3 $v2))": {
+   "support": 120,
+   "score": 0.9523809523809523
+  },
+  "(, (ENROLLED_IN $v0 $v1) (TEACHES $v2 $v1) (TEACHES $v3 $v1))": {
+   "support": 180,
+   "score": 0.9523809523809523
+  },
+  "(, (OFFERED_BY $v0 $v1) (OFFERED_BY $v0 $v2) (TEACHES $v3 $v0))": {
+   "support": 24,
+   "score": 0.9523809523809523
+  },
+  "(, (OFFERED_BY $v0 $v1) (OFFERED_BY $v2 $v1) (TEACHES $v3 $v0))": {
+   "support": 144,
+   "score": 0.9523809523809524
+  },
+  "(, (HELD_IN $v0 $v1) (OFFERED_BY $v0 $v2) (TEACHES $v3 $v0))": {
+   "support": 24,
+   "score": 0.9523809523809523
+  },
+  "(, (ADVISED_BY $v0 $v1) (OFFERED_BY $v2 $v3) (TEACHES $v1 $v2))": {
+   "support": 120,
+   "score": 0.9523809523809523
+  },
+  "(, (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1) (TEACHES $v3 $v2))": {
+   "support": 360,
+   "score": 0.9523809523809523
+  },
+  "(, (ENROLLED_IN $v0 $v1) (OFFERED_BY $v1 $v2) (TEACHES $v3 $v1))": {
+   "support": 180,
+   "score": 0.9523809523809523
+  },
+  "(, (HELD_IN $v0 $v1) (HELD_IN $v0 $v2) (TEACHES $v3 $v0))": {
+   "support": 24,
+   "score": 0.9523809523809523
+  },
+  "(, (HELD_IN $v0 $v1) (HELD_IN $v2 $v1) (TEACHES $v3 $v0))": {
+   "support": 86,
+   "score": 0.9523809523809523
+  },
+  "(, (ADVISED_BY $v0 $v1) (HELD_IN $v2 $v3) (TEACHES $v1 $v2))": {
+   "support": 120,
+   "score": 0.9523809523809523
+  },
+  "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (TEACHES $v3 $v1))": {
+   "support": 180,
+   "score": 0.9523809523809523
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (TEACHES $v1 $v3))": {
+   "support": 120,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (TEACHES $v1 $v3))": {
+   "support": 664,
+   "score": 0.9761904761904762
+  },
+  "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 dept_0) (TEACHES $v1 $v2))": {
+   "support": 32,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 dept_1) (TEACHES $v1 $v2))": {
+   "support": 34,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 dept_2) (TEACHES $v1 $v2))": {
+   "support": 20,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 dept_3) (TEACHES $v1 $v2))": {
+   "support": 34,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (TEACHES $v1 $v3))": {
+   "support": 120,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_20) (TEACHES $v1 $v2))": {
+   "support": 22,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_3) (TEACHES $v1 $v2))": {
+   "support": 20,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (TEACHES $v1 $v2))": {
+   "support": 56,
+   "score": 0.9984815354713314
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (TEACHES $v1 $v3))": {
+   "support": 360,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v2 $v3) (TEACHES $v1 $v3))": {
+   "support": 912,
+   "score": 0.9530075187969925
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (TEACHES $v1 $v3))": {
+   "support": 120,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (TEACHES $v1 $v3))": {
+   "support": 120,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (TEACHES $v1 $v2) (USES $v0 laptop_2))": {
+   "support": 24,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (TEACHES $v1 $v2) (USES $v0 laptop_3))": {
+   "support": 20,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (TEACHES $v1 $v2) (USES $v0 laptop_1))": {
+   "support": 26,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (TEACHES $v1 $v2) (USES $v0 laptop_0))": {
+   "support": 20,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (TEACHES $v1 $v2) (USES $v0 $v3))": {
+   "support": 120,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (TEACHES $v3 $v2))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_0) (TEACHES $v2 $v1))": {
+   "support": 48,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_1) (TEACHES $v2 $v1))": {
+   "support": 51,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_2) (TEACHES $v2 $v1))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_3) (TEACHES $v2 $v1))": {
+   "support": 51,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (TEACHES $v3 $v1))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_20) (TEACHES $v2 $v1))": {
+   "support": 33,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_3) (TEACHES $v2 $v1))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (TEACHES $v3 $v1))": {
+   "support": 540,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (TEACHES $v3 $v1))": {
+   "support": 1452,
+   "score": 0.9523809523809523
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (TEACHES $v3 $v1))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (TEACHES $v3 $v1))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (TEACHES $v2 $v1) (USES $v0 laptop_2))": {
+   "support": 36,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (TEACHES $v2 $v1) (USES $v0 laptop_3))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (TEACHES $v2 $v1) (USES $v0 laptop_1))": {
+   "support": 39,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (TEACHES $v2 $v1) (USES $v0 laptop_0))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (TEACHES $v2 $v1) (USES $v0 $v3))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (OFFERED_BY $v0 $v1) (OFFERED_BY $v0 $v2) (OFFERED_BY $v0 $v3))": {
+   "support": 24,
+   "score": 0.0
+  },
+  "(, (HELD_IN $v0 $v1) (OFFERED_BY $v0 $v2) (OFFERED_BY $v0 $v3))": {
+   "support": 24,
+   "score": 0.9523809523809523
+  },
+  "(, (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1) (OFFERED_BY $v2 $v3))": {
+   "support": 360,
+   "score": 0.9523809523809523
+  },
+  "(, (ENROLLED_IN $v0 $v1) (OFFERED_BY $v1 $v2) (OFFERED_BY $v1 $v3))": {
+   "support": 180,
+   "score": 0.9523809523809523
+  },
+  "(, (OFFERED_BY $v0 $v1) (OFFERED_BY $v2 $v1) (OFFERED_BY $v3 $v1))": {
+   "support": 864,
+   "score": 1.255099539923532e-16
+  },
+  "(, (HELD_IN $v0 $v1) (OFFERED_BY $v0 $v2) (OFFERED_BY $v3 $v2))": {
+   "support": 144,
+   "score": 0.9523809523809524
+  },
+  "(, (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1) (OFFERED_BY $v3 $v1))": {
+   "support": 2160,
+   "score": 0.992063492063492
+  },
+  "(, (ENROLLED_IN $v0 $v1) (OFFERED_BY $v1 $v2) (OFFERED_BY $v3 $v2))": {
+   "support": 1080,
+   "score": 0.9523809523809524
+  },
+  "(, (HELD_IN $v0 $v1) (HELD_IN $v0 $v2) (OFFERED_BY $v0 $v3))": {
+   "support": 24,
+   "score": 0.9523809523809523
+  },
+  "(, (HELD_IN $v0 $v1) (HELD_IN $v2 $v1) (OFFERED_BY $v0 $v3))": {
+   "support": 86,
+   "score": 0.9523809523809523
+  },
+  "(, (HELD_IN $v0 $v1) (MAJORS_IN $v2 $v3) (OFFERED_BY $v0 $v3))": {
+   "support": 360,
+   "score": 0.9523809523809523
+  },
+  "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (OFFERED_BY $v1 $v3))": {
+   "support": 180,
+   "score": 0.9523809523809523
+  },
+  "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (OFFERED_BY $v3 $v2))": {
+   "support": 360,
+   "score": 0.880952380952381
+  },
+  "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 dept_0) (OFFERED_BY $v2 $v1))": {
+   "support": 96,
+   "score": 0.8809523809523809
+  },
+  "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 dept_1) (OFFERED_BY $v2 $v1))": {
+   "support": 102,
+   "score": 0.880952380952381
+  },
+  "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 dept_2) (OFFERED_BY $v2 $v1))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 dept_3) (OFFERED_BY $v2 $v1))": {
+   "support": 102,
+   "score": 0.880952380952381
+  },
+  "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2) (OFFERED_BY $v3 $v1))": {
+   "support": 360,
+   "score": 0.880952380952381
+  },
+  "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1) (OFFERED_BY $v3 $v1))": {
+   "support": 5604,
+   "score": 0.9920634920634921
+  },
+  "(, (ENROLLED_IN $v0 course_20) (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1))": {
+   "support": 66,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 course_3) (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (OFFERED_BY $v1 $v2))": {
+   "support": 66,
+   "score": 0.996134817563389
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (OFFERED_BY $v3 $v2))": {
+   "support": 1080,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v2 $v3) (OFFERED_BY $v1 $v3))": {
+   "support": 2705,
+   "score": 0.9524689728016901
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (OFFERED_BY $v3 $v2))": {
+   "support": 360,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (OFFERED_BY $v3 $v2))": {
+   "support": 360,
+   "score": 0.880952380952381
+  },
+  "(, (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1) (USES $v0 laptop_2))": {
+   "support": 72,
+   "score": 0.880952380952381
+  },
+  "(, (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1) (USES $v0 laptop_3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1) (USES $v0 laptop_1))": {
+   "support": 78,
+   "score": 0.8809523809523809
+  },
+  "(, (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1) (USES $v0 laptop_0))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1) (USES $v0 $v3))": {
+   "support": 360,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (OFFERED_BY $v2 $v3))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_0) (OFFERED_BY $v1 $v2))": {
+   "support": 48,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_1) (OFFERED_BY $v1 $v2))": {
+   "support": 51,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_2) (OFFERED_BY $v1 $v2))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_3) (OFFERED_BY $v1 $v2))": {
+   "support": 51,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (OFFERED_BY $v1 $v3))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_20) (OFFERED_BY $v1 $v2))": {
+   "support": 33,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_3) (OFFERED_BY $v1 $v2))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (OFFERED_BY $v1 $v3))": {
+   "support": 540,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (OFFERED_BY $v1 $v3))": {
+   "support": 1452,
+   "score": 0.9523809523809523
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (OFFERED_BY $v1 $v3))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (OFFERED_BY $v1 $v3))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (OFFERED_BY $v1 $v2) (USES $v0 laptop_2))": {
+   "support": 36,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (OFFERED_BY $v1 $v2) (USES $v0 laptop_3))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (OFFERED_BY $v1 $v2) (USES $v0 laptop_1))": {
+   "support": 39,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (OFFERED_BY $v1 $v2) (USES $v0 laptop_0))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (OFFERED_BY $v1 $v2) (USES $v0 $v3))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (HELD_IN $v0 $v1) (HELD_IN $v0 $v2) (HELD_IN $v0 $v3))": {
+   "support": 24,
+   "score": 0.0
+  },
+  "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (HELD_IN $v1 $v3))": {
+   "support": 180,
+   "score": 0.9523809523809523
+  },
+  "(, (HELD_IN $v0 $v1) (HELD_IN $v2 $v1) (HELD_IN $v3 $v1))": {
+   "support": 336,
+   "score": 0.23214285714285704
+  },
+  "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (HELD_IN $v3 $v2))": {
+   "support": 628,
+   "score": 0.9510919017288445
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (HELD_IN $v2 $v3))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (MAJORS_IN $v0 dept_0))": {
+   "support": 48,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (MAJORS_IN $v0 dept_1))": {
+   "support": 51,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (MAJORS_IN $v0 dept_2))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (MAJORS_IN $v0 dept_3))": {
+   "support": 51,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (MAJORS_IN $v0 $v3))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_20) (HELD_IN $v1 $v2))": {
+   "support": 33,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_3) (HELD_IN $v1 $v2))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (HELD_IN $v1 $v3))": {
+   "support": 540,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (HELD_IN $v1 $v3))": {
+   "support": 1452,
+   "score": 0.9523809523809523
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (HELD_IN $v1 $v3))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (HELD_IN $v1 $v3))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (USES $v0 laptop_2))": {
+   "support": 36,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (USES $v0 laptop_3))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (USES $v0 laptop_1))": {
+   "support": 39,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (USES $v0 laptop_0))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (USES $v0 $v3))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (ADVISED_BY $v0 $v3))": {
+   "support": 60,
+   "score": 0.0
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (MAJORS_IN $v0 dept_0))": {
+   "support": 16,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (MAJORS_IN $v0 dept_1))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (MAJORS_IN $v0 dept_2))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (MAJORS_IN $v0 dept_3))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (MAJORS_IN $v0 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (ENROLLED_IN $v0 course_20))": {
+   "support": 11,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (ENROLLED_IN $v0 course_3))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (ENROLLED_IN $v0 $v3))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (FRIENDS_WITH $v0 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (FRIENDS_WITH $v3 $v0))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (USES $v0 laptop_2))": {
+   "support": 12,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (USES $v0 laptop_3))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (USES $v0 laptop_1))": {
+   "support": 13,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (USES $v0 laptop_0))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (USES $v0 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (ADVISED_BY $v3 $v1))": {
+   "support": 1962,
+   "score": 0.15392456676860353
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (MAJORS_IN $v0 dept_0))": {
+   "support": 80,
+   "score": 0.8682539682539683
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (MAJORS_IN $v0 dept_1))": {
+   "support": 102,
+   "score": 0.8902116402116402
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (MAJORS_IN $v0 dept_2))": {
+   "support": 50,
+   "score": 0.8682539682539683
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (MAJORS_IN $v0 dept_3))": {
+   "support": 100,
+   "score": 0.888015873015873
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (MAJORS_IN $v0 $v3))": {
+   "support": 332,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (ENROLLED_IN $v0 course_20))": {
+   "support": 57,
+   "score": 0.8728766360345308
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (ENROLLED_IN $v0 course_3))": {
+   "support": 60,
+   "score": 0.8902116402116402
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (ENROLLED_IN $v0 $v3))": {
+   "support": 996,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (FRIENDS_WITH $v0 $v3))": {
+   "support": 332,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (FRIENDS_WITH $v3 $v0))": {
+   "support": 305,
+   "score": 0.8704137392661982
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (USES $v0 laptop_2))": {
+   "support": 68,
+   "score": 0.8837535014005602
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (USES $v0 laptop_3))": {
+   "support": 52,
+   "score": 0.8733211233211233
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (USES $v0 laptop_1))": {
+   "support": 75,
+   "score": 0.8858201058201058
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (USES $v0 laptop_0))": {
+   "support": 52,
+   "score": 0.8733211233211233
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (USES $v0 $v3))": {
+   "support": 332,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_0))": {
+   "support": 16,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (MAJORS_IN $v0 dept_0))": {
+   "support": 48,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 dept_0))": {
+   "support": 16,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v0 dept_0))": {
+   "support": 10,
+   "score": 0.8095238095238095
+  },
+  "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 dept_0) (USES $v0 $v2))": {
+   "support": 16,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_1))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (MAJORS_IN $v0 dept_1))": {
+   "support": 51,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 dept_1))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v0 dept_1))": {
+   "support": 18,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 dept_1) (USES $v0 $v2))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_2))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (MAJORS_IN $v0 dept_2))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 dept_2))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v0 dept_2))": {
+   "support": 14,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 dept_2) (USES $v0 $v2))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_3))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (MAJORS_IN $v0 dept_3))": {
+   "support": 51,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 dept_3))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v0 dept_3))": {
+   "support": 18,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 dept_3) (USES $v0 $v2))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v3 $v2))": {
+   "support": 934,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_20) (MAJORS_IN $v0 $v2))": {
+   "support": 11,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_3) (MAJORS_IN $v0 $v2))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (MAJORS_IN $v0 $v3))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v0 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 laptop_2))": {
+   "support": 12,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 laptop_3))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 laptop_1))": {
+   "support": 13,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 laptop_0))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (ENROLLED_IN $v0 course_20))": {
+   "support": 33,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_20) (FRIENDS_WITH $v0 $v2))": {
+   "support": 11,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_20) (USES $v0 $v2))": {
+   "support": 11,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (ENROLLED_IN $v0 course_3))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_3) (FRIENDS_WITH $v0 $v2))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_3) (USES $v0 $v2))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (ENROLLED_IN $v0 $v3))": {
+   "support": 540,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (ENROLLED_IN $v3 $v2))": {
+   "support": 1452,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (FRIENDS_WITH $v0 $v3))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (FRIENDS_WITH $v3 $v0))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (USES $v0 laptop_2))": {
+   "support": 36,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (USES $v0 laptop_3))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (USES $v0 laptop_1))": {
+   "support": 39,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (USES $v0 laptop_0))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (USES $v0 $v3))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v3) (FRIENDS_WITH $v0 $v2))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v2 dept_0))": {
+   "support": 10,
+   "score": 0.8095238095238095
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v2 dept_1))": {
+   "support": 18,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v2 dept_2))": {
+   "support": 14,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v2 dept_3))": {
+   "support": 18,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v2 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v2 $v3) (FRIENDS_WITH $v0 $v2))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v2 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v0 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v3 $v2))": {
+   "support": 126,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v3 $v0))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v2 laptop_2))": {
+   "support": 11,
+   "score": 0.8701298701298701
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 laptop_2))": {
+   "support": 12,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 laptop_3))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v2 laptop_1))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 laptop_1))": {
+   "support": 13,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v2 laptop_0))": {
+   "support": 12,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 laptop_0))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v2 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v2 dept_0))": {
+   "support": 16,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v2 dept_1))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v2 dept_2))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v2 dept_3))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v2 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v2 course_20) (FRIENDS_WITH $v2 $v0))": {
+   "support": 11,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v2 course_3) (FRIENDS_WITH $v2 $v0))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v2 $v3) (FRIENDS_WITH $v2 $v0))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (FRIENDS_WITH $v2 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (FRIENDS_WITH $v3 $v0))": {
+   "support": 126,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (FRIENDS_WITH $v3 $v2))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v0 laptop_2))": {
+   "support": 11,
+   "score": 0.8701298701298701
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v2 laptop_2))": {
+   "support": 12,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v2 laptop_3))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v0 laptop_1))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v2 laptop_1))": {
+   "support": 13,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v0 laptop_0))": {
+   "support": 12,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v2 laptop_0))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v0 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v2 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_2))": {
+   "support": 12,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_3))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_1))": {
+   "support": 13,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_0))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ADVISED_BY $v0 $v1) (USES $v0 $v2) (USES $v0 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (ADVISED_BY $v0 $v1) (USES $v0 $v2) (USES $v3 $v2))": {
+   "support": 626,
+   "score": 0.8809523809523808
+  },
+  "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_0))": {
+   "support": 16,
+   "score": 0.0
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_0))": {
+   "support": 48,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_0))": {
+   "support": 16,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (MAJORS_IN $v1 dept_0))": {
+   "support": 10,
+   "score": 0.8095238095238095
+  },
+  "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 dept_0) (USES $v0 $v2))": {
+   "support": 16,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (MAJORS_IN $v0 dept_0))": {
+   "support": 144,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (MAJORS_IN $v0 dept_0))": {
+   "support": 396,
+   "score": 0.8835978835978836
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 dept_0))": {
+   "support": 48,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v0 dept_0))": {
+   "support": 30,
+   "score": 0.8095238095238095
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_0) (USES $v0 laptop_2))": {
+   "support": 18,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_0) (USES $v0 laptop_3))": {
+   "support": 12,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_0) (USES $v0 laptop_0))": {
+   "support": 12,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_0) (USES $v0 $v2))": {
+   "support": 48,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 dept_0) (MAJORS_IN $v1 $v2))": {
+   "support": 16,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v2 dept_0))": {
+   "support": 48,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (MAJORS_IN $v0 dept_0))": {
+   "support": 16,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 dept_0))": {
+   "support": 16,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (MAJORS_IN $v0 dept_0))": {
+   "support": 35,
+   "score": 0.8857142857142857
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (MAJORS_IN $v1 dept_0))": {
+   "support": 10,
+   "score": 0.8095238095238095
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 dept_0) (USES $v1 $v2))": {
+   "support": 16,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 dept_0) (USES $v0 $v2))": {
+   "support": 16,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v1 dept_0))": {
+   "support": 10,
+   "score": 0.8095238095238095
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v2 dept_0))": {
+   "support": 30,
+   "score": 0.8095238095238095
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v1 dept_0))": {
+   "support": 10,
+   "score": 0.8095238095238095
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (MAJORS_IN $v1 dept_0))": {
+   "support": 22,
+   "score": 0.8181818181818182
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (MAJORS_IN $v2 dept_0))": {
+   "support": 11,
+   "score": 0.8268398268398268
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 dept_0) (USES $v1 $v2))": {
+   "support": 10,
+   "score": 0.8095238095238095
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 dept_0) (USES $v0 $v2))": {
+   "support": 10,
+   "score": 0.8095238095238095
+  },
+  "(, (MAJORS_IN $v0 dept_0) (USES $v0 $v1) (USES $v0 $v2))": {
+   "support": 16,
+   "score": 0.8809523809523809
+  },
+  "(, (MAJORS_IN $v0 dept_0) (USES $v0 $v1) (USES $v2 $v1))": {
+   "support": 178,
+   "score": 0.8883538434100232
+  },
+  "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_1))": {
+   "support": 17,
+   "score": 0.0
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_1))": {
+   "support": 51,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_1))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (MAJORS_IN $v1 dept_1))": {
+   "support": 18,
+   "score": 0.880952380952381
+  },
+  "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 dept_1) (USES $v0 $v2))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (MAJORS_IN $v0 dept_1))": {
+   "support": 153,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (MAJORS_IN $v0 dept_1))": {
+   "support": 408,
+   "score": 0.8799603174603174
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 dept_1))": {
+   "support": 51,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v0 dept_1))": {
+   "support": 54,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_1) (USES $v0 laptop_1))": {
+   "support": 18,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_1) (USES $v0 $v2))": {
+   "support": 51,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 dept_1) (MAJORS_IN $v1 $v2))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v2 dept_1))": {
+   "support": 51,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (MAJORS_IN $v0 dept_1))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 dept_1))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (MAJORS_IN $v0 dept_1))": {
+   "support": 34,
+   "score": 0.875
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (MAJORS_IN $v1 dept_1))": {
+   "support": 18,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 dept_1) (USES $v1 $v2))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 dept_1) (USES $v0 $v2))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v1 dept_1))": {
+   "support": 18,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v2 dept_1))": {
+   "support": 54,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v1 dept_1))": {
+   "support": 18,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (MAJORS_IN $v1 dept_1))": {
+   "support": 32,
+   "score": 0.8671875
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (MAJORS_IN $v2 dept_1))": {
+   "support": 19,
+   "score": 0.887218045112782
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 dept_1) (USES $v1 $v2))": {
+   "support": 18,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 dept_1) (USES $v0 $v2))": {
+   "support": 18,
+   "score": 0.880952380952381
+  },
+  "(, (MAJORS_IN $v0 dept_1) (USES $v0 $v1) (USES $v0 $v2))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (MAJORS_IN $v0 dept_1) (USES $v0 $v1) (USES $v2 $v1))": {
+   "support": 184,
+   "score": 0.8852441338854383
+  },
+  "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_2))": {
+   "support": 10,
+   "score": 1.694384378896768e-16
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_2))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_2))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (MAJORS_IN $v1 dept_2))": {
+   "support": 14,
+   "score": 0.8809523809523809
+  },
+  "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 dept_2) (USES $v0 $v2))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (MAJORS_IN $v0 dept_2))": {
+   "support": 90,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (MAJORS_IN $v0 dept_2))": {
+   "support": 232,
+   "score": 0.8758210180623974
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 dept_2))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v0 dept_2))": {
+   "support": 42,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_2) (USES $v0 $v2))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 dept_2) (MAJORS_IN $v1 $v2))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v2 dept_2))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (MAJORS_IN $v0 dept_2))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 dept_2))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (MAJORS_IN $v0 dept_2))": {
+   "support": 19,
+   "score": 0.8684210526315789
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (MAJORS_IN $v1 dept_2))": {
+   "support": 14,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 dept_2) (USES $v1 $v2))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 dept_2) (USES $v0 $v2))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v1 dept_2))": {
+   "support": 14,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v2 dept_2))": {
+   "support": 42,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v1 dept_2))": {
+   "support": 14,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (MAJORS_IN $v1 dept_2))": {
+   "support": 34,
+   "score": 0.9264705882352942
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (MAJORS_IN $v2 dept_2))": {
+   "support": 21,
+   "score": 0.9206349206349207
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 dept_2) (USES $v1 $v2))": {
+   "support": 14,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 dept_2) (USES $v0 $v2))": {
+   "support": 14,
+   "score": 0.8809523809523809
+  },
+  "(, (MAJORS_IN $v0 dept_2) (USES $v0 $v1) (USES $v0 $v2))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (MAJORS_IN $v0 dept_2) (USES $v0 $v1) (USES $v2 $v1))": {
+   "support": 94,
+   "score": 0.8678655859506923
+  },
+  "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_3))": {
+   "support": 17,
+   "score": 0.0
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_3))": {
+   "support": 51,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_3))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (MAJORS_IN $v1 dept_3))": {
+   "support": 18,
+   "score": 0.880952380952381
+  },
+  "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 dept_3) (USES $v0 $v2))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_20) (MAJORS_IN $v0 dept_3))": {
+   "support": 18,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_3) (MAJORS_IN $v0 dept_3))": {
+   "support": 15,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (MAJORS_IN $v0 dept_3))": {
+   "support": 153,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (MAJORS_IN $v0 dept_3))": {
+   "support": 416,
+   "score": 0.8822687728937729
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 dept_3))": {
+   "support": 51,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v0 dept_3))": {
+   "support": 54,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_3) (USES $v0 laptop_1))": {
+   "support": 12,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_3) (USES $v0 $v2))": {
+   "support": 51,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 dept_3) (MAJORS_IN $v1 $v2))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v2 dept_3))": {
+   "support": 51,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (MAJORS_IN $v0 dept_3))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 dept_3))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (MAJORS_IN $v0 dept_3))": {
+   "support": 38,
+   "score": 0.8881578947368421
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (MAJORS_IN $v1 dept_3))": {
+   "support": 18,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 dept_3) (USES $v1 $v2))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 dept_3) (USES $v0 $v2))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v1 dept_3))": {
+   "support": 18,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v2 dept_3))": {
+   "support": 54,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v1 dept_3))": {
+   "support": 18,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (MAJORS_IN $v1 dept_3))": {
+   "support": 38,
+   "score": 0.8881578947368421
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 dept_3) (USES $v1 $v2))": {
+   "support": 18,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 dept_3) (USES $v0 $v2))": {
+   "support": 18,
+   "score": 0.880952380952381
+  },
+  "(, (MAJORS_IN $v0 dept_3) (USES $v0 $v1) (USES $v0 $v2))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (MAJORS_IN $v0 dept_3) (USES $v0 $v1) (USES $v2 $v1))": {
+   "support": 170,
+   "score": 0.8757936507936509
+  },
+  "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 $v3))": {
+   "support": 60,
+   "score": 0.0
+  },
+  "(, (ENROLLED_IN $v0 course_20) (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2))": {
+   "support": 11,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 course_3) (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 $v3))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (MAJORS_IN $v1 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 laptop_2))": {
+   "support": 12,
+   "score": 0.8809523809523809
+  },
+  "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 laptop_3))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 laptop_1))": {
+   "support": 13,
+   "score": 0.880952380952381
+  },
+  "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 laptop_0))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1) (MAJORS_IN $v3 $v1))": {
+   "support": 14922,
+   "score": 0.06111781262565343
+  },
+  "(, (ENROLLED_IN $v0 course_20) (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1))": {
+   "support": 178,
+   "score": 0.88547797396112
+  },
+  "(, (ENROLLED_IN $v0 course_3) (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1))": {
+   "support": 161,
+   "score": 0.8848959873804594
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v3 $v2))": {
+   "support": 2802,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v1 $v2))": {
+   "support": 19,
+   "score": 0.9883886303059236
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v3 $v2))": {
+   "support": 934,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (MAJORS_IN $v3 $v2))": {
+   "support": 912,
+   "score": 0.8780806182121972
+  },
+  "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1) (USES $v0 laptop_2))": {
+   "support": 184,
+   "score": 0.8791407867494824
+  },
+  "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1) (USES $v0 laptop_3))": {
+   "support": 159,
+   "score": 0.8834481381651192
+  },
+  "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1) (USES $v0 laptop_1))": {
+   "support": 212,
+   "score": 0.8863619347109913
+  },
+  "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1) (USES $v0 laptop_0))": {
+   "support": 166,
+   "score": 0.8883629757123732
+  },
+  "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1) (USES $v0 $v3))": {
+   "support": 934,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_20) (MAJORS_IN $v0 $v2))": {
+   "support": 33,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 course_20) (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2))": {
+   "support": 11,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 course_20) (MAJORS_IN $v0 $v1) (USES $v0 $v2))": {
+   "support": 11,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_3) (MAJORS_IN $v0 $v2))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 course_3) (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 course_3) (MAJORS_IN $v0 $v1) (USES $v0 $v2))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (MAJORS_IN $v0 $v3))": {
+   "support": 540,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (MAJORS_IN $v0 $v3))": {
+   "support": 1452,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 $v3))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v0 $v3))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 laptop_2))": {
+   "support": 36,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 laptop_3))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 laptop_1))": {
+   "support": 39,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 laptop_0))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 $v3))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v1 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v2 $v3))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (MAJORS_IN $v0 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (MAJORS_IN $v0 $v3))": {
+   "support": 126,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (MAJORS_IN $v1 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v1 laptop_2))": {
+   "support": 11,
+   "score": 0.8701298701298701
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 laptop_2))": {
+   "support": 12,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 laptop_3))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v1 laptop_1))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 laptop_1))": {
+   "support": 13,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v1 laptop_0))": {
+   "support": 12,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 laptop_0))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v1 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 course_20) (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2))": {
+   "support": 11,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 course_3) (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v2 $v3))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v1 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (MAJORS_IN $v1 $v3))": {
+   "support": 126,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (MAJORS_IN $v2 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (USES $v1 laptop_2))": {
+   "support": 11,
+   "score": 0.8701298701298701
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (USES $v0 laptop_2))": {
+   "support": 12,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (USES $v0 laptop_3))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (USES $v1 laptop_1))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (USES $v0 laptop_1))": {
+   "support": 13,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (USES $v1 laptop_0))": {
+   "support": 12,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (USES $v0 laptop_0))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (USES $v1 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (USES $v0 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (MAJORS_IN $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_2))": {
+   "support": 12,
+   "score": 0.8809523809523809
+  },
+  "(, (MAJORS_IN $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_3))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (MAJORS_IN $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_1))": {
+   "support": 13,
+   "score": 0.880952380952381
+  },
+  "(, (MAJORS_IN $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_0))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (MAJORS_IN $v0 $v1) (USES $v0 $v2) (USES $v0 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (MAJORS_IN $v0 $v1) (USES $v0 $v2) (USES $v3 $v2))": {
+   "support": 626,
+   "score": 0.8809523809523808
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (ENROLLED_IN $v0 course_20))": {
+   "support": 99,
+   "score": 0.0
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_20) (FRIENDS_WITH $v0 $v2))": {
+   "support": 33,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_20) (FRIENDS_WITH $v2 $v0))": {
+   "support": 24,
+   "score": 0.836309523809524
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_20) (USES $v0 $v2))": {
+   "support": 33,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 course_20) (FRIENDS_WITH $v2 $v0))": {
+   "support": 33,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 course_20) (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2))": {
+   "support": 11,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 course_20) (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2))": {
+   "support": 11,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 course_20) (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1))": {
+   "support": 19,
+   "score": 0.8552631578947368
+  },
+  "(, (ENROLLED_IN $v0 course_20) (FRIENDS_WITH $v0 $v1) (USES $v1 $v2))": {
+   "support": 11,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 course_20) (FRIENDS_WITH $v0 $v1) (USES $v0 $v2))": {
+   "support": 11,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 course_20) (USES $v0 $v1) (USES $v0 $v2))": {
+   "support": 11,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 course_20) (USES $v0 $v1) (USES $v2 $v1))": {
+   "support": 106,
+   "score": 0.8711066187481282
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (ENROLLED_IN $v0 course_3))": {
+   "support": 90,
+   "score": 0.0
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_3) (FRIENDS_WITH $v0 $v2))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_3) (FRIENDS_WITH $v2 $v0))": {
+   "support": 21,
+   "score": 0.8299319727891157
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_3) (USES $v0 $v2))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 course_3) (FRIENDS_WITH $v2 $v0))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 course_3) (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 course_3) (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 course_3) (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1))": {
+   "support": 17,
+   "score": 0.8529411764705883
+  },
+  "(, (ENROLLED_IN $v0 course_3) (FRIENDS_WITH $v0 $v1) (USES $v1 $v2))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 course_3) (FRIENDS_WITH $v0 $v1) (USES $v0 $v2))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 course_3) (USES $v0 $v1) (USES $v0 $v2))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 course_3) (USES $v0 $v1) (USES $v2 $v1))": {
+   "support": 113,
+   "score": 0.8900828768085405
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (ENROLLED_IN $v0 $v3))": {
+   "support": 1620,
+   "score": 0.0
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (FRIENDS_WITH $v0 $v3))": {
+   "support": 540,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (FRIENDS_WITH $v3 $v0))": {
+   "support": 540,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (USES $v0 laptop_2))": {
+   "support": 108,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (USES $v0 laptop_3))": {
+   "support": 90,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (USES $v0 laptop_1))": {
+   "support": 117,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (USES $v0 laptop_0))": {
+   "support": 90,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (USES $v0 $v3))": {
+   "support": 540,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (ENROLLED_IN $v3 $v1))": {
+   "support": 12216,
+   "score": 0.10854616895874265
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (FRIENDS_WITH $v0 $v2))": {
+   "support": 26,
+   "score": 0.9868088260945403
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (FRIENDS_WITH $v0 $v3))": {
+   "support": 1452,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (FRIENDS_WITH $v3 $v0))": {
+   "support": 1411,
+   "score": 0.8774931659410752
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (USES $v0 laptop_2))": {
+   "support": 302,
+   "score": 0.8855250709555346
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (USES $v0 laptop_3))": {
+   "support": 229,
+   "score": 0.8741942191723852
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (USES $v0 laptop_1))": {
+   "support": 320,
+   "score": 0.8829613095238096
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (USES $v0 laptop_0))": {
+   "support": 239,
+   "score": 0.8794580593743774
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (USES $v0 $v3))": {
+   "support": 1452,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 course_20) (FRIENDS_WITH $v0 $v2))": {
+   "support": 24,
+   "score": 0.836309523809524
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 course_3) (FRIENDS_WITH $v0 $v2))": {
+   "support": 21,
+   "score": 0.8299319727891157
+  },
+  "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v3) (FRIENDS_WITH $v0 $v2))": {
+   "support": 540,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v2 $v3))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v0 $v3))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v3 $v2))": {
+   "support": 378,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v3 $v0))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v2 laptop_2))": {
+   "support": 33,
+   "score": 0.8701298701298701
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 laptop_2))": {
+   "support": 36,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v2 laptop_3))": {
+   "support": 18,
+   "score": 0.8015873015873016
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 laptop_3))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v2 laptop_1))": {
+   "support": 51,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 laptop_1))": {
+   "support": 39,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v2 laptop_0))": {
+   "support": 36,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 laptop_0))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v2 $v3))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 $v3))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (FRIENDS_WITH $v2 $v3))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (FRIENDS_WITH $v3 $v0))": {
+   "support": 378,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (FRIENDS_WITH $v3 $v2))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v0 laptop_2))": {
+   "support": 33,
+   "score": 0.8701298701298701
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v2 laptop_2))": {
+   "support": 36,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v0 laptop_3))": {
+   "support": 18,
+   "score": 0.8015873015873016
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v2 laptop_3))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v0 laptop_1))": {
+   "support": 51,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v2 laptop_1))": {
+   "support": 39,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v0 laptop_0))": {
+   "support": 36,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v2 laptop_0))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v0 $v3))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v2 $v3))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_2))": {
+   "support": 36,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_3))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_1))": {
+   "support": 39,
+   "score": 0.8809523809523809
+  },
+  "(, (ENROLLED_IN $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_0))": {
+   "support": 30,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (USES $v0 $v2) (USES $v0 $v3))": {
+   "support": 180,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 $v1) (USES $v0 $v2) (USES $v3 $v2))": {
+   "support": 1878,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (FRIENDS_WITH $v2 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v3 $v0))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v1 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (FRIENDS_WITH $v3 $v2))": {
+   "support": 143,
+   "score": 0.8951048951048951
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (FRIENDS_WITH $v3 $v1))": {
+   "support": 126,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (USES $v2 laptop_2))": {
+   "support": 12,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (USES $v1 laptop_2))": {
+   "support": 11,
+   "score": 0.8701298701298701
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (USES $v0 laptop_2))": {
+   "support": 12,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (USES $v0 laptop_3))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (USES $v2 laptop_1))": {
+   "support": 21,
+   "score": 0.9036281179138321
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (USES $v1 laptop_1))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (USES $v0 laptop_1))": {
+   "support": 13,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (USES $v1 laptop_0))": {
+   "support": 12,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (USES $v0 laptop_0))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (USES $v2 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (USES $v1 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (USES $v0 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v0 $v3))": {
+   "support": 60,
+   "score": 0.0
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v1 laptop_2))": {
+   "support": 11,
+   "score": 0.8701298701298701
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 laptop_2))": {
+   "support": 12,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 laptop_3))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v1 laptop_1))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 laptop_1))": {
+   "support": 13,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v1 laptop_0))": {
+   "support": 12,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 laptop_0))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v1 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (ENROLLED_IN $v0 course_20) (FRIENDS_WITH $v1 $v0) (FRIENDS_WITH $v2 $v0))": {
+   "support": 10,
+   "score": 0.7250000000000001
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (FRIENDS_WITH $v3 $v1))": {
+   "support": 372,
+   "score": 0.49193548387096775
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (USES $v1 laptop_2))": {
+   "support": 23,
+   "score": 0.8695652173913044
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (USES $v0 laptop_2))": {
+   "support": 26,
+   "score": 0.8846153846153847
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (USES $v0 laptop_3))": {
+   "support": 24,
+   "score": 0.8958333333333333
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (USES $v1 laptop_1))": {
+   "support": 39,
+   "score": 0.9166666666666667
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (USES $v0 laptop_1))": {
+   "support": 27,
+   "score": 0.8796296296296297
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (USES $v1 laptop_0))": {
+   "support": 34,
+   "score": 0.9264705882352942
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (USES $v0 laptop_0))": {
+   "support": 21,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (USES $v1 $v3))": {
+   "support": 126,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (USES $v0 $v3))": {
+   "support": 126,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (USES $v1 $v2) (USES $v1 laptop_2))": {
+   "support": 11,
+   "score": 0.8701298701298701
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (USES $v0 $v2) (USES $v1 laptop_2))": {
+   "support": 11,
+   "score": 0.8701298701298701
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_2))": {
+   "support": 12,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (USES $v0 laptop_2) (USES $v1 $v2))": {
+   "support": 12,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_3))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (USES $v0 laptop_3) (USES $v1 $v2))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (USES $v1 $v2) (USES $v1 laptop_1))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (USES $v0 $v2) (USES $v1 laptop_1))": {
+   "support": 17,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_1))": {
+   "support": 13,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (USES $v0 laptop_1) (USES $v1 $v2))": {
+   "support": 13,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (USES $v1 $v2) (USES $v1 laptop_0))": {
+   "support": 12,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (USES $v0 $v2) (USES $v1 laptop_0))": {
+   "support": 12,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_0))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (USES $v0 laptop_0) (USES $v1 $v2))": {
+   "support": 10,
+   "score": 0.8809523809523809
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (USES $v1 $v2) (USES $v1 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (USES $v0 $v2) (USES $v1 $v2))": {
+   "support": 19,
+   "score": 0.9922176472928353
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (USES $v0 $v2) (USES $v1 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (USES $v1 $v2) (USES $v3 $v2))": {
+   "support": 637,
+   "score": 0.8830081483142707
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (USES $v0 $v2) (USES $v0 $v3))": {
+   "support": 60,
+   "score": 0.880952380952381
+  },
+  "(, (FRIENDS_WITH $v0 $v1) (USES $v0 $v2) (USES $v3 $v2))": {
+   "support": 626,
+   "score": 0.8809523809523808
+  },
+  "(, (USES $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_2))": {
+   "support": 12,
+   "score": 0.0
+  },
+  "(, (USES $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_3))": {
+   "support": 10,
+   "score": 1.694384378896768e-16
+  },
+  "(, (USES $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_1))": {
+   "support": 13,
+   "score": 1.30337259915136e-16
+  },
+  "(, (USES $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_0))": {
+   "support": 10,
+   "score": 1.694384378896768e-16
+  },
+  "(, (USES $v0 $v1) (USES $v0 $v2) (USES $v0 $v3))": {
+   "support": 60,
+   "score": 0.0
+  },
+  "(, (USES $v0 $v1) (USES $v2 $v1) (USES $v3 $v1))": {
+   "support": 6780,
+   "score": 0.07669616519174052
+  }
+ }
+}

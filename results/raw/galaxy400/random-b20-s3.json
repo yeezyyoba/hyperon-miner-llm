@@ -1,0 +1,102 @@
+{
+  "label": "random-b20-s3",
+  "config": {
+    "dataset": "experiments/data/galaxy_400",
+    "minsup": 5,
+    "depth": 1,
+    "surp_mode": "isurp",
+    "normalize": true,
+    "db_ratio": 0.5,
+    "timeout": 1800,
+    "extra": {}
+  },
+  "ok": true,
+  "returncode": 0,
+  "timed_out": false,
+  "seconds": 3.986,
+  "n_patterns": 7,
+  "patterns": [
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (TOOL_HAS_OUTPUT $v1 $v2) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $v1))",
+      "raw": "(surprisingnessOf (, (HAS_TOOL $_0 $_1) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $_1) (TOOL_HAS_OUTPUT $_1 $_2)) 0.8775000000000001)",
+      "support": 5,
+      "surprisingness": 0.8775000000000001
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (WORKFLOW_USES_TOOL $v0 $v2) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $v2))",
+      "raw": "(surprisingnessOf (, (HAS_STEP $_0 $_1) (WORKFLOW_USES_TOOL $_0 $_2) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $_2)) 0.91125)",
+      "support": 16,
+      "surprisingness": 0.91125
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v2 $v1) (HAS_TOOL vgp_assembly_v2_7fb545de $v1))",
+      "raw": "(surprisingnessOf (, (HAS_TOOL $_0 $_1) (HAS_TOOL $_2 $_1) (HAS_TOOL vgp_assembly_v2_7fb545de $_1)) 0.7096399535423925)",
+      "support": 126,
+      "surprisingness": 0.7096399535423925
+    },
+    {
+      "pattern": "(, (WORKFLOW_USES_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $v1))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $_0) (WORKFLOW_USES_TOOL $_1 $_0) (WORKFLOW_USES_TOOL $_2 $_0)) 0.39732142857142866)",
+      "support": 14,
+      "surprisingness": 0.39732142857142866
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (TOOL_HAS_OUTPUT $v1 $v2) (TOOL_HAS_OUTPUT $v3 $v2))",
+      "raw": "(surprisingnessOf (, (TOOL_HAS_OUTPUT $_0 $_1) (TOOL_HAS_OUTPUT $_2 $_1) (HAS_TOOL $_3 $_2)) 0.7159420289855072)",
+      "support": 69,
+      "surprisingness": 0.7159420289855072
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v0 $v2) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $v0))",
+      "raw": "(surprisingnessOf (, (TOOL_HAS_OUTPUT $_0 $_1) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $_0) (TOOL_HAS_OUTPUT $_0 $_2)) 0.825)",
+      "support": 7,
+      "surprisingness": 0.825
+    },
+    {
+      "pattern": "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (STEP_USES_TOOL $v1 $v0) (STEP_USES_TOOL $v1 toolshed_g2_bx_psu_edu_repos_iuc_compose_text_param_compose_text_param_0_b8f7250f))",
+      "raw": "(surprisingnessOf (, (STEP_USES_TOOL $_0 toolshed_g2_bx_psu_edu_repos_iuc_compose_text_param_compose_text_param_0_b8f7250f) (STEP_USES_TOOL $_0 $_1) (HAS_TOOL vgp_assembly_v2_7fb545de $_1)) 0.9768749999999999)",
+      "support": 20,
+      "surprisingness": 0.9768749999999999
+    }
+  ],
+  "verification": {
+    "checked": 0,
+    "ok": true,
+    "mismatches": []
+  },
+  "ranker": {
+    "strategy": "random",
+    "budget": 0.2,
+    "seed": 3,
+    "providers": null,
+    "batch_size": 60,
+    "max_retries": 2,
+    "timeout_s": 180.0,
+    "workers": 4,
+    "cache_dir": ".cache/llm",
+    "min_select": 1
+  },
+  "trace_summary": {
+    "t": 2.123,
+    "event": "finish",
+    "wall_seconds": 2.123,
+    "generated": 3032,
+    "unique": 1810,
+    "selected": 363,
+    "kept": 7,
+    "llm_seconds": 0.0,
+    "verify_seconds": 0.204,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "fallback_batches": 0,
+    "batches": 0
+  },
+  "arm": {
+    "name": "random-b20-s3",
+    "strategy": "random",
+    "budget": 0.2,
+    "seed": 3,
+    "provider": null,
+    "family": "random"
+  }
+}

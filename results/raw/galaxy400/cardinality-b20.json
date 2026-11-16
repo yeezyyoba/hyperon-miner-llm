@@ -1,0 +1,312 @@
+{
+  "label": "cardinality-b20",
+  "config": {
+    "dataset": "experiments/data/galaxy_400",
+    "minsup": 5,
+    "depth": 1,
+    "surp_mode": "isurp",
+    "normalize": true,
+    "db_ratio": 0.5,
+    "timeout": 1800,
+    "extra": {}
+  },
+  "ok": true,
+  "returncode": 0,
+  "timed_out": false,
+  "seconds": 5.739,
+  "n_patterns": 42,
+  "patterns": [
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v0 $v2) (HAS_TOOL $v0 $v3))",
+      "raw": "(surprisingnessOf (, (HAS_TOOL $_0 $_1) (HAS_TOOL $_0 $_2) (HAS_TOOL $_0 $_3)) 0.7561548050329167)",
+      "support": 8557,
+      "surprisingness": 0.7561548050329167
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v0 $v2) (TOOL_HAS_OUTPUT $v1 $v3))",
+      "raw": "(surprisingnessOf (, (TOOL_HAS_OUTPUT $_0 $_1) (HAS_TOOL $_2 $_0) (HAS_TOOL $_2 $_3)) 0.7459116022099449)",
+      "support": 362,
+      "surprisingness": 0.7459116022099449
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v0 $v2) (WORKFLOW_USES_TOOL $v3 $v1))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL $_0 $_1) (HAS_TOOL $_2 $_1) (HAS_TOOL $_2 $_3)) 0.8374609375000001)",
+      "support": 448,
+      "surprisingness": 0.8374609375000001
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (HAS_STEP $v0 $v2) (HAS_STEP $v0 $v3))",
+      "raw": "(surprisingnessOf (, (HAS_STEP $_0 $_1) (HAS_STEP $_0 $_2) (HAS_STEP $_0 $_3)) 0.38095238095238115)",
+      "support": 497,
+      "surprisingness": 0.38095238095238115
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v0 $v2) (STEP_USES_TOOL $v3 $v1))",
+      "raw": "(surprisingnessOf (, (STEP_USES_TOOL $_0 $_1) (HAS_TOOL $_2 $_1) (HAS_TOOL $_2 $_3)) 0.9211005256241787)",
+      "support": 761,
+      "surprisingness": 0.9211005256241787
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (HAS_STEP $v0 $v2) (WORKFLOW_USES_TOOL $v0 $v3))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL $_0 $_1) (HAS_STEP $_0 $_2) (HAS_STEP $_0 $_3)) 0.9028931451612904)",
+      "support": 248,
+      "surprisingness": 0.9028931451612904
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (WORKFLOW_USES_TOOL $v0 $v2) (WORKFLOW_USES_TOOL $v0 $v3))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_0 $_2) (HAS_STEP $_0 $_3)) 0.904364224137931)",
+      "support": 232,
+      "surprisingness": 0.904364224137931
+    },
+    {
+      "pattern": "(, (WORKFLOW_USES_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v0 $v2) (WORKFLOW_USES_TOOL $v0 $v3))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_0 $_2) (WORKFLOW_USES_TOOL $_0 $_3)) 0.46364046973803086)",
+      "support": 369,
+      "surprisingness": 0.46364046973803086
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v2 $v1) (TOOL_HAS_OUTPUT $v3 $v1))",
+      "raw": "(surprisingnessOf (, (TOOL_HAS_OUTPUT $_0 $_1) (TOOL_HAS_OUTPUT $_2 $_1) (TOOL_HAS_OUTPUT $_3 $_1)) 0.6232339089481947)",
+      "support": 588,
+      "surprisingness": 0.6232339089481947
+    },
+    {
+      "pattern": "(, (FEEDS_INTO $v0 $v1) (HAS_STEP $v2 $v0) (HAS_STEP $v2 $v3))",
+      "raw": "(surprisingnessOf (, (FEEDS_INTO $_0 $_1) (HAS_STEP $_2 $_0) (HAS_STEP $_2 $_3)) 0.0)",
+      "support": 6,
+      "surprisingness": 0.0
+    },
+    {
+      "pattern": "(, (FEEDS_INTO $v0 $v1) (HAS_STEP $v2 $v1) (HAS_STEP $v2 $v3))",
+      "raw": "(surprisingnessOf (, (FEEDS_INTO $_0 $_1) (HAS_STEP $_2 $_1) (HAS_STEP $_2 $_3)) 0.0)",
+      "support": 11,
+      "surprisingness": 0.0
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (TOOL_HAS_OUTPUT $v2 $v3) (WORKFLOW_USES_TOOL $v0 $v2))",
+      "raw": "(surprisingnessOf (, (TOOL_HAS_OUTPUT $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_0) (HAS_STEP $_2 $_3)) 0.6933333333333332)",
+      "support": 54,
+      "surprisingness": 0.6933333333333332
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (WORKFLOW_USES_TOOL $v0 $v2) (WORKFLOW_USES_TOOL $v3 $v2))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_1) (HAS_STEP $_2 $_3)) 0.9060294117647059)",
+      "support": 153,
+      "surprisingness": 0.9060294117647059
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v0) (WORKFLOW_USES_TOOL $v2 $v3))",
+      "raw": "(surprisingnessOf (, (TOOL_HAS_OUTPUT $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_0) (WORKFLOW_USES_TOOL $_2 $_3)) 0.6590909090909092)",
+      "support": 66,
+      "surprisingness": 0.6590909090909092
+    },
+    {
+      "pattern": "(, (FEEDS_INTO $v0 $v1) (HAS_STEP $v2 $v1) (WORKFLOW_USES_TOOL $v2 $v3))",
+      "raw": "(surprisingnessOf (, (FEEDS_INTO $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_3) (HAS_STEP $_2 $_1)) 0.0)",
+      "support": 7,
+      "surprisingness": 0.0
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (HAS_TOOL $v2 $v3) (WORKFLOW_USES_TOOL $v0 $v3))",
+      "raw": "(surprisingnessOf (, (HAS_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_1) (HAS_STEP $_2 $_3)) 0.7790196078431373)",
+      "support": 51,
+      "surprisingness": 0.7790196078431373
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (HAS_STEP $v2 $v1) (WORKFLOW_USES_TOOL $v0 $v3))",
+      "raw": "(surprisingnessOf (, (HAS_STEP $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_3) (HAS_STEP $_2 $_1)) 0.8225)",
+      "support": 92,
+      "surprisingness": 0.8225
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v0 $v2) (TOOL_HAS_OUTPUT $v0 $v3))",
+      "raw": "(surprisingnessOf (, (TOOL_HAS_OUTPUT $_0 $_1) (TOOL_HAS_OUTPUT $_0 $_2) (TOOL_HAS_OUTPUT $_0 $_3)) 0.24615384615384614)",
+      "support": 156,
+      "surprisingness": 0.24615384615384614
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (STEP_USES_TOOL $v2 $v3) (WORKFLOW_USES_TOOL $v0 $v3))",
+      "raw": "(surprisingnessOf (, (STEP_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_1) (HAS_STEP $_2 $_3)) 0.7921153846153846)",
+      "support": 52,
+      "surprisingness": 0.7921153846153846
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v2 $v1) (WORKFLOW_USES_TOOL $v3 $v0))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL $_0 $_1) (TOOL_HAS_OUTPUT $_1 $_2) (TOOL_HAS_OUTPUT $_3 $_2)) 0.6000000000000001)",
+      "support": 57,
+      "surprisingness": 0.6000000000000001
+    },
+    {
+      "pattern": "(, (FEEDS_INTO $v0 $v1) (FEEDS_INTO $v0 $v2) (FEEDS_INTO $v0 $v3))",
+      "raw": "(surprisingnessOf (, (FEEDS_INTO $_0 $_1) (FEEDS_INTO $_0 $_2) (FEEDS_INTO $_0 $_3)) 0.08190899001109878)",
+      "support": 106,
+      "surprisingness": 0.08190899001109878
+    },
+    {
+      "pattern": "(, (FEEDS_INTO $v0 $v1) (FEEDS_INTO $v2 $v1) (FEEDS_INTO $v3 $v1))",
+      "raw": "(surprisingnessOf (, (FEEDS_INTO $_0 $_1) (FEEDS_INTO $_2 $_1) (FEEDS_INTO $_3 $_1)) 0.0586046511627907)",
+      "support": 100,
+      "surprisingness": 0.0586046511627907
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL $v2 $v3))",
+      "raw": "(surprisingnessOf (, (HAS_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_1) (WORKFLOW_USES_TOOL $_2 $_3)) 0.7902397260273972)",
+      "support": 73,
+      "surprisingness": 0.7902397260273972
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL $v2 $v3))",
+      "raw": "(surprisingnessOf (, (STEP_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_1) (WORKFLOW_USES_TOOL $_2 $_3)) 0.7988013698630138)",
+      "support": 73,
+      "surprisingness": 0.7988013698630138
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (HAS_STEP $v0 $v2) (STEP_USES_TOOL $v1 $v3))",
+      "raw": "(surprisingnessOf (, (STEP_USES_TOOL $_0 $_1) (HAS_STEP $_2 $_0) (HAS_STEP $_2 $_3)) 0.0)",
+      "support": 6,
+      "surprisingness": 0.0
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v0 $v2) (WORKFLOW_USES_TOOL $v3 $v0))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL $_0 $_1) (TOOL_HAS_OUTPUT $_1 $_2) (TOOL_HAS_OUTPUT $_1 $_3)) 0.6225675675675676)",
+      "support": 37,
+      "surprisingness": 0.6225675675675676
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (TOOL_HAS_OUTPUT $v1 $v2) (TOOL_HAS_OUTPUT $v3 $v2))",
+      "raw": "(surprisingnessOf (, (HAS_TOOL $_0 $_1) (TOOL_HAS_OUTPUT $_1 $_2) (TOOL_HAS_OUTPUT $_3 $_2)) 0.7159420289855072)",
+      "support": 69,
+      "surprisingness": 0.7159420289855072
+    },
+    {
+      "pattern": "(, (WORKFLOW_USES_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL $v3 $v1))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_1) (WORKFLOW_USES_TOOL $_3 $_1)) 0.37132352941176483)",
+      "support": 153,
+      "surprisingness": 0.37132352941176483
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (TOOL_HAS_OUTPUT $v1 $v2) (TOOL_HAS_OUTPUT $v3 $v2))",
+      "raw": "(surprisingnessOf (, (STEP_USES_TOOL $_0 $_1) (TOOL_HAS_OUTPUT $_1 $_2) (TOOL_HAS_OUTPUT $_3 $_2)) 0.6758620689655173)",
+      "support": 58,
+      "surprisingness": 0.6758620689655173
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (STEP_USES_TOOL $v3 $v1))",
+      "raw": "(surprisingnessOf (, (STEP_USES_TOOL $_0 $_1) (STEP_USES_TOOL $_2 $_1) (STEP_USES_TOOL $_3 $_1)) 0.5214330609679447)",
+      "support": 215,
+      "surprisingness": 0.5214330609679447
+    },
+    {
+      "pattern": "(, (FEEDS_INTO $v0 $v1) (FEEDS_INTO $v0 $v2) (HAS_STEP $v3 $v1))",
+      "raw": "(surprisingnessOf (, (HAS_STEP $_0 $_1) (FEEDS_INTO $_2 $_1) (FEEDS_INTO $_2 $_3)) 0.0)",
+      "support": 5,
+      "surprisingness": 0.0
+    },
+    {
+      "pattern": "(, (FEEDS_INTO $v0 $v1) (FEEDS_INTO $v2 $v1) (HAS_STEP $v3 $v1))",
+      "raw": "(surprisingnessOf (, (HAS_STEP $_0 $_1) (FEEDS_INTO $_2 $_1) (FEEDS_INTO $_3 $_1)) 0.0)",
+      "support": 5,
+      "surprisingness": 0.0
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (HAS_STEP $v2 $v1) (HAS_STEP $v3 $v1))",
+      "raw": "(surprisingnessOf (, (HAS_STEP $_0 $_1) (HAS_STEP $_2 $_1) (HAS_STEP $_3 $_1)) 0.0)",
+      "support": 71,
+      "surprisingness": 0.0
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (TOOL_HAS_OUTPUT $v1 $v2) (TOOL_HAS_OUTPUT $v1 $v3))",
+      "raw": "(surprisingnessOf (, (HAS_TOOL $_0 $_1) (TOOL_HAS_OUTPUT $_1 $_2) (TOOL_HAS_OUTPUT $_1 $_3)) 0.6840789473684211)",
+      "support": 38,
+      "surprisingness": 0.6840789473684211
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v2 $v1) (HAS_TOOL $v3 $v1))",
+      "raw": "(surprisingnessOf (, (HAS_TOOL $_0 $_1) (HAS_TOOL $_2 $_1) (HAS_TOOL $_3 $_1)) 0.4500972617088134)",
+      "support": 163,
+      "surprisingness": 0.4500972617088134
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL $v3 $v1))",
+      "raw": "(surprisingnessOf (, (HAS_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_1) (WORKFLOW_USES_TOOL $_3 $_1)) 0.8054411764705882)",
+      "support": 51,
+      "surprisingness": 0.8054411764705882
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (STEP_USES_TOOL $v1 $v2) (WORKFLOW_USES_TOOL $v0 $v3))",
+      "raw": "(surprisingnessOf (, (STEP_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_3) (HAS_STEP $_2 $_0)) 0.0)",
+      "support": 7,
+      "surprisingness": 0.0
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (TOOL_HAS_OUTPUT $v1 $v2) (TOOL_HAS_OUTPUT $v1 $v3))",
+      "raw": "(surprisingnessOf (, (STEP_USES_TOOL $_0 $_1) (TOOL_HAS_OUTPUT $_1 $_2) (TOOL_HAS_OUTPUT $_1 $_3)) 0.712125)",
+      "support": 40,
+      "surprisingness": 0.712125
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v2 $v1) (STEP_USES_TOOL $v3 $v1))",
+      "raw": "(surprisingnessOf (, (STEP_USES_TOOL $_0 $_1) (HAS_TOOL $_2 $_1) (HAS_TOOL $_3 $_1)) 0.9277663934426229)",
+      "support": 122,
+      "surprisingness": 0.9277663934426229
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL $v3 $v1))",
+      "raw": "(surprisingnessOf (, (STEP_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_1) (WORKFLOW_USES_TOOL $_3 $_1)) 0.846491935483871)",
+      "support": 62,
+      "surprisingness": 0.846491935483871
+    },
+    {
+      "pattern": "(, (TOOL_HAS_OUTPUT $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v0) (WORKFLOW_USES_TOOL $v3 $v0))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_1) (TOOL_HAS_OUTPUT $_1 $_3)) 0.644390243902439)",
+      "support": 41,
+      "surprisingness": 0.644390243902439
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (STEP_USES_TOOL $v3 $v1))",
+      "raw": "(surprisingnessOf (, (HAS_TOOL $_0 $_1) (STEP_USES_TOOL $_2 $_1) (STEP_USES_TOOL $_3 $_1)) 0.93109375)",
+      "support": 144,
+      "surprisingness": 0.93109375
+    }
+  ],
+  "verification": {
+    "checked": 0,
+    "ok": true,
+    "mismatches": []
+  },
+  "ranker": {
+    "strategy": "cardinality",
+    "budget": 0.2,
+    "seed": 0,
+    "providers": null,
+    "batch_size": 60,
+    "max_retries": 2,
+    "timeout_s": 180.0,
+    "workers": 4,
+    "cache_dir": ".cache/llm",
+    "min_select": 1
+  },
+  "trace_summary": {
+    "t": 4.386,
+    "event": "finish",
+    "wall_seconds": 4.386,
+    "generated": 5884,
+    "unique": 3185,
+    "selected": 638,
+    "kept": 42,
+    "llm_seconds": 0.0,
+    "verify_seconds": 1.25,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "fallback_batches": 0,
+    "batches": 0
+  },
+  "arm": {
+    "name": "cardinality-b20",
+    "strategy": "cardinality",
+    "budget": 0.2,
+    "seed": 0,
+    "provider": null,
+    "family": "cardinality"
+  }
+}
