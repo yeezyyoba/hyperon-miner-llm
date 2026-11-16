@@ -73,11 +73,19 @@ def cmd_models(args) -> int:
         except (LLMError, Exception) as e:      # noqa: BLE001 - report and continue
             print(f"\n{prov}: could not list models ({str(e)[:120]})")
             continue
-        shown = [m for m in ids if not args.filter or args.filter.lower() in m.lower()]
-        status = "OK" if current in ids else "NOT AVAILABLE for this key"
+        wanted = [f.strip().lower() for f in args.filter.split(",") if f.strip()]
+        shown = [m for m in ids if not wanted or any(w in m.lower() for w in wanted)]
+        status = "listed" if current in ids else "NOT LISTED for this key"
         print(f"\n{prov}: {len(ids)} models | configured: {current} -> {status}")
+        if not args.probe:
+            for m in shown[: args.limit]:
+                print(f"  {m}")
+            continue
+        # Listed is not the same as alive: providers keep retired models in the list.
+        from .llm.providers import probe_model
         for m in shown[: args.limit]:
-            print(f"  {m}")
+            ok, info = probe_model(prov, m)
+            print(f"  {'✔' if ok else '✘'} {m:55s} {info}", flush=True)
     return 0
 
 
@@ -142,8 +150,11 @@ def main(argv: list[str] | None = None) -> int:
 
     md = sub.add_parser("models", help="list model IDs your API keys can use")
     md.add_argument("--providers", default="gemini,groq,nvidia")
-    md.add_argument("--filter", default="", help="only show IDs containing this text")
+    md.add_argument("--filter", default="",
+                    help="only show IDs containing this text (comma-separate several)")
     md.add_argument("--limit", type=int, default=60)
+    md.add_argument("--probe", action="store_true",
+                    help="send each listed model one tiny JSON request to see if it really answers")
     md.set_defaults(func=cmd_models)
 
     g = sub.add_parser("datagen", help="write a synthetic university graph with planted patterns")
