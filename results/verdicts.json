@@ -1,5 +1,61 @@
 {
   "budget": 0.3,
-  "H1": {},
-  "H2": {}
+  "H1": {
+    "university / llm:groq": {
+      "llm": 0.3333,
+      "heuristic": 0.0,
+      "cardinality": 0.6667,
+      "random": 0.2833,
+      "verdict": "rejected: below 90 %"
+    },
+    "university / llm:nvidia": {
+      "llm": 0.4792,
+      "heuristic": 0.0,
+      "cardinality": 0.6667,
+      "random": 0.2833,
+      "verdict": "rejected: below 90 %"
+    },
+    "university-anon / llm:groq": {
+      "llm": 0.3125,
+      "heuristic": 0.0,
+      "cardinality": 0.6667,
+      "random": 0.2167,
+      "verdict": "rejected: below 90 %"
+    },
+    "university-anon / llm:nvidia": {
+      "llm": 0.0833,
+      "heuristic": 0.0,
+      "cardinality": 0.6667,
+      "random": 0.2167,
+      "verdict": "rejected: below 90 %"
+    },
+    "galaxy400 / llm:groq": {
+      "llm": 0.225,
+      "heuristic": 0.0,
+      "cardinality": 0.3,
+      "random": 0.24,
+      "verdict": "rejected: below 90 %"
+    },
+    "galaxy400 / llm:nvidia": {
+      "llm": 0.425,
+      "heuristic": 0.0,
+      "cardinality": 0.3,
+      "random": 0.24,
+      "verdict": "rejected: below 90 %"
+    }
+  },
+  "H2": {
+    "llm:groq": {
+      "gap_named": -0.3334,
+      "gap_anon": -0.3542,
+      "baseline": "cardinality",
+      "verdict": "not supported"
+    },
+    "llm:nvidia": {
+      "gap_named": -0.1875,
+      "gap_anon": -0.5834,
+      "baseline": "cardinality",
+      "verdict": "not supported"
+    }
+  }
 }

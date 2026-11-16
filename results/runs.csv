@@ -8,6 +8,21 @@ university,heuristic-b10,heuristic,heuristic,,0.1,0,True,True,0,1.744,0.0,1.744,
 university,heuristic-b20,heuristic,heuristic,,0.2,0,True,True,0,1.855,0.0,1.855,1559,1109,222,0,0,0,0,{},True,True,0,0.0,12,0.0,29,0,3,
 university,heuristic-b30,heuristic,heuristic,,0.3,0,True,True,0,2.42,0.0,2.42,4135,2604,782,0,0,0,0,{},True,True,0,0.0,12,0.0,29,0,3,
 university,heuristic-b50,heuristic,heuristic,,0.5,0,True,True,104,7.421,0.0,7.421,10207,5911,2956,0,0,0,0,{},True,True,104,0.0,12,0.0,29,0,3,
+university,llm-direct-groq-b30,llm-direct:groq,llm-direct,groq,0.3,0,True,True,346,238.528,222.994,15.534,16603,9177,2754,6346,6726,154,151,"{""fallback"": 151, ""groq"": 3}",True,True,346,0.6667,12,0.7586,29,0,3,0.004988
+university,llm-groq-b10,llm:groq,llm,groq,0.1,0,True,True,97,15.32,9.381,5.939,11750,7129,713,4282,6250,3,0,"{""groq"": 3}",True,True,97,0.3333,12,0.2069,29,0,3,0.004392
+university,llm-groq-b20,llm:groq,llm,groq,0.2,0,True,True,286,11.668,0.001,11.667,17082,9971,1995,4282,6250,3,0,"{""groq"": 3}",True,True,286,0.6667,12,0.4138,29,1,3,0.004392
+university,llm-groq-b30-r1,llm:groq,llm,groq,0.3,1,True,True,338,33.82,19.704,14.116,19743,11027,3309,4282,5348,3,0,"{""groq"": 3}",True,True,338,0.5,12,0.4138,29,0,3,0.003851
+university,llm-groq-b30-r2,llm:groq,llm,groq,0.3,2,True,True,356,45.43,31.75,13.68,17539,9791,2938,4282,3795,3,0,"{""groq"": 3}",True,True,356,0.1667,12,0.1724,29,0,3,0.002919
+university,llm-groq-b30-r3,llm:groq,llm,groq,0.3,3,True,True,302,29.406,15.976,13.43,20754,11249,3375,4282,3016,3,0,"{""groq"": 3}",True,True,302,0.0,12,0.2069,29,0,3,0.002452
+university,llm-groq-b30,llm:groq,llm,groq,0.3,0,True,True,386,15.153,0.001,15.152,20018,11207,3363,4282,6250,3,0,"{""groq"": 3}",True,True,386,0.6667,12,0.4138,29,1,3,0.004392
+university,llm-groq-b50,llm:groq,llm,groq,0.5,0,True,True,565,23.849,0.002,23.847,23872,12755,6378,4282,6250,3,0,"{""groq"": 3}",True,True,565,1.0,12,0.8966,29,3,3,0.004392
+university,llm-nvidia-b10,llm:nvidia,llm,nvidia,0.1,0,True,True,44,44.412,38.964,5.448,11014,6577,658,4659,1551,3,0,"{""nvidia"": 3}",True,True,44,0.0833,12,0.069,29,0,3,0.0
+university,llm-nvidia-b20,llm:nvidia,llm,nvidia,0.2,0,True,True,259,12.919,0.001,12.918,20018,11004,2201,4659,1551,3,0,"{""nvidia"": 3}",True,True,259,0.25,12,0.4138,29,0,3,0.0
+university,llm-nvidia-b30-r1,llm:nvidia,llm,nvidia,0.3,1,True,True,373,48.817,33.301,15.516,20204,10940,3283,4659,1551,3,0,"{""nvidia"": 3}",True,True,373,0.5,12,0.4138,29,0,3,0.0
+university,llm-nvidia-b30-r2,llm:nvidia,llm,nvidia,0.3,2,True,True,380,75.239,59.82,15.419,20661,11074,3323,4659,1551,3,0,"{""nvidia"": 3}",True,True,380,0.5,12,0.3793,29,0,3,0.0
+university,llm-nvidia-b30-r3,llm:nvidia,llm,nvidia,0.3,3,True,True,329,92.099,78.045,14.054,20293,11094,3329,4659,1551,3,0,"{""nvidia"": 3}",True,True,329,0.5,12,0.4138,29,0,3,0.0
+university,llm-nvidia-b30,llm:nvidia,llm,nvidia,0.3,0,True,True,391,17.275,0.001,17.274,20018,11004,3302,4659,1551,3,0,"{""nvidia"": 3}",True,True,391,0.4167,12,0.5517,29,0,3,0.0
+university,llm-nvidia-b50,llm:nvidia,llm,nvidia,0.5,0,True,True,542,23.269,0.002,23.267,23597,12574,6288,4659,1551,3,0,"{""nvidia"": 3}",True,True,542,0.8333,12,0.8276,29,3,3,0.0
 university,random-b10-s0,random,random,,0.1,0,True,True,19,3.076,0.0,3.076,4129,2682,269,0,0,0,0,{},True,True,19,0.0,12,0.0,29,0,3,
 university,random-b10-s1,random,random,,0.1,1,True,True,20,2.897,0.0,2.897,4222,2587,259,0,0,0,0,{},True,True,20,0.0,12,0.069,29,0,3,
 university,random-b10-s2,random,random,,0.1,2,True,True,21,2.894,0.0,2.894,3947,2544,255,0,0,0,0,{},True,True,21,0.0,12,0.069,29,0,3,
@@ -38,6 +53,21 @@ university-anon,heuristic-b10,heuristic,heuristic,,0.1,0,True,True,0,1.862,0.0,1
 university-anon,heuristic-b20,heuristic,heuristic,,0.2,0,True,True,0,2.009,0.0,2.009,1559,1109,222,0,0,0,0,{},True,True,0,0.0,12,0.0,29,0,3,
 university-anon,heuristic-b30,heuristic,heuristic,,0.3,0,True,True,0,1.952,0.0,1.952,1559,1109,333,0,0,0,0,{},True,True,0,0.0,12,0.0,29,0,3,
 university-anon,heuristic-b50,heuristic,heuristic,,0.5,0,True,True,101,7.446,0.0,7.446,10207,5911,2956,0,0,0,0,{},True,True,101,0.0,12,0.0,29,0,3,
+university-anon,llm-direct-groq-b30,llm-direct:groq,llm-direct,groq,0.3,0,True,True,357,291.294,274.773,16.521,18443,10122,3037,6045,6694,170,167,"{""fallback"": 167, ""groq"": 3}",True,True,357,0.6667,12,0.7586,29,0,3,0.004923
+university-anon,llm-groq-b10,llm:groq,llm,groq,0.1,0,True,True,189,14.12,3.93,10.19,17444,9739,974,3954,7431,3,0,"{""groq"": 3}",True,True,189,0.4167,12,0.3448,29,1,3,0.005052
+university-anon,llm-groq-b20,llm:groq,llm,groq,0.2,0,True,True,277,12.149,0.001,12.148,17719,9889,1978,3954,7431,3,0,"{""groq"": 3}",True,True,277,0.4167,12,0.4138,29,1,3,0.005052
+university-anon,llm-groq-b30-r1,llm:groq,llm,groq,0.3,1,True,True,116,16.542,9.05,7.492,13218,7648,2295,3954,2758,3,0,"{""groq"": 3}",True,True,116,0.0,12,0.0345,29,0,3,0.002248
+university-anon,llm-groq-b30-r2,llm:groq,llm,groq,0.3,2,True,True,367,56.242,41.185,15.057,19834,10957,3288,3954,3744,3,0,"{""groq"": 3}",True,True,367,0.5,12,0.7241,29,3,3,0.00284
+university-anon,llm-groq-b30-r3,llm:groq,llm,groq,0.3,3,True,True,309,38.166,25.029,13.137,19284,10343,3104,3954,2454,3,0,"{""groq"": 3}",True,True,309,0.0,12,0.0345,29,0,3,0.002066
+university-anon,llm-groq-b30,llm:groq,llm,groq,0.3,0,True,True,431,15.756,0.001,15.755,19462,10640,3193,3954,7431,3,0,"{""groq"": 3}",True,True,431,0.75,12,0.8276,29,3,3,0.005052
+university-anon,llm-groq-b50,llm:groq,llm,groq,0.5,0,True,True,501,19.154,0.001,19.153,20839,11323,5662,3954,7431,3,0,"{""groq"": 3}",True,True,501,0.8333,12,0.931,29,3,3,0.005052
+university-anon,llm-nvidia-b10,llm:nvidia,llm,nvidia,0.1,0,True,True,22,100.746,95.484,5.262,10274,5502,551,4167,1551,3,0,"{""nvidia"": 3}",True,True,22,0.0,12,0.0,29,0,3,0.0
+university-anon,llm-nvidia-b20,llm:nvidia,llm,nvidia,0.2,0,True,True,232,14.467,0.001,14.466,20936,11268,2254,4167,1551,3,0,"{""nvidia"": 3}",True,True,232,0.0833,12,0.1379,29,0,3,0.0
+university-anon,llm-nvidia-b30-r1,llm:nvidia,llm,nvidia,0.3,1,True,True,352,62.078,46.086,15.992,20661,11097,3330,4167,1551,3,0,"{""nvidia"": 3}",True,True,352,0.0833,12,0.069,29,0,3,0.0
+university-anon,llm-nvidia-b30-r2,llm:nvidia,llm,nvidia,0.3,2,True,True,186,82.333,71.943,10.39,16431,8959,2688,4167,1551,3,0,"{""nvidia"": 3}",True,True,186,0.0833,12,0.1379,29,0,3,0.0
+university-anon,llm-nvidia-b30-r3,llm:nvidia,llm,nvidia,0.3,3,True,True,366,69.686,54.383,15.303,20936,11268,3381,4167,1551,3,0,"{""nvidia"": 3}",True,True,366,0.0833,12,0.1379,29,0,3,0.0
+university-anon,llm-nvidia-b30,llm:nvidia,llm,nvidia,0.3,0,True,True,313,16.997,0.002,16.995,20936,11268,3381,4167,1551,3,0,"{""nvidia"": 3}",True,True,313,0.0833,12,0.1379,29,0,3,0.0
+university-anon,llm-nvidia-b50,llm:nvidia,llm,nvidia,0.5,0,True,True,376,20.425,0.001,20.424,21761,11720,5861,4167,1551,3,0,"{""nvidia"": 3}",True,True,376,0.0833,12,0.1379,29,0,3,0.0
 university-anon,random-b10-s0,random,random,,0.1,0,True,True,6,2.24,0.0,2.24,3397,2241,225,0,0,0,0,{},True,True,6,0.0,12,0.0345,29,0,3,
 university-anon,random-b10-s1,random,random,,0.1,1,True,True,15,2.551,0.0,2.551,3763,2363,237,0,0,0,0,{},True,True,15,0.0833,12,0.0345,29,0,3,
 university-anon,random-b10-s2,random,random,,0.1,2,True,True,13,2.585,0.0,2.585,3579,2325,233,0,0,0,0,{},True,True,13,0.25,12,0.1379,29,1,3,
@@ -68,6 +98,21 @@ galaxy400,heuristic-b10,heuristic,heuristic,,0.1,0,True,True,0,2.928,0.0,2.928,1
 galaxy400,heuristic-b20,heuristic,heuristic,,0.2,0,True,True,0,3.061,0.0,3.061,1044,749,150,0,0,0,0,{},True,True,0,0.0,10,0.0,25,,,
 galaxy400,heuristic-b30,heuristic,heuristic,,0.3,0,True,True,0,2.397,0.0,2.397,1044,749,225,0,0,0,0,{},True,True,0,0.0,10,0.0,25,,,
 galaxy400,heuristic-b50,heuristic,heuristic,,0.5,0,True,True,3,3.078,0.0,3.078,1636,1102,552,0,0,0,0,{},True,True,3,0.1,10,0.08,25,,,
+galaxy400,llm-direct-groq-b30,llm-direct:groq,llm-direct,groq,0.3,0,True,True,62,77.114,71.881,5.233,6476,3522,1057,1695,2913,60,59,"{""fallback"": 59, ""groq"": 1}",True,True,62,0.3,10,0.32,25,,,0.002002
+galaxy400,llm-groq-b10,llm:groq,llm,groq,0.1,0,True,True,7,9.58,6.456,3.124,2956,1961,197,3806,3756,3,0,"{""groq"": 3}",True,True,7,0.0,10,0.08,25,,,0.002824
+galaxy400,llm-groq-b20,llm:groq,llm,groq,0.2,0,True,True,48,4.527,0.002,4.525,5088,3023,605,3806,3756,3,0,"{""groq"": 3}",True,True,48,0.2,10,0.32,25,,,0.002824
+galaxy400,llm-groq-b30-r1,llm:groq,llm,groq,0.3,1,True,True,33,13.456,8.799,4.657,5164,2924,878,3806,1784,3,0,"{""groq"": 3}",True,True,33,0.0,10,0.0,25,,,0.001641
+galaxy400,llm-groq-b30-r2,llm:groq,llm,groq,0.3,2,True,True,64,115.083,109.803,5.28,6188,3486,1047,3806,3178,3,0,"{""groq"": 3}",True,True,64,0.6,10,0.48,25,,,0.002478
+galaxy400,llm-groq-b30-r3,llm:groq,llm,groq,0.3,3,True,True,27,505.701,501.741,3.96,3544,2085,626,2310,1411,3,1,"{""groq"": 2, ""fallback"": 1}",True,True,27,0.1,10,0.24,25,,,0.001193
+galaxy400,llm-groq-b30,llm:groq,llm,groq,0.3,0,True,True,58,5.183,0.001,5.182,5088,3023,908,3806,3756,3,0,"{""groq"": 3}",True,True,58,0.2,10,0.36,25,,,0.002824
+galaxy400,llm-groq-b50,llm:groq,llm,groq,0.5,0,True,True,96,6.333,0.001,6.332,7808,4267,2134,3806,3756,3,0,"{""groq"": 3}",True,True,96,1.0,10,0.96,25,,,0.002824
+galaxy400,llm-nvidia-b10,llm:nvidia,llm,nvidia,0.1,0,True,True,18,48.714,45.468,3.246,3840,2308,231,4241,1236,3,0,"{""nvidia"": 3}",True,True,18,0.4,10,0.24,25,,,0.0
+galaxy400,llm-nvidia-b20,llm:nvidia,llm,nvidia,0.2,0,True,True,43,4.107,0.001,4.106,5532,3105,622,4241,1236,3,0,"{""nvidia"": 3}",True,True,43,0.8,10,0.6,25,,,0.0
+galaxy400,llm-nvidia-b30-r1,llm:nvidia,llm,nvidia,0.3,1,True,True,55,47.363,42.138,5.225,7220,3933,1181,4241,1236,3,0,"{""nvidia"": 3}",True,True,55,0.8,10,0.64,25,,,0.0
+galaxy400,llm-nvidia-b30-r2,llm:nvidia,llm,nvidia,0.3,2,True,True,29,38.786,34.167,4.619,6264,3371,1012,4241,1236,3,0,"{""nvidia"": 3}",True,True,29,0.0,10,0.0,25,,,0.0
+galaxy400,llm-nvidia-b30-r3,llm:nvidia,llm,nvidia,0.3,3,True,True,23,45.167,41.306,3.861,4796,2682,805,4241,1236,3,0,"{""nvidia"": 3}",True,True,23,0.0,10,0.0,25,,,0.0
+galaxy400,llm-nvidia-b30,llm:nvidia,llm,nvidia,0.3,0,True,True,67,5.05,0.001,5.049,7220,3933,1181,4241,1236,3,0,"{""nvidia"": 3}",True,True,67,0.9,10,0.76,25,,,0.0
+galaxy400,llm-nvidia-b50,llm:nvidia,llm,nvidia,0.5,0,True,True,85,6.453,0.001,6.452,7660,4189,2095,4241,1236,3,0,"{""nvidia"": 3}",True,True,85,1.0,10,0.88,25,,,0.0
 galaxy400,random-b10-s0,random,random,,0.1,0,True,True,1,2.999,0.0,2.999,1780,1224,123,0,0,0,0,{},True,True,1,0.0,10,0.0,25,,,
 galaxy400,random-b10-s1,random,random,,0.1,1,True,True,1,2.89,0.0,2.89,1632,1084,109,0,0,0,0,{},True,True,1,0.0,10,0.0,25,,,
 galaxy400,random-b10-s2,random,random,,0.1,2,True,True,1,2.972,0.0,2.972,1484,943,95,0,0,0,0,{},True,True,1,0.0,10,0.0,25,,,
