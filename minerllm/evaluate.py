@@ -471,6 +471,34 @@ def verdict_table(v: dict) -> str:
     return "\n".join(lines)
 
 
+def headline(summary: list[dict], budget: float = 0.3) -> str:
+    """Compact table for the README: recall@10 and planted patterns at one budget."""
+    fams = ["random", "heuristic", "cardinality"] + sorted(
+        {s["family"] for s in summary if s["family"].startswith("llm")})
+    label = {"random": "random (5 seeds)", "heuristic": "structural heuristic",
+             "cardinality": "cardinality (schema stats)"}
+    ds_list = [d for d in DATASETS if any(s["dataset"] == d for s in summary)]
+    head = "| method | " + " | ".join(ds_list) + " |"
+    lines = [f"Recall@10 of the full miner's top patterns when only **{budget * 100:.0f} %** of "
+             "candidates are verified (planted patterns found in brackets, synthetic graphs only):", "",
+             head, "|---|" + "---:|" * len(ds_list)]
+    for fam in fams:
+        cells = []
+        for ds in ds_list:
+            s = next((x for x in summary if x["dataset"] == ds and x["family"] == fam
+                      and abs(x["budget"] - budget) < 1e-9), None)
+            if not s or s["recall@10"] is None:
+                cells.append("–")
+                continue
+            c = f"{s['recall@10'] * 100:.0f} %"
+            if s.get("planted_found") is not None:
+                c += f" ({s['planted_found']:.1f}/3)" if fam == "random" else f" ({s['planted_found']:.0f}/3)"
+            cells.append(c)
+        if any(c != "–" for c in cells):
+            lines.append(f"| {label.get(fam, fam.replace('llm:', 'LLM joins · '))} | " + " | ".join(cells) + " |")
+    return "\n".join(lines)
+
+
 def _replace_block(path: Path, name: str, content: str) -> None:
     start, end = f"<!-- BEGIN {name} -->", f"<!-- END {name} -->"
     text = path.read_text()
@@ -499,6 +527,7 @@ def report(log=print) -> dict:
         if doc.exists():
             _replace_block(doc, "RESULTS-TABLES", tables)
             _replace_block(doc, "VERDICTS", verdict_table(v))
+    _replace_block(ROOT / "README.md", "HEADLINE", headline(summary))
     bad = [r for r in rows if r["oracle_ok"] is False or not r["precision_ok"]
            or not r["scores_match_reference"]]
     log(f"{len(rows)} runs, {len(summary)} groups, figures: {[p.name for p in figs]}")
