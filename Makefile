@@ -11,13 +11,14 @@
 #   make eval-baselines    Step 5: upstream, exhaustive, random x5, heuristic on all datasets
 #   make eval-llm          Step 6: LLM arms per provider (needs .env keys; resumable)
 #   make report            regenerate results/, figures and the tables in docs/05, docs/06
+#   make demo              5-minute live demo (DEMO_PAUSE=0 to run without pauses)
 
 PYTHON ?= python3
 PETTA  ?= bash .petta/run.sh
 export LANG := C.UTF-8
 export LC_ALL := C.UTF-8
 
-.PHONY: help setup doctor run test test-metta test-all reproduce-issues profile datasets mine eval-baselines eval-llm report clean
+.PHONY: help setup doctor run test test-metta test-all reproduce-issues profile datasets mine eval-baselines eval-llm report demo clean
 
 help:
 	@grep -E '^#   make' Makefile | sed 's/^#   //'
@@ -66,6 +67,9 @@ eval-llm:
 
 report:
 	$(PYTHON) -m minerllm eval report
+
+demo:
+	bash scripts/demo.sh
 
 clean:
 	rm -rf runs/ .cache/ _generated/ .pytest_cache
