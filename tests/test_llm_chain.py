@@ -165,4 +165,4 @@ def test_json_mode_rejected_retries_without_it(monkeypatch):
     resp = nvidia_client(api_key="k").complete("p")
     assert resp.text == '{"scores": []}' and len(calls) == 2
     assert "response_format" in calls[0] and "response_format" not in calls[1]
-    assert nvidia_client(api_key="k").model == "mistralai/mistral-large-2-instruct"
+    assert nvidia_client(api_key="k").model == "minimaxai/minimax-m3.1-flash"

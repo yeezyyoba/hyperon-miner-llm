@@ -15,9 +15,10 @@ be repeatable, and CI has no API keys.
   (`garbage`, `partial`, `out_of_range`, `duplicates`, `error`, `fatal`, …) to test every failure
   path. Its scores are hash-based, so mock runs test plumbing, never quality.
 * Default models: `gemini-3.8-flash` (thinking level `low`), `openai/gpt-oss-120b` (Groq),
-  `mistralai/mistral-large-2-instruct` (NVIDIA), all overridable in `.env`; the order is overridable
-  with `MINERLLM_PROVIDERS` (models are checked with `minerllm models`; the original Llama
-  defaults were retired by Groq and NVIDIA during this project). JSON mode; temperature 0
+  `minimaxai/minimax-m3.1-flash` (NVIDIA), all overridable in `.env`; the order is overridable
+  with `MINERLLM_PROVIDERS` (models are checked with `minerllm models --probe`: the original Llama defaults, and
+  then NVIDIA's mistral-large-2, were retired during this project, and NVIDIA's model
+  list still includes retired models, so being listed doesn't mean a model answers). JSON mode; temperature 0
   where honoured (Gemini 3.x ignores sampling parameters). Keys come only from the environment
   and are sent in headers, never in URLs.
 

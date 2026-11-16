@@ -22,7 +22,7 @@ from .base import LLMClient, LLMError, LLMResponse
 DEFAULT_MODELS = {
     "gemini": "gemini-3.8-flash",
     "groq": "openai/gpt-oss-120b",
-    "nvidia": "mistralai/mistral-large-2-instruct",
+    "nvidia": "minimaxai/minimax-m3.1-flash",
 }
 
 
@@ -162,3 +162,23 @@ def list_models(provider: str, timeout: float = 30.0) -> list[str]:
                         timeout=timeout)
     _raise_for(resp, provider)
     return sorted(m["id"] for m in resp.json().get("data", []))
+
+
+def probe_model(provider: str, model: str, timeout: float = 45.0) -> tuple[bool, str]:
+    """One tiny JSON request. Returns (works, short info). Costs a few dozen tokens."""
+    client = {"gemini": lambda: GeminiClient(model=model),
+              "groq": lambda: groq_client(model=model),
+              "nvidia": lambda: nvidia_client(model=model)}[provider]()
+    try:
+        r = client.complete('Return exactly this JSON: {"ok": true}', timeout=timeout)
+    except LLMError as e:
+        msg = str(e)
+        code = msg.split("HTTP ")[1][:3] if "HTTP " in msg else "error"
+        return False, f"{code} {msg[msg.find(':') + 1:][:70].strip()}"
+    try:
+        import json as _json
+        good = _json.loads(r.text.strip().strip("`").removeprefix("json").strip()
+                           if hasattr(str, "removeprefix") else r.text).get("ok") is True
+    except (ValueError, AttributeError):
+        good = False
+    return True, f"{r.latency_s:.1f}s" + ("" if good else " (answered, but not clean JSON)")
