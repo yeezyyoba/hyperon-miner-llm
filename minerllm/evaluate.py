@@ -61,11 +61,15 @@ class Arm:
     budget: float = 1.0
     seed: int = 0
     provider: str | None = None          # single provider for llm arms
+    only: tuple = ()                     # restrict to these datasets (empty = all)
 
     def ranker(self) -> RankerConfig:
+        # Groq's on-demand tier allows 8,000 tokens/minute: send its batches one at a time
+        # and allow more retries (each waits as long as Groq asks).
+        groq = self.provider == "groq"
         return RankerConfig(strategy=self.strategy, budget=self.budget, seed=self.seed,
                             providers=[self.provider] if self.provider else None,
-                            max_retries=2)
+                            max_retries=4 if groq else 2, workers=1 if groq else 4)
 
     @property
     def family(self) -> str:
@@ -86,11 +90,15 @@ def baseline_arms(budgets=BUDGETS, seeds=SEEDS) -> list[Arm]:
     return arms
 
 
-def llm_arms(providers=PROVIDERS, budgets=BUDGETS, direct: bool = True) -> list[Arm]:
+def llm_arms(providers=PROVIDERS, budgets=BUDGETS, direct: bool = True,
+             direct_provider: str = "nvidia") -> list[Arm]:
+    """Join-level LLM arms per provider; plus one llm-direct arm (every candidate scored),
+    on the university graph only. It needs ~150 calls per run, which a rate-limited tier
+    (Groq: 8,000 tokens/min) can't serve, so it runs on NVIDIA by default."""
     arms = [Arm(f"llm-{p}-{pct(b)}", "llm", b, provider=p) for p in providers for b in budgets]
-    if direct and providers:
-        p = providers[0]
-        arms.append(Arm(f"llm-direct-{p}-b30", "llm-direct", 0.3, provider=p))
+    if direct and direct_provider in providers:
+        arms.append(Arm(f"llm-direct-{direct_provider}-b30", "llm-direct", 0.3,
+                        provider=direct_provider, only=("university",)))
     return arms
 
 
@@ -123,13 +131,15 @@ def run_matrix(datasets: list[str], arms: list[Arm], upstream: bool = False,
             log(f"[{ds}] upstream: {len(run.patterns)} patterns, {run.seconds:.1f}s, "
                 f"oracle {'ok' if ver.ok else 'MISMATCH'}  ({time.time() - t:.0f}s)")
         for arm in arms:
+            if arm.only and ds not in arm.only:
+                continue
             if not force and _done(out / f"{arm.name}.json"):
                 log(f"[{ds}] {arm.name}: cached result, skipped")
                 continue
             t = time.time()
             run, ver, s = run_guided(cfg, arm.ranker(), out, label=arm.name)
             meta = json.loads((out / f"{arm.name}.json").read_text())
-            meta["arm"] = arm.__dict__ | {"family": arm.family}
+            meta["arm"] = {**arm.__dict__, "only": list(arm.only), "family": arm.family}
             (out / f"{arm.name}.json").write_text(json.dumps(meta, indent=2))
             log(f"[{ds}] {arm.name}: {len(run.patterns)} patterns, verified {s.get('selected')}"
                 f"/{s.get('unique')}, {run.seconds:.1f}s, LLM fallbacks "

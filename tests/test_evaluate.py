@@ -20,7 +20,7 @@ def test_arm_matrix_shape():
     assert base[0].name == "exhaustive-b100"
     assert len(base) == 1 + 2 * (2 + 3)            # heuristic + cardinality + 3 seeds
     llm = llm_arms(["groq", "nvidia"], budgets=[0.3])
-    assert [a.name for a in llm] == ["llm-groq-b30", "llm-nvidia-b30", "llm-direct-groq-b30"]
+    assert [a.name for a in llm] == ["llm-groq-b30", "llm-nvidia-b30", "llm-direct-nvidia-b30"]
     assert llm[0].ranker().providers == ["groq"]                  # one provider per arm
     assert Arm("x", "random", 0.3, seed=2).family == "random"
     assert llm[1].family == "llm:nvidia"
@@ -61,3 +61,13 @@ def test_h1_supported_only_if_90_percent_and_better_than_baselines():
 def test_h2_needs_gap_on_named_data_that_vanishes_when_anonymised():
     assert verdicts(_summary(0.9, 0.5, 0.52, 0.5))["H2"]["llm:groq"]["verdict"] == "supported"
     assert verdicts(_summary(0.9, 0.5, 0.9, 0.5))["H2"]["llm:groq"]["verdict"] == "not supported"
+
+
+def test_groq_arms_are_sequential_and_direct_arm_runs_on_nvidia_university_only():
+    arms = {a.name: a for a in llm_arms(["groq", "nvidia"], budgets=[0.3])}
+    assert arms["llm-groq-b30"].ranker().workers == 1
+    assert arms["llm-groq-b30"].ranker().max_retries == 4
+    assert arms["llm-nvidia-b30"].ranker().workers == 4
+    direct = arms["llm-direct-nvidia-b30"]
+    assert direct.only == ("university",) and direct.ranker().providers == ["nvidia"]
+    assert "llm-direct-groq-b30" not in arms
