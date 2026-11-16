@@ -120,8 +120,13 @@ def cmd_stats(args) -> int:
 
 
 def main(argv: list[str] | None = None) -> int:
+    argv = sys.argv[1:] if argv is None else argv
+    if argv[:1] == ["eval"]:                       # delegate: minerllm eval baselines|llm|report
+        from .evaluate import main as eval_main
+        return eval_main(argv[1:])
     ap = argparse.ArgumentParser(prog="minerllm", description=__doc__)
     sub = ap.add_subparsers(dest="cmd", required=True)
+    sub.add_parser("eval", help="evaluation: eval baselines | eval llm | eval report (see --help)")
 
     m = sub.add_parser("mine", help="run the upstream miner and verify supports")
     m.add_argument("--config", help="YAML MinerConfig (overrides the flags below)")
@@ -135,11 +140,11 @@ def main(argv: list[str] | None = None) -> int:
 
     gm = sub.add_parser("guided", help="run the LLM-guided miner (or a baseline ranker)")
     gm.add_argument("--config", default="configs/university.yaml")
-    gm.add_argument("--strategy", default="llm", choices=["exhaustive", "random", "heuristic", "llm", "llm-direct"])
+    gm.add_argument("--strategy", default="llm", choices=["exhaustive", "random", "heuristic", "cardinality", "llm", "llm-direct"])
     gm.add_argument("--budget", type=float, default=0.3, help="fraction of candidates verified")
     gm.add_argument("--providers", default=None,
                     help="comma-separated order, e.g. groq,gemini,nvidia; 'mock' runs offline "
-                         "(default: MINERLLM_PROVIDERS from .env, else gemini,groq,nvidia)")
+                         "(default: MINERLLM_PROVIDERS from .env, else groq,nvidia,gemini)")
     gm.add_argument("--batch-size", type=int, default=60)
     gm.add_argument("--seed", type=int, default=0)
     gm.add_argument("--depth", type=int)
@@ -149,7 +154,7 @@ def main(argv: list[str] | None = None) -> int:
     gm.set_defaults(func=cmd_guided)
 
     md = sub.add_parser("models", help="list model IDs your API keys can use")
-    md.add_argument("--providers", default="gemini,groq,nvidia")
+    md.add_argument("--providers", default="groq,nvidia,gemini")
     md.add_argument("--filter", default="",
                     help="only show IDs containing this text (comma-separate several)")
     md.add_argument("--limit", type=int, default=60)

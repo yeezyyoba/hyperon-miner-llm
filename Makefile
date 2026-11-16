@@ -8,13 +8,16 @@
 #   make profile           measure the conjunction-expansion blow-up
 #   make datasets          regenerate experiments/data (synthetic + Galaxy subset)
 #   make mine CONFIG=...   run the upstream miner from a YAML config, verify with the oracle
+#   make eval-baselines    Step 5: upstream, exhaustive, random x5, heuristic on all datasets
+#   make eval-llm          Step 6: LLM arms per provider (needs .env keys; resumable)
+#   make report            regenerate results/, figures and the tables in docs/05, docs/06
 
 PYTHON ?= python3
 PETTA  ?= bash .petta/run.sh
 export LANG := C.UTF-8
 export LC_ALL := C.UTF-8
 
-.PHONY: help setup doctor run test test-metta test-all reproduce-issues profile datasets mine clean
+.PHONY: help setup doctor run test test-metta test-all reproduce-issues profile datasets mine eval-baselines eval-llm report clean
 
 help:
 	@grep -E '^#   make' Makefile | sed 's/^#   //'
@@ -54,6 +57,15 @@ datasets:
 
 mine:
 	$(PYTHON) -m minerllm mine --config $(CONFIG)
+
+eval-baselines:
+	$(PYTHON) -m minerllm eval baselines
+
+eval-llm:
+	$(PYTHON) -m minerllm eval llm
+
+report:
+	$(PYTHON) -m minerllm eval report
 
 clean:
 	rm -rf runs/ .cache/ _generated/ .pytest_cache
