@@ -137,3 +137,32 @@ def test_gemini_2_x_still_gets_temperature_zero(monkeypatch):
     GeminiClient(model="gemini-2.5-flash", api_key="k").complete("p")
     cfg = sent["body"]["generationConfig"]
     assert cfg["temperature"] == 0 and "thinkingConfig" not in cfg
+
+
+def test_provider_order_from_environment(monkeypatch):
+    monkeypatch.setenv("MINERLLM_PROVIDERS", "mock:error, mock")
+    chain = build_chain()
+    assert [c.model for c in chain.clients] == ["mock-error", "mock-ok"]
+
+
+def test_json_mode_rejected_retries_without_it(monkeypatch):
+    calls = []
+
+    class R:
+        def __init__(self, code, payload, text=""):
+            self.status_code, self._p, self.text = code, payload, text
+
+        def json(self):
+            return self._p
+
+    def fake_post(url, json=None, timeout=None, headers=None):
+        calls.append(dict(json))
+        if "response_format" in json:
+            return R(400, {}, '{"error": "response_format not supported"}')
+        return R(200, {"choices": [{"message": {"content": '{"scores": []}'}}], "usage": {}})
+
+    monkeypatch.setattr("minerllm.llm.providers.requests.post", fake_post)
+    resp = nvidia_client(api_key="k").complete("p")
+    assert resp.text == '{"scores": []}' and len(calls) == 2
+    assert "response_format" in calls[0] and "response_format" not in calls[1]
+    assert nvidia_client(api_key="k").model == "mistralai/mistral-large-2-instruct"

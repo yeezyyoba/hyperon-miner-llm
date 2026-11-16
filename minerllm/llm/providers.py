@@ -22,7 +22,7 @@ from .base import LLMClient, LLMError, LLMResponse
 DEFAULT_MODELS = {
     "gemini": "gemini-3.8-flash",
     "groq": "openai/gpt-oss-120b",
-    "nvidia": "meta/llama-3.3-70b-instruct",
+    "nvidia": "mistralai/mistral-large-2-instruct",
 }
 
 
@@ -112,6 +112,14 @@ class OpenAICompatibleClient(LLMClient):
                                  headers={"Authorization": f"Bearer {self._key}"})
         except requests.RequestException as e:
             raise LLMError(f"{self.name} network error: {type(e).__name__}") from None
+        if resp.status_code == 400 and self.json_mode and "response_format" in resp.text:
+            # some hosted models reject JSON mode: retry once without it (validator still applies)
+            body.pop("response_format", None)
+            try:
+                resp = requests.post(self.url, json=body, timeout=timeout,
+                                     headers={"Authorization": f"Bearer {self._key}"})
+            except requests.RequestException as e:
+                raise LLMError(f"{self.name} network error: {type(e).__name__}") from None
         _raise_for(resp, self.name)
         data = resp.json()
         try:

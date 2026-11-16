@@ -83,7 +83,10 @@ def build_chain(providers: list[str] | None = None, cache_dir: str | None = None
     except ImportError:
         pass
 
-    providers = providers or ["gemini", "groq", "nvidia"]
+    import os
+    env_order = os.environ.get("MINERLLM_PROVIDERS", "")
+    providers = providers or [p.strip() for p in env_order.split(",") if p.strip()] \
+        or ["gemini", "groq", "nvidia"]
     clients: list[LLMClient] = []
     for p in providers:
         if p == "gemini":
