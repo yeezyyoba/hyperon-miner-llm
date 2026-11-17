@@ -1,0 +1,15 @@
+{
+  "strategy": "random",
+  "budget": 0.3,
+  "seed": 4,
+  "providers": null,
+  "batch_size": 60,
+  "max_retries": 2,
+  "timeout_s": 180.0,
+  "workers": 4,
+  "cache_dir": "/Users/eyobnebyou/Documents/hyperon-miner-llm/.cache/llm",
+  "min_select": 1,
+  "samples": 3,
+  "trace_path": "/Users/eyobnebyou/Documents/hyperon-miner-llm/results/raw/heldout-galaxy400-s11/random-b30-s4.trace.jsonl",
+  "dataset": "/Users/eyobnebyou/Documents/hyperon-miner-llm/experiments/data/heldout/galaxy_400_s11.metta"
+}

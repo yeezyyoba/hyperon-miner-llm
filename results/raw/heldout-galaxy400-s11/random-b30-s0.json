@@ -1,0 +1,205 @@
+{
+  "label": "random-b30-s0",
+  "config": {
+    "dataset": "experiments/data/heldout/galaxy_400_s11",
+    "minsup": 5,
+    "depth": 1,
+    "surp_mode": "isurp",
+    "normalize": true,
+    "db_ratio": 0.5,
+    "timeout": 1800,
+    "extra": {}
+  },
+  "ok": true,
+  "returncode": 0,
+  "timed_out": false,
+  "seconds": 2.153,
+  "n_patterns": 23,
+  "patterns": [
+    {
+      "pattern": "(, (TOOL_HAS_INPUT $v0 $v1) (TOOL_HAS_INPUT $v2 $v1) (TOOL_HAS_INPUT $v3 $v1))",
+      "raw": "(surprisingnessOf (, (TOOL_HAS_INPUT $_0 $_1) (TOOL_HAS_INPUT $_2 $_1) (TOOL_HAS_INPUT $_3 $_1)) 0.18803418803418798)",
+      "support": 27,
+      "surprisingness": 0.18803418803418798
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (HAS_STEP Genome_Assembly_from_Hifi_reads_with_HiC_phasing_VGP4_e27e679f $v1) (WORKFLOW_USES_TOOL $v0 $v2))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL $_0 $_1) (HAS_STEP $_0 $_2) (HAS_STEP Genome_Assembly_from_Hifi_reads_with_HiC_phasing_VGP4_e27e679f $_2)) 0.89)",
+      "support": 10,
+      "surprisingness": 0.89
+    },
+    {
+      "pattern": "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (STEP_USES_TOOL $v1 $v0) (STEP_USES_TOOL $v1 $v2))",
+      "raw": "(surprisingnessOf (, (STEP_USES_TOOL $_0 $_1) (STEP_USES_TOOL $_0 $_2) (HAS_TOOL vgp_assembly_v2_7fb545de $_2)) 0.8575)",
+      "support": 13,
+      "surprisingness": 0.8575
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (TOOL_HAS_OUTPUT $v1 $v3))",
+      "raw": "(surprisingnessOf (, (TOOL_HAS_OUTPUT $_0 $_1) (STEP_USES_TOOL $_2 $_0) (STEP_USES_TOOL $_3 $_0)) 0.755)",
+      "support": 39,
+      "surprisingness": 0.755
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (TOOL_HAS_OUTPUT $v2 output_78e6221f) (WORKFLOW_USES_TOOL $v0 $v2))",
+      "raw": "(surprisingnessOf (, (TOOL_HAS_OUTPUT $_0 output_78e6221f) (WORKFLOW_USES_TOOL $_1 $_0) (HAS_STEP $_1 $_2)) 0.6333333333333333)",
+      "support": 9,
+      "surprisingness": 0.6333333333333333
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (TOOL_HAS_OUTPUT $v2 $v3) (WORKFLOW_USES_TOOL $v0 $v2))",
+      "raw": "(surprisingnessOf (, (TOOL_HAS_OUTPUT $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_0) (HAS_STEP $_2 $_3)) 0.3399999999999999)",
+      "support": 26,
+      "surprisingness": 0.3399999999999999
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL vgp_assembly_v2_7fb545de $v1) (TOOL_HAS_OUTPUT $v1 output_78e6221f))",
+      "raw": "(surprisingnessOf (, (HAS_TOOL vgp_assembly_v2_7fb545de $_0) (TOOL_HAS_OUTPUT $_0 output_78e6221f) (HAS_TOOL $_1 $_0)) 0.9688461538461538)",
+      "support": 52,
+      "surprisingness": 0.9688461538461538
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v0 $v2) (HAS_TOOL $v0 toolshed_g2_bx_psu_edu_repos_bgruening_gfastats_gfastats_1_3_11_galaxy0_819635fa))",
+      "raw": "(surprisingnessOf (, (HAS_TOOL $_0 $_1) (HAS_TOOL $_0 $_2) (HAS_TOOL $_0 toolshed_g2_bx_psu_edu_repos_bgruening_gfastats_gfastats_1_3_11_galaxy0_819635fa)) 0.879039704524469)",
+      "support": 1805,
+      "surprisingness": 0.879039704524469
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (HAS_STEP $v0 $v2) (WORKFLOW_USES_TOOL $v0 $v3))",
+      "raw": "(surprisingnessOf (, (HAS_STEP $_0 $_1) (WORKFLOW_USES_TOOL $_0 $_2) (HAS_STEP $_0 $_3)) 0.9099999999999999)",
+      "support": 258,
+      "surprisingness": 0.9099999999999999
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (STEP_USES_TOOL $v3 $v1))",
+      "raw": "(surprisingnessOf (, (HAS_TOOL $_0 $_1) (STEP_USES_TOOL $_2 $_1) (STEP_USES_TOOL $_3 $_1)) 0.76375)",
+      "support": 28,
+      "surprisingness": 0.76375
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (TOOL_HAS_OUTPUT $v1 $v2) (TOOL_HAS_OUTPUT $v1 out_file1_32a3e2ea))",
+      "raw": "(surprisingnessOf (, (STEP_USES_TOOL $_0 $_1) (TOOL_HAS_OUTPUT $_1 $_2) (TOOL_HAS_OUTPUT $_1 out_file1_32a3e2ea)) 0.895)",
+      "support": 13,
+      "surprisingness": 0.895
+    },
+    {
+      "pattern": "(, (FEEDS_INTO $v0 $v1) (HAS_STEP $v2 $v0) (WORKFLOW_USES_TOOL $v2 $v3))",
+      "raw": "(surprisingnessOf (, (FEEDS_INTO $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_3) (HAS_STEP $_2 $_0)) 0.0)",
+      "support": 9,
+      "surprisingness": 0.0
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (STEP_USES_TOOL $v2 $v3))",
+      "raw": "(surprisingnessOf (, (HAS_TOOL $_0 $_1) (STEP_USES_TOOL $_2 $_1) (STEP_USES_TOOL $_2 $_3)) 0.7367499999999999)",
+      "support": 20,
+      "surprisingness": 0.7367499999999999
+    },
+    {
+      "pattern": "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (STEP_USES_TOOL $v1 $v0) (STEP_USES_TOOL $v2 $v0))",
+      "raw": "(surprisingnessOf (, (STEP_USES_TOOL $_0 $_1) (STEP_USES_TOOL $_2 $_1) (HAS_TOOL vgp_assembly_v2_7fb545de $_1)) 0.8448333333333334)",
+      "support": 15,
+      "surprisingness": 0.8448333333333334
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (STEP_USES_TOOL $v0 $v2) (TOOL_HAS_OUTPUT $v1 $v3))",
+      "raw": "(surprisingnessOf (, (TOOL_HAS_OUTPUT $_0 $_1) (STEP_USES_TOOL $_2 $_0) (STEP_USES_TOOL $_2 $_3)) 0.6693478260869565)",
+      "support": 23,
+      "surprisingness": 0.6693478260869565
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v2 $v1) (TOOL_HAS_OUTPUT $v1 output_78e6221f))",
+      "raw": "(surprisingnessOf (, (HAS_TOOL $_0 $_1) (TOOL_HAS_OUTPUT $_1 output_78e6221f) (HAS_TOOL $_2 $_1)) 0.9482758620689655)",
+      "support": 58,
+      "surprisingness": 0.9482758620689655
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (HAS_TOOL virology_b765de61 $v2) (WORKFLOW_USES_TOOL $v0 $v2))",
+      "raw": "(surprisingnessOf (, (HAS_TOOL virology_b765de61 $_0) (WORKFLOW_USES_TOOL $_1 $_0) (HAS_STEP $_1 $_2)) 0.7799999999999999)",
+      "support": 5,
+      "surprisingness": 0.7799999999999999
+    },
+    {
+      "pattern": "(, (HAS_STEP $v0 $v1) (HAS_STEP $v2 $v1) (WORKFLOW_USES_TOOL $v0 $v3))",
+      "raw": "(surprisingnessOf (, (HAS_STEP $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_3) (HAS_STEP $_2 $_1)) 0.8250000000000001)",
+      "support": 88,
+      "surprisingness": 0.8250000000000001
+    },
+    {
+      "pattern": "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v0 toolshed_g2_bx_psu_edu_repos_bgruening_gfastats_gfastats_1_3_11_galaxy0_819635fa) (TOOL_HAS_OUTPUT $v1 $v2))",
+      "raw": "(surprisingnessOf (, (TOOL_HAS_OUTPUT $_0 $_1) (HAS_TOOL $_2 $_0) (HAS_TOOL $_2 toolshed_g2_bx_psu_edu_repos_bgruening_gfastats_gfastats_1_3_11_galaxy0_819635fa)) 0.7820588235294117)",
+      "support": 85,
+      "surprisingness": 0.7820588235294117
+    },
+    {
+      "pattern": "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v0 $v2))",
+      "raw": "(surprisingnessOf (, (TOOL_HAS_OUTPUT $_0 $_1) (TOOL_HAS_OUTPUT $_0 $_2) (HAS_TOOL vgp_assembly_v2_7fb545de $_0)) 0.834516129032258)",
+      "support": 31,
+      "surprisingness": 0.834516129032258
+    },
+    {
+      "pattern": "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (STEP_USES_TOOL $v1 $v0) (WORKFLOW_USES_TOOL $v2 $v0))",
+      "raw": "(surprisingnessOf (, (WORKFLOW_USES_TOOL $_0 $_1) (STEP_USES_TOOL $_2 $_1) (HAS_TOOL vgp_assembly_v2_7fb545de $_1)) 0.7075)",
+      "support": 6,
+      "surprisingness": 0.7075
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (TOOL_HAS_OUTPUT $v1 output_78e6221f))",
+      "raw": "(surprisingnessOf (, (TOOL_HAS_OUTPUT $_0 output_78e6221f) (STEP_USES_TOOL $_1 $_0) (STEP_USES_TOOL $_2 $_0)) 0.6937500000000001)",
+      "support": 6,
+      "surprisingness": 0.6937500000000001
+    },
+    {
+      "pattern": "(, (STEP_USES_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL $v3 $v1))",
+      "raw": "(surprisingnessOf (, (STEP_USES_TOOL $_0 $_1) (WORKFLOW_USES_TOOL $_2 $_1) (STEP_USES_TOOL $_3 $_1)) 0.7866129032258065)",
+      "support": 31,
+      "surprisingness": 0.7866129032258065
+    }
+  ],
+  "verification": {
+    "checked": 0,
+    "ok": true,
+    "mismatches": []
+  },
+  "ranker": {
+    "strategy": "random",
+    "budget": 0.3,
+    "seed": 0,
+    "providers": null,
+    "batch_size": 60,
+    "max_retries": 2,
+    "timeout_s": 180.0,
+    "workers": 4,
+    "cache_dir": ".cache/llm",
+    "min_select": 1,
+    "samples": 3
+  },
+  "trace_summary": {
+    "t": 1.764,
+    "event": "finish",
+    "wall_seconds": 1.764,
+    "generated": 3087,
+    "unique": 1890,
+    "selected": 568,
+    "kept": 23,
+    "llm_seconds": 0.0,
+    "verify_seconds": 0.342,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "fallback_batches": 0,
+    "batches": 0
+  },
+  "arm": {
+    "name": "random-b30-s0",
+    "strategy": "random",
+    "budget": 0.3,
+    "seed": 0,
+    "provider": null,
+    "only": [
+      "heldout-university-s1",
+      "heldout-university-s2",
+      "heldout-galaxy400-s11"
+    ],
+    "repeat": 0,
+    "family": "random"
+  }
+}

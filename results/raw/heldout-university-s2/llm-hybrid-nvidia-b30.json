@@ -1,0 +1,2081 @@
+{
+  "label": "llm-hybrid-nvidia-b30",
+  "config": {
+    "dataset": "experiments/data/heldout/university_s2_st80",
+    "minsup": 10,
+    "depth": 1,
+    "surp_mode": "isurp",
+    "normalize": true,
+    "db_ratio": 0.5,
+    "timeout": 1800,
+    "extra": {}
+  },
+  "ok": true,
+  "returncode": 0,
+  "timed_out": false,
+  "seconds": 13.925,
+  "n_patterns": 336,
+  "patterns": [
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1) (MAJORS_IN $v3 $v1))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 $_1) (MAJORS_IN $_2 $_1) (MAJORS_IN $_3 $_1)) 0.08068269976726157)",
+      "support": 15468,
+      "surprisingness": 0.08068269976726157
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (ENROLLED_IN $v3 $v1))",
+      "raw": "(surprisingnessOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_2 $_1) (ENROLLED_IN $_3 $_1)) 0.10873882820258196)",
+      "support": 12084,
+      "surprisingness": 0.10873882820258196
+    },
+    {
+      "pattern": "(, (USES $v0 $v1) (USES $v2 $v1) (USES $v3 $v1))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (USES $_2 $_1) (USES $_3 $_1)) 0.04450669156551519)",
+      "support": 6426,
+      "surprisingness": 0.04450669156551519
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1) (OFFERED_BY $v3 $v1))",
+      "raw": "(surprisingnessOf (, (OFFERED_BY $_0 $_1) (MAJORS_IN $_2 $_1) (MAJORS_IN $_3 $_1)) 0.9920634920634921)",
+      "support": 5688,
+      "surprisingness": 0.9920634920634921
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v2 $v3) (OFFERED_BY $v1 $v3))",
+      "raw": "(surprisingnessOf (, (ENROLLED_IN $_0 $_1) (MAJORS_IN $_2 $_3) (OFFERED_BY $_1 $_3)) 0.9523809523809524)",
+      "support": 2700,
+      "surprisingness": 0.9523809523809524
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v3 $v2))",
+      "raw": "(surprisingnessOf (, (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 $_2) (MAJORS_IN $_3 $_2)) 0.8809523809523809)",
+      "support": 2844,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1) (MEMBER_OF $v3 $v1))",
+      "raw": "(surprisingnessOf (, (MEMBER_OF $_0 $_1) (MAJORS_IN $_2 $_1) (MAJORS_IN $_3 $_1)) 0.9920634920634921)",
+      "support": 2844,
+      "surprisingness": 0.9920634920634921
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1) (OFFERED_BY $v3 $v1))",
+      "raw": "(surprisingnessOf (, (OFFERED_BY $_0 $_1) (MAJORS_IN $_2 $_1) (OFFERED_BY $_3 $_1)) 0.992063492063492)",
+      "support": 2160,
+      "surprisingness": 0.992063492063492
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (USES $v0 $v2) (USES $v3 $v2))",
+      "raw": "(surprisingnessOf (, (ENROLLED_IN $_0 $_1) (USES $_0 $_2) (USES $_3 $_2)) 0.8809523809523809)",
+      "support": 1842,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (ENROLLED_IN $v0 $v3))",
+      "raw": "(surprisingnessOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 $_2) (ENROLLED_IN $_0 $_3)) 0.0)",
+      "support": 1620,
+      "surprisingness": 0.0
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (ADVISED_BY $v3 $v1))",
+      "raw": "(surprisingnessOf (, (ADVISED_BY $_0 $_1) (ADVISED_BY $_2 $_1) (ADVISED_BY $_3 $_1)) 0.17417417417417425)",
+      "support": 1998,
+      "surprisingness": 0.17417417417417425
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (ENROLLED_IN $v3 $v2))",
+      "raw": "(surprisingnessOf (, (ADVISED_BY $_0 $_1) (ENROLLED_IN $_0 $_2) (ENROLLED_IN $_3 $_2)) 0.8809523809523809)",
+      "support": 1436,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (FRIENDS_WITH $v0 $v3))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 $_2) (ENROLLED_IN $_3 $_2)) 0.8809523809523809)",
+      "support": 1436,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (FRIENDS_WITH $v3 $v0))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 $_2) (ENROLLED_IN $_3 $_2)) 0.8843353308847219)",
+      "support": 1478,
+      "surprisingness": 0.8843353308847219
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (MAJORS_IN $v0 $v3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 $_1) (ENROLLED_IN $_0 $_2) (ENROLLED_IN $_3 $_2)) 0.8809523809523809)",
+      "support": 1436,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (USES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (ENROLLED_IN $_0 $_2) (ENROLLED_IN $_3 $_2)) 0.8809523809523809)",
+      "support": 1436,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (HELD_IN $v1 $v3))",
+      "raw": "(surprisingnessOf (, (HELD_IN $_0 $_1) (ENROLLED_IN $_2 $_0) (ENROLLED_IN $_3 $_0)) 0.9523809523809523)",
+      "support": 1436,
+      "surprisingness": 0.9523809523809523
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (OFFERED_BY $v1 $v3))",
+      "raw": "(surprisingnessOf (, (OFFERED_BY $_0 $_1) (ENROLLED_IN $_2 $_0) (ENROLLED_IN $_3 $_0)) 0.9523809523809523)",
+      "support": 1436,
+      "surprisingness": 0.9523809523809523
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (TEACHES $v3 $v1))",
+      "raw": "(surprisingnessOf (, (TEACHES $_0 $_1) (ENROLLED_IN $_2 $_1) (ENROLLED_IN $_3 $_1)) 0.9523809523809523)",
+      "support": 1436,
+      "surprisingness": 0.9523809523809523
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (OFFERED_BY $v3 $v2))",
+      "raw": "(surprisingnessOf (, (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 $_2) (OFFERED_BY $_3 $_2)) 0.8809523809523809)",
+      "support": 1080,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MEMBER_OF $v2 $v1) (OFFERED_BY $v3 $v1))",
+      "raw": "(surprisingnessOf (, (MEMBER_OF $_0 $_1) (MAJORS_IN $_2 $_1) (OFFERED_BY $_3 $_1)) 0.992063492063492)",
+      "support": 1080,
+      "surprisingness": 0.992063492063492
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (OFFERED_BY $v1 $v2) (OFFERED_BY $v3 $v2))",
+      "raw": "(surprisingnessOf (, (OFFERED_BY $_0 $_1) (ENROLLED_IN $_2 $_3) (OFFERED_BY $_3 $_1)) 0.9523809523809524)",
+      "support": 1080,
+      "surprisingness": 0.9523809523809524
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v2 $v3) (TEACHES $v1 $v3))",
+      "raw": "(surprisingnessOf (, (ADVISED_BY $_0 $_1) (ENROLLED_IN $_2 $_3) (TEACHES $_1 $_3)) 0.9536178107606679)",
+      "support": 924,
+      "surprisingness": 0.9536178107606679
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v2 $v3) (MEMBER_OF $v1 $v3))",
+      "raw": "(surprisingnessOf (, (ADVISED_BY $_0 $_1) (MAJORS_IN $_2 $_3) (MEMBER_OF $_1 $_3)) 0.9761904761904762)",
+      "support": 900,
+      "surprisingness": 0.9761904761904762
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (ENROLLED_IN $v0 $v3))",
+      "raw": "(surprisingnessOf (, (ENROLLED_IN $_0 $_1) (ADVISED_BY $_0 $_2) (ADVISED_BY $_3 $_2)) 0.8809523809523809)",
+      "support": 990,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v3 $v2))",
+      "raw": "(surprisingnessOf (, (ADVISED_BY $_0 $_1) (MAJORS_IN $_0 $_2) (MAJORS_IN $_3 $_2)) 0.880952380952381)",
+      "support": 948,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v3 $v2))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_0 $_2) (MAJORS_IN $_3 $_2)) 0.880952380952381)",
+      "support": 948,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (MAJORS_IN $v3 $v2))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_1 $_2) (MAJORS_IN $_3 $_2)) 0.8829282750444577)",
+      "support": 964,
+      "surprisingness": 0.8829282750444577
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1) (USES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (MAJORS_IN $_0 $_2) (MAJORS_IN $_3 $_2)) 0.880952380952381)",
+      "support": 948,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (OFFERED_BY $v0 $v1) (OFFERED_BY $v2 $v1) (OFFERED_BY $v3 $v1))",
+      "raw": "(surprisingnessOf (, (OFFERED_BY $_0 $_1) (OFFERED_BY $_2 $_1) (OFFERED_BY $_3 $_1)) 1.255099539923532e-16)",
+      "support": 864,
+      "surprisingness": 1.255099539923532e-16
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (USES $v0 $v2) (USES $v3 $v2))",
+      "raw": "(surprisingnessOf (, (ADVISED_BY $_0 $_1) (USES $_0 $_2) (USES $_3 $_2)) 0.8809523809523809)",
+      "support": 614,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (USES $v0 $v2) (USES $v3 $v2))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (USES $_0 $_2) (USES $_3 $_2)) 0.8809523809523809)",
+      "support": 614,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (USES $v1 $v2) (USES $v3 $v2))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (USES $_1 $_2) (USES $_3 $_2)) 0.878579338712229)",
+      "support": 602,
+      "surprisingness": 0.878579338712229
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (USES $v0 $v2) (USES $v3 $v2))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 $_1) (USES $_0 $_2) (USES $_3 $_2)) 0.8809523809523809)",
+      "support": 614,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (TEACHES $v1 $v3))",
+      "raw": "(surprisingnessOf (, (TEACHES $_0 $_1) (ADVISED_BY $_2 $_0) (ADVISED_BY $_3 $_0)) 0.9761904761904762)",
+      "support": 660,
+      "surprisingness": 0.9761904761904762
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MEMBER_OF $v3 $v2))",
+      "raw": "(surprisingnessOf (, (MEMBER_OF $_0 $_1) (ENROLLED_IN $_2 $_3) (MAJORS_IN $_2 $_1)) 0.8809523809523809)",
+      "support": 540,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MEMBER_OF $v2 $v3) (OFFERED_BY $v1 $v3))",
+      "raw": "(surprisingnessOf (, (MEMBER_OF $_0 $_1) (ENROLLED_IN $_2 $_3) (OFFERED_BY $_3 $_1)) 0.9523809523809524)",
+      "support": 540,
+      "surprisingness": 0.9523809523809524
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (HELD_IN $v1 $v3))",
+      "raw": "(surprisingnessOf (, (HELD_IN $_0 $_1) (ENROLLED_IN $_2 $_0) (ENROLLED_IN $_2 $_3)) 0.8809523809523809)",
+      "support": 540,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (OFFERED_BY $v1 $v3))",
+      "raw": "(surprisingnessOf (, (OFFERED_BY $_0 $_1) (ENROLLED_IN $_2 $_0) (ENROLLED_IN $_2 $_3)) 0.8809523809523809)",
+      "support": 540,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (TEACHES $v3 $v1))",
+      "raw": "(surprisingnessOf (, (TEACHES $_0 $_1) (ENROLLED_IN $_2 $_1) (ENROLLED_IN $_2 $_3)) 0.8809523809523809)",
+      "support": 540,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v3) (FRIENDS_WITH $v0 $v2))",
+      "raw": "(surprisingnessOf (, (ENROLLED_IN $_0 $_1) (FRIENDS_WITH $_2 $_0) (ENROLLED_IN $_2 $_3)) 0.8809523809523809)",
+      "support": 540,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (HELD_IN $v3 $v2))",
+      "raw": "(surprisingnessOf (, (HELD_IN $_0 $_1) (ENROLLED_IN $_2 $_3) (HELD_IN $_3 $_1)) 0.9529168580615526)",
+      "support": 622,
+      "surprisingness": 0.9529168580615526
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (ENROLLED_IN $v0 $v3))",
+      "raw": "(surprisingnessOf (, (ADVISED_BY $_0 $_1) (ENROLLED_IN $_0 $_2) (ENROLLED_IN $_0 $_3)) 0.8809523809523809)",
+      "support": 540,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (FRIENDS_WITH $v0 $v3))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 $_2) (ENROLLED_IN $_0 $_3)) 0.8809523809523809)",
+      "support": 540,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (FRIENDS_WITH $v3 $v0))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 $_2) (ENROLLED_IN $_1 $_3)) 0.8809523809523809)",
+      "support": 540,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (MAJORS_IN $v0 $v3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 $_1) (ENROLLED_IN $_0 $_2) (ENROLLED_IN $_0 $_3)) 0.8809523809523809)",
+      "support": 540,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (USES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (ENROLLED_IN $_0 $_2) (ENROLLED_IN $_0 $_3)) 0.8809523809523809)",
+      "support": 540,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MEMBER_OF $v2 $v1) (MEMBER_OF $v3 $v1))",
+      "raw": "(surprisingnessOf (, (MEMBER_OF $_0 $_1) (MAJORS_IN $_2 $_1) (MEMBER_OF $_3 $_1)) 0.992063492063492)",
+      "support": 540,
+      "surprisingness": 0.992063492063492
+    },
+    {
+      "pattern": "(, (MEMBER_OF $v0 $v1) (OFFERED_BY $v2 $v1) (OFFERED_BY $v3 $v1))",
+      "raw": "(surprisingnessOf (, (MEMBER_OF $_0 $_1) (OFFERED_BY $_2 $_1) (OFFERED_BY $_3 $_1)) 0.992063492063492)",
+      "support": 432,
+      "surprisingness": 0.992063492063492
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (TEACHES $v1 $v3))",
+      "raw": "(surprisingnessOf (, (TEACHES $_0 $_1) (ENROLLED_IN $_2 $_3) (ADVISED_BY $_2 $_0)) 0.880952380952381)",
+      "support": 360,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (OFFERED_BY $v3 $v2))",
+      "raw": "(surprisingnessOf (, (ADVISED_BY $_0 $_1) (MAJORS_IN $_0 $_2) (OFFERED_BY $_3 $_2)) 0.880952380952381)",
+      "support": 360,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MEMBER_OF $v1 $v2) (OFFERED_BY $v3 $v2))",
+      "raw": "(surprisingnessOf (, (ADVISED_BY $_0 $_1) (OFFERED_BY $_2 $_3) (MEMBER_OF $_1 $_3)) 0.9761904761904762)",
+      "support": 360,
+      "surprisingness": 0.9761904761904762
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (OFFERED_BY $v3 $v2))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_0 $_2) (OFFERED_BY $_3 $_2)) 0.880952380952381)",
+      "support": 360,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (OFFERED_BY $v3 $v2))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_1 $_2) (OFFERED_BY $_3 $_2)) 0.880952380952381)",
+      "support": 360,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (HELD_IN $v0 $v1) (MAJORS_IN $v2 $v3) (OFFERED_BY $v0 $v3))",
+      "raw": "(surprisingnessOf (, (HELD_IN $_0 $_1) (MAJORS_IN $_2 $_3) (OFFERED_BY $_0 $_3)) 0.9523809523809523)",
+      "support": 360,
+      "surprisingness": 0.9523809523809523
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MEMBER_OF $v2 $v1) (TEACHES $v2 $v3))",
+      "raw": "(surprisingnessOf (, (TEACHES $_0 $_1) (MAJORS_IN $_2 $_3) (MEMBER_OF $_0 $_3)) 0.9761904761904762)",
+      "support": 360,
+      "surprisingness": 0.9761904761904762
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1) (TEACHES $v3 $v2))",
+      "raw": "(surprisingnessOf (, (TEACHES $_0 $_1) (MAJORS_IN $_2 $_3) (OFFERED_BY $_1 $_3)) 0.9523809523809523)",
+      "support": 360,
+      "surprisingness": 0.9523809523809523
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1) (USES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (MAJORS_IN $_0 $_2) (OFFERED_BY $_3 $_2)) 0.880952380952381)",
+      "support": 360,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (TEACHES $v2 $v1) (TEACHES $v2 $v3))",
+      "raw": "(surprisingnessOf (, (TEACHES $_0 $_1) (ENROLLED_IN $_2 $_3) (TEACHES $_0 $_3)) 0.9523809523809523)",
+      "support": 360,
+      "surprisingness": 0.9523809523809523
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2) (OFFERED_BY $v3 $v1))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 $_1) (MAJORS_IN $_0 $_2) (OFFERED_BY $_3 $_2)) 0.880952380952381)",
+      "support": 360,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1) (OFFERED_BY $v2 $v3))",
+      "raw": "(surprisingnessOf (, (OFFERED_BY $_0 $_1) (MAJORS_IN $_2 $_3) (OFFERED_BY $_0 $_3)) 0.9523809523809523)",
+      "support": 360,
+      "surprisingness": 0.9523809523809523
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (MAJORS_IN $v0 dept_0))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_0) (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_2 $_1)) 0.8795111742872938)",
+      "support": 402,
+      "surprisingness": 0.8795111742872938
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (MAJORS_IN $v0 dept_1))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_1) (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_2 $_1)) 0.8821496157262582)",
+      "support": 411,
+      "surprisingness": 0.8821496157262582
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (MAJORS_IN $v0 dept_3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_3) (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_2 $_1)) 0.8792107034002297)",
+      "support": 401,
+      "surprisingness": 0.8792107034002297
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (FRIENDS_WITH $v0 $v3))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (ADVISED_BY $_0 $_2) (ADVISED_BY $_3 $_2)) 0.8809523809523809)",
+      "support": 330,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (FRIENDS_WITH $v3 $v0))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (ADVISED_BY $_1 $_2) (ADVISED_BY $_3 $_2)) 0.8923679060665362)",
+      "support": 365,
+      "surprisingness": 0.8923679060665362
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (MAJORS_IN $v0 $v3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 $_1) (ADVISED_BY $_0 $_2) (ADVISED_BY $_3 $_2)) 0.8809523809523809)",
+      "support": 330,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (USES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (ADVISED_BY $_0 $_2) (ADVISED_BY $_3 $_2)) 0.8809523809523809)",
+      "support": 330,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (MEMBER_OF $v1 $v3))",
+      "raw": "(surprisingnessOf (, (MEMBER_OF $_0 $_1) (ADVISED_BY $_2 $_0) (ADVISED_BY $_3 $_0)) 0.9761904761904762)",
+      "support": 330,
+      "surprisingness": 0.9761904761904762
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v3 $v2))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_1) (ENROLLED_IN $_2 $_3)) 0.880952380952381)",
+      "support": 354,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (TEACHES $v1 $v2) (TEACHES $v1 $v3))",
+      "raw": "(surprisingnessOf (, (TEACHES $_0 $_1) (ADVISED_BY $_2 $_0) (TEACHES $_0 $_3)) 0.9761904761904763)",
+      "support": 240,
+      "surprisingness": 0.9761904761904763
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (USES $v0 laptop_0))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_0) (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_2 $_1)) 0.8812830687830688)",
+      "support": 288,
+      "surprisingness": 0.8812830687830688
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (USES $v0 laptop_2))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_2) (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_2 $_1)) 0.8791855965000842)",
+      "support": 283,
+      "surprisingness": 0.8791855965000842
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (USES $v0 laptop_3))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_3) (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_2 $_1)) 0.8744843017970771)",
+      "support": 227,
+      "surprisingness": 0.8744843017970771
+    },
+    {
+      "pattern": "(, (MEMBER_OF $v0 $v1) (MEMBER_OF $v2 $v1) (OFFERED_BY $v3 $v1))",
+      "raw": "(surprisingnessOf (, (MEMBER_OF $_0 $_1) (OFFERED_BY $_2 $_1) (MEMBER_OF $_3 $_1)) 0.992063492063492)",
+      "support": 216,
+      "surprisingness": 0.992063492063492
+    },
+    {
+      "pattern": "(, (HELD_IN $v0 $v1) (HELD_IN $v2 $v1) (HELD_IN $v3 $v1))",
+      "raw": "(surprisingnessOf (, (HELD_IN $_0 $_1) (HELD_IN $_2 $_1) (HELD_IN $_3 $_1)) 0.18000000000000005)",
+      "support": 300,
+      "surprisingness": 0.18000000000000005
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (HELD_IN $v2 $v3))",
+      "raw": "(surprisingnessOf (, (HELD_IN $_0 $_1) (ENROLLED_IN $_2 $_0) (ADVISED_BY $_2 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (MEMBER_OF $v1 $v3))",
+      "raw": "(surprisingnessOf (, (MEMBER_OF $_0 $_1) (ENROLLED_IN $_2 $_3) (ADVISED_BY $_2 $_0)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (OFFERED_BY $v2 $v3))",
+      "raw": "(surprisingnessOf (, (OFFERED_BY $_0 $_1) (ENROLLED_IN $_2 $_0) (ADVISED_BY $_2 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (TEACHES $v3 $v2))",
+      "raw": "(surprisingnessOf (, (TEACHES $_0 $_1) (ENROLLED_IN $_2 $_1) (ADVISED_BY $_2 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v2 $v3) (FRIENDS_WITH $v0 $v2))",
+      "raw": "(surprisingnessOf (, (ADVISED_BY $_0 $_1) (FRIENDS_WITH $_0 $_2) (ENROLLED_IN $_2 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v2 $v3) (FRIENDS_WITH $v2 $v0))",
+      "raw": "(surprisingnessOf (, (ADVISED_BY $_0 $_1) (FRIENDS_WITH $_2 $_0) (ENROLLED_IN $_2 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (MEMBER_OF $v3 $v2))",
+      "raw": "(surprisingnessOf (, (ADVISED_BY $_0 $_1) (MAJORS_IN $_0 $_2) (MEMBER_OF $_3 $_2)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (HELD_IN $v1 $v3))",
+      "raw": "(surprisingnessOf (, (HELD_IN $_0 $_1) (FRIENDS_WITH $_2 $_3) (ENROLLED_IN $_2 $_0)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v2 $v3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 $_1) (FRIENDS_WITH $_2 $_0) (ENROLLED_IN $_2 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (OFFERED_BY $v1 $v3))",
+      "raw": "(surprisingnessOf (, (OFFERED_BY $_0 $_1) (FRIENDS_WITH $_2 $_3) (ENROLLED_IN $_2 $_0)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (TEACHES $v3 $v1))",
+      "raw": "(surprisingnessOf (, (TEACHES $_0 $_1) (FRIENDS_WITH $_2 $_3) (ENROLLED_IN $_2 $_1)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v2 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (ENROLLED_IN $_2 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (HELD_IN $v1 $v3))",
+      "raw": "(surprisingnessOf (, (HELD_IN $_0 $_1) (FRIENDS_WITH $_2 $_3) (ENROLLED_IN $_3 $_0)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v2 $v3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 $_1) (FRIENDS_WITH $_0 $_2) (ENROLLED_IN $_2 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (OFFERED_BY $v1 $v3))",
+      "raw": "(surprisingnessOf (, (OFFERED_BY $_0 $_1) (FRIENDS_WITH $_2 $_3) (ENROLLED_IN $_3 $_0)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (TEACHES $v3 $v1))",
+      "raw": "(surprisingnessOf (, (TEACHES $_0 $_1) (FRIENDS_WITH $_2 $_3) (ENROLLED_IN $_3 $_1)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v2 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (ENROLLED_IN $_2 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (MAJORS_IN $v0 $v3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 $_1) (ENROLLED_IN $_0 $_2) (HELD_IN $_2 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (USES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (ENROLLED_IN $_0 $_2) (HELD_IN $_2 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (OFFERED_BY $v1 $v3))",
+      "raw": "(surprisingnessOf (, (OFFERED_BY $_0 $_1) (ENROLLED_IN $_2 $_0) (MAJORS_IN $_2 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (TEACHES $v3 $v1))",
+      "raw": "(surprisingnessOf (, (TEACHES $_0 $_1) (ENROLLED_IN $_2 $_1) (MAJORS_IN $_2 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MEMBER_OF $v2 $v3) (TEACHES $v2 $v1))",
+      "raw": "(surprisingnessOf (, (MEMBER_OF $_0 $_1) (ENROLLED_IN $_2 $_3) (TEACHES $_0 $_3)) 0.9523809523809523)",
+      "support": 180,
+      "surprisingness": 0.9523809523809523
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (OFFERED_BY $v1 $v2) (USES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (ENROLLED_IN $_0 $_2) (OFFERED_BY $_2 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (TEACHES $v2 $v1) (USES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (ENROLLED_IN $_0 $_2) (TEACHES $_3 $_2)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (MEMBER_OF $v3 $v2))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_0 $_2) (MEMBER_OF $_3 $_2)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (MEMBER_OF $v3 $v2))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_1 $_2) (MEMBER_OF $_3 $_2)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MEMBER_OF $v2 $v1) (USES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (MAJORS_IN $_0 $_2) (MEMBER_OF $_3 $_2)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (FRIENDS_WITH $v0 $v3))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 $_2) (ADVISED_BY $_0 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (FRIENDS_WITH $v3 $v0))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 $_2) (ADVISED_BY $_1 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (MAJORS_IN $v0 $v3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 $_1) (ENROLLED_IN $_0 $_2) (ADVISED_BY $_0 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (USES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (ENROLLED_IN $_0 $_2) (ADVISED_BY $_0 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 $v3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 $_1) (FRIENDS_WITH $_0 $_2) (ENROLLED_IN $_0 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (ENROLLED_IN $_0 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v0 $v3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 $_1) (FRIENDS_WITH $_2 $_0) (ENROLLED_IN $_0 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (ENROLLED_IN $_0 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (OFFERED_BY $v1 $v3))",
+      "raw": "(surprisingnessOf (, (OFFERED_BY $_0 $_1) (ENROLLED_IN $_2 $_0) (HELD_IN $_0 $_3)) 0.9523809523809523)",
+      "support": 180,
+      "surprisingness": 0.9523809523809523
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (TEACHES $v3 $v1))",
+      "raw": "(surprisingnessOf (, (TEACHES $_0 $_1) (ENROLLED_IN $_2 $_1) (HELD_IN $_1 $_3)) 0.9523809523809523)",
+      "support": 180,
+      "surprisingness": 0.9523809523809523
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (ENROLLED_IN $_0 $_2) (MAJORS_IN $_0 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (OFFERED_BY $v1 $v2) (TEACHES $v3 $v1))",
+      "raw": "(surprisingnessOf (, (TEACHES $_0 $_1) (ENROLLED_IN $_2 $_1) (OFFERED_BY $_1 $_3)) 0.9523809523809523)",
+      "support": 180,
+      "surprisingness": 0.9523809523809523
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MEMBER_OF $v1 $v2) (MEMBER_OF $v3 $v2))",
+      "raw": "(surprisingnessOf (, (MEMBER_OF $_0 $_1) (ADVISED_BY $_2 $_3) (MEMBER_OF $_3 $_1)) 0.9761904761904762)",
+      "support": 180,
+      "surprisingness": 0.9761904761904762
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v2 $v3))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_0) (ENROLLED_IN $_2 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (FRIENDS_WITH $v2 $v3))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (ENROLLED_IN $_2 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (FRIENDS_WITH $v3 $v2))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_1 $_2) (ENROLLED_IN $_2 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MEMBER_OF $v3 $v1))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 $_1) (MAJORS_IN $_0 $_2) (MEMBER_OF $_3 $_2)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MEMBER_OF $v2 $v1) (MEMBER_OF $v2 $v3))",
+      "raw": "(surprisingnessOf (, (MEMBER_OF $_0 $_1) (MAJORS_IN $_2 $_3) (MEMBER_OF $_0 $_3)) 0.9761904761904762)",
+      "support": 180,
+      "surprisingness": 0.9761904761904762
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (ENROLLED_IN $v0 $v3))",
+      "raw": "(surprisingnessOf (, (ADVISED_BY $_0 $_1) (ENROLLED_IN $_0 $_2) (ADVISED_BY $_0 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v0 $v3))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (ENROLLED_IN $_0 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v3 $v0))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_1 $_2) (ENROLLED_IN $_1 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (FRIENDS_WITH $v3 $v0))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_1) (ENROLLED_IN $_1 $_3)) 0.880952380952381)",
+      "support": 354,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (HELD_IN $v1 $v3))",
+      "raw": "(surprisingnessOf (, (HELD_IN $_0 $_1) (ENROLLED_IN $_2 $_0) (HELD_IN $_0 $_3)) 0.9523809523809523)",
+      "support": 180,
+      "surprisingness": 0.9523809523809523
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 $v3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 $_1) (ENROLLED_IN $_0 $_2) (MAJORS_IN $_0 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (OFFERED_BY $v1 $v2) (OFFERED_BY $v1 $v3))",
+      "raw": "(surprisingnessOf (, (OFFERED_BY $_0 $_1) (ENROLLED_IN $_2 $_0) (OFFERED_BY $_0 $_3)) 0.9523809523809523)",
+      "support": 180,
+      "surprisingness": 0.9523809523809523
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (TEACHES $v2 $v1) (TEACHES $v3 $v1))",
+      "raw": "(surprisingnessOf (, (TEACHES $_0 $_1) (ENROLLED_IN $_2 $_1) (TEACHES $_3 $_1)) 0.9523809523809523)",
+      "support": 180,
+      "surprisingness": 0.9523809523809523
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (USES $v0 $v2) (USES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (USES $_0 $_2) (ENROLLED_IN $_0 $_3)) 0.880952380952381)",
+      "support": 180,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1) (USES $v0 laptop_0))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_0) (MAJORS_IN $_0 $_1) (MAJORS_IN $_2 $_1)) 0.8799392097264438)",
+      "support": 188,
+      "surprisingness": 0.8799392097264438
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1) (USES $v0 laptop_2))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_2) (MAJORS_IN $_0 $_1) (MAJORS_IN $_2 $_1)) 0.8893557422969187)",
+      "support": 204,
+      "surprisingness": 0.8893557422969187
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1) (USES $v0 laptop_3))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_3) (MAJORS_IN $_0 $_1) (MAJORS_IN $_2 $_1)) 0.8778602350030922)",
+      "support": 154,
+      "surprisingness": 0.8778602350030922
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 dept_0) (USES $v0 $v1) (USES $v2 $v1))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_0) (USES $_0 $_1) (USES $_2 $_1)) 0.8802871823103037)",
+      "support": 173,
+      "surprisingness": 0.8802871823103037
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 dept_1) (USES $v0 $v1) (USES $v2 $v1))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_1) (USES $_0 $_1) (USES $_2 $_1)) 0.8816553287981859)",
+      "support": 175,
+      "surprisingness": 0.8816553287981859
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 dept_3) (USES $v0 $v1) (USES $v2 $v1))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_3) (USES $_0 $_1) (USES $_2 $_1)) 0.884299902456327)",
+      "support": 179,
+      "surprisingness": 0.884299902456327
+    },
+    {
+      "pattern": "(, (MEMBER_OF $v0 $v1) (OFFERED_BY $v2 $v1) (TEACHES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (TEACHES $_0 $_1) (OFFERED_BY $_2 $_3) (MEMBER_OF $_0 $_3)) 0.9761904761904762)",
+      "support": 144,
+      "surprisingness": 0.9761904761904762
+    },
+    {
+      "pattern": "(, (HELD_IN $v0 $v1) (OFFERED_BY $v0 $v2) (OFFERED_BY $v3 $v2))",
+      "raw": "(surprisingnessOf (, (HELD_IN $_0 $_1) (OFFERED_BY $_0 $_2) (OFFERED_BY $_3 $_2)) 0.9523809523809524)",
+      "support": 144,
+      "surprisingness": 0.9523809523809524
+    },
+    {
+      "pattern": "(, (OFFERED_BY $v0 $v1) (OFFERED_BY $v2 $v1) (TEACHES $v3 $v0))",
+      "raw": "(surprisingnessOf (, (TEACHES $_0 $_1) (OFFERED_BY $_1 $_2) (OFFERED_BY $_3 $_2)) 0.9523809523809524)",
+      "support": 144,
+      "surprisingness": 0.9523809523809524
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (FRIENDS_WITH $v3 $v1))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_1) (FRIENDS_WITH $_3 $_1)) 0.3825222396650969)",
+      "support": 294,
+      "surprisingness": 0.3825222396650969
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (MAJORS_IN $v0 dept_0))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_0) (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 $_2)) 0.8809523809523809)",
+      "support": 153,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (MAJORS_IN $v0 dept_1))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_1) (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 $_2)) 0.8809523809523809)",
+      "support": 153,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (MAJORS_IN $v0 dept_3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_3) (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 $_2)) 0.8809523809523809)",
+      "support": 153,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (TEACHES $v1 $v3))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (ADVISED_BY $_0 $_2) (TEACHES $_2 $_3)) 0.880952380952381)",
+      "support": 120,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (TEACHES $v1 $v3))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (ADVISED_BY $_1 $_2) (TEACHES $_2 $_3)) 0.880952380952381)",
+      "support": 120,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (HELD_IN $v2 $v3) (TEACHES $v1 $v2))",
+      "raw": "(surprisingnessOf (, (HELD_IN $_0 $_1) (ADVISED_BY $_2 $_3) (TEACHES $_3 $_0)) 0.9523809523809523)",
+      "support": 120,
+      "surprisingness": 0.9523809523809523
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (TEACHES $v1 $v3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 $_1) (ADVISED_BY $_0 $_2) (TEACHES $_2 $_3)) 0.880952380952381)",
+      "support": 120,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (OFFERED_BY $v2 $v3) (TEACHES $v1 $v2))",
+      "raw": "(surprisingnessOf (, (OFFERED_BY $_0 $_1) (ADVISED_BY $_2 $_3) (TEACHES $_3 $_0)) 0.9523809523809523)",
+      "support": 120,
+      "surprisingness": 0.9523809523809523
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (TEACHES $v1 $v2) (USES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (ADVISED_BY $_0 $_2) (TEACHES $_2 $_3)) 0.880952380952381)",
+      "support": 120,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MEMBER_OF $v1 $v2) (TEACHES $v1 $v3))",
+      "raw": "(surprisingnessOf (, (MEMBER_OF $_0 $_1) (ADVISED_BY $_2 $_0) (TEACHES $_0 $_3)) 0.9761904761904763)",
+      "support": 120,
+      "surprisingness": 0.9761904761904763
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (TEACHES $v1 $v3))",
+      "raw": "(surprisingnessOf (, (ADVISED_BY $_0 $_1) (ADVISED_BY $_0 $_2) (TEACHES $_2 $_3)) 0.880952380952381)",
+      "support": 120,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (TEACHES $v1 $v2) (TEACHES $v3 $v2))",
+      "raw": "(surprisingnessOf (, (TEACHES $_0 $_1) (ADVISED_BY $_2 $_3) (TEACHES $_3 $_1)) 0.9523809523809523)",
+      "support": 120,
+      "surprisingness": 0.9523809523809523
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_12) (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1))",
+      "raw": "(surprisingnessOf (, (ENROLLED_IN $_0 course_12) (MAJORS_IN $_0 $_1) (MAJORS_IN $_2 $_1)) 0.8838918283362728)",
+      "support": 162,
+      "surprisingness": 0.8838918283362728
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_23) (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1))",
+      "raw": "(surprisingnessOf (, (ENROLLED_IN $_0 course_23) (MAJORS_IN $_0 $_1) (MAJORS_IN $_2 $_1)) 0.8778602350030922)",
+      "support": 154,
+      "surprisingness": 0.8778602350030922
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_8) (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1))",
+      "raw": "(surprisingnessOf (, (ENROLLED_IN $_0 course_8) (MAJORS_IN $_0 $_1) (MAJORS_IN $_2 $_1)) 0.8844107475392392)",
+      "support": 179,
+      "surprisingness": 0.8844107475392392
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_9) (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1))",
+      "raw": "(surprisingnessOf (, (ENROLLED_IN $_0 course_9) (MAJORS_IN $_0 $_1) (MAJORS_IN $_2 $_1)) 0.8790030632135896)",
+      "support": 171,
+      "surprisingness": 0.8790030632135896
+    },
+    {
+      "pattern": "(, (MEMBER_OF $v0 $v1) (MEMBER_OF $v2 $v1) (MEMBER_OF $v3 $v1))",
+      "raw": "(surprisingnessOf (, (MEMBER_OF $_0 $_1) (MEMBER_OF $_2 $_1) (MEMBER_OF $_3 $_1)) 1.255099539923532e-16)",
+      "support": 108,
+      "surprisingness": 1.255099539923532e-16
+    },
+    {
+      "pattern": "(, (TEACHES $v0 $v1) (TEACHES $v0 $v2) (TEACHES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (TEACHES $_0 $_1) (TEACHES $_0 $_2) (TEACHES $_0 $_3)) 0.0)",
+      "support": 96,
+      "surprisingness": 0.0
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v3 $v2))",
+      "raw": "(surprisingnessOf (, (ADVISED_BY $_0 $_1) (FRIENDS_WITH $_0 $_2) (FRIENDS_WITH $_3 $_2)) 0.880952380952381)",
+      "support": 118,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (MAJORS_IN $v0 $v3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 $_1) (FRIENDS_WITH $_0 $_2) (FRIENDS_WITH $_3 $_2)) 0.880952380952381)",
+      "support": 118,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (USES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (FRIENDS_WITH $_3 $_2)) 0.880952380952381)",
+      "support": 118,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (FRIENDS_WITH $v3 $v2))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_1 $_2) (FRIENDS_WITH $_3 $_2)) 0.8848555815768931)",
+      "support": 122,
+      "surprisingness": 0.8848555815768931
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 dept_0) (OFFERED_BY $v2 $v1))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_0) (MAJORS_IN $_0 $_1) (OFFERED_BY $_2 $_1)) 0.880952380952381)",
+      "support": 102,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 dept_1) (OFFERED_BY $v2 $v1))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_1) (MAJORS_IN $_0 $_1) (OFFERED_BY $_2 $_1)) 0.880952380952381)",
+      "support": 102,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 dept_3) (OFFERED_BY $v2 $v1))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_3) (MAJORS_IN $_0 $_1) (OFFERED_BY $_2 $_1)) 0.880952380952381)",
+      "support": 102,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (USES $v0 laptop_0))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_0) (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 $_2)) 0.8809523809523809)",
+      "support": 108,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (USES $v0 laptop_2))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_2) (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 $_2)) 0.8809523809523809)",
+      "support": 108,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (USES $v0 laptop_3))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_3) (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 $_2)) 0.880952380952381)",
+      "support": 90,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (MAJORS_IN $v0 dept_0))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_0) (ADVISED_BY $_0 $_1) (ADVISED_BY $_2 $_1)) 0.862580834803057)",
+      "support": 81,
+      "surprisingness": 0.862580834803057
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (MAJORS_IN $v0 dept_1))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_1) (ADVISED_BY $_0 $_1) (ADVISED_BY $_2 $_1)) 0.8690476190476191)",
+      "support": 85,
+      "surprisingness": 0.8690476190476191
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (MAJORS_IN $v0 dept_3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_3) (ADVISED_BY $_0 $_1) (ADVISED_BY $_2 $_1)) 0.902360066833751)",
+      "support": 114,
+      "surprisingness": 0.902360066833751
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_12) (USES $v0 $v1) (USES $v2 $v1))",
+      "raw": "(surprisingnessOf (, (ENROLLED_IN $_0 course_12) (USES $_0 $_1) (USES $_2 $_1)) 0.8599708082466704)",
+      "support": 87,
+      "surprisingness": 0.8599708082466704
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_23) (USES $v0 $v1) (USES $v2 $v1))",
+      "raw": "(surprisingnessOf (, (ENROLLED_IN $_0 course_23) (USES $_0 $_1) (USES $_2 $_1)) 0.8717627401837929)",
+      "support": 95,
+      "surprisingness": 0.8717627401837929
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_8) (USES $v0 $v1) (USES $v2 $v1))",
+      "raw": "(surprisingnessOf (, (ENROLLED_IN $_0 course_8) (USES $_0 $_1) (USES $_2 $_1)) 0.8824491785018101)",
+      "support": 114,
+      "surprisingness": 0.8824491785018101
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_9) (USES $v0 $v1) (USES $v2 $v1))",
+      "raw": "(surprisingnessOf (, (ENROLLED_IN $_0 course_9) (USES $_0 $_1) (USES $_2 $_1)) 0.8781746031746032)",
+      "support": 110,
+      "surprisingness": 0.8781746031746032
+    },
+    {
+      "pattern": "(, (HELD_IN $v0 $v1) (MEMBER_OF $v2 $v3) (OFFERED_BY $v0 $v3))",
+      "raw": "(surprisingnessOf (, (HELD_IN $_0 $_1) (OFFERED_BY $_0 $_2) (MEMBER_OF $_3 $_2)) 0.9523809523809524)",
+      "support": 72,
+      "surprisingness": 0.9523809523809524
+    },
+    {
+      "pattern": "(, (MEMBER_OF $v0 $v1) (OFFERED_BY $v2 $v1) (TEACHES $v3 $v2))",
+      "raw": "(surprisingnessOf (, (TEACHES $_0 $_1) (OFFERED_BY $_1 $_2) (MEMBER_OF $_3 $_2)) 0.9523809523809524)",
+      "support": 72,
+      "surprisingness": 0.9523809523809524
+    },
+    {
+      "pattern": "(, (HELD_IN $v0 $v1) (HELD_IN $v2 $v1) (OFFERED_BY $v0 $v3))",
+      "raw": "(surprisingnessOf (, (OFFERED_BY $_0 $_1) (HELD_IN $_0 $_2) (HELD_IN $_3 $_2)) 0.9523809523809523)",
+      "support": 82,
+      "surprisingness": 0.9523809523809523
+    },
+    {
+      "pattern": "(, (HELD_IN $v0 $v1) (HELD_IN $v2 $v1) (TEACHES $v3 $v0))",
+      "raw": "(surprisingnessOf (, (TEACHES $_0 $_1) (HELD_IN $_1 $_2) (HELD_IN $_3 $_2)) 0.9523809523809523)",
+      "support": 82,
+      "surprisingness": 0.9523809523809523
+    },
+    {
+      "pattern": "(, (MEMBER_OF $v0 $v1) (MEMBER_OF $v0 $v2) (OFFERED_BY $v3 $v1))",
+      "raw": "(surprisingnessOf (, (MEMBER_OF $_0 $_1) (OFFERED_BY $_2 $_3) (MEMBER_OF $_0 $_3)) 0.9761904761904762)",
+      "support": 72,
+      "surprisingness": 0.9761904761904762
+    },
+    {
+      "pattern": "(, (MEMBER_OF $v0 $v1) (MEMBER_OF $v2 $v1) (TEACHES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (TEACHES $_0 $_1) (MEMBER_OF $_0 $_2) (MEMBER_OF $_3 $_2)) 0.9761904761904762)",
+      "support": 72,
+      "surprisingness": 0.9761904761904762
+    },
+    {
+      "pattern": "(, (MEMBER_OF $v0 $v1) (OFFERED_BY $v2 $v1) (OFFERED_BY $v2 $v3))",
+      "raw": "(surprisingnessOf (, (OFFERED_BY $_0 $_1) (OFFERED_BY $_0 $_2) (MEMBER_OF $_3 $_2)) 0.9523809523809524)",
+      "support": 72,
+      "surprisingness": 0.9523809523809524
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (ENROLLED_IN $v0 course_12))",
+      "raw": "(surprisingnessOf (, (ENROLLED_IN $_0 course_12) (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 $_2)) 0.0)",
+      "support": 90,
+      "surprisingness": 0.0
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (ENROLLED_IN $v0 course_23))",
+      "raw": "(surprisingnessOf (, (ENROLLED_IN $_0 course_23) (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 $_2)) 0.0)",
+      "support": 90,
+      "surprisingness": 0.0
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (ENROLLED_IN $v0 course_8))",
+      "raw": "(surprisingnessOf (, (ENROLLED_IN $_0 course_8) (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 $_2)) 0.0)",
+      "support": 99,
+      "surprisingness": 0.0
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (ENROLLED_IN $v0 course_9))",
+      "raw": "(surprisingnessOf (, (ENROLLED_IN $_0 course_9) (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 $_2)) 0.0)",
+      "support": 99,
+      "surprisingness": 0.0
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1) (USES $v0 laptop_0))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_0) (MAJORS_IN $_0 $_1) (OFFERED_BY $_2 $_1)) 0.880952380952381)",
+      "support": 72,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1) (USES $v0 laptop_2))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_2) (MAJORS_IN $_0 $_1) (OFFERED_BY $_2 $_1)) 0.880952380952381)",
+      "support": 72,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1) (USES $v0 laptop_3))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_3) (MAJORS_IN $_0 $_1) (OFFERED_BY $_2 $_1)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v2 $v3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 $_1) (FRIENDS_WITH $_2 $_0) (ADVISED_BY $_2 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (MEMBER_OF $v1 $v3))",
+      "raw": "(surprisingnessOf (, (MEMBER_OF $_0 $_1) (FRIENDS_WITH $_2 $_3) (ADVISED_BY $_2 $_0)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v2 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (ADVISED_BY $_2 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v2 $v3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 $_1) (FRIENDS_WITH $_0 $_2) (ADVISED_BY $_2 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (MEMBER_OF $v1 $v3))",
+      "raw": "(surprisingnessOf (, (MEMBER_OF $_0 $_1) (FRIENDS_WITH $_2 $_3) (ADVISED_BY $_3 $_0)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v2 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (ADVISED_BY $_2 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (MEMBER_OF $v1 $v3))",
+      "raw": "(surprisingnessOf (, (MEMBER_OF $_0 $_1) (MAJORS_IN $_2 $_3) (ADVISED_BY $_2 $_0)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MEMBER_OF $v1 $v2) (USES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (ADVISED_BY $_0 $_2) (MEMBER_OF $_2 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v1 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (MAJORS_IN $_2 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (USES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_2 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 $v3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 $_1) (FRIENDS_WITH $_0 $_2) (ADVISED_BY $_0 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (ADVISED_BY $_0 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v0 $v3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 $_1) (FRIENDS_WITH $_2 $_0) (ADVISED_BY $_0 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (ADVISED_BY $_0 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (MAJORS_IN $_0 $_2) (ADVISED_BY $_0 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_0 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (USES $v1 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (MAJORS_IN $_0 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (MEMBER_OF $v1 $v3))",
+      "raw": "(surprisingnessOf (, (ADVISED_BY $_0 $_1) (ADVISED_BY $_0 $_2) (MEMBER_OF $_2 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v3) (FRIENDS_WITH $v0 $v2))",
+      "raw": "(surprisingnessOf (, (ADVISED_BY $_0 $_1) (FRIENDS_WITH $_2 $_0) (ADVISED_BY $_2 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v2 $v3))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_0) (ADVISED_BY $_2 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (FRIENDS_WITH $v2 $v3))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (ADVISED_BY $_2 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (FRIENDS_WITH $v3 $v2))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_1 $_2) (ADVISED_BY $_2 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v1 $v3))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_2 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v1 $v3))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (USES $_2 $_3) (FRIENDS_WITH $_0 $_2)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (MAJORS_IN $v0 $v3))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_0) (MAJORS_IN $_2 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (MAJORS_IN $v2 $v3))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_1 $_2) (MAJORS_IN $_2 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (USES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (USES $_2 $_3) (FRIENDS_WITH $_2 $_0)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (USES $v2 $v3))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (USES $_2 $_3) (FRIENDS_WITH $_1 $_2)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v1 $v3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 $_1) (FRIENDS_WITH $_2 $_0) (MAJORS_IN $_2 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (USES $v0 $v2) (USES $v1 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (USES $_2 $_3) (FRIENDS_WITH $_2 $_0)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (FRIENDS_WITH $v0 $v3))",
+      "raw": "(surprisingnessOf (, (ADVISED_BY $_0 $_1) (FRIENDS_WITH $_0 $_2) (ADVISED_BY $_0 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (FRIENDS_WITH $v3 $v0))",
+      "raw": "(surprisingnessOf (, (ADVISED_BY $_0 $_1) (FRIENDS_WITH $_2 $_0) (ADVISED_BY $_0 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (MAJORS_IN $v0 $v3))",
+      "raw": "(surprisingnessOf (, (ADVISED_BY $_0 $_1) (MAJORS_IN $_0 $_2) (ADVISED_BY $_0 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (USES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (ADVISED_BY $_0 $_1) (USES $_0 $_2) (ADVISED_BY $_0 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v0 $v3))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (ADVISED_BY $_0 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v3 $v0))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_1 $_2) (ADVISED_BY $_1 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (FRIENDS_WITH $v3 $v0))",
+      "raw": "(surprisingnessOf (, (ADVISED_BY $_0 $_1) (FRIENDS_WITH $_2 $_0) (FRIENDS_WITH $_3 $_0)) 0.880952380952381)",
+      "support": 118,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 $v3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 $_1) (MAJORS_IN $_0 $_2) (ADVISED_BY $_0 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MEMBER_OF $v1 $v2) (MEMBER_OF $v1 $v3))",
+      "raw": "(surprisingnessOf (, (MEMBER_OF $_0 $_1) (ADVISED_BY $_2 $_0) (MEMBER_OF $_0 $_3)) 0.9761904761904763)",
+      "support": 60,
+      "surprisingness": 0.9761904761904763
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (USES $v0 $v2) (USES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (USES $_0 $_2) (ADVISED_BY $_0 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 $v3))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_0 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (USES $_0 $_2) (FRIENDS_WITH $_0 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (MAJORS_IN $v1 $v3))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_1 $_2) (MAJORS_IN $_1 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (USES $v1 $v3))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (USES $_1 $_2) (FRIENDS_WITH $_1 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (MAJORS_IN $v1 $v3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 $_1) (FRIENDS_WITH $_2 $_0) (FRIENDS_WITH $_3 $_0)) 0.880952380952381)",
+      "support": 118,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (USES $v1 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (FRIENDS_WITH $_3 $_0)) 0.880952380952381)",
+      "support": 118,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 $v3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_0 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (MAJORS_IN $v1 $v3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 $_1) (FRIENDS_WITH $_2 $_0) (MAJORS_IN $_0 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (USES $v0 $v2) (USES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (USES $_0 $_2) (FRIENDS_WITH $_0 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (USES $v1 $v2) (USES $v1 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (USES $_0 $_2) (FRIENDS_WITH $_3 $_0)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 $_1) (USES $_0 $_2) (MAJORS_IN $_0 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (USES $v0 $v2) (USES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (USES $_0 $_2) (MAJORS_IN $_0 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v1 $v3))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_0) (FRIENDS_WITH $_2 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (FRIENDS_WITH $v2 $v3))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_0) (FRIENDS_WITH $_3 $_2)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (ADVISED_BY $v0 $v3))",
+      "raw": "(surprisingnessOf (, (ADVISED_BY $_0 $_1) (ADVISED_BY $_0 $_2) (ADVISED_BY $_0 $_3)) 0.0)",
+      "support": 60,
+      "surprisingness": 0.0
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v0 $v3))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (FRIENDS_WITH $_0 $_3)) 0.0)",
+      "support": 60,
+      "surprisingness": 0.0
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v3 $v0))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_1 $_2) (FRIENDS_WITH $_1 $_3)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (FRIENDS_WITH $v3 $v1))",
+      "raw": "(surprisingnessOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_0) (FRIENDS_WITH $_3 $_0)) 0.880952380952381)",
+      "support": 118,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 $v3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 $_1) (MAJORS_IN $_0 $_2) (MAJORS_IN $_0 $_3)) 0.0)",
+      "support": 60,
+      "surprisingness": 0.0
+    },
+    {
+      "pattern": "(, (USES $v0 $v1) (USES $v0 $v2) (USES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (USES $_0 $_1) (USES $_0 $_2) (USES $_0 $_3)) 0.0)",
+      "support": 60,
+      "surprisingness": 0.0
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (USES $v0 laptop_0))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_0) (ADVISED_BY $_0 $_1) (ADVISED_BY $_2 $_1)) 0.8772321428571428)",
+      "support": 64,
+      "surprisingness": 0.8772321428571428
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (USES $v0 laptop_2))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_2) (ADVISED_BY $_0 $_1) (ADVISED_BY $_2 $_1)) 0.869047619047619)",
+      "support": 60,
+      "surprisingness": 0.869047619047619
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (USES $v0 laptop_3))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_3) (ADVISED_BY $_0 $_1) (ADVISED_BY $_2 $_1)) 0.8740842490842491)",
+      "support": 52,
+      "surprisingness": 0.8740842490842491
+    },
+    {
+      "pattern": "(, (HELD_IN $v0 $v1) (TEACHES $v2 $v0) (TEACHES $v2 $v3))",
+      "raw": "(surprisingnessOf (, (HELD_IN $_0 $_1) (TEACHES $_2 $_0) (TEACHES $_2 $_3)) 0.9523809523809523)",
+      "support": 48,
+      "surprisingness": 0.9523809523809523
+    },
+    {
+      "pattern": "(, (OFFERED_BY $v0 $v1) (TEACHES $v2 $v0) (TEACHES $v2 $v3))",
+      "raw": "(surprisingnessOf (, (OFFERED_BY $_0 $_1) (TEACHES $_2 $_0) (TEACHES $_2 $_3)) 0.9523809523809523)",
+      "support": 48,
+      "surprisingness": 0.9523809523809523
+    },
+    {
+      "pattern": "(, (MEMBER_OF $v0 $v1) (TEACHES $v0 $v2) (TEACHES $v0 $v3))",
+      "raw": "(surprisingnessOf (, (MEMBER_OF $_0 $_1) (TEACHES $_0 $_2) (TEACHES $_0 $_3)) 0.9761904761904762)",
+      "support": 48,
+      "surprisingness": 0.9761904761904762
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (OFFERED_BY $v1 $v2))",
+      "raw": "(surprisingnessOf (, (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 $_2) (OFFERED_BY $_1 $_2)) 0.9965054514956667)",
+      "support": 73,
+      "surprisingness": 0.9965054514956667
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v2 dept_0))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_0) (FRIENDS_WITH $_1 $_0) (ENROLLED_IN $_1 $_2)) 0.8650793650793651)",
+      "support": 45,
+      "surprisingness": 0.8650793650793651
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v2 dept_1))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_1) (FRIENDS_WITH $_1 $_0) (ENROLLED_IN $_1 $_2)) 0.8650793650793651)",
+      "support": 45,
+      "surprisingness": 0.8650793650793651
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v2 dept_3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_3) (FRIENDS_WITH $_1 $_0) (ENROLLED_IN $_1 $_2)) 0.8809523809523809)",
+      "support": 69,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v2 dept_0))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_0) (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 $_2)) 0.8809523809523809)",
+      "support": 51,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v2 dept_1))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_1) (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 $_2)) 0.8809523809523809)",
+      "support": 51,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v2 dept_3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_3) (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 $_2)) 0.8809523809523809)",
+      "support": 51,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (MAJORS_IN $v0 dept_0))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_0) (ENROLLED_IN $_0 $_1) (HELD_IN $_1 $_2)) 0.880952380952381)",
+      "support": 51,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (MAJORS_IN $v0 dept_1))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_1) (ENROLLED_IN $_0 $_1) (HELD_IN $_1 $_2)) 0.880952380952381)",
+      "support": 51,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (MAJORS_IN $v0 dept_3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_3) (ENROLLED_IN $_0 $_1) (HELD_IN $_1 $_2)) 0.880952380952381)",
+      "support": 51,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_0) (OFFERED_BY $v1 $v2))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_0) (ENROLLED_IN $_0 $_1) (OFFERED_BY $_1 $_2)) 0.880952380952381)",
+      "support": 51,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_0) (TEACHES $v2 $v1))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_0) (ENROLLED_IN $_0 $_1) (TEACHES $_2 $_1)) 0.880952380952381)",
+      "support": 51,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_1) (OFFERED_BY $v1 $v2))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_1) (ENROLLED_IN $_0 $_1) (OFFERED_BY $_1 $_2)) 0.880952380952381)",
+      "support": 51,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_1) (TEACHES $v2 $v1))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_1) (ENROLLED_IN $_0 $_1) (TEACHES $_2 $_1)) 0.880952380952381)",
+      "support": 51,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_3) (OFFERED_BY $v1 $v2))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_3) (ENROLLED_IN $_0 $_1) (OFFERED_BY $_1 $_2)) 0.880952380952381)",
+      "support": 51,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_3) (TEACHES $v2 $v1))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_3) (ENROLLED_IN $_0 $_1) (TEACHES $_2 $_1)) 0.880952380952381)",
+      "support": 51,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_12) (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1))",
+      "raw": "(surprisingnessOf (, (ENROLLED_IN $_0 course_12) (MAJORS_IN $_0 $_1) (OFFERED_BY $_2 $_1)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_23) (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1))",
+      "raw": "(surprisingnessOf (, (ENROLLED_IN $_0 course_23) (MAJORS_IN $_0 $_1) (OFFERED_BY $_2 $_1)) 0.880952380952381)",
+      "support": 60,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_8) (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1))",
+      "raw": "(surprisingnessOf (, (ENROLLED_IN $_0 course_8) (MAJORS_IN $_0 $_1) (OFFERED_BY $_2 $_1)) 0.8809523809523809)",
+      "support": 66,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_9) (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1))",
+      "raw": "(surprisingnessOf (, (ENROLLED_IN $_0 course_9) (MAJORS_IN $_0 $_1) (OFFERED_BY $_2 $_1)) 0.8809523809523809)",
+      "support": 66,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (MAJORS_IN $v0 dept_0))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_0) (ENROLLED_IN $_0 $_1) (ADVISED_BY $_0 $_2)) 0.8809523809523809)",
+      "support": 51,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (MAJORS_IN $v0 dept_1))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_1) (ENROLLED_IN $_0 $_1) (ADVISED_BY $_0 $_2)) 0.8809523809523809)",
+      "support": 51,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (MAJORS_IN $v0 dept_3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_3) (ENROLLED_IN $_0 $_1) (ADVISED_BY $_0 $_2)) 0.8809523809523809)",
+      "support": 51,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 dept_0))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_0) (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 $_2)) 0.8809523809523809)",
+      "support": 51,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 dept_1))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_1) (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 $_2)) 0.8809523809523809)",
+      "support": 51,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 dept_3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_3) (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 $_2)) 0.8809523809523809)",
+      "support": 51,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v0 dept_0))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_0) (FRIENDS_WITH $_1 $_0) (ENROLLED_IN $_0 $_2)) 0.865079365079365)",
+      "support": 45,
+      "surprisingness": 0.865079365079365
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v0 dept_1))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_1) (FRIENDS_WITH $_1 $_0) (ENROLLED_IN $_0 $_2)) 0.865079365079365)",
+      "support": 45,
+      "surprisingness": 0.865079365079365
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v0 dept_3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_3) (FRIENDS_WITH $_1 $_0) (ENROLLED_IN $_0 $_2)) 0.8809523809523809)",
+      "support": 69,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_0) (USES $v0 $v2))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_0) (USES $_0 $_1) (ENROLLED_IN $_0 $_2)) 0.8809523809523809)",
+      "support": 51,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_1) (USES $v0 $v2))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_1) (USES $_0 $_1) (ENROLLED_IN $_0 $_2)) 0.8809523809523809)",
+      "support": 51,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_3) (USES $v0 $v2))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_3) (USES $_0 $_1) (ENROLLED_IN $_0 $_2)) 0.8809523809523809)",
+      "support": 51,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 dept_0) (MEMBER_OF $v2 $v1))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_0) (MAJORS_IN $_0 $_1) (MEMBER_OF $_2 $_1)) 0.880952380952381)",
+      "support": 51,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 dept_1) (MEMBER_OF $v2 $v1))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_1) (MAJORS_IN $_0 $_1) (MEMBER_OF $_2 $_1)) 0.880952380952381)",
+      "support": 51,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 dept_3) (MEMBER_OF $v2 $v1))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_3) (MAJORS_IN $_0 $_1) (MEMBER_OF $_2 $_1)) 0.880952380952381)",
+      "support": 51,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_0))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_0) (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 $_2)) 0.8809523809523809)",
+      "support": 51,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_1))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_1) (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 $_2)) 0.8809523809523809)",
+      "support": 51,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_3))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_3) (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 $_2)) 0.8809523809523809)",
+      "support": 51,
+      "surprisingness": 0.8809523809523809
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (ENROLLED_IN $v0 course_12))",
+      "raw": "(surprisingnessOf (, (ENROLLED_IN $_0 course_12) (ADVISED_BY $_0 $_1) (ADVISED_BY $_2 $_1)) 0.8830782312925171)",
+      "support": 56,
+      "surprisingness": 0.8830782312925171
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (ENROLLED_IN $v0 course_23))",
+      "raw": "(surprisingnessOf (, (ENROLLED_IN $_0 course_23) (ADVISED_BY $_0 $_1) (ADVISED_BY $_2 $_1)) 0.8787477954144621)",
+      "support": 54,
+      "surprisingness": 0.8787477954144621
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (ENROLLED_IN $v0 course_8))",
+      "raw": "(surprisingnessOf (, (ENROLLED_IN $_0 course_8) (ADVISED_BY $_0 $_1) (ADVISED_BY $_2 $_1)) 0.8891941391941393)",
+      "support": 65,
+      "surprisingness": 0.8891941391941393
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (ENROLLED_IN $v0 course_9))",
+      "raw": "(surprisingnessOf (, (ENROLLED_IN $_0 course_9) (ADVISED_BY $_0 $_1) (ADVISED_BY $_2 $_1)) 0.8891941391941393)",
+      "support": 65,
+      "surprisingness": 0.8891941391941393
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 dept_0) (TEACHES $v1 $v2))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_0) (ADVISED_BY $_0 $_1) (TEACHES $_1 $_2)) 0.880952380952381)",
+      "support": 34,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 dept_1) (TEACHES $v1 $v2))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_1) (ADVISED_BY $_0 $_1) (TEACHES $_1 $_2)) 0.880952380952381)",
+      "support": 34,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 dept_3) (TEACHES $v1 $v2))",
+      "raw": "(surprisingnessOf (, (MAJORS_IN $_0 dept_3) (ADVISED_BY $_0 $_1) (TEACHES $_1 $_2)) 0.880952380952381)",
+      "support": 34,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v2 laptop_0))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_0) (FRIENDS_WITH $_1 $_0) (ENROLLED_IN $_1 $_2)) 0.8412698412698413)",
+      "support": 27,
+      "surprisingness": 0.8412698412698413
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v2 laptop_2))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_2) (FRIENDS_WITH $_1 $_0) (ENROLLED_IN $_1 $_2)) 0.8571428571428571)",
+      "support": 30,
+      "surprisingness": 0.8571428571428571
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v2 laptop_3))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_3) (FRIENDS_WITH $_1 $_0) (ENROLLED_IN $_1 $_2)) 0.880952380952381)",
+      "support": 36,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v2 laptop_0))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_0) (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 $_2)) 0.880952380952381)",
+      "support": 36,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v2 laptop_2))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_2) (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 $_2)) 0.880952380952381)",
+      "support": 36,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v2 laptop_3))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_3) (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 $_2)) 0.880952380952381)",
+      "support": 30,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (USES $v0 laptop_0))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_0) (ENROLLED_IN $_0 $_1) (HELD_IN $_1 $_2)) 0.880952380952381)",
+      "support": 36,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (USES $v0 laptop_2))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_2) (ENROLLED_IN $_0 $_1) (HELD_IN $_1 $_2)) 0.880952380952381)",
+      "support": 36,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (USES $v0 laptop_3))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_3) (ENROLLED_IN $_0 $_1) (HELD_IN $_1 $_2)) 0.880952380952381)",
+      "support": 30,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (OFFERED_BY $v1 $v2) (USES $v0 laptop_0))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_0) (ENROLLED_IN $_0 $_1) (OFFERED_BY $_1 $_2)) 0.880952380952381)",
+      "support": 36,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (OFFERED_BY $v1 $v2) (USES $v0 laptop_2))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_2) (ENROLLED_IN $_0 $_1) (OFFERED_BY $_1 $_2)) 0.880952380952381)",
+      "support": 36,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (OFFERED_BY $v1 $v2) (USES $v0 laptop_3))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_3) (ENROLLED_IN $_0 $_1) (OFFERED_BY $_1 $_2)) 0.880952380952381)",
+      "support": 30,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (TEACHES $v2 $v1) (USES $v0 laptop_0))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_0) (ENROLLED_IN $_0 $_1) (TEACHES $_2 $_1)) 0.880952380952381)",
+      "support": 36,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (TEACHES $v2 $v1) (USES $v0 laptop_2))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_2) (ENROLLED_IN $_0 $_1) (TEACHES $_2 $_1)) 0.880952380952381)",
+      "support": 36,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (TEACHES $v2 $v1) (USES $v0 laptop_3))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_3) (ENROLLED_IN $_0 $_1) (TEACHES $_2 $_1)) 0.880952380952381)",
+      "support": 30,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MEMBER_OF $v2 $v1) (USES $v0 laptop_0))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_0) (MAJORS_IN $_0 $_1) (MEMBER_OF $_2 $_1)) 0.880952380952381)",
+      "support": 36,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MEMBER_OF $v2 $v1) (USES $v0 laptop_2))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_2) (MAJORS_IN $_0 $_1) (MEMBER_OF $_2 $_1)) 0.880952380952381)",
+      "support": 36,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MEMBER_OF $v2 $v1) (USES $v0 laptop_3))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_3) (MAJORS_IN $_0 $_1) (MEMBER_OF $_2 $_1)) 0.880952380952381)",
+      "support": 30,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (USES $v0 laptop_0))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_0) (ENROLLED_IN $_0 $_1) (ADVISED_BY $_0 $_2)) 0.880952380952381)",
+      "support": 36,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (USES $v0 laptop_2))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_2) (ENROLLED_IN $_0 $_1) (ADVISED_BY $_0 $_2)) 0.880952380952381)",
+      "support": 36,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (USES $v0 laptop_3))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_3) (ENROLLED_IN $_0 $_1) (ADVISED_BY $_0 $_2)) 0.880952380952381)",
+      "support": 30,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 laptop_0))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_0) (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 $_2)) 0.880952380952381)",
+      "support": 36,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 laptop_2))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_2) (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 $_2)) 0.880952380952381)",
+      "support": 36,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 laptop_3))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_3) (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 $_2)) 0.880952380952381)",
+      "support": 30,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v0 laptop_0))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_0) (FRIENDS_WITH $_1 $_0) (ENROLLED_IN $_0 $_2)) 0.8412698412698413)",
+      "support": 27,
+      "surprisingness": 0.8412698412698413
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v0 laptop_2))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_2) (FRIENDS_WITH $_1 $_0) (ENROLLED_IN $_0 $_2)) 0.8571428571428571)",
+      "support": 30,
+      "surprisingness": 0.8571428571428571
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v0 laptop_3))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_3) (FRIENDS_WITH $_1 $_0) (ENROLLED_IN $_0 $_2)) 0.880952380952381)",
+      "support": 36,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 laptop_0))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_0) (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 $_2)) 0.880952380952381)",
+      "support": 36,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 laptop_2))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_2) (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 $_2)) 0.880952380952381)",
+      "support": 36,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 laptop_3))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_3) (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 $_2)) 0.880952380952381)",
+      "support": 30,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_0))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_0) (USES $_0 $_1) (ENROLLED_IN $_0 $_2)) 0.880952380952381)",
+      "support": 36,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_2))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_2) (USES $_0 $_1) (ENROLLED_IN $_0 $_2)) 0.880952380952381)",
+      "support": 36,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_3))",
+      "raw": "(surprisingnessOf (, (USES $_0 laptop_3) (USES $_0 $_1) (ENROLLED_IN $_0 $_2)) 0.880952380952381)",
+      "support": 30,
+      "surprisingness": 0.880952380952381
+    },
+    {
+      "pattern": "(, (HELD_IN $v0 $v1) (MEMBER_OF $v2 $v3) (TEACHES $v2 $v0))",
+      "raw": "(surprisingnessOf (, (MEMBER_OF $_0 $_1) (HELD_IN $_2 $_3) (TEACHES $_0 $_2)) 0.9523809523809523)",
+      "support": 24,
+      "surprisingness": 0.9523809523809523
+    },
+    {
+      "pattern": "(, (MEMBER_OF $v0 $v1) (OFFERED_BY $v2 $v3) (TEACHES $v0 $v2))",
+      "raw": "(surprisingnessOf (, (OFFERED_BY $_0 $_1) (TEACHES $_2 $_0) (MEMBER_OF $_2 $_3)) 0.9523809523809523)",
+      "support": 24,
+      "surprisingness": 0.9523809523809523
+    },
+    {
+      "pattern": "(, (HELD_IN $v0 $v1) (OFFERED_BY $v0 $v2) (TEACHES $v3 $v0))",
+      "raw": "(surprisingnessOf (, (TEACHES $_0 $_1) (HELD_IN $_1 $_2) (OFFERED_BY $_1 $_3)) 0.9523809523809523)",
+      "support": 24,
+      "surprisingness": 0.9523809523809523
+    }
+  ],
+  "verification": {
+    "checked": 0,
+    "ok": true,
+    "mismatches": []
+  },
+  "ranker": {
+    "strategy": "llm-hybrid",
+    "budget": 0.3,
+    "seed": 0,
+    "providers": [
+      "nvidia"
+    ],
+    "batch_size": 60,
+    "max_retries": 2,
+    "timeout_s": 180.0,
+    "workers": 4,
+    "cache_dir": ".cache/llm",
+    "min_select": 1,
+    "samples": 3
+  },
+  "trace_summary": {
+    "t": 13.253,
+    "event": "finish",
+    "wall_seconds": 13.253,
+    "generated": 18259,
+    "unique": 10035,
+    "selected": 3011,
+    "kept": 336,
+    "llm_seconds": 0.001,
+    "verify_seconds": 6.106,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "fallback_batches": 9,
+    "batches": 9
+  },
+  "arm": {
+    "name": "llm-hybrid-nvidia-b30",
+    "strategy": "llm-hybrid",
+    "budget": 0.3,
+    "seed": 0,
+    "provider": "nvidia",
+    "only": [],
+    "repeat": 0,
+    "family": "llm-hybrid:nvidia"
+  }
+}

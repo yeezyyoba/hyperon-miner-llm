@@ -1,0 +1,4661 @@
+{
+  "label": "frequent-b100",
+  "config": {
+    "dataset": "experiments/data/heldout/university_s1_st80",
+    "minsup": 10,
+    "depth": 1,
+    "surp_mode": "none",
+    "normalize": true,
+    "db_ratio": 0.5,
+    "timeout": 1800,
+    "extra": {}
+  },
+  "ok": true,
+  "returncode": 0,
+  "timed_out": false,
+  "seconds": 18.645,
+  "n_patterns": 768,
+  "patterns": [
+    {
+      "pattern": "(, (MEMBER_OF $v0 $v1) (MEMBER_OF $v0 $v2) (MEMBER_OF $v0 $v3))",
+      "raw": "(supportOf (, (MEMBER_OF $_0 $_1) (MEMBER_OF $_0 $_2) (MEMBER_OF $_0 $_3)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MEMBER_OF $v0 $v1) (MEMBER_OF $v0 $v2) (TEACHES $v0 $v3))",
+      "raw": "(supportOf (, (TEACHES $_0 $_1) (MEMBER_OF $_0 $_2) (MEMBER_OF $_0 $_3)) 24)",
+      "support": 24,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MEMBER_OF $v0 $v1) (MEMBER_OF $v0 $v2) (OFFERED_BY $v3 $v1))",
+      "raw": "(supportOf (, (OFFERED_BY $_0 $_1) (MEMBER_OF $_2 $_1) (MEMBER_OF $_2 $_3)) 72)",
+      "support": 72,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MEMBER_OF $v1 $v2) (MEMBER_OF $v1 $v3))",
+      "raw": "(supportOf (, (ADVISED_BY $_0 $_1) (MEMBER_OF $_1 $_2) (MEMBER_OF $_1 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MEMBER_OF $v2 $v1) (MEMBER_OF $v2 $v3))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (MEMBER_OF $_2 $_1) (MEMBER_OF $_2 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MEMBER_OF $v0 $v1) (MEMBER_OF $v2 $v1) (MEMBER_OF $v3 $v1))",
+      "raw": "(supportOf (, (MEMBER_OF $_0 $_1) (MEMBER_OF $_2 $_1) (MEMBER_OF $_3 $_1)) 108)",
+      "support": 108,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MEMBER_OF $v0 $v1) (MEMBER_OF $v2 $v1) (TEACHES $v0 $v3))",
+      "raw": "(supportOf (, (TEACHES $_0 $_1) (MEMBER_OF $_0 $_2) (MEMBER_OF $_3 $_2)) 72)",
+      "support": 72,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MEMBER_OF $v0 $v1) (MEMBER_OF $v2 $v1) (OFFERED_BY $v3 $v1))",
+      "raw": "(supportOf (, (OFFERED_BY $_0 $_1) (MEMBER_OF $_2 $_1) (MEMBER_OF $_3 $_1)) 216)",
+      "support": 216,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MEMBER_OF $v1 $v2) (MEMBER_OF $v3 $v2))",
+      "raw": "(supportOf (, (ADVISED_BY $_0 $_1) (MEMBER_OF $_1 $_2) (MEMBER_OF $_3 $_2)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MEMBER_OF $v2 $v1) (MEMBER_OF $v3 $v1))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (MEMBER_OF $_2 $_1) (MEMBER_OF $_3 $_1)) 540)",
+      "support": 540,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MEMBER_OF $v0 $v1) (TEACHES $v0 $v2) (TEACHES $v0 $v3))",
+      "raw": "(supportOf (, (TEACHES $_0 $_1) (TEACHES $_0 $_2) (MEMBER_OF $_0 $_3)) 48)",
+      "support": 48,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MEMBER_OF $v0 $v1) (TEACHES $v0 $v2) (TEACHES $v3 $v2))",
+      "raw": "(supportOf (, (TEACHES $_0 $_1) (TEACHES $_2 $_1) (MEMBER_OF $_2 $_3)) 24)",
+      "support": 24,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MEMBER_OF $v0 $v1) (OFFERED_BY $v2 $v1) (TEACHES $v0 $v2))",
+      "raw": "(supportOf (, (OFFERED_BY $_0 $_1) (TEACHES $_2 $_0) (MEMBER_OF $_2 $_1)) 24)",
+      "support": 24,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MEMBER_OF $v0 $v1) (OFFERED_BY $v2 $v3) (TEACHES $v0 $v2))",
+      "raw": "(supportOf (, (OFFERED_BY $_0 $_1) (TEACHES $_2 $_0) (MEMBER_OF $_2 $_3)) 24)",
+      "support": 24,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MEMBER_OF $v0 $v1) (OFFERED_BY $v2 $v1) (TEACHES $v0 $v3))",
+      "raw": "(supportOf (, (OFFERED_BY $_0 $_1) (TEACHES $_2 $_3) (MEMBER_OF $_2 $_1)) 144)",
+      "support": 144,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HELD_IN $v0 $v1) (MEMBER_OF $v2 $v3) (TEACHES $v2 $v0))",
+      "raw": "(supportOf (, (HELD_IN $_0 $_1) (TEACHES $_2 $_0) (MEMBER_OF $_2 $_3)) 24)",
+      "support": 24,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MEMBER_OF $v1 $v2) (TEACHES $v1 $v3))",
+      "raw": "(supportOf (, (ADVISED_BY $_0 $_1) (TEACHES $_1 $_2) (MEMBER_OF $_1 $_3)) 120)",
+      "support": 120,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MEMBER_OF $v2 $v1) (TEACHES $v2 $v3))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (TEACHES $_2 $_3) (MEMBER_OF $_2 $_1)) 360)",
+      "support": 360,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MEMBER_OF $v2 $v3) (TEACHES $v2 $v1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (TEACHES $_2 $_1) (MEMBER_OF $_2 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MEMBER_OF $v0 $v1) (OFFERED_BY $v2 $v1) (TEACHES $v3 $v2))",
+      "raw": "(supportOf (, (TEACHES $_0 $_1) (OFFERED_BY $_1 $_2) (MEMBER_OF $_3 $_2)) 72)",
+      "support": 72,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MEMBER_OF $v0 $v1) (OFFERED_BY $v2 $v1) (OFFERED_BY $v2 $v3))",
+      "raw": "(supportOf (, (OFFERED_BY $_0 $_1) (OFFERED_BY $_0 $_2) (MEMBER_OF $_3 $_2)) 72)",
+      "support": 72,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MEMBER_OF $v0 $v1) (OFFERED_BY $v2 $v1) (OFFERED_BY $v3 $v1))",
+      "raw": "(supportOf (, (OFFERED_BY $_0 $_1) (OFFERED_BY $_2 $_1) (MEMBER_OF $_3 $_1)) 432)",
+      "support": 432,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HELD_IN $v0 $v1) (MEMBER_OF $v2 $v3) (OFFERED_BY $v0 $v3))",
+      "raw": "(supportOf (, (HELD_IN $_0 $_1) (OFFERED_BY $_0 $_2) (MEMBER_OF $_3 $_2)) 72)",
+      "support": 72,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MEMBER_OF $v1 $v2) (OFFERED_BY $v3 $v2))",
+      "raw": "(supportOf (, (ADVISED_BY $_0 $_1) (OFFERED_BY $_2 $_3) (MEMBER_OF $_1 $_3)) 360)",
+      "support": 360,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MEMBER_OF $v2 $v1) (OFFERED_BY $v3 $v1))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (OFFERED_BY $_2 $_1) (MEMBER_OF $_3 $_1)) 1080)",
+      "support": 1080,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MEMBER_OF $v2 $v3) (OFFERED_BY $v1 $v3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (OFFERED_BY $_1 $_2) (MEMBER_OF $_3 $_2)) 540)",
+      "support": 540,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 prof_6) (MEMBER_OF $v1 $v2))",
+      "raw": "(supportOf (, (ADVISED_BY $_0 prof_6) (ADVISED_BY $_0 $_1) (MEMBER_OF $_1 $_2)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (MEMBER_OF $v1 $v3))",
+      "raw": "(supportOf (, (ADVISED_BY $_0 $_1) (ADVISED_BY $_0 $_2) (MEMBER_OF $_2 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (MEMBER_OF $v1 $v3))",
+      "raw": "(supportOf (, (ADVISED_BY $_0 $_1) (ADVISED_BY $_2 $_1) (MEMBER_OF $_1 $_3)) 370)",
+      "support": 370,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 dept_2) (MEMBER_OF $v1 $v2))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_2) (ADVISED_BY $_0 $_1) (MEMBER_OF $_1 $_2)) 19)",
+      "support": 19,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 dept_1) (MEMBER_OF $v1 $v2))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_1) (ADVISED_BY $_0 $_1) (MEMBER_OF $_1 $_2)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 dept_3) (MEMBER_OF $v1 $v2))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_3) (ADVISED_BY $_0 $_1) (MEMBER_OF $_1 $_2)) 16)",
+      "support": 16,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 dept_0) (MEMBER_OF $v1 $v2))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_0) (ADVISED_BY $_0 $_1) (MEMBER_OF $_1 $_2)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (MEMBER_OF $v1 $v2))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (ADVISED_BY $_0 $_2) (MEMBER_OF $_2 $_1)) 55)",
+      "support": 55,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (MEMBER_OF $v1 $v3))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (ADVISED_BY $_0 $_2) (MEMBER_OF $_2 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v2 $v3) (MEMBER_OF $v1 $v3))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (ADVISED_BY $_2 $_3) (MEMBER_OF $_3 $_1)) 927)",
+      "support": 927,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_18) (MEMBER_OF $v1 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_18) (ADVISED_BY $_0 $_1) (MEMBER_OF $_1 $_2)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_21) (MEMBER_OF $v1 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_21) (ADVISED_BY $_0 $_1) (MEMBER_OF $_1 $_2)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_5) (MEMBER_OF $v1 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_5) (ADVISED_BY $_0 $_1) (MEMBER_OF $_1 $_2)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_9) (MEMBER_OF $v1 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_9) (ADVISED_BY $_0 $_1) (MEMBER_OF $_1 $_2)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (MEMBER_OF $v1 $v3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ADVISED_BY $_0 $_2) (MEMBER_OF $_2 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (MEMBER_OF $v1 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ADVISED_BY $_0 $_2) (MEMBER_OF $_2 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (MEMBER_OF $v1 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ADVISED_BY $_1 $_2) (MEMBER_OF $_2 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MEMBER_OF $v1 $v2) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (ADVISED_BY $_0 $_1) (MEMBER_OF $_1 $_2)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MEMBER_OF $v1 $v2) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (ADVISED_BY $_0 $_1) (MEMBER_OF $_1 $_2)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MEMBER_OF $v1 $v2) (USES $v0 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (ADVISED_BY $_0 $_1) (MEMBER_OF $_1 $_2)) 11)",
+      "support": 11,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MEMBER_OF $v1 $v2) (USES $v0 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (ADVISED_BY $_0 $_2) (MEMBER_OF $_2 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (MAJORS_IN $v0 $v1) (MEMBER_OF $v2 $v1))",
+      "raw": "(supportOf (, (ADVISED_BY $_0 prof_6) (MAJORS_IN $_0 $_1) (MEMBER_OF $_2 $_1)) 30)",
+      "support": 30,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (MEMBER_OF $v3 $v2))",
+      "raw": "(supportOf (, (ADVISED_BY $_0 $_1) (MAJORS_IN $_0 $_2) (MEMBER_OF $_3 $_2)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 dept_2) (MEMBER_OF $v2 $v1))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_2) (MAJORS_IN $_0 $_1) (MEMBER_OF $_2 $_1)) 57)",
+      "support": 57,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 dept_1) (MEMBER_OF $v2 $v1))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_1) (MAJORS_IN $_0 $_1) (MEMBER_OF $_2 $_1)) 39)",
+      "support": 39,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 dept_3) (MEMBER_OF $v2 $v1))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_3) (MAJORS_IN $_0 $_1) (MEMBER_OF $_2 $_1)) 48)",
+      "support": 48,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 dept_0) (MEMBER_OF $v2 $v1))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_0) (MAJORS_IN $_0 $_1) (MEMBER_OF $_2 $_1)) 36)",
+      "support": 36,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MEMBER_OF $v3 $v1))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (MAJORS_IN $_0 $_2) (MEMBER_OF $_3 $_2)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1) (MEMBER_OF $v3 $v1))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (MAJORS_IN $_2 $_1) (MEMBER_OF $_3 $_1)) 2790)",
+      "support": 2790,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_18) (MAJORS_IN $v0 $v1) (MEMBER_OF $v2 $v1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_18) (MAJORS_IN $_0 $_1) (MEMBER_OF $_2 $_1)) 45)",
+      "support": 45,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_21) (MAJORS_IN $v0 $v1) (MEMBER_OF $v2 $v1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_21) (MAJORS_IN $_0 $_1) (MEMBER_OF $_2 $_1)) 36)",
+      "support": 36,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_5) (MAJORS_IN $v0 $v1) (MEMBER_OF $v2 $v1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_5) (MAJORS_IN $_0 $_1) (MEMBER_OF $_2 $_1)) 30)",
+      "support": 30,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_9) (MAJORS_IN $v0 $v1) (MEMBER_OF $v2 $v1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_9) (MAJORS_IN $_0 $_1) (MEMBER_OF $_2 $_1)) 39)",
+      "support": 39,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MEMBER_OF $v3 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 $_2) (MEMBER_OF $_3 $_2)) 540)",
+      "support": 540,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (MEMBER_OF $v3 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_0 $_2) (MEMBER_OF $_3 $_2)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (MEMBER_OF $v3 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_1 $_2) (MEMBER_OF $_3 $_2)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MEMBER_OF $v2 $v1) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (MAJORS_IN $_0 $_1) (MEMBER_OF $_2 $_1)) 39)",
+      "support": 39,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MEMBER_OF $v2 $v1) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (MAJORS_IN $_0 $_1) (MEMBER_OF $_2 $_1)) 45)",
+      "support": 45,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MEMBER_OF $v2 $v1) (USES $v0 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (MAJORS_IN $_0 $_1) (MEMBER_OF $_2 $_1)) 33)",
+      "support": 33,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MEMBER_OF $v2 $v1) (USES $v0 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (MAJORS_IN $_0 $_2) (MEMBER_OF $_3 $_2)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (TEACHES $v0 $v1) (TEACHES $v0 $v2) (TEACHES $v0 $v3))",
+      "raw": "(supportOf (, (TEACHES $_0 $_1) (TEACHES $_0 $_2) (TEACHES $_0 $_3)) 96)",
+      "support": 96,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (OFFERED_BY $v0 $v1) (TEACHES $v2 $v0) (TEACHES $v2 $v3))",
+      "raw": "(supportOf (, (OFFERED_BY $_0 $_1) (TEACHES $_2 $_0) (TEACHES $_2 $_3)) 48)",
+      "support": 48,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HELD_IN $v0 $v1) (TEACHES $v2 $v0) (TEACHES $v2 $v3))",
+      "raw": "(supportOf (, (HELD_IN $_0 $_1) (TEACHES $_2 $_0) (TEACHES $_2 $_3)) 48)",
+      "support": 48,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (TEACHES $v1 $v2) (TEACHES $v1 $v3))",
+      "raw": "(supportOf (, (ADVISED_BY $_0 $_1) (TEACHES $_1 $_2) (TEACHES $_1 $_3)) 240)",
+      "support": 240,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (TEACHES $v2 $v1) (TEACHES $v2 $v3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (TEACHES $_2 $_1) (TEACHES $_2 $_3)) 360)",
+      "support": 360,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (TEACHES $v0 $v1) (TEACHES $v2 $v1) (TEACHES $v3 $v1))",
+      "raw": "(supportOf (, (TEACHES $_0 $_1) (TEACHES $_2 $_1) (TEACHES $_3 $_1)) 24)",
+      "support": 24,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (OFFERED_BY $v0 $v1) (TEACHES $v2 $v0) (TEACHES $v3 $v0))",
+      "raw": "(supportOf (, (OFFERED_BY $_0 $_1) (TEACHES $_2 $_0) (TEACHES $_3 $_0)) 24)",
+      "support": 24,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HELD_IN $v0 $v1) (TEACHES $v2 $v0) (TEACHES $v3 $v0))",
+      "raw": "(supportOf (, (HELD_IN $_0 $_1) (TEACHES $_2 $_0) (TEACHES $_3 $_0)) 24)",
+      "support": 24,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (TEACHES $v1 $v2) (TEACHES $v3 $v2))",
+      "raw": "(supportOf (, (ADVISED_BY $_0 $_1) (TEACHES $_1 $_2) (TEACHES $_3 $_2)) 120)",
+      "support": 120,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (TEACHES $v2 $v1) (TEACHES $v3 $v1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (TEACHES $_2 $_1) (TEACHES $_3 $_1)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (OFFERED_BY $v0 $v1) (OFFERED_BY $v0 $v2) (TEACHES $v3 $v0))",
+      "raw": "(supportOf (, (OFFERED_BY $_0 $_1) (OFFERED_BY $_0 $_2) (TEACHES $_3 $_0)) 24)",
+      "support": 24,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (OFFERED_BY $v0 $v1) (OFFERED_BY $v2 $v1) (TEACHES $v3 $v0))",
+      "raw": "(supportOf (, (OFFERED_BY $_0 $_1) (OFFERED_BY $_2 $_1) (TEACHES $_3 $_2)) 144)",
+      "support": 144,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HELD_IN $v0 $v1) (OFFERED_BY $v0 $v2) (TEACHES $v3 $v0))",
+      "raw": "(supportOf (, (HELD_IN $_0 $_1) (OFFERED_BY $_0 $_2) (TEACHES $_3 $_0)) 24)",
+      "support": 24,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (OFFERED_BY $v2 $v3) (TEACHES $v1 $v2))",
+      "raw": "(supportOf (, (ADVISED_BY $_0 $_1) (OFFERED_BY $_2 $_3) (TEACHES $_1 $_2)) 120)",
+      "support": 120,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1) (TEACHES $v3 $v2))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (OFFERED_BY $_2 $_1) (TEACHES $_3 $_2)) 360)",
+      "support": 360,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (OFFERED_BY $v1 $v2) (TEACHES $v3 $v1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (OFFERED_BY $_1 $_2) (TEACHES $_3 $_1)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HELD_IN $v0 $v1) (HELD_IN $v0 $v2) (TEACHES $v3 $v0))",
+      "raw": "(supportOf (, (HELD_IN $_0 $_1) (HELD_IN $_0 $_2) (TEACHES $_3 $_0)) 24)",
+      "support": 24,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HELD_IN $v0 $v1) (HELD_IN $v2 $v1) (TEACHES $v3 $v0))",
+      "raw": "(supportOf (, (HELD_IN $_0 $_1) (HELD_IN $_2 $_1) (TEACHES $_3 $_2)) 96)",
+      "support": 96,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (HELD_IN $v2 $v3) (TEACHES $v1 $v2))",
+      "raw": "(supportOf (, (ADVISED_BY $_0 $_1) (HELD_IN $_2 $_3) (TEACHES $_1 $_2)) 120)",
+      "support": 120,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (TEACHES $v3 $v1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (HELD_IN $_1 $_2) (TEACHES $_3 $_1)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 prof_6) (TEACHES $v1 $v2))",
+      "raw": "(supportOf (, (ADVISED_BY $_0 prof_6) (ADVISED_BY $_0 $_1) (TEACHES $_1 $_2)) 20)",
+      "support": 20,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (TEACHES $v1 $v3))",
+      "raw": "(supportOf (, (ADVISED_BY $_0 $_1) (ADVISED_BY $_0 $_2) (TEACHES $_2 $_3)) 120)",
+      "support": 120,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (TEACHES $v1 $v3))",
+      "raw": "(supportOf (, (ADVISED_BY $_0 $_1) (ADVISED_BY $_2 $_1) (TEACHES $_1 $_3)) 740)",
+      "support": 740,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 dept_2) (TEACHES $v1 $v2))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_2) (ADVISED_BY $_0 $_1) (TEACHES $_1 $_2)) 38)",
+      "support": 38,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 dept_1) (TEACHES $v1 $v2))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_1) (ADVISED_BY $_0 $_1) (TEACHES $_1 $_2)) 26)",
+      "support": 26,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 dept_3) (TEACHES $v1 $v2))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_3) (ADVISED_BY $_0 $_1) (TEACHES $_1 $_2)) 32)",
+      "support": 32,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 dept_0) (TEACHES $v1 $v2))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_0) (ADVISED_BY $_0 $_1) (TEACHES $_1 $_2)) 24)",
+      "support": 24,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (TEACHES $v1 $v3))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (ADVISED_BY $_0 $_2) (TEACHES $_2 $_3)) 120)",
+      "support": 120,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_18) (TEACHES $v1 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_18) (ADVISED_BY $_0 $_1) (TEACHES $_1 $_2)) 30)",
+      "support": 30,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_21) (TEACHES $v1 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_21) (ADVISED_BY $_0 $_1) (TEACHES $_1 $_2)) 24)",
+      "support": 24,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_5) (TEACHES $v1 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_5) (ADVISED_BY $_0 $_1) (TEACHES $_1 $_2)) 20)",
+      "support": 20,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_9) (TEACHES $v1 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_9) (ADVISED_BY $_0 $_1) (TEACHES $_1 $_2)) 26)",
+      "support": 26,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (TEACHES $v1 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ADVISED_BY $_0 $_2) (TEACHES $_2 $_1)) 52)",
+      "support": 52,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (TEACHES $v1 $v3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ADVISED_BY $_0 $_2) (TEACHES $_2 $_3)) 360)",
+      "support": 360,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v2 $v3) (TEACHES $v1 $v3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ADVISED_BY $_2 $_3) (TEACHES $_3 $_1)) 1004)",
+      "support": 1004,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (TEACHES $v1 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ADVISED_BY $_0 $_2) (TEACHES $_2 $_3)) 120)",
+      "support": 120,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (TEACHES $v1 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ADVISED_BY $_1 $_2) (TEACHES $_2 $_3)) 120)",
+      "support": 120,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (TEACHES $v1 $v2) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (ADVISED_BY $_0 $_1) (TEACHES $_1 $_2)) 26)",
+      "support": 26,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (TEACHES $v1 $v2) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (ADVISED_BY $_0 $_1) (TEACHES $_1 $_2)) 30)",
+      "support": 30,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (TEACHES $v1 $v2) (USES $v0 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (ADVISED_BY $_0 $_1) (TEACHES $_1 $_2)) 22)",
+      "support": 22,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (TEACHES $v1 $v2) (USES $v0 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (ADVISED_BY $_0 $_2) (TEACHES $_2 $_3)) 120)",
+      "support": 120,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (ENROLLED_IN $v0 $v1) (TEACHES $v2 $v1))",
+      "raw": "(supportOf (, (ADVISED_BY $_0 prof_6) (ENROLLED_IN $_0 $_1) (TEACHES $_2 $_1)) 30)",
+      "support": 30,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (TEACHES $v3 $v2))",
+      "raw": "(supportOf (, (ADVISED_BY $_0 $_1) (ENROLLED_IN $_0 $_2) (TEACHES $_3 $_2)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_2) (TEACHES $v2 $v1))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_2) (ENROLLED_IN $_0 $_1) (TEACHES $_2 $_1)) 57)",
+      "support": 57,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_1) (TEACHES $v2 $v1))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_1) (ENROLLED_IN $_0 $_1) (TEACHES $_2 $_1)) 39)",
+      "support": 39,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_3) (TEACHES $v2 $v1))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_3) (ENROLLED_IN $_0 $_1) (TEACHES $_2 $_1)) 48)",
+      "support": 48,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_0) (TEACHES $v2 $v1))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_0) (ENROLLED_IN $_0 $_1) (TEACHES $_2 $_1)) 36)",
+      "support": 36,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (TEACHES $v3 $v1))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (ENROLLED_IN $_0 $_2) (TEACHES $_3 $_2)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_18) (TEACHES $v2 $v1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_18) (ENROLLED_IN $_0 $_1) (TEACHES $_2 $_1)) 45)",
+      "support": 45,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_21) (TEACHES $v2 $v1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_21) (ENROLLED_IN $_0 $_1) (TEACHES $_2 $_1)) 36)",
+      "support": 36,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_5) (TEACHES $v2 $v1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_5) (ENROLLED_IN $_0 $_1) (TEACHES $_2 $_1)) 30)",
+      "support": 30,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_9) (TEACHES $v2 $v1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_9) (ENROLLED_IN $_0 $_1) (TEACHES $_2 $_1)) 39)",
+      "support": 39,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (TEACHES $v3 $v1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 $_2) (TEACHES $_3 $_2)) 540)",
+      "support": 540,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (TEACHES $v3 $v1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_2 $_1) (TEACHES $_3 $_1)) 1578)",
+      "support": 1578,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (TEACHES $v3 $v1))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 $_2) (TEACHES $_3 $_2)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (TEACHES $v3 $v1))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 $_2) (TEACHES $_3 $_2)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (TEACHES $v2 $v1) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (ENROLLED_IN $_0 $_1) (TEACHES $_2 $_1)) 39)",
+      "support": 39,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (TEACHES $v2 $v1) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (ENROLLED_IN $_0 $_1) (TEACHES $_2 $_1)) 45)",
+      "support": 45,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (TEACHES $v2 $v1) (USES $v0 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (ENROLLED_IN $_0 $_1) (TEACHES $_2 $_1)) 33)",
+      "support": 33,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (TEACHES $v2 $v1) (USES $v0 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (ENROLLED_IN $_0 $_2) (TEACHES $_3 $_2)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (OFFERED_BY $v0 $v1) (OFFERED_BY $v0 $v2) (OFFERED_BY $v0 $v3))",
+      "raw": "(supportOf (, (OFFERED_BY $_0 $_1) (OFFERED_BY $_0 $_2) (OFFERED_BY $_0 $_3)) 24)",
+      "support": 24,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HELD_IN $v0 $v1) (OFFERED_BY $v0 $v2) (OFFERED_BY $v0 $v3))",
+      "raw": "(supportOf (, (HELD_IN $_0 $_1) (OFFERED_BY $_0 $_2) (OFFERED_BY $_0 $_3)) 24)",
+      "support": 24,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1) (OFFERED_BY $v2 $v3))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (OFFERED_BY $_2 $_1) (OFFERED_BY $_2 $_3)) 360)",
+      "support": 360,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (OFFERED_BY $v1 $v2) (OFFERED_BY $v1 $v3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (OFFERED_BY $_1 $_2) (OFFERED_BY $_1 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (OFFERED_BY $v0 $v1) (OFFERED_BY $v2 $v1) (OFFERED_BY $v3 $v1))",
+      "raw": "(supportOf (, (OFFERED_BY $_0 $_1) (OFFERED_BY $_2 $_1) (OFFERED_BY $_3 $_1)) 864)",
+      "support": 864,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HELD_IN $v0 $v1) (OFFERED_BY $v0 $v2) (OFFERED_BY $v3 $v2))",
+      "raw": "(supportOf (, (HELD_IN $_0 $_1) (OFFERED_BY $_0 $_2) (OFFERED_BY $_3 $_2)) 144)",
+      "support": 144,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1) (OFFERED_BY $v3 $v1))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (OFFERED_BY $_2 $_1) (OFFERED_BY $_3 $_1)) 2160)",
+      "support": 2160,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (OFFERED_BY $v1 $v2) (OFFERED_BY $v3 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (OFFERED_BY $_1 $_2) (OFFERED_BY $_3 $_2)) 1080)",
+      "support": 1080,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HELD_IN $v0 $v1) (HELD_IN $v0 $v2) (OFFERED_BY $v0 $v3))",
+      "raw": "(supportOf (, (HELD_IN $_0 $_1) (HELD_IN $_0 $_2) (OFFERED_BY $_0 $_3)) 24)",
+      "support": 24,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HELD_IN $v0 $v1) (HELD_IN $v2 $v1) (OFFERED_BY $v0 $v3))",
+      "raw": "(supportOf (, (HELD_IN $_0 $_1) (HELD_IN $_2 $_1) (OFFERED_BY $_2 $_3)) 96)",
+      "support": 96,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HELD_IN $v0 $v1) (MAJORS_IN $v2 $v3) (OFFERED_BY $v0 $v3))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (HELD_IN $_2 $_3) (OFFERED_BY $_2 $_1)) 360)",
+      "support": 360,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (OFFERED_BY $v1 $v3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (HELD_IN $_1 $_2) (OFFERED_BY $_1 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1))",
+      "raw": "(supportOf (, (ADVISED_BY $_0 prof_6) (MAJORS_IN $_0 $_1) (OFFERED_BY $_2 $_1)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (OFFERED_BY $v3 $v2))",
+      "raw": "(supportOf (, (ADVISED_BY $_0 $_1) (MAJORS_IN $_0 $_2) (OFFERED_BY $_3 $_2)) 360)",
+      "support": 360,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 dept_2) (OFFERED_BY $v2 $v1))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_2) (MAJORS_IN $_0 $_1) (OFFERED_BY $_2 $_1)) 114)",
+      "support": 114,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 dept_1) (OFFERED_BY $v2 $v1))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_1) (MAJORS_IN $_0 $_1) (OFFERED_BY $_2 $_1)) 78)",
+      "support": 78,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 dept_3) (OFFERED_BY $v2 $v1))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_3) (MAJORS_IN $_0 $_1) (OFFERED_BY $_2 $_1)) 96)",
+      "support": 96,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 dept_0) (OFFERED_BY $v2 $v1))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_0) (MAJORS_IN $_0 $_1) (OFFERED_BY $_2 $_1)) 72)",
+      "support": 72,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2) (OFFERED_BY $v3 $v1))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (MAJORS_IN $_0 $_2) (OFFERED_BY $_3 $_2)) 360)",
+      "support": 360,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1) (OFFERED_BY $v3 $v1))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (MAJORS_IN $_2 $_1) (OFFERED_BY $_3 $_1)) 5580)",
+      "support": 5580,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_18) (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_18) (MAJORS_IN $_0 $_1) (OFFERED_BY $_2 $_1)) 90)",
+      "support": 90,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_21) (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_21) (MAJORS_IN $_0 $_1) (OFFERED_BY $_2 $_1)) 72)",
+      "support": 72,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_5) (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_5) (MAJORS_IN $_0 $_1) (OFFERED_BY $_2 $_1)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_9) (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_9) (MAJORS_IN $_0 $_1) (OFFERED_BY $_2 $_1)) 78)",
+      "support": 78,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (OFFERED_BY $v1 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 $_2) (OFFERED_BY $_1 $_2)) 63)",
+      "support": 63,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (OFFERED_BY $v3 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 $_2) (OFFERED_BY $_3 $_2)) 1080)",
+      "support": 1080,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v2 $v3) (OFFERED_BY $v1 $v3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (MAJORS_IN $_2 $_3) (OFFERED_BY $_1 $_3)) 2658)",
+      "support": 2658,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (OFFERED_BY $v3 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_0 $_2) (OFFERED_BY $_3 $_2)) 360)",
+      "support": 360,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (OFFERED_BY $v3 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_1 $_2) (OFFERED_BY $_3 $_2)) 360)",
+      "support": 360,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (MAJORS_IN $_0 $_1) (OFFERED_BY $_2 $_1)) 78)",
+      "support": 78,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (MAJORS_IN $_0 $_1) (OFFERED_BY $_2 $_1)) 90)",
+      "support": 90,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1) (USES $v0 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (MAJORS_IN $_0 $_1) (OFFERED_BY $_2 $_1)) 66)",
+      "support": 66,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (OFFERED_BY $v2 $v1) (USES $v0 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (MAJORS_IN $_0 $_2) (OFFERED_BY $_3 $_2)) 360)",
+      "support": 360,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (ENROLLED_IN $v0 $v1) (OFFERED_BY $v1 $v2))",
+      "raw": "(supportOf (, (ADVISED_BY $_0 prof_6) (ENROLLED_IN $_0 $_1) (OFFERED_BY $_1 $_2)) 30)",
+      "support": 30,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (OFFERED_BY $v2 $v3))",
+      "raw": "(supportOf (, (ADVISED_BY $_0 $_1) (ENROLLED_IN $_0 $_2) (OFFERED_BY $_2 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_2) (OFFERED_BY $v1 $v2))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_2) (ENROLLED_IN $_0 $_1) (OFFERED_BY $_1 $_2)) 57)",
+      "support": 57,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_1) (OFFERED_BY $v1 $v2))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_1) (ENROLLED_IN $_0 $_1) (OFFERED_BY $_1 $_2)) 39)",
+      "support": 39,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_3) (OFFERED_BY $v1 $v2))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_3) (ENROLLED_IN $_0 $_1) (OFFERED_BY $_1 $_2)) 48)",
+      "support": 48,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_0) (OFFERED_BY $v1 $v2))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_0) (ENROLLED_IN $_0 $_1) (OFFERED_BY $_1 $_2)) 36)",
+      "support": 36,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (OFFERED_BY $v1 $v3))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (ENROLLED_IN $_0 $_2) (OFFERED_BY $_2 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_18) (OFFERED_BY $v1 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_18) (ENROLLED_IN $_0 $_1) (OFFERED_BY $_1 $_2)) 45)",
+      "support": 45,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_21) (OFFERED_BY $v1 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_21) (ENROLLED_IN $_0 $_1) (OFFERED_BY $_1 $_2)) 36)",
+      "support": 36,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_5) (OFFERED_BY $v1 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_5) (ENROLLED_IN $_0 $_1) (OFFERED_BY $_1 $_2)) 30)",
+      "support": 30,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_9) (OFFERED_BY $v1 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_9) (ENROLLED_IN $_0 $_1) (OFFERED_BY $_1 $_2)) 39)",
+      "support": 39,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (OFFERED_BY $v1 $v3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 $_2) (OFFERED_BY $_2 $_3)) 540)",
+      "support": 540,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (OFFERED_BY $v1 $v3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_2 $_1) (OFFERED_BY $_1 $_3)) 1578)",
+      "support": 1578,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (OFFERED_BY $v1 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 $_2) (OFFERED_BY $_2 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (OFFERED_BY $v1 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 $_2) (OFFERED_BY $_2 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (OFFERED_BY $v1 $v2) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (ENROLLED_IN $_0 $_1) (OFFERED_BY $_1 $_2)) 39)",
+      "support": 39,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (OFFERED_BY $v1 $v2) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (ENROLLED_IN $_0 $_1) (OFFERED_BY $_1 $_2)) 45)",
+      "support": 45,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (OFFERED_BY $v1 $v2) (USES $v0 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (ENROLLED_IN $_0 $_1) (OFFERED_BY $_1 $_2)) 33)",
+      "support": 33,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (OFFERED_BY $v1 $v2) (USES $v0 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (ENROLLED_IN $_0 $_2) (OFFERED_BY $_2 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HELD_IN $v0 $v1) (HELD_IN $v0 $v2) (HELD_IN $v0 $v3))",
+      "raw": "(supportOf (, (HELD_IN $_0 $_1) (HELD_IN $_0 $_2) (HELD_IN $_0 $_3)) 24)",
+      "support": 24,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (HELD_IN $v1 $v3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (HELD_IN $_1 $_2) (HELD_IN $_1 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (HELD_IN $v0 $v1) (HELD_IN $v2 $v1) (HELD_IN $v3 $v1))",
+      "raw": "(supportOf (, (HELD_IN $_0 $_1) (HELD_IN $_2 $_1) (HELD_IN $_3 $_1)) 450)",
+      "support": 450,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (HELD_IN $v3 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (HELD_IN $_1 $_2) (HELD_IN $_3 $_2)) 716)",
+      "support": 716,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2))",
+      "raw": "(supportOf (, (ADVISED_BY $_0 prof_6) (ENROLLED_IN $_0 $_1) (HELD_IN $_1 $_2)) 30)",
+      "support": 30,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (HELD_IN $v2 $v3))",
+      "raw": "(supportOf (, (ADVISED_BY $_0 $_1) (ENROLLED_IN $_0 $_2) (HELD_IN $_2 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (MAJORS_IN $v0 dept_2))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_2) (ENROLLED_IN $_0 $_1) (HELD_IN $_1 $_2)) 57)",
+      "support": 57,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (MAJORS_IN $v0 dept_1))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_1) (ENROLLED_IN $_0 $_1) (HELD_IN $_1 $_2)) 39)",
+      "support": 39,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (MAJORS_IN $v0 dept_3))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_3) (ENROLLED_IN $_0 $_1) (HELD_IN $_1 $_2)) 48)",
+      "support": 48,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (MAJORS_IN $v0 dept_0))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_0) (ENROLLED_IN $_0 $_1) (HELD_IN $_1 $_2)) 36)",
+      "support": 36,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (MAJORS_IN $v0 $v3))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (ENROLLED_IN $_0 $_2) (HELD_IN $_2 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_18) (HELD_IN $v1 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_18) (ENROLLED_IN $_0 $_1) (HELD_IN $_1 $_2)) 45)",
+      "support": 45,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_21) (HELD_IN $v1 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_21) (ENROLLED_IN $_0 $_1) (HELD_IN $_1 $_2)) 36)",
+      "support": 36,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_5) (HELD_IN $v1 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_5) (ENROLLED_IN $_0 $_1) (HELD_IN $_1 $_2)) 30)",
+      "support": 30,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_9) (HELD_IN $v1 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_9) (ENROLLED_IN $_0 $_1) (HELD_IN $_1 $_2)) 39)",
+      "support": 39,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (HELD_IN $v1 $v3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 $_2) (HELD_IN $_2 $_3)) 540)",
+      "support": 540,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (HELD_IN $v1 $v3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_2 $_1) (HELD_IN $_1 $_3)) 1578)",
+      "support": 1578,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (HELD_IN $v1 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 $_2) (HELD_IN $_2 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (HELD_IN $v1 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 $_2) (HELD_IN $_2 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (ENROLLED_IN $_0 $_1) (HELD_IN $_1 $_2)) 39)",
+      "support": 39,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (ENROLLED_IN $_0 $_1) (HELD_IN $_1 $_2)) 45)",
+      "support": 45,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (USES $v0 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (ENROLLED_IN $_0 $_1) (HELD_IN $_1 $_2)) 33)",
+      "support": 33,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (HELD_IN $v1 $v2) (USES $v0 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (ENROLLED_IN $_0 $_2) (HELD_IN $_2 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (ADVISED_BY $v0 prof_6))",
+      "raw": "(supportOf (, (ADVISED_BY $_0 $_1) (ADVISED_BY $_0 $_2) (ADVISED_BY $_0 prof_6)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 prof_6) (MAJORS_IN $v0 $v2))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (ADVISED_BY $_0 $_2) (ADVISED_BY $_0 prof_6)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 prof_6) (ENROLLED_IN $v0 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ADVISED_BY $_0 $_2) (ADVISED_BY $_0 prof_6)) 30)",
+      "support": 30,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 prof_6) (FRIENDS_WITH $v0 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ADVISED_BY $_0 $_2) (ADVISED_BY $_0 prof_6)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 prof_6) (FRIENDS_WITH $v2 $v0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ADVISED_BY $_1 $_2) (ADVISED_BY $_1 prof_6)) 11)",
+      "support": 11,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 prof_6) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (ADVISED_BY $_0 $_2) (ADVISED_BY $_0 prof_6)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (MAJORS_IN $_0 $_2) (ADVISED_BY $_0 prof_6)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (MAJORS_IN $_2 $_1) (ADVISED_BY $_2 prof_6)) 183)",
+      "support": 183,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 $_2) (ADVISED_BY $_0 prof_6)) 30)",
+      "support": 30,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_0 $_2) (ADVISED_BY $_0 prof_6)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (FRIENDS_WITH $v1 $v0) (MAJORS_IN $v0 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_1 $_2) (ADVISED_BY $_1 prof_6)) 11)",
+      "support": 11,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (MAJORS_IN $v0 $v1) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (MAJORS_IN $_0 $_2) (ADVISED_BY $_0 prof_6)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_2))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_2) (ENROLLED_IN $_0 $_1) (ADVISED_BY $_0 prof_6)) 27)",
+      "support": 27,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_18))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_18) (ENROLLED_IN $_0 $_1) (ADVISED_BY $_0 prof_6)) 21)",
+      "support": 21,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 $_2) (ADVISED_BY $_0 prof_6)) 90)",
+      "support": 90,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_2 $_1) (ADVISED_BY $_2 prof_6)) 283)",
+      "support": 283,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 $_2) (ADVISED_BY $_0 prof_6)) 30)",
+      "support": 30,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 $_2) (ADVISED_BY $_1 prof_6)) 33)",
+      "support": 33,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (ENROLLED_IN $v0 $v1) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (ENROLLED_IN $_0 $_2) (ADVISED_BY $_0 prof_6)) 30)",
+      "support": 30,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 prof_6) (FRIENDS_WITH $v2 $v0))",
+      "raw": "(supportOf (, (ADVISED_BY $_0 $_1) (FRIENDS_WITH $_2 $_0) (ADVISED_BY $_2 prof_6)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (FRIENDS_WITH $_2 $_0) (ADVISED_BY $_2 prof_6)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (ENROLLED_IN $v1 $v2) (FRIENDS_WITH $v0 $v1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (FRIENDS_WITH $_2 $_0) (ADVISED_BY $_2 prof_6)) 30)",
+      "support": 30,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_0) (ADVISED_BY $_2 prof_6)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (ADVISED_BY $_0 prof_6)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_1) (ADVISED_BY $_2 prof_6)) 17)",
+      "support": 17,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_1 $_2) (ADVISED_BY $_1 prof_6)) 11)",
+      "support": 11,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (FRIENDS_WITH $v0 $v1) (USES $v1 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (ADVISED_BY $_2 prof_6)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (FRIENDS_WITH $v0 $v1) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (ADVISED_BY $_0 prof_6)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 prof_6) (FRIENDS_WITH $v0 $v2))",
+      "raw": "(supportOf (, (ADVISED_BY $_0 $_1) (FRIENDS_WITH $_0 $_2) (ADVISED_BY $_2 prof_6)) 11)",
+      "support": 11,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (FRIENDS_WITH $v1 $v0) (MAJORS_IN $v1 $v2))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (FRIENDS_WITH $_0 $_2) (ADVISED_BY $_2 prof_6)) 11)",
+      "support": 11,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (ENROLLED_IN $v1 $v2) (FRIENDS_WITH $v1 $v0))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (FRIENDS_WITH $_0 $_2) (ADVISED_BY $_2 prof_6)) 33)",
+      "support": 33,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (FRIENDS_WITH $v1 $v0) (FRIENDS_WITH $v1 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (ADVISED_BY $_2 prof_6)) 11)",
+      "support": 11,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (FRIENDS_WITH $v1 $v0) (FRIENDS_WITH $v2 $v0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_1) (ADVISED_BY $_1 prof_6)) 23)",
+      "support": 23,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (FRIENDS_WITH $v1 $v0) (FRIENDS_WITH $v2 $v1))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_1 $_2) (ADVISED_BY $_2 prof_6)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (FRIENDS_WITH $v1 $v0) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (ADVISED_BY $_0 prof_6)) 11)",
+      "support": 11,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (FRIENDS_WITH $v1 $v0) (USES $v1 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (ADVISED_BY $_2 prof_6)) 11)",
+      "support": 11,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (USES $v0 $v1) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 $_2) (ADVISED_BY $_0 prof_6)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 prof_6) (USES $v0 $v1) (USES $v2 $v1))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_2 $_1) (ADVISED_BY $_2 prof_6)) 114)",
+      "support": 114,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (ADVISED_BY $v0 $v3))",
+      "raw": "(supportOf (, (ADVISED_BY $_0 $_1) (ADVISED_BY $_0 $_2) (ADVISED_BY $_0 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (MAJORS_IN $v0 dept_2))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_2) (ADVISED_BY $_0 $_1) (ADVISED_BY $_0 $_2)) 19)",
+      "support": 19,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (MAJORS_IN $v0 dept_1))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_1) (ADVISED_BY $_0 $_1) (ADVISED_BY $_0 $_2)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (MAJORS_IN $v0 dept_3))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_3) (ADVISED_BY $_0 $_1) (ADVISED_BY $_0 $_2)) 16)",
+      "support": 16,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (MAJORS_IN $v0 dept_0))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_0) (ADVISED_BY $_0 $_1) (ADVISED_BY $_0 $_2)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (MAJORS_IN $v0 $v3))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (ADVISED_BY $_0 $_2) (ADVISED_BY $_0 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (ENROLLED_IN $v0 course_18))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_18) (ADVISED_BY $_0 $_1) (ADVISED_BY $_0 $_2)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (ENROLLED_IN $v0 course_21))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_21) (ADVISED_BY $_0 $_1) (ADVISED_BY $_0 $_2)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (ENROLLED_IN $v0 course_5))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_5) (ADVISED_BY $_0 $_1) (ADVISED_BY $_0 $_2)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (ENROLLED_IN $v0 course_9))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_9) (ADVISED_BY $_0 $_1) (ADVISED_BY $_0 $_2)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (ENROLLED_IN $v0 $v3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ADVISED_BY $_0 $_2) (ADVISED_BY $_0 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (FRIENDS_WITH $v0 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ADVISED_BY $_0 $_2) (ADVISED_BY $_0 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (FRIENDS_WITH $v3 $v0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ADVISED_BY $_1 $_2) (ADVISED_BY $_1 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (ADVISED_BY $_0 $_1) (ADVISED_BY $_0 $_2)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (ADVISED_BY $_0 $_1) (ADVISED_BY $_0 $_2)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (USES $v0 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (ADVISED_BY $_0 $_1) (ADVISED_BY $_0 $_2)) 11)",
+      "support": 11,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v0 $v2) (USES $v0 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (ADVISED_BY $_0 $_2) (ADVISED_BY $_0 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (ADVISED_BY $v3 $v1))",
+      "raw": "(supportOf (, (ADVISED_BY $_0 $_1) (ADVISED_BY $_2 $_1) (ADVISED_BY $_3 $_1)) 2574)",
+      "support": 2574,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (MAJORS_IN $v0 dept_2))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_2) (ADVISED_BY $_0 $_1) (ADVISED_BY $_2 $_1)) 152)",
+      "support": 152,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (MAJORS_IN $v0 dept_1))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_1) (ADVISED_BY $_0 $_1) (ADVISED_BY $_2 $_1)) 75)",
+      "support": 75,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (MAJORS_IN $v0 dept_3))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_3) (ADVISED_BY $_0 $_1) (ADVISED_BY $_2 $_1)) 84)",
+      "support": 84,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (MAJORS_IN $v0 dept_0))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_0) (ADVISED_BY $_0 $_1) (ADVISED_BY $_2 $_1)) 59)",
+      "support": 59,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (MAJORS_IN $v0 $v3))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (ADVISED_BY $_0 $_2) (ADVISED_BY $_3 $_2)) 370)",
+      "support": 370,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (ENROLLED_IN $v0 course_18))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_18) (ADVISED_BY $_0 $_1) (ADVISED_BY $_2 $_1)) 119)",
+      "support": 119,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (ENROLLED_IN $v0 course_21))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_21) (ADVISED_BY $_0 $_1) (ADVISED_BY $_2 $_1)) 67)",
+      "support": 67,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (ENROLLED_IN $v0 course_5))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_5) (ADVISED_BY $_0 $_1) (ADVISED_BY $_2 $_1)) 59)",
+      "support": 59,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (ENROLLED_IN $v0 course_9))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_9) (ADVISED_BY $_0 $_1) (ADVISED_BY $_2 $_1)) 75)",
+      "support": 75,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (ENROLLED_IN $v0 $v3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ADVISED_BY $_0 $_2) (ADVISED_BY $_3 $_2)) 1110)",
+      "support": 1110,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (FRIENDS_WITH $v0 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ADVISED_BY $_0 $_2) (ADVISED_BY $_3 $_2)) 370)",
+      "support": 370,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (FRIENDS_WITH $v3 $v0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ADVISED_BY $_1 $_2) (ADVISED_BY $_3 $_2)) 396)",
+      "support": 396,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (ADVISED_BY $_0 $_1) (ADVISED_BY $_2 $_1)) 84)",
+      "support": 84,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (ADVISED_BY $_0 $_1) (ADVISED_BY $_2 $_1)) 91)",
+      "support": 91,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (USES $v0 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (ADVISED_BY $_0 $_1) (ADVISED_BY $_2 $_1)) 68)",
+      "support": 68,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v1) (USES $v0 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (ADVISED_BY $_0 $_2) (ADVISED_BY $_3 $_2)) 370)",
+      "support": 370,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_2))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (MAJORS_IN $_0 dept_2) (ADVISED_BY $_0 $_2)) 19)",
+      "support": 19,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (MAJORS_IN $v0 dept_2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 dept_2) (ADVISED_BY $_0 $_2)) 57)",
+      "support": 57,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 dept_2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_0 dept_2) (ADVISED_BY $_0 $_2)) 19)",
+      "support": 19,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v0 dept_2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_1 dept_2) (ADVISED_BY $_1 $_2)) 19)",
+      "support": 19,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 dept_2) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (MAJORS_IN $_0 dept_2) (ADVISED_BY $_0 $_2)) 19)",
+      "support": 19,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_1))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (MAJORS_IN $_0 dept_1) (ADVISED_BY $_0 $_2)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (MAJORS_IN $v0 dept_1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 dept_1) (ADVISED_BY $_0 $_2)) 39)",
+      "support": 39,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 dept_1))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_0 dept_1) (ADVISED_BY $_0 $_2)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v0 dept_1))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_1 dept_1) (ADVISED_BY $_1 $_2)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 dept_1) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (MAJORS_IN $_0 dept_1) (ADVISED_BY $_0 $_2)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_3))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (MAJORS_IN $_0 dept_3) (ADVISED_BY $_0 $_2)) 16)",
+      "support": 16,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (MAJORS_IN $v0 dept_3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 dept_3) (ADVISED_BY $_0 $_2)) 48)",
+      "support": 48,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 dept_3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_0 dept_3) (ADVISED_BY $_0 $_2)) 16)",
+      "support": 16,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v0 dept_3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_1 dept_3) (ADVISED_BY $_1 $_2)) 17)",
+      "support": 17,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 dept_3) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (MAJORS_IN $_0 dept_3) (ADVISED_BY $_0 $_2)) 16)",
+      "support": 16,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_0))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (MAJORS_IN $_0 dept_0) (ADVISED_BY $_0 $_2)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (MAJORS_IN $v0 dept_0))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 dept_0) (ADVISED_BY $_0 $_2)) 36)",
+      "support": 36,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 dept_0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_0 dept_0) (ADVISED_BY $_0 $_2)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v0 dept_0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_1 dept_0) (ADVISED_BY $_1 $_2)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 dept_0) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (MAJORS_IN $_0 dept_0) (ADVISED_BY $_0 $_2)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 $v3))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (MAJORS_IN $_0 $_2) (ADVISED_BY $_0 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v3 $v2))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (MAJORS_IN $_2 $_1) (ADVISED_BY $_2 $_3)) 930)",
+      "support": 930,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_18) (MAJORS_IN $v0 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_18) (MAJORS_IN $_0 $_1) (ADVISED_BY $_0 $_2)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_21) (MAJORS_IN $v0 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_21) (MAJORS_IN $_0 $_1) (ADVISED_BY $_0 $_2)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_5) (MAJORS_IN $v0 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_5) (MAJORS_IN $_0 $_1) (ADVISED_BY $_0 $_2)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_9) (MAJORS_IN $v0 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_9) (MAJORS_IN $_0 $_1) (ADVISED_BY $_0 $_2)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (MAJORS_IN $v0 $v3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 $_2) (ADVISED_BY $_0 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_0 $_2) (ADVISED_BY $_0 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v0 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_1 $_2) (ADVISED_BY $_1 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (MAJORS_IN $_0 $_1) (ADVISED_BY $_0 $_2)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (MAJORS_IN $_0 $_1) (ADVISED_BY $_0 $_2)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (MAJORS_IN $_0 $_1) (ADVISED_BY $_0 $_2)) 11)",
+      "support": 11,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (MAJORS_IN $_0 $_2) (ADVISED_BY $_0 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (ENROLLED_IN $v0 course_18))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 course_18) (ADVISED_BY $_0 $_2)) 45)",
+      "support": 45,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_18) (FRIENDS_WITH $v0 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 course_18) (ADVISED_BY $_0 $_2)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_18) (FRIENDS_WITH $v2 $v0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 course_18) (ADVISED_BY $_1 $_2)) 18)",
+      "support": 18,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_18) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (ENROLLED_IN $_0 course_18) (ADVISED_BY $_0 $_2)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (ENROLLED_IN $v0 course_21))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 course_21) (ADVISED_BY $_0 $_2)) 36)",
+      "support": 36,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_21) (FRIENDS_WITH $v0 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 course_21) (ADVISED_BY $_0 $_2)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_21) (FRIENDS_WITH $v2 $v0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 course_21) (ADVISED_BY $_1 $_2)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_21) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (ENROLLED_IN $_0 course_21) (ADVISED_BY $_0 $_2)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (ENROLLED_IN $v0 course_5))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 course_5) (ADVISED_BY $_0 $_2)) 30)",
+      "support": 30,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_5) (FRIENDS_WITH $v0 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 course_5) (ADVISED_BY $_0 $_2)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_5) (FRIENDS_WITH $v2 $v0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 course_5) (ADVISED_BY $_1 $_2)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_5) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (ENROLLED_IN $_0 course_5) (ADVISED_BY $_0 $_2)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (ENROLLED_IN $v0 course_9))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 course_9) (ADVISED_BY $_0 $_2)) 39)",
+      "support": 39,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_9) (FRIENDS_WITH $v0 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 course_9) (ADVISED_BY $_0 $_2)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_9) (FRIENDS_WITH $v2 $v0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 course_9) (ADVISED_BY $_1 $_2)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 course_9) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (ENROLLED_IN $_0 course_9) (ADVISED_BY $_0 $_2)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (ENROLLED_IN $v0 $v3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 $_2) (ADVISED_BY $_0 $_3)) 540)",
+      "support": 540,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (ENROLLED_IN $v3 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_2 $_1) (ADVISED_BY $_2 $_3)) 1578)",
+      "support": 1578,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (FRIENDS_WITH $v0 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 $_2) (ADVISED_BY $_0 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (FRIENDS_WITH $v3 $v0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 $_2) (ADVISED_BY $_1 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (ENROLLED_IN $_0 $_1) (ADVISED_BY $_0 $_2)) 39)",
+      "support": 39,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (ENROLLED_IN $_0 $_1) (ADVISED_BY $_0 $_2)) 45)",
+      "support": 45,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (USES $v0 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (ENROLLED_IN $_0 $_1) (ADVISED_BY $_0 $_2)) 33)",
+      "support": 33,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v0 $v2) (USES $v0 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (ENROLLED_IN $_0 $_2) (ADVISED_BY $_0 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ADVISED_BY $v2 $v3) (FRIENDS_WITH $v0 $v2))",
+      "raw": "(supportOf (, (ADVISED_BY $_0 $_1) (FRIENDS_WITH $_2 $_0) (ADVISED_BY $_2 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v2 dept_2))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_2) (FRIENDS_WITH $_1 $_0) (ADVISED_BY $_1 $_2)) 19)",
+      "support": 19,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v2 dept_1))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_1) (FRIENDS_WITH $_1 $_0) (ADVISED_BY $_1 $_2)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v2 dept_3))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_3) (FRIENDS_WITH $_1 $_0) (ADVISED_BY $_1 $_2)) 17)",
+      "support": 17,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v2 dept_0))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_0) (FRIENDS_WITH $_1 $_0) (ADVISED_BY $_1 $_2)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v2 $v3))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (FRIENDS_WITH $_2 $_0) (ADVISED_BY $_2 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v2 course_18) (FRIENDS_WITH $v0 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_18) (FRIENDS_WITH $_1 $_0) (ADVISED_BY $_1 $_2)) 18)",
+      "support": 18,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v2 course_21) (FRIENDS_WITH $v0 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_21) (FRIENDS_WITH $_1 $_0) (ADVISED_BY $_1 $_2)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v2 course_5) (FRIENDS_WITH $v0 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_5) (FRIENDS_WITH $_1 $_0) (ADVISED_BY $_1 $_2)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v2 course_9) (FRIENDS_WITH $v0 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_9) (FRIENDS_WITH $_1 $_0) (ADVISED_BY $_1 $_2)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v2 $v3) (FRIENDS_WITH $v0 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (FRIENDS_WITH $_2 $_0) (ADVISED_BY $_2 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v2 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_0) (ADVISED_BY $_2 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v0 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (ADVISED_BY $_0 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v3 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_1) (ADVISED_BY $_2 $_3)) 102)",
+      "support": 102,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v3 $v0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_1 $_2) (ADVISED_BY $_1 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v2 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (FRIENDS_WITH $_1 $_0) (ADVISED_BY $_1 $_2)) 16)",
+      "support": 16,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (FRIENDS_WITH $_0 $_1) (ADVISED_BY $_0 $_2)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v2 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (FRIENDS_WITH $_1 $_0) (ADVISED_BY $_1 $_2)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (FRIENDS_WITH $_0 $_1) (ADVISED_BY $_0 $_2)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v2 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (FRIENDS_WITH $_1 $_0) (ADVISED_BY $_1 $_2)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (FRIENDS_WITH $_0 $_1) (ADVISED_BY $_0 $_2)) 11)",
+      "support": 11,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v2 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (ADVISED_BY $_2 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (ADVISED_BY $_0 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v2 dept_2))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_2) (FRIENDS_WITH $_0 $_1) (ADVISED_BY $_1 $_2)) 19)",
+      "support": 19,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v2 dept_1))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_1) (FRIENDS_WITH $_0 $_1) (ADVISED_BY $_1 $_2)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v2 dept_3))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_3) (FRIENDS_WITH $_0 $_1) (ADVISED_BY $_1 $_2)) 16)",
+      "support": 16,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v2 dept_0))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 dept_0) (FRIENDS_WITH $_0 $_1) (ADVISED_BY $_1 $_2)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v2 $v3))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (FRIENDS_WITH $_0 $_2) (ADVISED_BY $_2 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v2 course_18) (FRIENDS_WITH $v2 $v0))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_18) (FRIENDS_WITH $_0 $_1) (ADVISED_BY $_1 $_2)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v2 course_21) (FRIENDS_WITH $v2 $v0))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_21) (FRIENDS_WITH $_0 $_1) (ADVISED_BY $_1 $_2)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v2 course_5) (FRIENDS_WITH $v2 $v0))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_5) (FRIENDS_WITH $_0 $_1) (ADVISED_BY $_1 $_2)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v2 course_9) (FRIENDS_WITH $v2 $v0))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_9) (FRIENDS_WITH $_0 $_1) (ADVISED_BY $_1 $_2)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (ENROLLED_IN $v2 $v3) (FRIENDS_WITH $v2 $v0))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (FRIENDS_WITH $_0 $_2) (ADVISED_BY $_2 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (FRIENDS_WITH $v2 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (ADVISED_BY $_2 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (FRIENDS_WITH $v3 $v0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_1) (ADVISED_BY $_1 $_3)) 102)",
+      "support": 102,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (FRIENDS_WITH $v3 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_1 $_2) (ADVISED_BY $_2 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (FRIENDS_WITH $_1 $_0) (ADVISED_BY $_0 $_2)) 16)",
+      "support": 16,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v2 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (FRIENDS_WITH $_0 $_1) (ADVISED_BY $_1 $_2)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (FRIENDS_WITH $_1 $_0) (ADVISED_BY $_0 $_2)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v2 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (FRIENDS_WITH $_0 $_1) (ADVISED_BY $_1 $_2)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v0 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (FRIENDS_WITH $_1 $_0) (ADVISED_BY $_0 $_2)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v2 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (FRIENDS_WITH $_0 $_1) (ADVISED_BY $_1 $_2)) 11)",
+      "support": 11,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v0 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (ADVISED_BY $_0 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v2 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (ADVISED_BY $_2 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 laptop_0) (ADVISED_BY $_0 $_2)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 laptop_4) (ADVISED_BY $_0 $_2)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 laptop_2) (ADVISED_BY $_0 $_2)) 11)",
+      "support": 11,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (USES $v0 $v2) (USES $v0 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 $_2) (ADVISED_BY $_0 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ADVISED_BY $v0 $v1) (USES $v0 $v2) (USES $v3 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_2 $_1) (ADVISED_BY $_2 $_3)) 664)",
+      "support": 664,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_2))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (MAJORS_IN $_0 $_2) (MAJORS_IN $_0 dept_2)) 19)",
+      "support": 19,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 $_2) (MAJORS_IN $_0 dept_2)) 57)",
+      "support": 57,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_0 $_2) (MAJORS_IN $_0 dept_2)) 19)",
+      "support": 19,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (MAJORS_IN $v1 dept_2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_1 $_2) (MAJORS_IN $_1 dept_2)) 19)",
+      "support": 19,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 dept_2) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (MAJORS_IN $_0 $_2) (MAJORS_IN $_0 dept_2)) 19)",
+      "support": 19,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_18) (MAJORS_IN $v0 dept_2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_18) (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 dept_2)) 24)",
+      "support": 24,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (MAJORS_IN $v0 dept_2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 $_2) (MAJORS_IN $_0 dept_2)) 171)",
+      "support": 171,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (MAJORS_IN $v0 dept_2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_2 $_1) (MAJORS_IN $_2 dept_2)) 514)",
+      "support": 514,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 dept_2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 $_2) (MAJORS_IN $_0 dept_2)) 57)",
+      "support": 57,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v0 dept_2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 $_2) (MAJORS_IN $_1 dept_2)) 57)",
+      "support": 57,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_2) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 dept_2)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_2) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 dept_2)) 18)",
+      "support": 18,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_2) (USES $v0 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 dept_2)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_2) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (ENROLLED_IN $_0 $_2) (MAJORS_IN $_0 dept_2)) 57)",
+      "support": 57,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 dept_2) (MAJORS_IN $v1 $v2))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (FRIENDS_WITH $_2 $_0) (MAJORS_IN $_2 dept_2)) 19)",
+      "support": 19,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v2 dept_2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (FRIENDS_WITH $_2 $_0) (MAJORS_IN $_2 dept_2)) 57)",
+      "support": 57,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (MAJORS_IN $v0 dept_2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_0) (MAJORS_IN $_2 dept_2)) 19)",
+      "support": 19,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 dept_2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_0 dept_2)) 19)",
+      "support": 19,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (MAJORS_IN $v0 dept_2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_1) (MAJORS_IN $_2 dept_2)) 32)",
+      "support": 32,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (MAJORS_IN $v1 dept_2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_1 $_2) (MAJORS_IN $_1 dept_2)) 19)",
+      "support": 19,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 dept_2) (USES $v1 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (MAJORS_IN $_2 dept_2)) 19)",
+      "support": 19,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 dept_2) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_0 dept_2)) 19)",
+      "support": 19,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v1 dept_2))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_2 dept_2)) 19)",
+      "support": 19,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v2 dept_2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_2 dept_2)) 57)",
+      "support": 57,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v1 dept_2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_2 dept_2)) 19)",
+      "support": 19,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (MAJORS_IN $v1 dept_2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_1) (MAJORS_IN $_1 dept_2)) 31)",
+      "support": 31,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (MAJORS_IN $v2 dept_2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_1 $_2) (MAJORS_IN $_2 dept_2)) 18)",
+      "support": 18,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 dept_2) (USES $v1 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (MAJORS_IN $_0 dept_2)) 19)",
+      "support": 19,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 dept_2) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_2 dept_2)) 19)",
+      "support": 19,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 dept_2) (USES $v0 $v1) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 $_2) (MAJORS_IN $_0 dept_2)) 19)",
+      "support": 19,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 dept_2) (USES $v0 $v1) (USES $v2 $v1))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_2 $_1) (MAJORS_IN $_2 dept_2)) 227)",
+      "support": 227,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_1))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (MAJORS_IN $_0 $_2) (MAJORS_IN $_0 dept_1)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 $_2) (MAJORS_IN $_0 dept_1)) 39)",
+      "support": 39,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_1))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_0 $_2) (MAJORS_IN $_0 dept_1)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (MAJORS_IN $v1 dept_1))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_1 $_2) (MAJORS_IN $_1 dept_1)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 dept_1) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (MAJORS_IN $_0 $_2) (MAJORS_IN $_0 dept_1)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_21) (MAJORS_IN $v0 dept_1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_21) (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 dept_1)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_5) (MAJORS_IN $v0 dept_1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_5) (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 dept_1)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_9) (MAJORS_IN $v0 dept_1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_9) (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 dept_1)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (MAJORS_IN $v0 dept_1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 $_2) (MAJORS_IN $_0 dept_1)) 117)",
+      "support": 117,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (MAJORS_IN $v0 dept_1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_2 $_1) (MAJORS_IN $_2 dept_1)) 353)",
+      "support": 353,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 dept_1))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 $_2) (MAJORS_IN $_0 dept_1)) 39)",
+      "support": 39,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v0 dept_1))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 $_2) (MAJORS_IN $_1 dept_1)) 36)",
+      "support": 36,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_1) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (ENROLLED_IN $_0 $_2) (MAJORS_IN $_0 dept_1)) 39)",
+      "support": 39,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 dept_1) (MAJORS_IN $v1 $v2))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (FRIENDS_WITH $_2 $_0) (MAJORS_IN $_2 dept_1)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v2 dept_1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (FRIENDS_WITH $_2 $_0) (MAJORS_IN $_2 dept_1)) 39)",
+      "support": 39,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (MAJORS_IN $v0 dept_1))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_0) (MAJORS_IN $_2 dept_1)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 dept_1))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_0 dept_1)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (MAJORS_IN $v0 dept_1))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_1) (MAJORS_IN $_2 dept_1)) 24)",
+      "support": 24,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (MAJORS_IN $v1 dept_1))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_1 $_2) (MAJORS_IN $_1 dept_1)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 dept_1) (USES $v1 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (MAJORS_IN $_2 dept_1)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 dept_1) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_0 dept_1)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v1 dept_1))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_2 dept_1)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v2 dept_1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_2 dept_1)) 36)",
+      "support": 36,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v1 dept_1))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_2 dept_1)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (MAJORS_IN $v1 dept_1))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_1) (MAJORS_IN $_1 dept_1)) 18)",
+      "support": 18,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (MAJORS_IN $v2 dept_1))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_1 $_2) (MAJORS_IN $_2 dept_1)) 14)",
+      "support": 14,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 dept_1) (USES $v1 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (MAJORS_IN $_0 dept_1)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 dept_1) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_2 dept_1)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 dept_1) (USES $v0 $v1) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 $_2) (MAJORS_IN $_0 dept_1)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 dept_1) (USES $v0 $v1) (USES $v2 $v1))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_2 $_1) (MAJORS_IN $_2 dept_1)) 131)",
+      "support": 131,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_3))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (MAJORS_IN $_0 $_2) (MAJORS_IN $_0 dept_3)) 16)",
+      "support": 16,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 $_2) (MAJORS_IN $_0 dept_3)) 48)",
+      "support": 48,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_0 $_2) (MAJORS_IN $_0 dept_3)) 16)",
+      "support": 16,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (MAJORS_IN $v1 dept_3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_1 $_2) (MAJORS_IN $_1 dept_3)) 17)",
+      "support": 17,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 dept_3) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (MAJORS_IN $_0 $_2) (MAJORS_IN $_0 dept_3)) 16)",
+      "support": 16,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_21) (MAJORS_IN $v0 dept_3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_21) (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 dept_3)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_5) (MAJORS_IN $v0 dept_3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_5) (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 dept_3)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_9) (MAJORS_IN $v0 dept_3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_9) (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 dept_3)) 18)",
+      "support": 18,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (MAJORS_IN $v0 dept_3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 $_2) (MAJORS_IN $_0 dept_3)) 144)",
+      "support": 144,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (MAJORS_IN $v0 dept_3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_2 $_1) (MAJORS_IN $_2 dept_3)) 415)",
+      "support": 415,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 dept_3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 $_2) (MAJORS_IN $_0 dept_3)) 48)",
+      "support": 48,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v0 dept_3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 $_2) (MAJORS_IN $_1 dept_3)) 51)",
+      "support": 51,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_3) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 dept_3)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_3) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 dept_3)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_3) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (ENROLLED_IN $_0 $_2) (MAJORS_IN $_0 dept_3)) 48)",
+      "support": 48,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 dept_3) (MAJORS_IN $v1 $v2))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (FRIENDS_WITH $_2 $_0) (MAJORS_IN $_2 dept_3)) 16)",
+      "support": 16,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_18) (FRIENDS_WITH $v1 $v0) (MAJORS_IN $v1 dept_3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_18) (FRIENDS_WITH $_1 $_0) (MAJORS_IN $_1 dept_3)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v2 dept_3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (FRIENDS_WITH $_2 $_0) (MAJORS_IN $_2 dept_3)) 48)",
+      "support": 48,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (MAJORS_IN $v0 dept_3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_0) (MAJORS_IN $_2 dept_3)) 16)",
+      "support": 16,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 dept_3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_0 dept_3)) 16)",
+      "support": 16,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (MAJORS_IN $v0 dept_3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_1) (MAJORS_IN $_2 dept_3)) 28)",
+      "support": 28,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (MAJORS_IN $v1 dept_3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_1 $_2) (MAJORS_IN $_1 dept_3)) 17)",
+      "support": 17,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 dept_3) (USES $v1 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (MAJORS_IN $_2 dept_3)) 16)",
+      "support": 16,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 dept_3) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_0 dept_3)) 16)",
+      "support": 16,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v1 dept_3))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_2 dept_3)) 17)",
+      "support": 17,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v2 dept_3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_2 dept_3)) 51)",
+      "support": 51,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v1 dept_3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_2 dept_3)) 17)",
+      "support": 17,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (MAJORS_IN $v1 dept_3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_1) (MAJORS_IN $_1 dept_3)) 27)",
+      "support": 27,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (MAJORS_IN $v2 dept_3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_1 $_2) (MAJORS_IN $_2 dept_3)) 19)",
+      "support": 19,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 dept_3) (USES $v1 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (MAJORS_IN $_0 dept_3)) 17)",
+      "support": 17,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 dept_3) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_2 dept_3)) 17)",
+      "support": 17,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 dept_3) (USES $v0 $v1) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 $_2) (MAJORS_IN $_0 dept_3)) 16)",
+      "support": 16,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 dept_3) (USES $v0 $v1) (USES $v2 $v1))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_2 $_1) (MAJORS_IN $_2 dept_3)) 182)",
+      "support": 182,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_0))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (MAJORS_IN $_0 $_2) (MAJORS_IN $_0 dept_0)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_0))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 $_2) (MAJORS_IN $_0 dept_0)) 36)",
+      "support": 36,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 dept_0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_0 $_2) (MAJORS_IN $_0 dept_0)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (MAJORS_IN $v1 dept_0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_1 $_2) (MAJORS_IN $_1 dept_0)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 dept_0) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (MAJORS_IN $_0 $_2) (MAJORS_IN $_0 dept_0)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (MAJORS_IN $v0 dept_0))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 $_2) (MAJORS_IN $_0 dept_0)) 108)",
+      "support": 108,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (MAJORS_IN $v0 dept_0))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_2 $_1) (MAJORS_IN $_2 dept_0)) 296)",
+      "support": 296,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 dept_0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 $_2) (MAJORS_IN $_0 dept_0)) 36)",
+      "support": 36,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v0 dept_0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 $_2) (MAJORS_IN $_1 dept_0)) 36)",
+      "support": 36,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 dept_0) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (ENROLLED_IN $_0 $_2) (MAJORS_IN $_0 dept_0)) 36)",
+      "support": 36,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 dept_0) (MAJORS_IN $v1 $v2))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (FRIENDS_WITH $_2 $_0) (MAJORS_IN $_2 dept_0)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v2 dept_0))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (FRIENDS_WITH $_2 $_0) (MAJORS_IN $_2 dept_0)) 36)",
+      "support": 36,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (MAJORS_IN $v0 dept_0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_0) (MAJORS_IN $_2 dept_0)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 dept_0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_0 dept_0)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (MAJORS_IN $v0 dept_0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_1) (MAJORS_IN $_2 dept_0)) 18)",
+      "support": 18,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (MAJORS_IN $v1 dept_0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_1 $_2) (MAJORS_IN $_1 dept_0)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 dept_0) (USES $v1 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (MAJORS_IN $_2 dept_0)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 dept_0) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_0 dept_0)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v1 dept_0))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_2 dept_0)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v2 dept_0))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_2 dept_0)) 36)",
+      "support": 36,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v1 dept_0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_2 dept_0)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (MAJORS_IN $v1 dept_0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_1) (MAJORS_IN $_1 dept_0)) 26)",
+      "support": 26,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 dept_0) (USES $v1 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (MAJORS_IN $_0 dept_0)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 dept_0) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_2 dept_0)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 dept_0) (USES $v0 $v1) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 $_2) (MAJORS_IN $_0 dept_0)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 dept_0) (USES $v0 $v1) (USES $v2 $v1))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_2 $_1) (MAJORS_IN $_2 dept_0)) 124)",
+      "support": 124,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 $v3))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (MAJORS_IN $_0 $_2) (MAJORS_IN $_0 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_18) (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_18) (MAJORS_IN $_0 $_1) (MAJORS_IN $_0 $_2)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_21) (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_21) (MAJORS_IN $_0 $_1) (MAJORS_IN $_0 $_2)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_5) (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_5) (MAJORS_IN $_0 $_1) (MAJORS_IN $_0 $_2)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_9) (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_9) (MAJORS_IN $_0 $_1) (MAJORS_IN $_0 $_2)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 $v3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 $_2) (MAJORS_IN $_0 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v0 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_0 $_2) (MAJORS_IN $_0 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (MAJORS_IN $v1 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_1 $_2) (MAJORS_IN $_1 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (MAJORS_IN $_0 $_1) (MAJORS_IN $_0 $_2)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (MAJORS_IN $_0 $_1) (MAJORS_IN $_0 $_2)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (MAJORS_IN $_0 $_1) (MAJORS_IN $_0 $_2)) 11)",
+      "support": 11,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (MAJORS_IN $_0 $_2) (MAJORS_IN $_0 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1) (MAJORS_IN $v3 $v1))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (MAJORS_IN $_2 $_1) (MAJORS_IN $_3 $_1)) 14880)",
+      "support": 14880,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_18) (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_18) (MAJORS_IN $_0 $_1) (MAJORS_IN $_2 $_1)) 246)",
+      "support": 246,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_21) (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_21) (MAJORS_IN $_0 $_1) (MAJORS_IN $_2 $_1)) 182)",
+      "support": 182,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_5) (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_5) (MAJORS_IN $_0 $_1) (MAJORS_IN $_2 $_1)) 148)",
+      "support": 148,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_9) (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_9) (MAJORS_IN $_0 $_1) (MAJORS_IN $_2 $_1)) 199)",
+      "support": 199,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v3 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 $_2) (MAJORS_IN $_3 $_2)) 2790)",
+      "support": 2790,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v1 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_0 $_2) (MAJORS_IN $_1 $_2)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v3 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_0 $_2) (MAJORS_IN $_3 $_2)) 930)",
+      "support": 930,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (MAJORS_IN $v3 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_1 $_2) (MAJORS_IN $_3 $_2)) 933)",
+      "support": 933,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (MAJORS_IN $_0 $_1) (MAJORS_IN $_2 $_1)) 209)",
+      "support": 209,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (MAJORS_IN $_0 $_1) (MAJORS_IN $_2 $_1)) 240)",
+      "support": 240,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1) (USES $v0 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (MAJORS_IN $_0 $_1) (MAJORS_IN $_2 $_1)) 175)",
+      "support": 175,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (MAJORS_IN $v2 $v1) (USES $v0 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (MAJORS_IN $_0 $_2) (MAJORS_IN $_3 $_2)) 930)",
+      "support": 930,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_18) (MAJORS_IN $v0 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 course_18) (MAJORS_IN $_0 $_2)) 45)",
+      "support": 45,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_18) (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 course_18) (MAJORS_IN $_0 $_2)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_18) (FRIENDS_WITH $v1 $v0) (MAJORS_IN $v0 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 course_18) (MAJORS_IN $_1 $_2)) 18)",
+      "support": 18,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_18) (MAJORS_IN $v0 $v1) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (ENROLLED_IN $_0 course_18) (MAJORS_IN $_0 $_2)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_21) (MAJORS_IN $v0 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 course_21) (MAJORS_IN $_0 $_2)) 36)",
+      "support": 36,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_21) (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 course_21) (MAJORS_IN $_0 $_2)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_21) (FRIENDS_WITH $v1 $v0) (MAJORS_IN $v0 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 course_21) (MAJORS_IN $_1 $_2)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_21) (MAJORS_IN $v0 $v1) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (ENROLLED_IN $_0 course_21) (MAJORS_IN $_0 $_2)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_5) (MAJORS_IN $v0 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 course_5) (MAJORS_IN $_0 $_2)) 30)",
+      "support": 30,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_5) (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 course_5) (MAJORS_IN $_0 $_2)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_5) (FRIENDS_WITH $v1 $v0) (MAJORS_IN $v0 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 course_5) (MAJORS_IN $_1 $_2)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_5) (MAJORS_IN $v0 $v1) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (ENROLLED_IN $_0 course_5) (MAJORS_IN $_0 $_2)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_9) (MAJORS_IN $v0 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 course_9) (MAJORS_IN $_0 $_2)) 39)",
+      "support": 39,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_9) (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 course_9) (MAJORS_IN $_0 $_2)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_9) (FRIENDS_WITH $v1 $v0) (MAJORS_IN $v0 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 course_9) (MAJORS_IN $_1 $_2)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_9) (MAJORS_IN $v0 $v1) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (ENROLLED_IN $_0 course_9) (MAJORS_IN $_0 $_2)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (MAJORS_IN $v0 $v3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 $_2) (MAJORS_IN $_0 $_3)) 540)",
+      "support": 540,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (MAJORS_IN $v0 $v3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_2 $_1) (MAJORS_IN $_2 $_3)) 1578)",
+      "support": 1578,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 $_2) (MAJORS_IN $_0 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v0 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 $_2) (MAJORS_IN $_1 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 $_2)) 39)",
+      "support": 39,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 $_2)) 45)",
+      "support": 45,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (ENROLLED_IN $_0 $_1) (MAJORS_IN $_0 $_2)) 33)",
+      "support": 33,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (ENROLLED_IN $_0 $_2) (MAJORS_IN $_0 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (MAJORS_IN $v1 $v3))",
+      "raw": "(supportOf (, (MAJORS_IN $_0 $_1) (FRIENDS_WITH $_2 $_0) (MAJORS_IN $_2 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_18) (FRIENDS_WITH $v1 $v0) (MAJORS_IN $v1 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_18) (FRIENDS_WITH $_1 $_0) (MAJORS_IN $_1 $_2)) 18)",
+      "support": 18,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_21) (FRIENDS_WITH $v1 $v0) (MAJORS_IN $v1 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_21) (FRIENDS_WITH $_1 $_0) (MAJORS_IN $_1 $_2)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_5) (FRIENDS_WITH $v1 $v0) (MAJORS_IN $v1 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_5) (FRIENDS_WITH $_1 $_0) (MAJORS_IN $_1 $_2)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_9) (FRIENDS_WITH $v1 $v0) (MAJORS_IN $v1 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_9) (FRIENDS_WITH $_1 $_0) (MAJORS_IN $_1 $_2)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (MAJORS_IN $v2 $v3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (FRIENDS_WITH $_2 $_0) (MAJORS_IN $_2 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (MAJORS_IN $v0 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_0) (MAJORS_IN $_2 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v0 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_0 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (MAJORS_IN $v0 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_1) (MAJORS_IN $_2 $_3)) 102)",
+      "support": 102,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (MAJORS_IN $v1 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_1 $_2) (MAJORS_IN $_1 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v1 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (FRIENDS_WITH $_1 $_0) (MAJORS_IN $_1 $_2)) 16)",
+      "support": 16,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_0 $_2)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v1 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (FRIENDS_WITH $_1 $_0) (MAJORS_IN $_1 $_2)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_0 $_2)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v1 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (FRIENDS_WITH $_1 $_0) (MAJORS_IN $_1 $_2)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_0 $_2)) 11)",
+      "support": 11,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v1 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (MAJORS_IN $_2 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v0 $v2) (USES $v0 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_0 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_18) (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_18) (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_1 $_2)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_21) (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_21) (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_1 $_2)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_5) (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_5) (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_1 $_2)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_9) (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 course_9) (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_1 $_2)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v2 $v3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_2 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (MAJORS_IN $v1 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_2 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (MAJORS_IN $v1 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_1) (MAJORS_IN $_1 $_3)) 102)",
+      "support": 102,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (MAJORS_IN $v2 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_1 $_2) (MAJORS_IN $_2 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (USES $v1 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (FRIENDS_WITH $_1 $_0) (MAJORS_IN $_0 $_2)) 16)",
+      "support": 16,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_1 $_2)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (USES $v1 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (FRIENDS_WITH $_1 $_0) (MAJORS_IN $_0 $_2)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_1 $_2)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (USES $v1 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (FRIENDS_WITH $_1 $_0) (MAJORS_IN $_0 $_2)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (USES $v0 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (FRIENDS_WITH $_0 $_1) (MAJORS_IN $_1 $_2)) 11)",
+      "support": 11,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (USES $v1 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (MAJORS_IN $_0 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (MAJORS_IN $v1 $v2) (USES $v0 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (MAJORS_IN $_2 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 laptop_0) (MAJORS_IN $_0 $_2)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 laptop_4) (MAJORS_IN $_0 $_2)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 laptop_2) (MAJORS_IN $_0 $_2)) 11)",
+      "support": 11,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (USES $v0 $v2) (USES $v0 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 $_2) (MAJORS_IN $_0 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (MAJORS_IN $v0 $v1) (USES $v0 $v2) (USES $v3 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_2 $_1) (MAJORS_IN $_2 $_3)) 664)",
+      "support": 664,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (ENROLLED_IN $v0 course_18))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 $_2) (ENROLLED_IN $_0 course_18)) 135)",
+      "support": 135,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_18) (FRIENDS_WITH $v0 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 $_2) (ENROLLED_IN $_0 course_18)) 45)",
+      "support": 45,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_18) (FRIENDS_WITH $v2 $v0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 $_2) (ENROLLED_IN $_1 course_18)) 54)",
+      "support": 54,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_18) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 course_18)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_18) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (ENROLLED_IN $_0 $_2) (ENROLLED_IN $_0 course_18)) 45)",
+      "support": 45,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 course_18) (FRIENDS_WITH $v2 $v0))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (FRIENDS_WITH $_2 $_0) (ENROLLED_IN $_2 course_18)) 45)",
+      "support": 45,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_18) (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_0) (ENROLLED_IN $_2 course_18)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_18) (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (ENROLLED_IN $_0 course_18)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_18) (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_1) (ENROLLED_IN $_2 course_18)) 27)",
+      "support": 27,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_18) (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_1 $_2) (ENROLLED_IN $_1 course_18)) 18)",
+      "support": 18,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_18) (FRIENDS_WITH $v0 $v1) (USES $v1 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (ENROLLED_IN $_2 course_18)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_18) (FRIENDS_WITH $v0 $v1) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (ENROLLED_IN $_0 course_18)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 course_18) (FRIENDS_WITH $v0 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (FRIENDS_WITH $_0 $_2) (ENROLLED_IN $_2 course_18)) 54)",
+      "support": 54,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_18) (FRIENDS_WITH $v1 $v0) (FRIENDS_WITH $v1 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (ENROLLED_IN $_2 course_18)) 18)",
+      "support": 18,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_18) (FRIENDS_WITH $v1 $v0) (FRIENDS_WITH $v2 $v0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_1) (ENROLLED_IN $_1 course_18)) 32)",
+      "support": 32,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_18) (FRIENDS_WITH $v1 $v0) (FRIENDS_WITH $v2 $v1))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_1 $_2) (ENROLLED_IN $_2 course_18)) 21)",
+      "support": 21,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_18) (FRIENDS_WITH $v1 $v0) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (ENROLLED_IN $_0 course_18)) 18)",
+      "support": 18,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_18) (FRIENDS_WITH $v1 $v0) (USES $v1 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (ENROLLED_IN $_2 course_18)) 18)",
+      "support": 18,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_18) (USES $v0 $v1) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 $_2) (ENROLLED_IN $_0 course_18)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_18) (USES $v0 $v1) (USES $v2 $v1))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_2 $_1) (ENROLLED_IN $_2 course_18)) 169)",
+      "support": 169,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (ENROLLED_IN $v0 course_21))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 $_2) (ENROLLED_IN $_0 course_21)) 108)",
+      "support": 108,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_21) (FRIENDS_WITH $v0 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 $_2) (ENROLLED_IN $_0 course_21)) 36)",
+      "support": 36,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_21) (FRIENDS_WITH $v2 $v0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 $_2) (ENROLLED_IN $_1 course_21)) 36)",
+      "support": 36,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_21) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 course_21)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_21) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (ENROLLED_IN $_0 $_2) (ENROLLED_IN $_0 course_21)) 36)",
+      "support": 36,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 course_21) (FRIENDS_WITH $v2 $v0))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (FRIENDS_WITH $_2 $_0) (ENROLLED_IN $_2 course_21)) 36)",
+      "support": 36,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_21) (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_0) (ENROLLED_IN $_2 course_21)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_21) (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (ENROLLED_IN $_0 course_21)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_21) (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_1) (ENROLLED_IN $_2 course_21)) 20)",
+      "support": 20,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_21) (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_1 $_2) (ENROLLED_IN $_1 course_21)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_21) (FRIENDS_WITH $v0 $v1) (USES $v1 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (ENROLLED_IN $_2 course_21)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_21) (FRIENDS_WITH $v0 $v1) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (ENROLLED_IN $_0 course_21)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 course_21) (FRIENDS_WITH $v0 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (FRIENDS_WITH $_0 $_2) (ENROLLED_IN $_2 course_21)) 36)",
+      "support": 36,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_21) (FRIENDS_WITH $v1 $v0) (FRIENDS_WITH $v1 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (ENROLLED_IN $_2 course_21)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_21) (FRIENDS_WITH $v1 $v0) (FRIENDS_WITH $v2 $v0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_1) (ENROLLED_IN $_1 course_21)) 20)",
+      "support": 20,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_21) (FRIENDS_WITH $v1 $v0) (FRIENDS_WITH $v2 $v1))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_1 $_2) (ENROLLED_IN $_2 course_21)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_21) (FRIENDS_WITH $v1 $v0) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (ENROLLED_IN $_0 course_21)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_21) (FRIENDS_WITH $v1 $v0) (USES $v1 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (ENROLLED_IN $_2 course_21)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_21) (USES $v0 $v1) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 $_2) (ENROLLED_IN $_0 course_21)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_21) (USES $v0 $v1) (USES $v2 $v1))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_2 $_1) (ENROLLED_IN $_2 course_21)) 131)",
+      "support": 131,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (ENROLLED_IN $v0 course_5))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 $_2) (ENROLLED_IN $_0 course_5)) 90)",
+      "support": 90,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_5) (FRIENDS_WITH $v0 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 $_2) (ENROLLED_IN $_0 course_5)) 30)",
+      "support": 30,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_5) (FRIENDS_WITH $v2 $v0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 $_2) (ENROLLED_IN $_1 course_5)) 30)",
+      "support": 30,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_5) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 course_5)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_5) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (ENROLLED_IN $_0 $_2) (ENROLLED_IN $_0 course_5)) 30)",
+      "support": 30,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 course_5) (FRIENDS_WITH $v2 $v0))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (FRIENDS_WITH $_2 $_0) (ENROLLED_IN $_2 course_5)) 30)",
+      "support": 30,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_5) (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_0) (ENROLLED_IN $_2 course_5)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_5) (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (ENROLLED_IN $_0 course_5)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_5) (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_1) (ENROLLED_IN $_2 course_5)) 20)",
+      "support": 20,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_5) (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_1 $_2) (ENROLLED_IN $_1 course_5)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_5) (FRIENDS_WITH $v0 $v1) (USES $v1 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (ENROLLED_IN $_2 course_5)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_5) (FRIENDS_WITH $v0 $v1) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (ENROLLED_IN $_0 course_5)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 course_5) (FRIENDS_WITH $v0 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (FRIENDS_WITH $_0 $_2) (ENROLLED_IN $_2 course_5)) 30)",
+      "support": 30,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_5) (FRIENDS_WITH $v1 $v0) (FRIENDS_WITH $v1 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (ENROLLED_IN $_2 course_5)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_5) (FRIENDS_WITH $v1 $v0) (FRIENDS_WITH $v2 $v0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_1) (ENROLLED_IN $_1 course_5)) 16)",
+      "support": 16,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_5) (FRIENDS_WITH $v1 $v0) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (ENROLLED_IN $_0 course_5)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_5) (FRIENDS_WITH $v1 $v0) (USES $v1 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (ENROLLED_IN $_2 course_5)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_5) (USES $v0 $v1) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 $_2) (ENROLLED_IN $_0 course_5)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_5) (USES $v0 $v1) (USES $v2 $v1))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_2 $_1) (ENROLLED_IN $_2 course_5)) 125)",
+      "support": 125,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (ENROLLED_IN $v0 course_9))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 $_2) (ENROLLED_IN $_0 course_9)) 117)",
+      "support": 117,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_9) (FRIENDS_WITH $v0 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 $_2) (ENROLLED_IN $_0 course_9)) 39)",
+      "support": 39,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_9) (FRIENDS_WITH $v2 $v0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 $_2) (ENROLLED_IN $_1 course_9)) 36)",
+      "support": 36,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_9) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 course_9)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 course_9) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (ENROLLED_IN $_0 $_2) (ENROLLED_IN $_0 course_9)) 39)",
+      "support": 39,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 course_9) (FRIENDS_WITH $v2 $v0))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (FRIENDS_WITH $_2 $_0) (ENROLLED_IN $_2 course_9)) 39)",
+      "support": 39,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_9) (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_0) (ENROLLED_IN $_2 course_9)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_9) (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (ENROLLED_IN $_0 course_9)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_9) (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_1) (ENROLLED_IN $_2 course_9)) 23)",
+      "support": 23,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_9) (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_1 $_2) (ENROLLED_IN $_1 course_9)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_9) (FRIENDS_WITH $v0 $v1) (USES $v1 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (ENROLLED_IN $_2 course_9)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_9) (FRIENDS_WITH $v0 $v1) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (ENROLLED_IN $_0 course_9)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 course_9) (FRIENDS_WITH $v0 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (FRIENDS_WITH $_0 $_2) (ENROLLED_IN $_2 course_9)) 36)",
+      "support": 36,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_9) (FRIENDS_WITH $v1 $v0) (FRIENDS_WITH $v1 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (ENROLLED_IN $_2 course_9)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_9) (FRIENDS_WITH $v1 $v0) (FRIENDS_WITH $v2 $v0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_1) (ENROLLED_IN $_1 course_9)) 16)",
+      "support": 16,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_9) (FRIENDS_WITH $v1 $v0) (FRIENDS_WITH $v2 $v1))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_1 $_2) (ENROLLED_IN $_2 course_9)) 17)",
+      "support": 17,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_9) (FRIENDS_WITH $v1 $v0) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (ENROLLED_IN $_0 course_9)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_9) (FRIENDS_WITH $v1 $v0) (USES $v1 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (ENROLLED_IN $_2 course_9)) 12)",
+      "support": 12,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_9) (USES $v0 $v1) (USES $v0 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 $_2) (ENROLLED_IN $_0 course_9)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 course_9) (USES $v0 $v1) (USES $v2 $v1))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_2 $_1) (ENROLLED_IN $_2 course_9)) 149)",
+      "support": 149,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (ENROLLED_IN $v0 $v3))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 $_2) (ENROLLED_IN $_0 $_3)) 1620)",
+      "support": 1620,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (FRIENDS_WITH $v0 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 $_2) (ENROLLED_IN $_0 $_3)) 540)",
+      "support": 540,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (FRIENDS_WITH $v3 $v0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 $_2) (ENROLLED_IN $_1 $_3)) 540)",
+      "support": 540,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 $_2)) 117)",
+      "support": 117,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 $_2)) 135)",
+      "support": 135,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (USES $v0 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_0 $_2)) 99)",
+      "support": 99,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v0 $v2) (USES $v0 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (ENROLLED_IN $_0 $_2) (ENROLLED_IN $_0 $_3)) 540)",
+      "support": 540,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (ENROLLED_IN $v3 $v1))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_2 $_1) (ENROLLED_IN $_3 $_1)) 15522)",
+      "support": 15522,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (FRIENDS_WITH $v0 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 $_2) (ENROLLED_IN $_1 $_2)) 21)",
+      "support": 21,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (FRIENDS_WITH $v0 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 $_2) (ENROLLED_IN $_3 $_2)) 1578)",
+      "support": 1578,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (FRIENDS_WITH $v3 $v0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 $_2) (ENROLLED_IN $_3 $_2)) 1626)",
+      "support": 1626,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_2 $_1)) 358)",
+      "support": 358,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_2 $_1)) 387)",
+      "support": 387,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (USES $v0 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (ENROLLED_IN $_0 $_1) (ENROLLED_IN $_2 $_1)) 302)",
+      "support": 302,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v1) (USES $v0 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (ENROLLED_IN $_0 $_2) (ENROLLED_IN $_3 $_2)) 1578)",
+      "support": 1578,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (ENROLLED_IN $v2 $v3) (FRIENDS_WITH $v0 $v2))",
+      "raw": "(supportOf (, (ENROLLED_IN $_0 $_1) (FRIENDS_WITH $_2 $_0) (ENROLLED_IN $_2 $_3)) 540)",
+      "support": 540,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v2 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_0) (ENROLLED_IN $_2 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v0 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (ENROLLED_IN $_0 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v3 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_1) (ENROLLED_IN $_2 $_3)) 306)",
+      "support": 306,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v3 $v0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_1 $_2) (ENROLLED_IN $_1 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v2 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (FRIENDS_WITH $_1 $_0) (ENROLLED_IN $_1 $_2)) 48)",
+      "support": 48,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 $_2)) 39)",
+      "support": 39,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v2 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (FRIENDS_WITH $_1 $_0) (ENROLLED_IN $_1 $_2)) 45)",
+      "support": 45,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 $_2)) 45)",
+      "support": 45,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v2 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (FRIENDS_WITH $_1 $_0) (ENROLLED_IN $_1 $_2)) 30)",
+      "support": 30,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_0 $_2)) 33)",
+      "support": 33,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v2 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (ENROLLED_IN $_2 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (ENROLLED_IN $_0 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (FRIENDS_WITH $v2 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (ENROLLED_IN $_2 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (FRIENDS_WITH $v3 $v0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_1) (ENROLLED_IN $_1 $_3)) 306)",
+      "support": 306,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (FRIENDS_WITH $v3 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_1 $_2) (ENROLLED_IN $_2 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (FRIENDS_WITH $_1 $_0) (ENROLLED_IN $_0 $_2)) 48)",
+      "support": 48,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v2 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 $_2)) 39)",
+      "support": 39,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (FRIENDS_WITH $_1 $_0) (ENROLLED_IN $_0 $_2)) 45)",
+      "support": 45,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v2 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 $_2)) 45)",
+      "support": 45,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v0 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (FRIENDS_WITH $_1 $_0) (ENROLLED_IN $_0 $_2)) 30)",
+      "support": 30,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v2 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (FRIENDS_WITH $_0 $_1) (ENROLLED_IN $_1 $_2)) 33)",
+      "support": 33,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v0 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (ENROLLED_IN $_0 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (FRIENDS_WITH $v2 $v0) (USES $v2 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (ENROLLED_IN $_2 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 laptop_0) (ENROLLED_IN $_0 $_2)) 39)",
+      "support": 39,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 laptop_4) (ENROLLED_IN $_0 $_2)) 45)",
+      "support": 45,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 laptop_2) (ENROLLED_IN $_0 $_2)) 33)",
+      "support": 33,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (USES $v0 $v2) (USES $v0 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 $_2) (ENROLLED_IN $_0 $_3)) 180)",
+      "support": 180,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (ENROLLED_IN $v0 $v1) (USES $v0 $v2) (USES $v3 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_2 $_1) (ENROLLED_IN $_2 $_3)) 1992)",
+      "support": 1992,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (FRIENDS_WITH $v2 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_0) (FRIENDS_WITH $_3 $_2)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v3 $v0))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (FRIENDS_WITH $_3 $_0)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v1 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_3) (FRIENDS_WITH $_0 $_2)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (FRIENDS_WITH $v3 $v2))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_1) (FRIENDS_WITH $_3 $_2)) 92)",
+      "support": 92,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (FRIENDS_WITH $v3 $v1))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_1 $_2) (FRIENDS_WITH $_3 $_1)) 102)",
+      "support": 102,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (USES $v2 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (FRIENDS_WITH $_1 $_0) (FRIENDS_WITH $_2 $_1)) 17)",
+      "support": 17,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (USES $v1 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_0)) 16)",
+      "support": 16,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (FRIENDS_WITH $_1 $_2) (FRIENDS_WITH $_0 $_1)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (USES $v2 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (FRIENDS_WITH $_1 $_0) (FRIENDS_WITH $_2 $_1)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (USES $v1 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_0)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (FRIENDS_WITH $_1 $_2) (FRIENDS_WITH $_0 $_1)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (USES $v2 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (FRIENDS_WITH $_1 $_0) (FRIENDS_WITH $_2 $_1)) 11)",
+      "support": 11,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (USES $v1 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_0)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (USES $v0 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (FRIENDS_WITH $_1 $_2) (FRIENDS_WITH $_0 $_1)) 11)",
+      "support": 11,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (USES $v2 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (FRIENDS_WITH $_3 $_2)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (USES $v1 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (FRIENDS_WITH $_3 $_0)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v1 $v2) (USES $v0 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_3) (FRIENDS_WITH $_0 $_2)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (FRIENDS_WITH $v0 $v3))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2) (FRIENDS_WITH $_0 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v1 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (FRIENDS_WITH $_1 $_0) (FRIENDS_WITH $_1 $_2)) 16)",
+      "support": 16,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v1 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (FRIENDS_WITH $_1 $_0) (FRIENDS_WITH $_1 $_2)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v1 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (FRIENDS_WITH $_1 $_0) (FRIENDS_WITH $_1 $_2)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_0 $_2)) 11)",
+      "support": 11,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v1 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (FRIENDS_WITH $_2 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v0 $v2) (USES $v0 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (FRIENDS_WITH $_0 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (FRIENDS_WITH $v3 $v1))",
+      "raw": "(supportOf (, (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_1) (FRIENDS_WITH $_3 $_1)) 210)",
+      "support": 210,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (USES $v1 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (FRIENDS_WITH $_1 $_0) (FRIENDS_WITH $_2 $_0)) 30)",
+      "support": 30,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 laptop_0) (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_1)) 21)",
+      "support": 21,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (USES $v1 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (FRIENDS_WITH $_1 $_0) (FRIENDS_WITH $_2 $_0)) 25)",
+      "support": 25,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 laptop_4) (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_1)) 30)",
+      "support": 30,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (USES $v1 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (FRIENDS_WITH $_1 $_0) (FRIENDS_WITH $_2 $_0)) 14)",
+      "support": 14,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (USES $v0 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 laptop_2) (FRIENDS_WITH $_0 $_1) (FRIENDS_WITH $_2 $_1)) 18)",
+      "support": 18,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (USES $v1 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_2 $_0) (FRIENDS_WITH $_3 $_0)) 102)",
+      "support": 102,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (FRIENDS_WITH $v2 $v1) (USES $v0 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (FRIENDS_WITH $_0 $_2) (FRIENDS_WITH $_3 $_2)) 102)",
+      "support": 102,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (USES $v1 $v2) (USES $v1 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 laptop_0) (FRIENDS_WITH $_2 $_0)) 16)",
+      "support": 16,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (USES $v0 $v2) (USES $v1 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_2 laptop_0) (FRIENDS_WITH $_0 $_2)) 16)",
+      "support": 16,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 laptop_0) (FRIENDS_WITH $_0 $_2)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (USES $v0 laptop_0) (USES $v1 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_2 laptop_0) (FRIENDS_WITH $_2 $_0)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (USES $v1 $v2) (USES $v1 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 laptop_4) (FRIENDS_WITH $_2 $_0)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (USES $v0 $v2) (USES $v1 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_2 laptop_4) (FRIENDS_WITH $_0 $_2)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 laptop_4) (FRIENDS_WITH $_0 $_2)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (USES $v0 laptop_4) (USES $v1 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_2 laptop_4) (FRIENDS_WITH $_2 $_0)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (USES $v1 $v2) (USES $v1 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 laptop_2) (FRIENDS_WITH $_2 $_0)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (USES $v0 $v2) (USES $v1 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_2 laptop_2) (FRIENDS_WITH $_0 $_2)) 10)",
+      "support": 10,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 laptop_2) (FRIENDS_WITH $_0 $_2)) 11)",
+      "support": 11,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (USES $v0 laptop_2) (USES $v1 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_2 laptop_2) (FRIENDS_WITH $_2 $_0)) 11)",
+      "support": 11,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (USES $v1 $v2) (USES $v1 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 $_2) (FRIENDS_WITH $_3 $_0)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (USES $v0 $v2) (USES $v1 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_2 $_1) (FRIENDS_WITH $_0 $_2)) 11)",
+      "support": 11,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (USES $v0 $v2) (USES $v1 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_2 $_3) (FRIENDS_WITH $_0 $_2)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (USES $v1 $v2) (USES $v3 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_2 $_1) (FRIENDS_WITH $_3 $_2)) 674)",
+      "support": 674,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (USES $v0 $v2) (USES $v0 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 $_2) (FRIENDS_WITH $_0 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (FRIENDS_WITH $v0 $v1) (USES $v0 $v2) (USES $v3 $v2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_2 $_1) (FRIENDS_WITH $_2 $_3)) 664)",
+      "support": 664,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (USES $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_0))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 $_2) (USES $_0 laptop_0)) 13)",
+      "support": 13,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (USES $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_4))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 $_2) (USES $_0 laptop_4)) 15)",
+      "support": 15,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (USES $v0 $v1) (USES $v0 $v2) (USES $v0 laptop_2))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 $_2) (USES $_0 laptop_2)) 11)",
+      "support": 11,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (USES $v0 $v1) (USES $v0 $v2) (USES $v0 $v3))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_0 $_2) (USES $_0 $_3)) 60)",
+      "support": 60,
+      "surprisingness": null
+    },
+    {
+      "pattern": "(, (USES $v0 $v1) (USES $v2 $v1) (USES $v3 $v1))",
+      "raw": "(supportOf (, (USES $_0 $_1) (USES $_2 $_1) (USES $_3 $_1)) 7974)",
+      "support": 7974,
+      "surprisingness": null
+    }
+  ],
+  "verification": {
+    "checked": 768,
+    "ok": true,
+    "mismatches": []
+  },
+  "ranker": {
+    "strategy": "exhaustive",
+    "budget": 1.0,
+    "seed": 0,
+    "providers": null,
+    "batch_size": 60,
+    "max_retries": 2,
+    "timeout_s": 180.0,
+    "workers": 4,
+    "cache_dir": ".cache/llm",
+    "min_select": 1,
+    "samples": 3
+  },
+  "trace_summary": {
+    "t": 17.851,
+    "event": "finish",
+    "wall_seconds": 17.851,
+    "generated": 28422,
+    "unique": 15208,
+    "selected": 15208,
+    "kept": 768,
+    "llm_seconds": 0.0,
+    "verify_seconds": 14.399,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "fallback_batches": 0,
+    "batches": 0
+  }
+}

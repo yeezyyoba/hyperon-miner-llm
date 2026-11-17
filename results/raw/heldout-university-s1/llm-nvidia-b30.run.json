@@ -1,0 +1,17 @@
+{
+  "strategy": "llm",
+  "budget": 0.3,
+  "seed": 0,
+  "providers": [
+    "nvidia"
+  ],
+  "batch_size": 60,
+  "max_retries": 2,
+  "timeout_s": 180.0,
+  "workers": 4,
+  "cache_dir": "/Users/eyobnebyou/Documents/hyperon-miner-llm/.cache/llm",
+  "min_select": 1,
+  "samples": 3,
+  "trace_path": "/Users/eyobnebyou/Documents/hyperon-miner-llm/results/raw/heldout-university-s1/llm-nvidia-b30.trace.jsonl",
+  "dataset": "/Users/eyobnebyou/Documents/hyperon-miner-llm/experiments/data/heldout/university_s1_st80.metta"
+}

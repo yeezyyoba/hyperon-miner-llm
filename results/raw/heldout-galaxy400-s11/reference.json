@@ -1,0 +1,469 @@
+{
+ "config": {
+  "dataset": "experiments/data/heldout/galaxy_400_s11",
+  "minsup": 5,
+  "depth": 1,
+  "surp_mode": "isurp",
+  "normalize": true,
+  "db_ratio": 0.5,
+  "timeout": 1800,
+  "extra": {}
+ },
+ "frequent": 113,
+ "scored": 113,
+ "unscored": [],
+ "patterns": {
+  "(, (FEEDS_INTO $v0 $v1) (FEEDS_INTO $v0 $v2) (FEEDS_INTO $v0 $v3))": {
+   "support": 100,
+   "score": 0.0586046511627907
+  },
+  "(, (FEEDS_INTO $v0 $v1) (FEEDS_INTO $v2 $v1) (FEEDS_INTO $v3 $v1))": {
+   "support": 118,
+   "score": 0.11946089442515827
+  },
+  "(, (HAS_STEP $v0 $v1) (HAS_STEP $v2 $v1) (HAS_STEP Genome_Assembly_from_Hifi_reads_with_HiC_phasing_VGP4_e27e679f $v1))": {
+   "support": 5,
+   "score": 0.0
+  },
+  "(, (HAS_STEP $v0 $v1) (HAS_STEP Genome_Assembly_from_Hifi_reads_with_HiC_phasing_VGP4_e27e679f $v1) (WORKFLOW_USES_TOOL $v0 $v2))": {
+   "support": 10,
+   "score": 0.89
+  },
+  "(, (FEEDS_INTO $v0 $v1) (HAS_STEP $v2 $v0) (HAS_STEP $v2 $v3))": {
+   "support": 5,
+   "score": 0.0
+  },
+  "(, (FEEDS_INTO $v0 $v1) (HAS_STEP $v2 $v1) (HAS_STEP $v2 $v3))": {
+   "support": 5,
+   "score": 0.0
+  },
+  "(, (HAS_STEP $v0 $v1) (HAS_STEP $v0 $v2) (HAS_STEP $v0 $v3))": {
+   "support": 532,
+   "score": 0.40443213296398905
+  },
+  "(, (HAS_STEP $v0 $v1) (HAS_STEP $v0 $v2) (WORKFLOW_USES_TOOL $v0 $v3))": {
+   "support": 258,
+   "score": 0.9099999999999999
+  },
+  "(, (HAS_STEP $v0 $v1) (HAS_STEP $v2 $v1) (HAS_STEP $v3 $v1))": {
+   "support": 70,
+   "score": 0.0
+  },
+  "(, (HAS_STEP $v0 $v1) (HAS_STEP $v2 $v1) (WORKFLOW_USES_TOOL $v0 $v3))": {
+   "support": 88,
+   "score": 0.8250000000000001
+  },
+  "(, (FEEDS_INTO $v0 $v1) (HAS_STEP $v2 $v0) (WORKFLOW_USES_TOOL $v2 $v3))": {
+   "support": 9,
+   "score": 0.0
+  },
+  "(, (HAS_STEP $v0 $v1) (HAS_TOOL virology_b765de61 $v2) (WORKFLOW_USES_TOOL $v0 $v2))": {
+   "support": 5,
+   "score": 0.7799999999999999
+  },
+  "(, (HAS_STEP $v0 $v1) (HAS_TOOL vgp_assembly_v2_7fb545de $v2) (WORKFLOW_USES_TOOL $v0 $v2))": {
+   "support": 15,
+   "score": 0.7213333333333333
+  },
+  "(, (HAS_STEP $v0 $v1) (HAS_TOOL $v2 $v3) (WORKFLOW_USES_TOOL $v0 $v3))": {
+   "support": 34,
+   "score": 0.6505882352941176
+  },
+  "(, (HAS_STEP $v0 $v1) (STEP_USES_TOOL $v2 $v3) (WORKFLOW_USES_TOOL $v0 $v3))": {
+   "support": 39,
+   "score": 0.7799999999999999
+  },
+  "(, (HAS_STEP $v0 $v1) (TOOL_HAS_OUTPUT $v2 out_file1_32a3e2ea) (WORKFLOW_USES_TOOL $v0 $v2))": {
+   "support": 6,
+   "score": 0.67
+  },
+  "(, (HAS_STEP $v0 $v1) (TOOL_HAS_OUTPUT $v2 output_78e6221f) (WORKFLOW_USES_TOOL $v0 $v2))": {
+   "support": 9,
+   "score": 0.6333333333333333
+  },
+  "(, (HAS_STEP $v0 $v1) (TOOL_HAS_OUTPUT $v2 $v3) (WORKFLOW_USES_TOOL $v0 $v2))": {
+   "support": 26,
+   "score": 0.3399999999999999
+  },
+  "(, (HAS_STEP $v0 $v1) (WORKFLOW_USES_TOOL $v0 $v2) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $v2))": {
+   "support": 27,
+   "score": 0.9416666666666667
+  },
+  "(, (HAS_STEP $v0 $v1) (WORKFLOW_USES_TOOL $v0 $v2) (WORKFLOW_USES_TOOL $v0 $v3))": {
+   "support": 248,
+   "score": 0.9125000000000001
+  },
+  "(, (HAS_STEP $v0 $v1) (WORKFLOW_USES_TOOL $v0 $v2) (WORKFLOW_USES_TOOL $v3 $v2))": {
+   "support": 114,
+   "score": 0.8956140350877193
+  },
+  "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v2 $v1) (HAS_TOOL virology_b765de61 $v1))": {
+   "support": 8,
+   "score": 0.0
+  },
+  "(, (HAS_TOOL $v0 $v1) (HAS_TOOL virology_b765de61 $v1) (TOOL_HAS_OUTPUT $v1 $v2))": {
+   "support": 5,
+   "score": 0.766
+  },
+  "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v2 $v1) (HAS_TOOL vgp_assembly_v2_7fb545de $v1))": {
+   "support": 151,
+   "score": 0.7858249964773849
+  },
+  "(, (HAS_TOOL $v0 $v1) (HAS_TOOL vgp_assembly_v2_7fb545de $v1) (STEP_USES_TOOL $v2 $v1))": {
+   "support": 37,
+   "score": 0.8866891891891893
+  },
+  "(, (HAS_TOOL $v0 $v1) (HAS_TOOL vgp_assembly_v2_7fb545de $v1) (TOOL_HAS_OUTPUT $v1 output_78e6221f))": {
+   "support": 52,
+   "score": 0.9688461538461538
+  },
+  "(, (HAS_TOOL $v0 $v1) (HAS_TOOL vgp_assembly_v2_7fb545de $v1) (TOOL_HAS_OUTPUT $v1 $v2))": {
+   "support": 57,
+   "score": 0.8528947368421053
+  },
+  "(, (HAS_TOOL $v0 $v1) (HAS_TOOL vgp_assembly_v2_7fb545de $v1) (WORKFLOW_USES_TOOL $v2 $v1))": {
+   "support": 7,
+   "score": 0.17071428571428554
+  },
+  "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (STEP_USES_TOOL $v1 $v0) (STEP_USES_TOOL $v1 $v2))": {
+   "support": 13,
+   "score": 0.8575
+  },
+  "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (STEP_USES_TOOL $v1 $v0) (STEP_USES_TOOL $v2 $v0))": {
+   "support": 15,
+   "score": 0.8448333333333334
+  },
+  "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (STEP_USES_TOOL $v1 $v0) (TOOL_HAS_OUTPUT $v0 output_78e6221f))": {
+   "support": 12,
+   "score": 0.9025
+  },
+  "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (STEP_USES_TOOL $v1 $v0) (TOOL_HAS_OUTPUT $v0 $v2))": {
+   "support": 15,
+   "score": 0.831
+  },
+  "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (STEP_USES_TOOL $v1 $v0) (WORKFLOW_USES_TOOL $v2 $v0))": {
+   "support": 6,
+   "score": 0.7075
+  },
+  "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v0 output_78e6221f))": {
+   "support": 22,
+   "score": 0.8936363636363636
+  },
+  "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v0 $v2))": {
+   "support": 31,
+   "score": 0.834516129032258
+  },
+  "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v2 $v1))": {
+   "support": 189,
+   "score": 0.905
+  },
+  "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (WORKFLOW_USES_TOOL $v1 $v0) (WORKFLOW_USES_TOOL $v1 $v2))": {
+   "support": 9,
+   "score": 0.3455555555555555
+  },
+  "(, (HAS_TOOL vgp_assembly_v2_7fb545de $v0) (WORKFLOW_USES_TOOL $v1 $v0) (WORKFLOW_USES_TOOL $v2 $v0))": {
+   "support": 7,
+   "score": 0.5385714285714286
+  },
+  "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v2 $v1) (HAS_TOOL epigenetics_132f58ce $v1))": {
+   "support": 9,
+   "score": 0.0
+  },
+  "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v0 $v2) (HAS_TOOL $v0 toolshed_g2_bx_psu_edu_repos_bgruening_gfastats_gfastats_1_3_11_galaxy0_819635fa))": {
+   "support": 1805,
+   "score": 0.879039704524469
+  },
+  "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v0 toolshed_g2_bx_psu_edu_repos_bgruening_gfastats_gfastats_1_3_11_galaxy0_819635fa) (STEP_USES_TOOL $v2 $v1))": {
+   "support": 65,
+   "score": 0.8574999999999999
+  },
+  "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v0 toolshed_g2_bx_psu_edu_repos_bgruening_gfastats_gfastats_1_3_11_galaxy0_819635fa) (TOOL_HAS_OUTPUT $v1 output_78e6221f))": {
+   "support": 60,
+   "score": 0.940625
+  },
+  "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v0 toolshed_g2_bx_psu_edu_repos_bgruening_gfastats_gfastats_1_3_11_galaxy0_819635fa) (TOOL_HAS_OUTPUT $v1 $v2))": {
+   "support": 85,
+   "score": 0.7820588235294117
+  },
+  "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v0 toolshed_g2_bx_psu_edu_repos_bgruening_gfastats_gfastats_1_3_11_galaxy0_819635fa) (WORKFLOW_USES_TOOL $v2 $v1))": {
+   "support": 25,
+   "score": 0.48700000000000004
+  },
+  "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v0 $v2) (HAS_TOOL $v0 $v3))": {
+   "support": 7884,
+   "score": 0.7009132420091324
+  },
+  "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v0 $v2) (STEP_USES_TOOL $v3 $v1))": {
+   "support": 279,
+   "score": 0.8168817204301075
+  },
+  "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v0 $v2) (TOOL_HAS_OUTPUT $v1 out_file1_32a3e2ea))": {
+   "support": 25,
+   "score": 0.5284000000000001
+  },
+  "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v0 $v2) (TOOL_HAS_OUTPUT $v1 output_78e6221f))": {
+   "support": 251,
+   "score": 0.9217131474103585
+  },
+  "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v0 $v2) (TOOL_HAS_OUTPUT $v1 $v3))": {
+   "support": 388,
+   "score": 0.7366494845360825
+  },
+  "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v0 $v2) (WORKFLOW_USES_TOOL $v3 $v1))": {
+   "support": 145,
+   "score": 0.5121379310344827
+  },
+  "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v2 $v1) (HAS_TOOL $v3 $v1))": {
+   "support": 192,
+   "score": 0.5212765957446809
+  },
+  "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v2 $v1) (STEP_USES_TOOL $v3 $v1))": {
+   "support": 44,
+   "score": 0.8227272727272728
+  },
+  "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v2 $v1) (TOOL_HAS_OUTPUT $v1 out_file1_32a3e2ea))": {
+   "support": 5,
+   "score": 0.6400000000000001
+  },
+  "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v2 $v1) (TOOL_HAS_OUTPUT $v1 output_78e6221f))": {
+   "support": 58,
+   "score": 0.9482758620689655
+  },
+  "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v2 $v1) (TOOL_HAS_OUTPUT $v1 $v3))": {
+   "support": 72,
+   "score": 0.7833333333333333
+  },
+  "(, (HAS_TOOL $v0 $v1) (HAS_TOOL $v2 $v1) (WORKFLOW_USES_TOOL $v3 $v1))": {
+   "support": 18,
+   "score": 0.4
+  },
+  "(, (HAS_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (STEP_USES_TOOL $v2 $v3))": {
+   "support": 20,
+   "score": 0.7367499999999999
+  },
+  "(, (HAS_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (STEP_USES_TOOL $v3 $v1))": {
+   "support": 28,
+   "score": 0.76375
+  },
+  "(, (HAS_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (TOOL_HAS_OUTPUT $v1 out_file1_32a3e2ea))": {
+   "support": 6,
+   "score": 0.8424999999999999
+  },
+  "(, (HAS_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (TOOL_HAS_OUTPUT $v1 output_78e6221f))": {
+   "support": 12,
+   "score": 0.87
+  },
+  "(, (HAS_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (TOOL_HAS_OUTPUT $v1 $v3))": {
+   "support": 23,
+   "score": 0.8304347826086956
+  },
+  "(, (HAS_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL $v3 $v1))": {
+   "support": 13,
+   "score": 0.7923076923076924
+  },
+  "(, (HAS_TOOL $v0 $v1) (TOOL_HAS_OUTPUT $v1 $v2) (TOOL_HAS_OUTPUT $v1 out_file1_32a3e2ea))": {
+   "support": 7,
+   "score": 0.7878571428571428
+  },
+  "(, (HAS_TOOL $v0 $v1) (TOOL_HAS_OUTPUT $v1 $v2) (TOOL_HAS_OUTPUT $v1 output_78e6221f))": {
+   "support": 26,
+   "score": 0.88
+  },
+  "(, (HAS_TOOL $v0 $v1) (TOOL_HAS_OUTPUT $v1 $v2) (TOOL_HAS_OUTPUT $v1 $v3))": {
+   "support": 46,
+   "score": 0.6830434782608695
+  },
+  "(, (HAS_TOOL $v0 $v1) (TOOL_HAS_OUTPUT $v1 $v2) (TOOL_HAS_OUTPUT $v3 $v2))": {
+   "support": 300,
+   "score": 0.8298999999999999
+  },
+  "(, (HAS_TOOL $v0 $v1) (TOOL_HAS_OUTPUT $v1 $v2) (WORKFLOW_USES_TOOL $v3 $v1))": {
+   "support": 8,
+   "score": 0.49374999999999997
+  },
+  "(, (HAS_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL $v2 $v3))": {
+   "support": 32,
+   "score": 0.4768749999999999
+  },
+  "(, (HAS_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL $v3 $v1))": {
+   "support": 20,
+   "score": 0.541
+  },
+  "(, (STEP_USES_TOOL $v0 $v1) (STEP_USES_TOOL $v0 $v2) (STEP_USES_TOOL $v0 $v3))": {
+   "support": 39,
+   "score": 0.0
+  },
+  "(, (STEP_USES_TOOL $v0 $v1) (STEP_USES_TOOL $v0 $v2) (TOOL_HAS_OUTPUT $v1 out_file1_32a3e2ea))": {
+   "support": 7,
+   "score": 0.8746428571428572
+  },
+  "(, (STEP_USES_TOOL $v0 $v1) (STEP_USES_TOOL $v0 $v2) (TOOL_HAS_OUTPUT $v1 $v3))": {
+   "support": 23,
+   "score": 0.6693478260869565
+  },
+  "(, (STEP_USES_TOOL $v0 $v1) (STEP_USES_TOOL $v0 $v2) (WORKFLOW_USES_TOOL $v3 $v1))": {
+   "support": 19,
+   "score": 0.7228947368421053
+  },
+  "(, (HAS_TOOL virology_b765de61 $v0) (STEP_USES_TOOL $v1 $v0) (STEP_USES_TOOL $v2 $v0))": {
+   "support": 9,
+   "score": 0.9319444444444445
+  },
+  "(, (STEP_USES_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (STEP_USES_TOOL $v3 $v1))": {
+   "support": 75,
+   "score": 0.27199999999999996
+  },
+  "(, (STEP_USES_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (TOOL_HAS_OUTPUT $v1 out_file1_32a3e2ea))": {
+   "support": 19,
+   "score": 0.9419736842105264
+  },
+  "(, (STEP_USES_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (TOOL_HAS_OUTPUT $v1 output_78e6221f))": {
+   "support": 6,
+   "score": 0.6937500000000001
+  },
+  "(, (STEP_USES_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (TOOL_HAS_OUTPUT $v1 $v3))": {
+   "support": 39,
+   "score": 0.755
+  },
+  "(, (STEP_USES_TOOL $v0 $v1) (STEP_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL $v3 $v1))": {
+   "support": 31,
+   "score": 0.7866129032258065
+  },
+  "(, (HAS_TOOL virology_b765de61 $v0) (STEP_USES_TOOL $v1 $v0) (TOOL_HAS_OUTPUT $v0 out_file1_32a3e2ea))": {
+   "support": 6,
+   "score": 0.9675
+  },
+  "(, (STEP_USES_TOOL $v0 $v1) (TOOL_HAS_OUTPUT $v1 $v2) (TOOL_HAS_OUTPUT $v1 out_file1_32a3e2ea))": {
+   "support": 13,
+   "score": 0.895
+  },
+  "(, (STEP_USES_TOOL $v0 $v1) (TOOL_HAS_OUTPUT $v1 out_file1_32a3e2ea) (WORKFLOW_USES_TOOL $v2 $v1))": {
+   "support": 6,
+   "score": 0.8424999999999999
+  },
+  "(, (HAS_TOOL virology_b765de61 $v0) (STEP_USES_TOOL $v1 $v0) (TOOL_HAS_OUTPUT $v0 $v2))": {
+   "support": 6,
+   "score": 0.9025
+  },
+  "(, (STEP_USES_TOOL $v0 $v1) (TOOL_HAS_OUTPUT $v1 $v2) (TOOL_HAS_OUTPUT $v1 output_78e6221f))": {
+   "support": 6,
+   "score": 0.72375
+  },
+  "(, (STEP_USES_TOOL $v0 $v1) (TOOL_HAS_OUTPUT $v1 $v2) (TOOL_HAS_OUTPUT $v1 $v3))": {
+   "support": 37,
+   "score": 0.7154054054054053
+  },
+  "(, (STEP_USES_TOOL $v0 $v1) (TOOL_HAS_OUTPUT $v1 $v2) (TOOL_HAS_OUTPUT $v3 $v2))": {
+   "support": 139,
+   "score": 0.7348561151079137
+  },
+  "(, (STEP_USES_TOOL $v0 $v1) (TOOL_HAS_OUTPUT $v1 $v2) (WORKFLOW_USES_TOOL $v3 $v1))": {
+   "support": 16,
+   "score": 0.7684375
+  },
+  "(, (STEP_USES_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL $v2 $v3))": {
+   "support": 40,
+   "score": 0.69775
+  },
+  "(, (STEP_USES_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL $v3 $v1))": {
+   "support": 27,
+   "score": 0.7544444444444445
+  },
+  "(, (TOOL_HAS_INPUT $v0 $v1) (TOOL_HAS_INPUT $v0 $v2) (TOOL_HAS_INPUT $v0 $v3))": {
+   "support": 21,
+   "score": 0.13265306122448986
+  },
+  "(, (TOOL_HAS_INPUT $v0 $v1) (TOOL_HAS_INPUT $v2 $v1) (TOOL_HAS_INPUT $v3 $v1))": {
+   "support": 27,
+   "score": 0.18803418803418798
+  },
+  "(, (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v0 $v2) (TOOL_HAS_OUTPUT $v0 out_file1_32a3e2ea))": {
+   "support": 15,
+   "score": 0.0
+  },
+  "(, (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v0 out_file1_32a3e2ea) (WORKFLOW_USES_TOOL $v2 $v0))": {
+   "support": 6,
+   "score": 0.7525
+  },
+  "(, (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v0 $v2) (TOOL_HAS_OUTPUT $v0 output_78e6221f))": {
+   "support": 21,
+   "score": 0.0
+  },
+  "(, (HAS_TOOL virology_b765de61 $v0) (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v0 $v2))": {
+   "support": 6,
+   "score": 0.775
+  },
+  "(, (TOOL_HAS_INPUT $v0 $v1) (TOOL_HAS_OUTPUT $v0 $v2) (TOOL_HAS_OUTPUT $v0 $v3))": {
+   "support": 5,
+   "score": 0.19000000000000003
+  },
+  "(, (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v0 $v2) (TOOL_HAS_OUTPUT $v0 $v3))": {
+   "support": 174,
+   "score": 0.2435344827586206
+  },
+  "(, (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v0 $v2) (WORKFLOW_USES_TOOL $v3 $v0))": {
+   "support": 33,
+   "score": 0.5581818181818182
+  },
+  "(, (HAS_TOOL virology_b765de61 $v0) (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v2 $v1))": {
+   "support": 48,
+   "score": 0.9015625
+  },
+  "(, (HAS_TOOL epigenetics_132f58ce $v0) (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v2 $v1))": {
+   "support": 25,
+   "score": 0.6597999999999999
+  },
+  "(, (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v2 $v1) (TOOL_HAS_OUTPUT $v3 $v1))": {
+   "support": 4224,
+   "score": 0.8575487012987013
+  },
+  "(, (TOOL_HAS_OUTPUT $v0 $v1) (TOOL_HAS_OUTPUT $v2 $v1) (WORKFLOW_USES_TOOL $v3 $v0))": {
+   "support": 111,
+   "score": 0.5402702702702702
+  },
+  "(, (TOOL_HAS_OUTPUT $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v0) (WORKFLOW_USES_TOOL $v2 $v3))": {
+   "support": 44,
+   "score": 0.4504545454545454
+  },
+  "(, (TOOL_HAS_OUTPUT $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v0) (WORKFLOW_USES_TOOL $v3 $v0))": {
+   "support": 25,
+   "score": 0.4696
+  },
+  "(, (WORKFLOW_USES_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL Single_Cell_RNA_seq_Analysis_Scanpy_Preprocessing_and_Clustering_6cea2aba $v1))": {
+   "support": 17,
+   "score": 0.574468085106383
+  },
+  "(, (HAS_TOOL epigenetics_132f58ce $v0) (WORKFLOW_USES_TOOL $v1 $v0) (WORKFLOW_USES_TOOL $v1 $v2))": {
+   "support": 6,
+   "score": 0.535
+  },
+  "(, (TOOL_HAS_INPUT $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v0) (WORKFLOW_USES_TOOL $v2 $v3))": {
+   "support": 5,
+   "score": 0.07000000000000017
+  },
+  "(, (TOOL_HAS_OUTPUT $v0 out_file1_32a3e2ea) (WORKFLOW_USES_TOOL $v1 $v0) (WORKFLOW_USES_TOOL $v1 $v2))": {
+   "support": 5,
+   "score": 0.44200000000000006
+  },
+  "(, (TOOL_HAS_OUTPUT $v0 output_78e6221f) (WORKFLOW_USES_TOOL $v1 $v0) (WORKFLOW_USES_TOOL $v1 $v2))": {
+   "support": 10,
+   "score": 0.535
+  },
+  "(, (WORKFLOW_USES_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v0 $v2) (WORKFLOW_USES_TOOL $v0 $v3))": {
+   "support": 372,
+   "score": 0.43749999999999994
+  },
+  "(, (HAS_TOOL epigenetics_132f58ce $v0) (WORKFLOW_USES_TOOL $v1 $v0) (WORKFLOW_USES_TOOL $v2 $v0))": {
+   "support": 5,
+   "score": 0.6940000000000001
+  },
+  "(, (TOOL_HAS_OUTPUT $v0 output_78e6221f) (WORKFLOW_USES_TOOL $v1 $v0) (WORKFLOW_USES_TOOL $v2 $v0))": {
+   "support": 6,
+   "score": 0.5750000000000001
+  },
+  "(, (WORKFLOW_USES_TOOL $v0 $v1) (WORKFLOW_USES_TOOL $v2 $v1) (WORKFLOW_USES_TOOL $v3 $v1))": {
+   "support": 96,
+   "score": 0.18617021276595744
+  }
+ }
+}
