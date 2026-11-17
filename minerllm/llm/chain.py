@@ -90,15 +90,24 @@ def load_env() -> None:
     """Load API keys from the repository's .env, by explicit path.
 
     Auto-discovery (``load_dotenv()`` with no path) is unreliable when this code runs in
-    Python embedded in PeTTa (SWI-Prolog/janus) from a run directory: there the keys were
-    silently not found and every LLM call fell back. Variables already set win.
+    Python embedded in PeTTa (SWI-Prolog/janus) from a run directory. And a Python without
+    python-dotenv (e.g. the system python3 when the venv is not active) must still find
+    the keys, so a minimal KEY=VALUE reader is used. Variables already set win.
     """
-    try:
-        from dotenv import load_dotenv
-    except ImportError:
-        return
+    import os
     from pathlib import Path
-    load_dotenv(Path(__file__).resolve().parents[2] / ".env", override=False)
+    path = Path(__file__).resolve().parents[2] / ".env"
+    if not path.exists():
+        return
+    for line in path.read_text().splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, _, value = line.removeprefix("export ").partition("=") if hasattr(line, "removeprefix") \
+            else (line[7:] if line.startswith("export ") else line).partition("=")
+        key, value = key.strip(), value.split(" #", 1)[0].strip().strip("'\"")
+        if key and value and key not in os.environ:
+            os.environ[key] = value
 
 
 def build_chain(providers: list[str] | None = None, cache_dir: str | None = None,

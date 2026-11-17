@@ -149,12 +149,19 @@ def test_llm_arms_refuse_to_start_without_keys(monkeypatch):
     ev.check_llm_keys([Arm("b", "llm", 0.3, provider="nvidia"), Arm("c", "cardinality", 0.3)])
 
 
-def test_env_is_loaded_from_the_repo_by_explicit_path(monkeypatch, tmp_path, root):
-    import dotenv
+def test_env_is_read_without_python_dotenv_and_without_overriding(monkeypatch, tmp_path):
     from minerllm.llm import chain
-    monkeypatch.chdir(tmp_path)                       # not the repo: auto-discovery would miss it
-    seen = {}
-    monkeypatch.setattr(dotenv, "load_dotenv",
-                        lambda path=None, override=False: seen.setdefault("path", path))
+    fake_pkg = tmp_path / "minerllm" / "llm"
+    fake_pkg.mkdir(parents=True)
+    (tmp_path / ".env").write_text("# keys\nGROQ_API_KEY=gsk_abc  # comment\n"
+                                   "export NVIDIA_API_KEY='nv-1'\nGEMINI_API_KEY=\nBROKEN LINE\n")
+    monkeypatch.setattr(chain, "__file__", str(fake_pkg / "chain.py"))
+    monkeypatch.chdir(tmp_path.parent)              # not the repo: no auto-discovery involved
+    for k in ("GROQ_API_KEY", "NVIDIA_API_KEY", "GEMINI_API_KEY"):
+        monkeypatch.delenv(k, raising=False)
+    monkeypatch.setenv("NVIDIA_API_KEY", "already-set")
     chain.load_env()
-    assert seen["path"] == root / ".env"
+    import os
+    assert os.environ["GROQ_API_KEY"] == "gsk_abc"
+    assert os.environ["NVIDIA_API_KEY"] == "already-set"        # existing values win
+    assert "GEMINI_API_KEY" not in os.environ                   # empty values are skipped
