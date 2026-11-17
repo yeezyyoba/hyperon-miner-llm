@@ -1,4 +1,4 @@
-# Presentation guide (≈ 12 minutes + questions)
+# Presentation guide (≈ 14 minutes + questions)
 
 The instructor said he'll look at: **what issues we found · what architecture and design
 we chose · the prototype's quality (automation)**. The talk follows the six required steps
@@ -65,11 +65,16 @@ Run `make demo` (DEMO_PAUSE=1 waits for Enter between steps):
 5. the generated results table
 
 **Or show it on the dashboard** (`make ui`, open http://127.0.0.1:8000): *Replay a
-recorded run* → University graph → LLM at 30 % → 4× → *Play recording*. Point at the
-funnel shrinking, each LLM batch arriving in the events panel, the usage box filling,
-then the planted pattern highlighted in the results and the run's marker on the
-comparison chart. Replays need no network, so this works even if the venue's Wi-Fi or
-Groq's rate limit doesn't. Switch to *Run live* with *Offline mock* to show a real run.
+recorded run* → University graph → *LLM (Groq), 30 %, repeat 1* → 4× → *Play recording*.
+This run made real API calls, so the usage box fills with real requests, tokens and cost.
+Point at the funnel shrinking, each LLM batch arriving in the events panel, then the
+patterns and the run's marker on the comparison chart. Replays need no network, so this
+works even if the venue's Wi-Fi or Groq's rate limit doesn't. Switch to *Run live* with
+*Offline mock* (cached answers off) to show the real pipeline running.
+
+For Step 7, replay the hybrid on held-out data: dataset *Galaxy sample s11 (held-out)* →
+*LLM + cardinality (Groq), 30 %* → 4×. The comparison chart switches to the Step 7 results
+and marks this run at 70 % against cardinality's 20 %.
 
 *Automation to mention:* one command each for setup / doctor / tests / issues / profile /
 evaluation / report; CI on GitHub (Python + MeTTa jobs); a strict MeTTa test runner; 100+
@@ -110,6 +115,29 @@ Show `results/figures/recall_vs_budget.png`, then the per-sample table.
 and we can show exactly why. The parts that worked, verifiability and the 3× LLM-free
 speed-up, are measured just as carefully."
 
+## 7. Follow-up: what the failure taught us (1.5 min)  → [docs/07](07-exploratory.md)
+
+* **The traces showed why the LLM lost.** It wasn't wasting the budget on infrequent
+  candidates: it kept *more* frequent patterns than cardinality (84 vs 70 at level 1). It
+  kept *different* ones. Cardinality finds the high-support structural patterns; the LLM
+  dismisses same-relation joins as trivial but sometimes finds the planted ones that
+  cardinality, by definition, ranks last (training slide 8).
+* **So we merged them** (`llm-hybrid`): half the budget each, 3 LLM ratings averaged per join.
+  The design was committed as a protocol **before** any held-out run.
+* **Held-out result (data never used in the design):** with Groq, recall@10 was **82 % / 82 % /
+  70 %** against cardinality's **73 % / 73 % / 20 %**. It beat every baseline on all three
+  sets, and found a planted pattern cardinality never did.
+* **Still below 90 %, so H1 stays rejected.** NVIDIA's hybrid only tied cardinality on the
+  university graphs, so the gain depends on the model. One run per arm, and about 10× slower
+  in wall time (rate limits), so this is a direction, not a claim.
+* **Run log, said openly:** the first held-out run was invalid (keys not loaded inside
+  PeTTa, every LLM call silently fell back). We caught it in the logs, made the pipeline stop
+  on such runs, and re-ran. Nothing in the method changed.
+
+*Say it plainly:* "The pre-registered test failed. The traces told us why, and a design built
+on that reason did better on fresh data, without reaching the bar. That's where I'd take it
+next."
+
 ---
 
 ## Likely questions
@@ -136,6 +164,24 @@ so. But it showed where an LLM could help: type reasoning (it found the student 
 joins without names), and the planted patterns that statistics rank low (Groq found 3/3 in
 two samples, cardinality 0/3).
 
-**What would you do next?** Use the LLM as a *filter* on the cardinality order (demote
-type-incompatible joins) instead of replacing it; combine several samples (self-consistency);
-test at 4 conjuncts and on larger real graphs; send patches 0001 and 0002 upstream.
+**Isn't Step 7 just trying things until one works?** That's why it's labelled exploratory
+and kept out of the H1 verdict. The design came from the traces, not from the test data;
+it was committed before the held-out runs (see the git history); it was tested once, on
+three datasets it had never seen; and the result is reported as it came out, including
+NVIDIA's tie and the 90 % miss.
+
+**Why only one run per arm in Step 7?** Time and rate limits: one Groq hybrid run takes
+about 2.5 minutes, almost all of it waiting on the 8,000 tokens/minute limit. Averaging 3
+ratings should reduce the variance seen in Step 6, but repeats are needed to measure how
+much. That's the first thing I'd add.
+
+**The hybrid is 10× slower than cardinality. How is that a performance improvement?** It
+finds better patterns for the same number of verified candidates, which is the metric the
+hypothesis named. Wall time on these small graphs is dominated by the API's rate limit.
+The LLM cost is fixed per schema (joins are scored once), while verification cost grows
+with the data and the number of conjuncts, so the trade-off improves on larger graphs. We
+haven't measured that yet.
+
+**What would you do next?** Repeat the Step 7 runs to measure variance; test the hybrid at
+4 conjuncts and on larger real graphs, where verification is expensive; try other ways to
+split the budget between the two signals; send patches 0001 and 0002 upstream.

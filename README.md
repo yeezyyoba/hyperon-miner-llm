@@ -64,6 +64,30 @@ Recall@10 of the full miner's top patterns when only **30 %** of candidates are 
 Full tables, verdicts against the pre-registered criteria, cost and failures:
 [docs/06-results.md](docs/06-results.md).
 
+### Follow-up (Step 7, exploratory)
+
+The traces showed *why* the LLM lost: it and cardinality find different frequent patterns.
+Cardinality finds the high-support structural ones, and the LLM sometimes finds the planted
+ones cardinality ranks last. A follow-up ranker, **`llm-hybrid`**, merges the two orders
+(half the budget each) and averages 3 LLM ratings per join. It was designed after Step 6,
+so it was fixed in a committed protocol and then tested only on **held-out data**:
+
+<!-- BEGIN EXPLORE-HEADLINE -->
+Recall@10 at **30 %** budget on **held-out** datasets that played no part in the design (one run per arm; planted patterns in brackets):
+
+| method | university-s1 | university-s2 | galaxy400-s11 |
+|---|---:|---:|---:|
+| cardinality (best baseline) | 73 % (0/3) | 73 % (0/3) | 20 % |
+| LLM joins · groq | 9 % (1/3) | 55 % (1/3) | 50 % |
+| LLM joins · nvidia | 45 % (0/3) | 45 % (0/3) | 0 % |
+| **LLM + cardinality · groq** | **82 % (1/3)** | **82 % (1/3)** | **70 %** |
+| LLM + cardinality · nvidia | 73 % (0/3) | 73 % (0/3) | 30 % |
+<!-- END EXPLORE-HEADLINE -->
+
+With Groq, the hybrid beat every baseline on all three held-out sets but stayed below the
+90 % bar, so **H1 remains rejected**. NVIDIA's hybrid only tied cardinality on the university
+graphs. One run per arm. Protocol, run log and caveats: [docs/07-exploratory.md](docs/07-exploratory.md).
+
 ## The six steps
 
 | Step | Document | In one line |

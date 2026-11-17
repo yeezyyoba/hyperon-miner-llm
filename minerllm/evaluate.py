@@ -685,8 +685,37 @@ def explore_report(budget: float = 0.3, log=print) -> dict:
     doc = ROOT / "docs" / "07-exploratory.md"
     if doc.exists():
         _replace_block(doc, "EXPLORATORY", text)
+    readme = ROOT / "README.md"
+    if readme.exists():
+        _replace_block(readme, "EXPLORE-HEADLINE", explore_headline(summary, budget))
     log(f"exploratory: {len(rows)} runs, {len(checks)} LLM checks -> results/exploratory.md")
     return out
+
+
+def explore_headline(summary: list[dict], budget: float = 0.3) -> str:
+    """Compact held-out table for the README (Step 7)."""
+    fams = [("cardinality", "cardinality (best baseline)"), ("llm:groq", "LLM joins · groq"),
+            ("llm:nvidia", "LLM joins · nvidia"), ("llm-hybrid:groq", "**LLM + cardinality · groq**"),
+            ("llm-hybrid:nvidia", "LLM + cardinality · nvidia")]
+    ds_list = [d for d in HELDOUT if any(x["dataset"] == d for x in summary)]
+    lines = [f"Recall@10 at **{budget * 100:.0f} %** budget on **held-out** datasets that played "
+             "no part in the design (one run per arm; planted patterns in brackets):", "",
+             "| method | " + " | ".join(d.replace("heldout-", "") for d in ds_list) + " |",
+             "|---|" + "---:|" * len(ds_list)]
+    for fam, label in fams:
+        cells = []
+        for ds in ds_list:
+            x = next((y for y in summary if y["dataset"] == ds and y["family"] == fam), None)
+            if not x or x["recall@10"] is None:
+                cells.append("–")
+                continue
+            c = f"{x['recall@10'] * 100:.0f} %"
+            if x.get("planted_found") is not None:
+                c += f" ({x['planted_found']:.0f}/3)"
+            cells.append(f"**{c}**" if fam == "llm-hybrid:groq" else c)
+        if any(c != "–" for c in cells):
+            lines.append(f"| {label} | " + " | ".join(cells) + " |")
+    return "\n".join(lines)
 
 
 def explore_tables(summary: list[dict], checks: dict, budget: float) -> str:
