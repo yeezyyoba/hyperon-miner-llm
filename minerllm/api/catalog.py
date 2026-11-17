@@ -35,6 +35,7 @@ DATASET_INFO = {
 STRATEGIES = {
     "llm": "LLM ranks schema joins",
     "llm-direct": "LLM scores every candidate",
+    "llm-hybrid": "LLM + cardinality, merged (exploratory)",
     "cardinality": "Cardinality baseline",
     "heuristic": "Heuristic baseline",
     "random": "Random order",

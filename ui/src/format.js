@@ -12,6 +12,7 @@ export const PROVIDER_NAMES = {
 export const STRATEGY_NAMES = {
   llm: "LLM ranks joins",
   "llm-direct": "LLM scores every candidate",
+  "llm-hybrid": "LLM + cardinality (exploratory)",
   cardinality: "Cardinality baseline",
   heuristic: "Heuristic baseline",
   random: "Random order",
@@ -24,6 +25,7 @@ export function familyName(family) {
   const base = {
     llm: "LLM",
     "llm-direct": "LLM, every candidate",
+    "llm-hybrid": "LLM + cardinality",
     cardinality: "Cardinality",
     heuristic: "Heuristic",
     random: "Random",

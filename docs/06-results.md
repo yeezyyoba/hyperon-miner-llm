@@ -231,3 +231,8 @@ Across **135 runs**: 0 oracle mismatches, 0 precision violations, 0 score mismat
    0–75 % swings.
 3. Evaluate at **4 conjuncts** and on larger real graphs.
 4. Send `patches/0001` and `patches/0002` upstream, and look at the scorer saturation.
+
+## Follow-up
+
+An exploratory follow-up, designed from the traces above and tested only on held-out
+datasets, is in [Step 7](07-exploratory.md). It does not change the verdicts on this page.

@@ -74,6 +74,7 @@ Full tables, verdicts against the pre-registered criteria, cost and failures:
 | 4. Prototype | [docs/04-prototype.md](docs/04-prototype.md) | MeTTa module + Python bridge; `make demo` |
 | 5. Baseline | [docs/05-baseline.md](docs/05-baseline.md) | upstream, exhaustive, random ×5, structural heuristic, cardinality; same data and config |
 | 6. Results | [docs/06-results.md](docs/06-results.md) | generated tables, figures, verdicts, cost, failures, limitations |
+| 7. Follow-up (exploratory) | [docs/07-exploratory.md](docs/07-exploratory.md) | `llm-hybrid`: LLM + cardinality merged, tested on held-out data only |
 
 Presentation guide: [docs/presentation.md](docs/presentation.md).
 
