@@ -121,3 +121,40 @@ def test_explore_report_applies_the_h1_bar_to_heldout(monkeypatch, tmp_path):
     assert c[f"{ds} / llm-hybrid:nvidia"]["verdict"] == "meets the H1 bar"
     assert c[f"{ds} / llm-hybrid:groq"]["best_baseline"] == "cardinality"
     assert (tmp_path / "exploratory.md").read_text().startswith("# Exploratory follow-up")
+
+
+# ------------------------------------------------------------------ runs where no LLM answered
+
+def test_runs_where_every_llm_batch_fell_back_are_not_done_and_not_counted(tmp_path):
+    import json
+    from minerllm.evaluate import _done, no_llm_answer
+    dead = {"ok": True, "ranker": {"strategy": "llm-hybrid"},
+            "trace_summary": {"batches": 9, "fallback_batches": 9}}
+    alive = {"ok": True, "ranker": {"strategy": "llm"},
+             "trace_summary": {"batches": 3, "fallback_batches": 1}}
+    baseline = {"ok": True, "ranker": {"strategy": "cardinality"}, "trace_summary": {"batches": 0}}
+    assert no_llm_answer(dead) and not no_llm_answer(alive) and not no_llm_answer(baseline)
+    for name, rec, done in (("dead", dead, False), ("alive", alive, True), ("base", baseline, True)):
+        (tmp_path / f"{name}.json").write_text(json.dumps(rec))
+        assert _done(tmp_path / f"{name}.json") is done
+
+
+def test_llm_arms_refuse_to_start_without_keys(monkeypatch):
+    from minerllm import evaluate as ev
+    monkeypatch.setattr("minerllm.llm.chain.load_env", lambda: None)
+    monkeypatch.delenv("GROQ_API_KEY", raising=False)
+    monkeypatch.setenv("NVIDIA_API_KEY", "x")
+    with pytest.raises(SystemExit, match="GROQ_API_KEY"):
+        ev.check_llm_keys([Arm("a", "llm-hybrid", 0.3, provider="groq")])
+    ev.check_llm_keys([Arm("b", "llm", 0.3, provider="nvidia"), Arm("c", "cardinality", 0.3)])
+
+
+def test_env_is_loaded_from_the_repo_by_explicit_path(monkeypatch, tmp_path, root):
+    import dotenv
+    from minerllm.llm import chain
+    monkeypatch.chdir(tmp_path)                       # not the repo: auto-discovery would miss it
+    seen = {}
+    monkeypatch.setattr(dotenv, "load_dotenv",
+                        lambda path=None, override=False: seen.setdefault("path", path))
+    chain.load_env()
+    assert seen["path"] == root / ".env"

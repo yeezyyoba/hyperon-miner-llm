@@ -86,17 +86,28 @@ class FallbackChain(LLMClient):
         raise AllProvidersFailed(attempts)
 
 
+def load_env() -> None:
+    """Load API keys from the repository's .env, by explicit path.
+
+    Auto-discovery (``load_dotenv()`` with no path) is unreliable when this code runs in
+    Python embedded in PeTTa (SWI-Prolog/janus) from a run directory: there the keys were
+    silently not found and every LLM call fell back. Variables already set win.
+    """
+    try:
+        from dotenv import load_dotenv
+    except ImportError:
+        return
+    from pathlib import Path
+    load_dotenv(Path(__file__).resolve().parents[2] / ".env", override=False)
+
+
 def build_chain(providers: list[str] | None = None, cache_dir: str | None = None,
                 max_retries: int = 2, timeout_s: float = 60.0) -> FallbackChain:
     """Build the chain from provider names: gemini, groq, nvidia, mock[:fault]."""
     from .mock import MockLLM
     from .providers import GeminiClient, groq_client, nvidia_client
 
-    try:                                    # optional local .env with API keys
-        from dotenv import load_dotenv
-        load_dotenv()
-    except ImportError:
-        pass
+    load_env()
 
     import os
     env_order = os.environ.get("MINERLLM_PROVIDERS", "")

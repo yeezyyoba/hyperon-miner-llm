@@ -54,11 +54,8 @@ def cmd_guided(args) -> int:
 
 def cmd_models(args) -> int:
     """List the model IDs each configured provider offers this account (keys from .env)."""
-    try:
-        from dotenv import load_dotenv
-        load_dotenv()
-    except ImportError:
-        pass
+    from .llm.chain import load_env
+    load_env()
     import os
     from .llm.base import LLMError
     from .llm.providers import DEFAULT_MODELS, list_models
@@ -121,6 +118,9 @@ def cmd_stats(args) -> int:
 
 def main(argv: list[str] | None = None) -> int:
     argv = sys.argv[1:] if argv is None else argv
+    # Keys go into this process's environment, so every PeTTa subprocess inherits them.
+    from .llm.chain import load_env
+    load_env()
     if argv[:1] == ["eval"]:                       # delegate: minerllm eval baselines|llm|report
         from .evaluate import main as eval_main
         return eval_main(argv[1:])

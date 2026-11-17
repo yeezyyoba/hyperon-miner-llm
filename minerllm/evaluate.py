@@ -115,13 +115,41 @@ def llm_arms(providers=PROVIDERS, budgets=BUDGETS, direct: bool = True,
 # --------------------------------------------------------------------------- running
 
 
+def no_llm_answer(rec: dict) -> bool:
+    """An LLM arm where every batch fell back: it ran the cardinality order, not the LLM's.
+
+    Such a run is not evidence about the LLM. It is re-run by `_done` and left out of
+    every metric (this happened once, when API keys were not loaded: docs/07).
+    """
+    strategy = (rec.get("ranker") or rec.get("arm") or {}).get("strategy") or ""
+    ts = rec.get("trace_summary") or {}
+    return (strategy.startswith("llm") and ts.get("batches", 0) > 0
+            and ts.get("fallback_batches", 0) >= ts["batches"])
+
+
 def _done(path: Path) -> bool:
     if not path.exists():
         return False
     try:
-        return bool(json.loads(path.read_text()).get("ok"))
+        rec = json.loads(path.read_text())
     except json.JSONDecodeError:
         return False
+    return bool(rec.get("ok")) and not no_llm_answer(rec)
+
+
+PROVIDER_KEYS = {"groq": "GROQ_API_KEY", "nvidia": "NVIDIA_API_KEY", "gemini": "GEMINI_API_KEY"}
+
+
+def check_llm_keys(arms: list[Arm]) -> None:
+    """Refuse to start LLM arms whose provider has no API key (instead of silently falling back)."""
+    import os
+    from .llm.chain import load_env
+    load_env()
+    missing = sorted({a.provider for a in arms if a.strategy.startswith("llm") and a.provider
+                      in PROVIDER_KEYS and not os.environ.get(PROVIDER_KEYS[a.provider])})
+    if missing:
+        raise SystemExit("no API key for " + ", ".join(missing) + ": add "
+                         + ", ".join(PROVIDER_KEYS[m] for m in missing) + " to .env")
 
 
 def repeat_arms(providers=PROVIDERS, budget: float = 0.3, repeats: int = 3) -> list[Arm]:
@@ -152,6 +180,7 @@ def explore_arms(providers=("groq", "nvidia"), budget: float = 0.3) -> list[Arm]
 def run_matrix(datasets: list[str], arms: list[Arm], upstream: bool = False,
                force: bool = False, log=print) -> None:
     from .harness import run_guided, run_upstream
+    check_llm_keys(arms)
     for ds in datasets:
         cfg = MinerConfig.from_yaml(ROOT / ALL_DATASETS[ds])
         out = RAW / ds
@@ -176,6 +205,11 @@ def run_matrix(datasets: list[str], arms: list[Arm], upstream: bool = False,
             meta = json.loads((out / f"{arm.name}.json").read_text())
             meta["arm"] = {**arm.__dict__, "only": list(arm.only), "family": arm.family}
             (out / f"{arm.name}.json").write_text(json.dumps(meta, indent=2))
+            if no_llm_answer(meta):
+                raise SystemExit(f"[{ds}] {arm.name}: INVALID, no LLM batch was answered "
+                                 f"({s.get('fallback_batches')}/{s.get('batches')} fell back). "
+                                 "Check the API keys and `minerllm models --probe`; nothing "
+                                 "after this arm was run. Re-run to resume.")
             log(f"[{ds}] {arm.name}: {len(run.patterns)} patterns, verified {s.get('selected')}"
                 f"/{s.get('unique')}, {run.seconds:.1f}s, LLM fallbacks "
                 f"{s.get('fallback_batches', 0)}/{s.get('batches', 0)}, "
@@ -231,6 +265,8 @@ def metrics_for(ds: str) -> list[dict]:
     for f in sorted(out.glob("*.json")):
         rec = json.loads(f.read_text())
         if "config" not in rec or f.stem in ("frequent-b100", "reference"):
+            continue
+        if no_llm_answer(rec):                  # ran the fallback order, not the LLM's
             continue
         label = f.stem
         found = {p["pattern"] for p in rec["patterns"]}
