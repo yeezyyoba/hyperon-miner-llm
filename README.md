@@ -88,7 +88,9 @@ With Groq, the hybrid beat every baseline on all three held-out sets but stayed 
 90 % bar, so **H1 remains rejected**. NVIDIA's hybrid only tied cardinality on the university
 graphs. One run per arm. Protocol, run log and caveats: [docs/07-exploratory.md](docs/07-exploratory.md).
 
-## The six steps
+## The steps
+
+Six required steps, plus an exploratory follow-up:
 
 | Step | Document | In one line |
 |---|---|---|
@@ -201,7 +203,7 @@ minerllm/                      Python package
   oracle.py                    independent support counter
   petta.py, harness.py         run PeTTa from a config, verify, save artefacts, live progress
   bridge.py                    py-call API used by MeTTa: dedupe → rank → budget → trace
-  rankers.py                   exhaustive · random · heuristic · cardinality · llm (joins) · llm-direct
+  rankers.py                   exhaustive · random · heuristic · cardinality · llm (joins) · llm-direct · llm-hybrid
   llm/                         Groq → NVIDIA → Gemini chain, retries, validation, cache, mock
   reference.py, evaluate.py    evaluation reference, runner, metrics, verdicts, figures
   datagen.py, datasets.py      synthetic graphs with planted patterns, Galaxy subsets

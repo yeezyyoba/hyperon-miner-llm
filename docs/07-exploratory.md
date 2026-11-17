@@ -44,6 +44,7 @@ Fixed before any held-out run:
 4. Everything else is unchanged: same prompt, schema statistics, validator, fallback chain,
    cache, miner configuration and verification.
 
+Decision record: [ADR 0010](adr/0010-merge-llm-and-cardinality.md).
 Code: `LLMHybridRanker` and `interleave` in [`minerllm/rankers.py`](../minerllm/rankers.py);
 tests in `tests/test_rankers.py`.
 

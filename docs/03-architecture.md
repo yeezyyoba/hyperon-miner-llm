@@ -11,7 +11,7 @@ flowchart LR
     H["harness.py<br/>run + save + verify"]
     O["oracle.py<br/>independent support counter"]
     B["bridge.py<br/>select() — the boundary"]
-    R["rankers.py<br/>exhaustive · random · heuristic · cardinality<br/>llm (joins) · llm-direct"]
+    R["rankers.py<br/>exhaustive · random · heuristic · cardinality<br/>llm (joins) · llm-direct · llm-hybrid"]
     V["validator<br/>validate_scores()"]
     C["llm/chain.py<br/>Groq → NVIDIA → Gemini"]
     K[("llm/cache.py<br/>disk cache")]
@@ -176,5 +176,6 @@ Recorded as ADRs in [docs/adr/](adr/):
 | [0007](adr/0007-separate-search-from-scoring.md) | Separate search from scoring; never score through `add-atom-nodup` |
 | [0008](adr/0008-cardinality-baseline.md) | Cardinality baseline; LLM ties and failures fall back to it |
 | [0009](adr/0009-dashboard-over-the-cli.md) | Dashboard wraps the CLI and replays recorded traces |
+| [0010](adr/0010-merge-llm-and-cardinality.md) | Exploratory: merge the LLM join order with cardinality (Step 7) |
 
 → Prototype details: [Step 4 — Prototype](04-prototype.md).
