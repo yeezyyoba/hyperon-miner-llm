@@ -94,6 +94,12 @@ make eval-explore      # references for the held-out sets, then every arm; resum
   resume and excluded from every metric. The pre-registered Step 6 runs all had real LLM
   answers and are unaffected (their summary and verdicts recompute identically).
 * Second run: below.
+* **Re-runs from the dashboard** (rehearsal, 17 Nov, not part of the protocol; Groq, cache
+  off, same settings): `heldout-galaxy400-s11` gave 70 % again. `heldout-university-s1` gave
+  73 % with 0/3 planted patterns, a **tie** with cardinality (the protocol run: 82 %, 1/3).
+  Groq scored the advisor-course joins lower that time, so those 2-clause pieces fell outside
+  the level-1 budget and the planted 3-clause pattern could not be generated. One run per arm
+  is not enough to say how often the hybrid wins; repeats are the next step.
 
 ## Results
 
