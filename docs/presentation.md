@@ -52,7 +52,7 @@ Show the component diagram, then the LLM-boundary table.
 * **Validator + failure path:** malformed answer → next provider → cardinality fallback;
   every step logged (ADR 0006).
 * **Design decisions driven by measurement:** dedupe before counting and filter after
-  (ADR 0005), separate search from scoring (ADR 0007), cardinality baseline (ADR 0008).
+  (ADR 0005), separate search from scoring (ADR 0007), cardinality baseline (ADR 0008), dashboard that wraps the CLI (ADR 0009).
 
 ## 4. Prototype quality: automation (2 min, **live demo**)  → [docs/04](04-prototype.md)
 
@@ -63,6 +63,13 @@ Run `make demo` (DEMO_PAUSE=1 waits for Enter between steps):
 3. LLM run at 30 % budget, printing the top joins it scored
 4. garbage answer → next provider; total outage → still completes
 5. the generated results table
+
+**Or show it on the dashboard** (`make ui`, open http://127.0.0.1:8000): *Replay a
+recorded run* → University graph → LLM at 30 % → 4× → *Play recording*. Point at the
+funnel shrinking, each LLM batch arriving in the events panel, the usage box filling,
+then the planted pattern highlighted in the results and the run's marker on the
+comparison chart. Replays need no network, so this works even if the venue's Wi-Fi or
+Groq's rate limit doesn't. Switch to *Run live* with *Offline mock* to show a real run.
 
 *Automation to mention:* one command each for setup / doctor / tests / issues / profile /
 evaluation / report; CI on GitHub (Python + MeTTa jobs); a strict MeTTa test runner; 100+

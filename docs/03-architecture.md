@@ -175,5 +175,6 @@ Recorded as ADRs in [docs/adr/](adr/):
 | [0006](adr/0006-fallback-chain-cache-mock.md) | Groq → NVIDIA → Gemini chain, disk cache, offline mock |
 | [0007](adr/0007-separate-search-from-scoring.md) | Separate search from scoring; never score through `add-atom-nodup` |
 | [0008](adr/0008-cardinality-baseline.md) | Cardinality baseline; LLM ties and failures fall back to it |
+| [0009](adr/0009-dashboard-over-the-cli.md) | Dashboard wraps the CLI and replays recorded traces |
 
 → Prototype details: [Step 4 — Prototype](04-prototype.md).

@@ -127,6 +127,27 @@ Everything else:
 | `python -m minerllm guided --providers mock` | offline run, no keys |
 | `bash .petta/run.sh run_guided.metta` | the guided miner as a plain MeTTa entry point |
 
+### Live dashboard
+
+```bash
+pip install -r requirements.txt     # adds FastAPI + uvicorn
+make ui                             # builds the page (needs Node 18+), serves http://127.0.0.1:8000
+```
+
+One page shows the run as it happens: the candidate funnel per level (built, deduplicated,
+checked by the miner, kept), live events from the miner and every LLM batch, API usage
+(requests, tokens, cache hits, retries, rate-limit waits, cost per provider), the extracted
+patterns with shared variables marked and planted / reference-top-10 patterns flagged,
+and the evaluation's recall@10 comparison with the H1 verdicts.
+
+* **Run live** executes the same `python -m minerllm guided ...` command (shown on the
+  page) and streams its execution trace. Without keys, pick *Offline mock*.
+* **Replay a recorded run** plays any trace in `results/raw/` at 1×, 4× or 10×: no keys,
+  no network.
+
+Design notes: [ADR 0009](docs/adr/0009-dashboard-over-the-cli.md). The display font is
+Coronet if installed (see [ui/public/fonts](ui/public/fonts/README.md)).
+
 ### macOS (Homebrew) note
 
 Homebrew's SWI-Prolog links janus against Apple's Python 3.9 framework, but looks for it
@@ -161,6 +182,8 @@ minerllm/                      Python package
   reference.py, evaluate.py    evaluation reference, runner, metrics, verdicts, figures
   datagen.py, datasets.py      synthetic graphs with planted patterns, Galaxy subsets
   cli.py                       python -m minerllm mine | guided | eval | models | datagen | ...
+  api/                         FastAPI service for the dashboard: live runs, replays, SSE, usage
+ui/                            React (Vite) dashboard: make ui
 configs/                       YAML miner configurations
 results/                       evaluation records, execution traces, summaries, figures
 docs/                          one document per assignment step + ADRs + presentation guide
