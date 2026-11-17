@@ -165,3 +165,16 @@ def test_env_is_read_without_python_dotenv_and_without_overriding(monkeypatch, t
     assert os.environ["GROQ_API_KEY"] == "gsk_abc"
     assert os.environ["NVIDIA_API_KEY"] == "already-set"        # existing values win
     assert "GEMINI_API_KEY" not in os.environ                   # empty values are skipped
+
+
+def test_live_runs_pace_groq_like_the_evaluation(monkeypatch):
+    from minerllm.cli import rate_limit_settings
+    from minerllm.evaluate import Arm
+    groq_arm = Arm("x", "llm-hybrid", 0.3, provider="groq").ranker()
+    assert rate_limit_settings(["groq", "nvidia"]) == {"workers": groq_arm.workers,
+                                                       "max_retries": groq_arm.max_retries}
+    assert rate_limit_settings(["nvidia", "groq"]) == {}
+    monkeypatch.delenv("MINERLLM_PROVIDERS", raising=False)
+    assert rate_limit_settings(None)["workers"] == 1          # default order starts with Groq
+    monkeypatch.setenv("MINERLLM_PROVIDERS", "nvidia,groq")
+    assert rate_limit_settings(None) == {}

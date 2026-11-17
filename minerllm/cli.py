@@ -28,16 +28,27 @@ def cmd_mine(args) -> int:
     return 0 if run.ok and (ver is None or ver.ok) else 1
 
 
+def rate_limit_settings(providers: list | None) -> dict:
+    """Same pacing as the evaluation (evaluate.Arm.ranker): Groq's on-demand tier allows
+    8,000 tokens/minute, so when Groq answers first its batches go one at a time with more
+    retries (each waits as long as Groq asks). Otherwise the defaults apply."""
+    import os
+    order = providers or [p.strip() for p in os.environ.get("MINERLLM_PROVIDERS", "").split(",")
+                          if p.strip()] or ["groq", "nvidia", "gemini"]
+    return {"workers": 1, "max_retries": 4} if order[0] == "groq" else {}
+
+
 def cmd_guided(args) -> int:
     from .config import RankerConfig
     from .harness import run_guided
     cfg = MinerConfig.from_yaml(args.config)
     if args.depth is not None:
         cfg.depth = args.depth
+    providers = args.providers.split(",") if args.providers else None
     rc = RankerConfig(strategy=args.strategy, budget=args.budget, seed=args.seed,
-                      providers=args.providers.split(",") if args.providers else None,
-                      batch_size=args.batch_size,
-                      cache_dir=None if args.no_cache else ".cache/llm")
+                      providers=providers, batch_size=args.batch_size,
+                      cache_dir=None if args.no_cache else ".cache/llm",
+                      **rate_limit_settings(providers))
     run, ver, s = run_guided(cfg, rc, Path(args.out) if args.out else None, progress=True)
     ranked = sorted(run.patterns, key=lambda p: -(p.surprisingness or 0))
     for mp in ranked[: args.top]:
