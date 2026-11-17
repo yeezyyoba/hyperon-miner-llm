@@ -145,8 +145,7 @@ and the evaluation's recall@10 comparison with the H1 verdicts.
 * **Replay a recorded run** plays any trace in `results/raw/` at 1×, 4× or 10×: no keys,
   no network.
 
-Design notes: [ADR 0009](docs/adr/0009-dashboard-over-the-cli.md). The display font is
-Coronet if installed (see [ui/public/fonts](ui/public/fonts/README.md)).
+Design notes: [ADR 0009](docs/adr/0009-dashboard-over-the-cli.md).
 
 ### macOS (Homebrew) note
 

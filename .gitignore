@@ -39,8 +39,3 @@ results/raw/**/_reference/
 # Dashboard (make ui)
 ui/node_modules/
 ui/dist/
-# Coronet is a licensed font: a local copy must never be published
-ui/public/fonts/*.woff
-ui/public/fonts/*.woff2
-ui/public/fonts/*.otf
-ui/public/fonts/*.ttf
