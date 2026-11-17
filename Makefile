@@ -11,6 +11,7 @@
 #   make eval-baselines    Step 5: upstream, exhaustive, random x5, heuristic on all datasets
 #   make eval-llm          Step 6: LLM arms per provider (needs .env keys; resumable)
 #   make report            regenerate results/, figures and the tables in docs/05, docs/06
+#   make eval-explore      Step 7 (exploratory): llm-hybrid on held-out datasets; resumable
 #   make demo              5-minute live demo (DEMO_PAUSE=0 to run without pauses)
 #   make ui                build the dashboard and serve it at http://127.0.0.1:8000
 #   make api               API only, auto-reload (pair with make ui-dev for UI work)
@@ -21,7 +22,7 @@ PETTA  ?= bash .petta/run.sh
 export LANG := C.UTF-8
 export LC_ALL := C.UTF-8
 
-.PHONY: help setup doctor run test test-metta test-all reproduce-issues profile datasets mine eval-baselines eval-llm report demo ui ui-build ui-dev api clean
+.PHONY: help setup doctor run test test-metta test-all reproduce-issues profile datasets mine eval-baselines eval-llm eval-explore report demo ui ui-build ui-dev api clean
 
 help:
 	@grep -E '^#   make' Makefile | sed 's/^#   //'
@@ -58,6 +59,9 @@ datasets:
 	$(PYTHON) -m minerllm datagen --seed 0 --strength 0.8 --anonymize
 	$(PYTHON) -m minerllm datagen --seed 0 --strength 0.0
 	$(PYTHON) -m minerllm galaxy 400
+	$(PYTHON) -m minerllm datagen --seed 1 --strength 0.8 --out experiments/data/heldout
+	$(PYTHON) -m minerllm datagen --seed 2 --strength 0.8 --out experiments/data/heldout
+	$(PYTHON) -m minerllm galaxy 400 --seed 11 --name galaxy_400_s11 --out experiments/data/heldout
 
 mine:
 	$(PYTHON) -m minerllm mine --config $(CONFIG)
@@ -70,6 +74,9 @@ eval-llm:
 
 report:
 	$(PYTHON) -m minerllm eval report
+
+eval-explore:
+	$(PYTHON) -m minerllm eval explore
 
 demo:
 	bash scripts/demo.sh

@@ -1,0 +1,21 @@
+{
+  "spec": {
+    "students": 60,
+    "profs": 12,
+    "courses": 24,
+    "depts": 4,
+    "rooms": 8,
+    "laptops": 6,
+    "courses_per_student": 3,
+    "friends_per_student": 1,
+    "strength": 0.8,
+    "seed": 1,
+    "anonymize": false
+  },
+  "planted": {
+    "P1_major_in_advisor_dept": "(, (ADVISED_BY $s $p) (MEMBER_OF $p $d) (MAJORS_IN $s $d))",
+    "P2_enrolled_in_advisor_course": "(, (ADVISED_BY $s $p) (TEACHES $p $c) (ENROLLED_IN $s $c))",
+    "P3_course_offered_by_teacher_dept": "(, (TEACHES $p $c) (MEMBER_OF $p $d) (OFFERED_BY $c $d))"
+  },
+  "relation_map": {}
+}

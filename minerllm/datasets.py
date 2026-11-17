@@ -32,7 +32,7 @@ def write_atoms(atoms: list[Atom], path: str | Path, header: str = "") -> Path:
     return path
 
 
-def galaxy_subset(n: int, out_dir: str | Path, seed: int = 7) -> Path:
+def galaxy_subset(n: int, out_dir: str | Path, seed: int = 7, name: str | None = None) -> Path:
     """Deterministic random sample of n Galaxy relation atoms.
 
     Same sampling as scripts/profile_baseline.py, so the profiled datasets and
@@ -41,7 +41,7 @@ def galaxy_subset(n: int, out_dir: str | Path, seed: int = 7) -> Path:
     rels = [l for l in GALAXY_FULL.read_text().splitlines()
             if l.startswith("(") and not l.startswith("(:")]
     sample = sorted(random.Random(seed).sample(rels, n))
-    path = Path(out_dir) / f"galaxy_{n}.metta"
+    path = Path(out_dir) / f"{name or f'galaxy_{n}'}.metta"
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text("\n".join(sample) + "\n")
     return path
