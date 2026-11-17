@@ -22,7 +22,6 @@ from ..config import ROOT, RankerConfig
 from . import catalog
 from .usage import add_usage, summarize_usage
 
-RUNS_DIR = ROOT / "runs"
 FINAL = {"done", "failed", "cancelled"}
 _PROGRESS_LINE = re.compile(r"^\[\s*[\d.]+s\]")      # the CLI's own trace echo; we stream the trace itself
 _ALLOWED_PROVIDERS = {"groq", "nvidia", "gemini", "mock", "mock:garbage", "mock:error", "mock:fatal"}
@@ -168,8 +167,12 @@ class RunManager:
     # ------------------------------------------------------------------ live
     def _live(self, run: Run) -> None:
         req = run.request
-        run.out_dir = (RUNS_DIR / f"ui-{run.id}").resolve()
+        run.out_dir = (catalog.SAVED_RUNS / f"ui-{run.id}").resolve()
         run.out_dir.mkdir(parents=True, exist_ok=True)
+        # Recorded next to the CLI's own files so the run can be replayed after a restart.
+        (run.out_dir / catalog.SAVED_META).write_text(json.dumps({
+            "dataset": run.dataset, "strategy": req.strategy, "budget": req.budget,
+            "providers": req.providers, "use_cache": req.use_cache, "started": run.started}, indent=2))
         cmd = self.command(req, run.out_dir)
         shown = ["minerllm"] + [str(c) for c in cmd[3:]] if cmd[1:3] == ["-m", "minerllm"] else cmd
         run.emit("started", mode="live", dataset=run.dataset, strategy=req.strategy,

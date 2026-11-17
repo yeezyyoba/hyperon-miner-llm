@@ -72,7 +72,7 @@ def raw(tmp_path, monkeypatch):
     (ds / "reference.json").write_text(json.dumps({"patterns": {
         PLANTED_CANON: {"support": 20, "score": 0.9}, OTHER: {"support": 21, "score": 0.4}}}))
     monkeypatch.setattr(catalog, "RAW", tmp_path / "raw")
-    monkeypatch.setattr(runs, "RUNS_DIR", tmp_path / "runs")
+    monkeypatch.setattr(catalog, "SAVED_RUNS", tmp_path / "runs")
     return tmp_path
 
 
@@ -250,3 +250,29 @@ def test_only_one_live_miner_at_a_time(raw):
     assert client.post("/api/runs", json={"mode": "live"}).status_code == 409
     client.post(f"/api/runs/{first['id']}/cancel")
     assert wait_done(client, first["id"])["status"] == "cancelled"
+
+
+def test_live_runs_are_saved_and_replayable_after_a_restart(raw):
+    client = TestClient(create_app(RunManager(command=fake_command())))
+    run = client.post("/api/runs", json={"mode": "live", "dataset": "university",
+                                         "strategy": "llm", "budget": 0.3}).json()
+    assert wait_done(client, run["id"])["status"] == "done"
+
+    # a fresh app = the backend restarted: no runs in memory, the files are still on disk
+    fresh = TestClient(create_app(RunManager(command=fake_command())))
+    assert fresh.get("/api/runs").json() == []
+    saved = [r for r in fresh.get("/api/replays").json() if r.get("source") == "dashboard"]
+    assert len(saved) == 1 and saved[0]["id"] == f"saved/ui-{run['id']}"
+    assert saved[0]["dataset"] == "university" and saved[0]["strategy"] == "llm"
+
+    replay = fresh.post("/api/runs", json={"mode": "replay", "replay_id": saved[0]["id"],
+                                           "speed": 0}).json()
+    done = wait_done(fresh, replay["id"])
+    assert done["status"] == "done" and done["result"]["n_patterns"] == 2
+    assert done["usage"]["totals"]["input_tokens"] == 1900
+
+
+def test_saved_run_ids_cannot_escape_runs_dir(raw):
+    for bad in ("saved/../results", "saved/ui-x/../../etc", "saved/notui", "saved/", "saved/ui-missing"):
+        with pytest.raises(KeyError):
+            catalog.replay_paths(bad)

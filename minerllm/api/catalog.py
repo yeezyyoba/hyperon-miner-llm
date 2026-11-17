@@ -8,6 +8,7 @@ from __future__ import annotations
 import csv
 import json
 import os
+import re
 from functools import lru_cache
 from pathlib import Path
 
@@ -17,6 +18,10 @@ from ..patterns import canonical
 
 RESULTS = ROOT / "results"
 RAW = RESULTS / "raw"
+SAVED_RUNS = ROOT / "runs"          # live runs started from the dashboard: runs/ui-<id>/
+SAVED_META = "dashboard.json"       # what the dashboard asked for, written when a live run starts
+SAVED_PREFIX = "saved/"
+_SAVED_DIR = re.compile(r"^ui-[A-Za-z0-9_-]+$")
 
 DATASET_INFO = {
     "university": ("University graph",
@@ -122,11 +127,63 @@ def list_replays() -> list[dict]:
     rank = {"llm": 0, "llm-direct": 1, "cardinality": 2, "heuristic": 3, "random": 4, "exhaustive": 5}
     out.sort(key=lambda r: (r["dataset"] != "university", r["dataset"],
                             rank.get(r["strategy"], 9), r["budget"] or 0, r["label"]))
+    return list_saved_runs() + out
+
+
+def _saved_files(run_dir: Path) -> tuple[Path, Path] | None:
+    """(trace, record) of a finished dashboard run, or None if it has no result."""
+    for trace in sorted(run_dir.glob("*.trace.jsonl")):
+        rec = run_dir / (trace.name[: -len(".trace.jsonl")] + ".json")
+        if rec.exists():
+            return trace, rec
+    return None
+
+
+def list_saved_runs() -> list[dict]:
+    """Live runs started from the dashboard and saved on disk, newest first.
+
+    They survive a backend restart because they are ordinary run folders under runs/.
+    """
+    out = []
+    if not SAVED_RUNS.exists():
+        return out
+    for d in SAVED_RUNS.iterdir():
+        meta_path = d / SAVED_META
+        if not (d.is_dir() and _SAVED_DIR.match(d.name) and meta_path.exists()):
+            continue
+        files = _saved_files(d)
+        if not files:
+            continue
+        try:
+            meta = json.loads(meta_path.read_text())
+        except json.JSONDecodeError:
+            continue
+        if meta.get("dataset") not in DATASETS:
+            continue
+        rec = _record_meta(str(files[1]), files[1].stat().st_mtime)
+        out.append({"id": SAVED_PREFIX + d.name, "dataset": meta["dataset"], "label": d.name,
+                    "source": "dashboard", "started": meta.get("started"),
+                    "n_patterns": rec["n_patterns"], "seconds": rec["seconds"],
+                    "strategy": meta.get("strategy") or rec["strategy"],
+                    "budget": meta.get("budget", rec["budget"]),
+                    "providers": meta.get("providers") or rec["providers"], "family": None})
+    out.sort(key=lambda r: -(r["started"] or 0))
     return out
 
 
 def replay_paths(replay_id: str) -> tuple[str, Path, Path]:
-    """(dataset, trace, record) for a replay id like ``university/llm-groq-b30``."""
+    """(dataset, trace, record) for a replay id: ``university/llm-groq-b30`` (evaluation)
+    or ``saved/ui-<id>`` (a live run from the dashboard)."""
+    if replay_id.startswith(SAVED_PREFIX):
+        name = replay_id[len(SAVED_PREFIX):]
+        d = SAVED_RUNS / name
+        if not _SAVED_DIR.match(name) or not (d / SAVED_META).exists():
+            raise KeyError(replay_id)
+        files = _saved_files(d)
+        ds = json.loads((d / SAVED_META).read_text()).get("dataset")
+        if not files or ds not in DATASETS:
+            raise KeyError(replay_id)
+        return ds, files[0], files[1]
     ds, _, label = replay_id.partition("/")
     if ds not in DATASETS or not label or "/" in label or label.startswith("."):
         raise KeyError(replay_id)
