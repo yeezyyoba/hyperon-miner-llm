@@ -21,6 +21,7 @@ from __future__ import annotations
 import asyncio
 import json
 import warnings
+from pathlib import Path
 from typing import List, Optional
 
 warnings.filterwarnings("ignore", message=".*urllib3 v2 only supports OpenSSL.*")
@@ -47,6 +48,19 @@ class RunBody(BaseModel):
     use_cache: bool = True
     replay_id: Optional[str] = None
     speed: float = 4.0
+
+
+def ui_build_is_stale(src: Path = ROOT / "ui", dist: Path = UI_DIST) -> Optional[str]:
+    """Name of a UI source file edited after the last build, or None if the build is current."""
+    index = dist / "index.html"
+    if not index.exists():
+        return None
+    built = index.stat().st_mtime
+    candidates = [src / "index.html", src / "package.json"] + list((src / "src").rglob("*"))
+    for f in candidates:
+        if f.is_file() and f.stat().st_mtime > built + 1:
+            return str(f.relative_to(src.parent))
+    return None
 
 
 def create_app(manager: Optional[RunManager] = None) -> FastAPI:
@@ -140,6 +154,10 @@ def create_app(manager: Optional[RunManager] = None) -> FastAPI:
                                  headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})
 
     if UI_DIST.exists():
+        stale = ui_build_is_stale()
+        if stale:
+            warnings.warn(f"ui/dist is older than {stale}: the page you see is out of date. "
+                          "Run `make ui` (or `make ui-build`) to rebuild it.", stacklevel=2)
         app.mount("/assets", StaticFiles(directory=UI_DIST / "assets"), name="assets")
 
         @app.get("/{path:path}", include_in_schema=False)
@@ -149,7 +167,8 @@ def create_app(manager: Optional[RunManager] = None) -> FastAPI:
                 return FileResponse(f)
             if "." in path.rsplit("/", 1)[-1] or path.startswith("api/"):
                 raise HTTPException(404, "not found")     # a missing file, not a page
-            return FileResponse(UI_DIST / "index.html")
+            # index.html names the hashed asset files: never let the browser keep an old one
+            return FileResponse(UI_DIST / "index.html", headers={"Cache-Control": "no-cache"})
 
     return app
 

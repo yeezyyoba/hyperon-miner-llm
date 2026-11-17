@@ -276,3 +276,18 @@ def test_saved_run_ids_cannot_escape_runs_dir(raw):
     for bad in ("saved/../results", "saved/ui-x/../../etc", "saved/notui", "saved/", "saved/ui-missing"):
         with pytest.raises(KeyError):
             catalog.replay_paths(bad)
+
+
+def test_stale_ui_build_is_detected(tmp_path):
+    import os
+    from minerllm.api.app import ui_build_is_stale
+    src, dist = tmp_path / "ui", tmp_path / "ui" / "dist"
+    (src / "src").mkdir(parents=True)
+    dist.mkdir()
+    (src / "src" / "styles.css").write_text("a{}")
+    (dist / "index.html").write_text("<html>")
+    os.utime(src / "src" / "styles.css", (1000, 1000))
+    os.utime(dist / "index.html", (2000, 2000))
+    assert ui_build_is_stale(src, dist) is None
+    os.utime(src / "src" / "styles.css", (3000, 3000))      # edited after the build
+    assert ui_build_is_stale(src, dist) == "ui/src/styles.css"
