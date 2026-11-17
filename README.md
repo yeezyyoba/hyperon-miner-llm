@@ -38,6 +38,9 @@ patterns explodes with each extra conjunct, which kept the PeTTa miner at 3 conj
   budget 100 % it **equals** the upstream output (tested on 4 configurations).
 * An independent Python **oracle** re-counts every support in every run.
 
+The whole system (miner, LLM layer, evaluation, dashboard) and its guarantees:
+[ARCHITECTURE.md](ARCHITECTURE.md).
+
 ## Results
 
 **Verdict: the evidence does not support the hypothesis.** At a 30 % budget the LLM rankers
