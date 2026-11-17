@@ -177,6 +177,22 @@ def explore_arms(providers=("groq", "nvidia"), budget: float = 0.3) -> list[Arm]
     return arms
 
 
+def explore_repeat_arms(providers=("groq", "nvidia"), budget: float = 0.3,
+                        repeats: int = 2) -> list[Arm]:
+    """Step 7 repeats: every held-out LLM arm again with the cache off, so each repeat gets
+    fresh answers. Grouped with the first run (same family and budget), so the exploratory
+    report shows mean ± sd over 1 + repeats runs."""
+    held = tuple(HELDOUT)
+    arms = []
+    for r in range(1, repeats + 1):
+        for p in providers:
+            arms.append(Arm(f"llm-hybrid-{p}-{pct(budget)}-r{r}", "llm-hybrid", budget, seed=r,
+                            provider=p, only=held, repeat=r))
+            arms.append(Arm(f"llm-{p}-{pct(budget)}-r{r}", "llm", budget, seed=r,
+                            provider=p, only=held, repeat=r))
+    return arms
+
+
 def run_matrix(datasets: list[str], arms: list[Arm], upstream: bool = False,
                force: bool = False, log=print) -> None:
     from .harness import run_guided, run_upstream
@@ -698,8 +714,13 @@ def explore_headline(summary: list[dict], budget: float = 0.3) -> str:
             ("llm:nvidia", "LLM joins · nvidia"), ("llm-hybrid:groq", "**LLM + cardinality · groq**"),
             ("llm-hybrid:nvidia", "LLM + cardinality · nvidia")]
     ds_list = [d for d in HELDOUT if any(x["dataset"] == d for x in summary)]
+    runs = sorted({int(x["runs"]) for x in summary if x["dataset"] in HELDOUT
+                   and x["family"].split(":")[0] in ("llm", "llm-hybrid")})
+    how = ("one run per LLM arm" if runs == [1] else
+           f"LLM arms: mean ± sd over {runs[-1]} runs" if len(runs) == 1 else
+           f"LLM arms: mean ± sd over {runs[0]}–{runs[-1]} runs")
     lines = [f"Recall@10 at **{budget * 100:.0f} %** budget on **held-out** datasets that played "
-             "no part in the design (one run per arm; planted patterns in brackets):", "",
+             f"no part in the design ({how}; planted patterns found in brackets):", "",
              "| method | " + " | ".join(d.replace("heldout-", "") for d in ds_list) + " |",
              "|---|" + "---:|" * len(ds_list)]
     for fam, label in fams:
@@ -710,8 +731,11 @@ def explore_headline(summary: list[dict], budget: float = 0.3) -> str:
                 cells.append("–")
                 continue
             c = f"{x['recall@10'] * 100:.0f} %"
+            if x["runs"] > 1 and x.get("recall@10_sd") is not None:
+                c += f" ± {x['recall@10_sd'] * 100:.0f}"
             if x.get("planted_found") is not None:
-                c += f" ({x['planted_found']:.0f}/3)"
+                c += (f" ({x['planted_found']:.1f}/3)" if x["runs"] > 1
+                      else f" ({x['planted_found']:.0f}/3)")
             cells.append(f"**{c}**" if fam == "llm-hybrid:groq" else c)
         if any(c != "–" for c in cells):
             lines.append(f"| {label} | " + " | ".join(cells) + " |")
@@ -763,7 +787,7 @@ def main(argv=None) -> int:
     import argparse
     ap = argparse.ArgumentParser(prog="minerllm eval")
     ap.add_argument("part", choices=["baselines", "llm", "repeats", "report", "explore",
-                                     "explore-report"])
+                                     "explore-repeats", "explore-report"])
     ap.add_argument("--repeats", type=int, default=3, help="for `repeats`: extra LLM samples")
     ap.add_argument("--datasets", default=",".join(DATASETS))
     ap.add_argument("--providers", default=",".join(PROVIDERS))
@@ -774,6 +798,13 @@ def main(argv=None) -> int:
     budgets = [float(b) for b in args.budgets.split(",")]
     ds = [d for d in args.datasets.split(",") if d]
     log = lambda m: print(m, file=sys.stderr, flush=True)  # noqa: E731
+    if args.part == "explore-repeats":
+        provs = [p for p in args.providers.split(",") if p] if args.providers != ",".join(PROVIDERS) \
+            else ["groq", "nvidia"]
+        run_matrix(list(HELDOUT), explore_repeat_arms(provs, repeats=args.repeats if args.repeats != 3 else 2),
+                   force=args.force, log=log)
+        explore_report(log=log)
+        return 0
     if args.part in ("explore", "explore-report"):
         if args.part == "explore":
             provs = [p for p in args.providers.split(",") if p] if args.providers != ",".join(PROVIDERS) \

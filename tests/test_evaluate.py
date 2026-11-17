@@ -178,3 +178,15 @@ def test_live_runs_pace_groq_like_the_evaluation(monkeypatch):
     assert rate_limit_settings(None)["workers"] == 1          # default order starts with Groq
     monkeypatch.setenv("MINERLLM_PROVIDERS", "nvidia,groq")
     assert rate_limit_settings(None) == {}
+
+
+def test_explore_repeats_are_fresh_heldout_samples_grouped_with_the_first_run():
+    from minerllm.evaluate import HELDOUT, explore_arms, explore_repeat_arms
+    reps = explore_repeat_arms(["groq", "nvidia"], repeats=2)
+    assert len(reps) == 2 * 2 * 2                                  # repeats x providers x (hybrid, llm)
+    assert all(a.only == tuple(HELDOUT) and a.repeat >= 1 for a in reps)
+    assert all(a.ranker().cache_dir is None for a in reps)          # fresh answers every time
+    first = {a.family for a in explore_arms(["groq", "nvidia"]) if a.strategy.startswith("llm")}
+    assert {a.family for a in reps} == first                        # same groups -> mean ± sd
+    names = [a.name for a in reps]
+    assert "llm-hybrid-groq-b30-r2" in names and len(set(names)) == len(names)

@@ -76,7 +76,7 @@ ones cardinality ranks last. A follow-up ranker, **`llm-hybrid`**, merges the tw
 so it was fixed in a committed protocol and then tested only on **held-out data**:
 
 <!-- BEGIN EXPLORE-HEADLINE -->
-Recall@10 at **30 %** budget on **held-out** datasets that played no part in the design (one run per arm; planted patterns in brackets):
+Recall@10 at **30 %** budget on **held-out** datasets that played no part in the design (one run per LLM arm; planted patterns found in brackets):
 
 | method | university-s1 | university-s2 | galaxy400-s11 |
 |---|---:|---:|---:|
@@ -87,9 +87,11 @@ Recall@10 at **30 %** budget on **held-out** datasets that played no part in the
 | LLM + cardinality · nvidia | 73 % (0/3) | 73 % (0/3) | 30 % |
 <!-- END EXPLORE-HEADLINE -->
 
-With Groq, the hybrid beat every baseline on all three held-out sets but stayed below the
-90 % bar, so **H1 remains rejected**. NVIDIA's hybrid only tied cardinality on the university
-graphs. One run per arm. Protocol, run log and caveats: [docs/07-exploratory.md](docs/07-exploratory.md).
+In the first held-out run, the Groq hybrid beat every baseline on all three sets but stayed
+below the 90 % bar, so **H1 remains rejected**; NVIDIA's hybrid only tied cardinality on the
+university graphs. A later re-run on university s1 **tied** cardinality, so repeated runs were
+added; the table above reports every run that exists (mean ± sd). Protocol, run log and
+caveats: [docs/07-exploratory.md](docs/07-exploratory.md).
 
 ## The steps
 

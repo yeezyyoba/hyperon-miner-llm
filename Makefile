@@ -12,6 +12,7 @@
 #   make eval-llm          Step 6: LLM arms per provider (needs .env keys; resumable)
 #   make report            regenerate results/, figures and the tables in docs/05, docs/06
 #   make eval-explore      Step 7 (exploratory): llm-hybrid on held-out datasets; resumable
+#   make eval-explore-repeats  Step 7: 2 more runs of each held-out LLM arm (cache off)
 #   make demo              5-minute live demo (DEMO_PAUSE=0 to run without pauses)
 #   make ui                build the dashboard and serve it at http://127.0.0.1:8000
 #   make api               API only, auto-reload (pair with make ui-dev for UI work)
@@ -22,7 +23,7 @@ PETTA  ?= bash .petta/run.sh
 export LANG := C.UTF-8
 export LC_ALL := C.UTF-8
 
-.PHONY: help setup doctor run test test-metta test-all reproduce-issues profile datasets mine eval-baselines eval-llm eval-explore report demo ui ui-build ui-dev api clean
+.PHONY: help setup doctor run test test-metta test-all reproduce-issues profile datasets mine eval-baselines eval-llm eval-explore eval-explore-repeats report demo ui ui-build ui-dev api clean
 
 help:
 	@grep -E '^#   make' Makefile | sed 's/^#   //'
@@ -77,6 +78,9 @@ report:
 
 eval-explore:
 	$(PYTHON) -m minerllm eval explore
+
+eval-explore-repeats:
+	$(PYTHON) -m minerllm eval explore-repeats
 
 demo:
 	bash scripts/demo.sh

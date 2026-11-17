@@ -81,6 +81,20 @@ Run:
 make eval-explore      # references for the held-out sets, then every arm; resumable
 ```
 
+### Amendment: repeated runs (17 Nov, recorded before running them)
+
+The first held-out run had one run per LLM arm, and a dashboard re-run on university s1
+tied cardinality where the protocol run had beaten it. To measure that variance:
+
+* every held-out `llm` and `llm-hybrid` arm (Groq and NVIDIA) runs **2 more times** with the
+  cache off (`make eval-explore-repeats`), so each run gets fresh LLM answers;
+* the tables report **mean ± sd over all runs** (the first run included), and the H1-bar
+  check uses the **mean**;
+* nothing else changes: same method, datasets, budget and settings. Baselines are not
+  re-run (cardinality and heuristic are deterministic; random already has 5 seeds);
+* the results are reported as they come out, whichever way they go. The dashboard
+  re-runs stay in the run log only and are not added to the tables.
+
 ## Run log
 
 * **First run (commit `6d8ef30`): invalid.** Every LLM batch in every `llm` and
