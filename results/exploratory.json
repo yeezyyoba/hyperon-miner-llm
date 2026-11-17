@@ -6,11 +6,11 @@
       "dataset": "university",
       "family": "llm-hybrid:groq",
       "heldout": false,
-      "recall@10": 0.6667,
+      "recall@10": 0.75,
       "best_baseline": "cardinality",
       "best_baseline_recall@10": 0.6667,
-      "planted_found": 0,
-      "verdict": "ties the best baseline"
+      "planted_found": 1,
+      "verdict": "beats every baseline, below 90 %"
     },
     "university / llm-hybrid:nvidia": {
       "dataset": "university",
@@ -46,11 +46,11 @@
       "dataset": "university-anon",
       "family": "llm-hybrid:groq",
       "heldout": false,
-      "recall@10": 0.6667,
+      "recall@10": 0.8333,
       "best_baseline": "cardinality",
       "best_baseline_recall@10": 0.6667,
-      "planted_found": 0,
-      "verdict": "ties the best baseline"
+      "planted_found": 2,
+      "verdict": "beats every baseline, below 90 %"
     },
     "university-anon / llm-hybrid:nvidia": {
       "dataset": "university-anon",
@@ -86,11 +86,11 @@
       "dataset": "galaxy400",
       "family": "llm-hybrid:groq",
       "heldout": false,
-      "recall@10": 0.3,
+      "recall@10": 0.7,
       "best_baseline": "cardinality",
       "best_baseline_recall@10": 0.3,
       "planted_found": null,
-      "verdict": "ties the best baseline"
+      "verdict": "beats every baseline, below 90 %"
     },
     "galaxy400 / llm-hybrid:nvidia": {
       "dataset": "galaxy400",
@@ -126,11 +126,11 @@
       "dataset": "heldout-university-s1",
       "family": "llm-hybrid:groq",
       "heldout": true,
-      "recall@10": 0.7273,
+      "recall@10": 0.8182,
       "best_baseline": "cardinality",
       "best_baseline_recall@10": 0.7273,
-      "planted_found": 0,
-      "verdict": "ties the best baseline"
+      "planted_found": 1,
+      "verdict": "beats every baseline, below 90 %"
     },
     "heldout-university-s1 / llm-hybrid:nvidia": {
       "dataset": "heldout-university-s1",
@@ -146,31 +146,31 @@
       "dataset": "heldout-university-s1",
       "family": "llm:groq",
       "heldout": true,
-      "recall@10": 0.7273,
+      "recall@10": 0.0909,
       "best_baseline": "cardinality",
       "best_baseline_recall@10": 0.7273,
-      "planted_found": 0,
-      "verdict": "ties the best baseline"
+      "planted_found": 1,
+      "verdict": "below the best baseline"
     },
     "heldout-university-s1 / llm:nvidia": {
       "dataset": "heldout-university-s1",
       "family": "llm:nvidia",
       "heldout": true,
-      "recall@10": 0.7273,
+      "recall@10": 0.4545,
       "best_baseline": "cardinality",
       "best_baseline_recall@10": 0.7273,
       "planted_found": 0,
-      "verdict": "ties the best baseline"
+      "verdict": "below the best baseline"
     },
     "heldout-university-s2 / llm-hybrid:groq": {
       "dataset": "heldout-university-s2",
       "family": "llm-hybrid:groq",
       "heldout": true,
-      "recall@10": 0.7273,
+      "recall@10": 0.8182,
       "best_baseline": "cardinality",
       "best_baseline_recall@10": 0.7273,
-      "planted_found": 0,
-      "verdict": "ties the best baseline"
+      "planted_found": 1,
+      "verdict": "beats every baseline, below 90 %"
     },
     "heldout-university-s2 / llm-hybrid:nvidia": {
       "dataset": "heldout-university-s2",
@@ -186,61 +186,61 @@
       "dataset": "heldout-university-s2",
       "family": "llm:groq",
       "heldout": true,
-      "recall@10": 0.7273,
+      "recall@10": 0.5455,
       "best_baseline": "cardinality",
       "best_baseline_recall@10": 0.7273,
-      "planted_found": 0,
-      "verdict": "ties the best baseline"
+      "planted_found": 1,
+      "verdict": "below the best baseline"
     },
     "heldout-university-s2 / llm:nvidia": {
       "dataset": "heldout-university-s2",
       "family": "llm:nvidia",
       "heldout": true,
-      "recall@10": 0.7273,
+      "recall@10": 0.4545,
       "best_baseline": "cardinality",
       "best_baseline_recall@10": 0.7273,
       "planted_found": 0,
-      "verdict": "ties the best baseline"
+      "verdict": "below the best baseline"
     },
     "heldout-galaxy400-s11 / llm-hybrid:groq": {
       "dataset": "heldout-galaxy400-s11",
       "family": "llm-hybrid:groq",
       "heldout": true,
-      "recall@10": 0.2,
+      "recall@10": 0.7,
       "best_baseline": "cardinality",
       "best_baseline_recall@10": 0.2,
       "planted_found": null,
-      "verdict": "ties the best baseline"
+      "verdict": "beats every baseline, below 90 %"
     },
     "heldout-galaxy400-s11 / llm-hybrid:nvidia": {
       "dataset": "heldout-galaxy400-s11",
       "family": "llm-hybrid:nvidia",
       "heldout": true,
-      "recall@10": 0.2,
+      "recall@10": 0.3,
       "best_baseline": "cardinality",
       "best_baseline_recall@10": 0.2,
       "planted_found": null,
-      "verdict": "ties the best baseline"
+      "verdict": "beats every baseline, below 90 %"
     },
     "heldout-galaxy400-s11 / llm:groq": {
       "dataset": "heldout-galaxy400-s11",
       "family": "llm:groq",
       "heldout": true,
-      "recall@10": 0.2,
+      "recall@10": 0.5,
       "best_baseline": "cardinality",
       "best_baseline_recall@10": 0.2,
       "planted_found": null,
-      "verdict": "ties the best baseline"
+      "verdict": "beats every baseline, below 90 %"
     },
     "heldout-galaxy400-s11 / llm:nvidia": {
       "dataset": "heldout-galaxy400-s11",
       "family": "llm:nvidia",
       "heldout": true,
-      "recall@10": 0.2,
+      "recall@10": 0.0,
       "best_baseline": "cardinality",
       "best_baseline_recall@10": 0.2,
       "planted_found": null,
-      "verdict": "ties the best baseline"
+      "verdict": "below the best baseline"
     }
   }
 }

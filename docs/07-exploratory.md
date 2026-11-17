@@ -108,10 +108,10 @@ Recall@10 at 30 % budget (planted patterns found in brackets; ± = sd over seeds
 | cardinality | 73 % (0/3) | 73 % (0/3) | 20 % |
 | heuristic | 0 % (0/3) | 0 % (0/3) | 0 % |
 | random | 20 % ± 11 (0.8/3) | 11 % ± 9 (0.2/3) | 16 % ± 10 |
-| llm:groq | 73 % (0/3) | 73 % (0/3) | 20 % |
-| llm:nvidia | 73 % (0/3) | 73 % (0/3) | 20 % |
-| llm-hybrid:groq | 73 % (0/3) | 73 % (0/3) | 20 % |
-| llm-hybrid:nvidia | 73 % (0/3) | 73 % (0/3) | 20 % |
+| llm:groq | 9 % (1/3) | 55 % (1/3) | 50 % |
+| llm:nvidia | 45 % (0/3) | 45 % (0/3) | 0 % |
+| llm-hybrid:groq | 82 % (1/3) | 82 % (1/3) | 70 % |
+| llm-hybrid:nvidia | 73 % (0/3) | 73 % (0/3) | 30 % |
 
 ### Development datasets (design only; not evidence)
 
@@ -124,7 +124,7 @@ Recall@10 at 30 % budget (planted patterns found in brackets; ± = sd over seeds
 | random | 28 % ± 10 (1.2/3) | 22 % ± 11 (0.4/3) | 24 % ± 8 |
 | llm:groq | 33 % ± 26 (0.2/3) | 31 % ± 32 (1.5/3) | 22 % ± 23 |
 | llm:nvidia | 48 % ± 4 (0.0/3) | 8 % (0.0/3) | 42 % ± 43 |
-| llm-hybrid:groq | 67 % (0/3) | 67 % (0/3) | 30 % |
+| llm-hybrid:groq | 75 % (1/3) | 83 % (2/3) | 70 % |
 | llm-hybrid:nvidia | 67 % (0/3) | 67 % (0/3) | 30 % |
 | llm-direct:groq | 67 % (0/3) | 67 % (0/3) | 30 % |
 
@@ -132,17 +132,17 @@ Recall@10 at 30 % budget (planted patterns found in brackets; ± = sd over seeds
 
 | dataset / method | recall@10 | best baseline | verdict |
 |---|---:|---|---|
-| heldout-university-s1 / llm-hybrid:groq | 73 % | cardinality 73 % | ties the best baseline |
+| heldout-university-s1 / llm-hybrid:groq | 82 % | cardinality 73 % | beats every baseline, below 90 % |
 | heldout-university-s1 / llm-hybrid:nvidia | 73 % | cardinality 73 % | ties the best baseline |
-| heldout-university-s1 / llm:groq | 73 % | cardinality 73 % | ties the best baseline |
-| heldout-university-s1 / llm:nvidia | 73 % | cardinality 73 % | ties the best baseline |
-| heldout-university-s2 / llm-hybrid:groq | 73 % | cardinality 73 % | ties the best baseline |
+| heldout-university-s1 / llm:groq | 9 % | cardinality 73 % | below the best baseline |
+| heldout-university-s1 / llm:nvidia | 45 % | cardinality 73 % | below the best baseline |
+| heldout-university-s2 / llm-hybrid:groq | 82 % | cardinality 73 % | beats every baseline, below 90 % |
 | heldout-university-s2 / llm-hybrid:nvidia | 73 % | cardinality 73 % | ties the best baseline |
-| heldout-university-s2 / llm:groq | 73 % | cardinality 73 % | ties the best baseline |
-| heldout-university-s2 / llm:nvidia | 73 % | cardinality 73 % | ties the best baseline |
-| heldout-galaxy400-s11 / llm-hybrid:groq | 20 % | cardinality 20 % | ties the best baseline |
-| heldout-galaxy400-s11 / llm-hybrid:nvidia | 20 % | cardinality 20 % | ties the best baseline |
-| heldout-galaxy400-s11 / llm:groq | 20 % | cardinality 20 % | ties the best baseline |
-| heldout-galaxy400-s11 / llm:nvidia | 20 % | cardinality 20 % | ties the best baseline |
+| heldout-university-s2 / llm:groq | 55 % | cardinality 73 % | below the best baseline |
+| heldout-university-s2 / llm:nvidia | 45 % | cardinality 73 % | below the best baseline |
+| heldout-galaxy400-s11 / llm-hybrid:groq | 70 % | cardinality 20 % | beats every baseline, below 90 % |
+| heldout-galaxy400-s11 / llm-hybrid:nvidia | 30 % | cardinality 20 % | beats every baseline, below 90 % |
+| heldout-galaxy400-s11 / llm:groq | 50 % | cardinality 20 % | beats every baseline, below 90 % |
+| heldout-galaxy400-s11 / llm:nvidia | 0 % | cardinality 20 % | below the best baseline |
 
 <!-- END EXPLORATORY -->
