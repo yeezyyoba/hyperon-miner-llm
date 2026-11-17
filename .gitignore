@@ -39,3 +39,6 @@ results/raw/**/_reference/
 # Dashboard (make ui)
 ui/node_modules/
 ui/dist/
+
+# Scratch folder used by Claude sessions
+Claude outputs/

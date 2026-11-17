@@ -7,6 +7,7 @@
 #   3. the LLM:       30 % budget with the real chain (Groq -> NVIDIA -> Gemini)
 #   4. failure path:  garbage answer -> next provider; total outage -> still completes
 #   5. evidence:      the generated results table and verdicts
+#   6. follow-up:     Step 7 (exploratory): LLM + cardinality on held-out data
 #
 # Steps that need API keys are skipped (with a note) when .env has none.
 # DEMO_PAUSE=0 runs straight through; otherwise it waits for Enter between steps.
@@ -24,7 +25,7 @@ note() { printf '\033[2m%s\033[0m\n' "$*"; }
 pause() { [ "${DEMO_PAUSE:-1}" = "0" ] || read -r -p $'\033[2m[Enter] next step\033[0m ' _; }
 has_keys() { [ -f .env ] && grep -qE '^(GROQ|NVIDIA|GEMINI)_API_KEY=.+' .env; }
 
-step "1/5  The problem: the documented entry point does not run (Issue 1)"
+step "1/6  The problem: the documented entry point does not run (Issue 1)"
 note "upstream run_miner.metta passes 8 arguments to a 9-argument function:"
 (cd external/hyperon-miner && bash "$ROOT/.petta/run.sh" run_miner.metta 2>&1) \
   | sed 's/\x1b\[[0-9;]*m//g' | grep -v '^[[:space:]]*$' | tail -1
@@ -33,7 +34,7 @@ bash .petta/run.sh run_miner.metta 2>&1 | sed 's/\x1b\[[0-9;]*m//g' | grep -c '^
   | xargs printf '  %s scored patterns\n'
 pause
 
-step "2/5  Equivalence: guided miner, exhaustive, 100 % budget == upstream output"
+step "2/6  Equivalence: guided miner, exhaustive, 100 % budget == upstream output"
 note "same data, same minsup, 3 conjuncts; every support re-counted by the Python oracle"
 $PY -m minerllm mine --dataset external/hyperon-miner/experiments/data/ugly_man_sodaDrinker \
     --minsup 10 --depth 1 --surp none --top 0 --out "$OUT/upstream" | tail -1
@@ -41,7 +42,7 @@ $PY -m minerllm guided --config configs/sample.yaml --depth 1 --strategy exhaust
     --budget 1.0 --top 0 --out "$OUT/exhaustive" 2>/dev/null | tail -1
 pause
 
-step "3/5  The LLM ranks schema joins; the miner verifies only 30 % of candidates"
+step "3/6  The LLM ranks schema joins; the miner verifies only 30 % of candidates"
 if has_keys; then
   $PY -m minerllm guided --config configs/university.yaml --strategy llm --budget 0.3 \
       --top 5 --out "$OUT/llm"
@@ -62,7 +63,7 @@ else
 fi
 pause
 
-step "4/5  Failure path: a provider talks nonsense, then every provider is down"
+step "4/6  Failure path: a provider talks nonsense, then every provider is down"
 note "first provider returns garbage -> validator rejects it -> next provider answers:"
 $PY -m minerllm guided --config configs/university.yaml --strategy llm --budget 0.3 \
     --providers mock:garbage,mock --no-cache --top 0 --out "$OUT/garbage" 2>&1 | tail -1
@@ -71,12 +72,22 @@ $PY -m minerllm guided --config configs/university.yaml --strategy llm --budget 
     --providers mock:error,mock:fatal --no-cache --top 0 --out "$OUT/outage" 2>&1 | tail -1
 pause
 
-step "5/5  Evidence: generated results and pre-registered verdicts"
+step "5/6  Evidence: generated results and pre-registered verdicts"
 if [ -f results/results.md ]; then
   sed -n '/^### university$/,/^### university-anon/p' results/results.md | grep -E '^\| (method|cardinality|random|llm)' | grep -E '30 %|method' | head -12
   echo
   sed -n '/^\*\*H1\*\*/,$p' results/results.md | head -20
 else
   note "(no results yet: make eval-baselines && make eval-llm && make report)"
+fi
+pause
+
+step "6/6  Follow-up (exploratory): LLM + cardinality merged, tested on held-out data"
+if [ -f results/exploratory.md ]; then
+  note "designed from the Step 6 traces; protocol committed before these runs; H1 stays rejected"
+  sed -n '/^### Held-out datasets/,/^### Development/p' results/exploratory.md \
+    | grep -E '^\| (method|cardinality|random|llm)'
+else
+  note "(no exploratory results yet: make eval-explore)"
 fi
 printf '\n\033[1;32mDone.\033[0m Artefacts in %s/ (scripts, traces, oracle checks).\n' "$OUT"
