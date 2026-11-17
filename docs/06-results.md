@@ -218,7 +218,7 @@ Across **135 runs**: 0 oracle mismatches, 0 precision violations, 0 score mismat
 * **Wall-clock times come from two machines**: baselines on Linux, LLM arms on an M-series
   Mac. Candidate counts and recall are comparable; seconds are only indicative.
 * **The target inherits upstream's scorer.** Recall is measured against `isurp`'s top-10,
-  whose saturation favours frequent, generic patterns.
+  whose saturation favours frequent, generic patterns. Why `isurp` was kept: [ADR 0011](adr/0011-isurp-as-the-evaluation-target.md).
 * One prompt design was tested. Different prompts (e.g. asking for type compatibility only)
   might behave very differently.
 

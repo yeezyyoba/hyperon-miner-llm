@@ -38,4 +38,29 @@ else
   printf '  \033[93m•\033[0m no .env yet (only needed for real LLM runs: cp .env.example .env)\n'
 fi
 git -C "$ROOT" check-ignore -q .env && ok ".env is git-ignored" || bad ".env is NOT ignored"
+
+# Dashboard (optional: make ui). Missing pieces are reported, not counted as failures.
+note() { printf '  \033[93m•\033[0m %s\n' "$*"; }
+echo "dashboard (optional)"
+python3 -c "import fastapi, uvicorn" 2>/dev/null && ok "FastAPI + uvicorn importable" \
+  || note "FastAPI/uvicorn missing: pip install -r requirements.txt"
+if command -v node >/dev/null; then
+  NODE_MAJOR=$(node -v | sed 's/^v//' | cut -d. -f1)
+  [ "$NODE_MAJOR" -ge 18 ] 2>/dev/null && ok "node $(node -v)" || note "node $(node -v) is too old: the page needs Node 18+"
+else
+  note "node not found: needed once to build the page (macOS: brew install node)"
+fi
+if [ -f "$ROOT/ui/dist/index.html" ]; then
+  # same rule as minerllm.api.app.ui_build_is_stale, without importing FastAPI
+  STALE=$(cd "$ROOT" && python3 - <<'PY'
+from pathlib import Path
+built = Path("ui/dist/index.html").stat().st_mtime
+srcs = [Path("ui/index.html"), Path("ui/package.json")] + list(Path("ui/src").rglob("*"))
+print(next((str(f) for f in srcs if f.is_file() and f.stat().st_mtime > built + 1), ""))
+PY
+)
+  [ -z "$STALE" ] && ok "page built and up to date" || note "page is older than $STALE: make ui rebuilds it"
+else
+  note "page not built yet: make ui builds it"
+fi
 exit $FAIL

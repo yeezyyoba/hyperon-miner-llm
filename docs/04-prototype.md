@@ -18,6 +18,12 @@ make demo
 python -m minerllm guided --config configs/university.yaml --strategy llm --budget 0.3
 python -m minerllm guided --config configs/galaxy400.yaml  --strategy llm --budget 0.3
 
+# Step 7 (exploratory): the LLM order merged with cardinality, 3 ratings per join
+python -m minerllm guided --config configs/university.yaml --strategy llm-hybrid --budget 0.3
+
+# live dashboard: run or replay any of the above in the browser (http://127.0.0.1:8000)
+make ui
+
 # baselines, same interface
 python -m minerllm guided --strategy cardinality --budget 0.3
 python -m minerllm guided --strategy heuristic --budget 0.3
@@ -52,9 +58,28 @@ Each run writes into `runs/<timestamp>-<config hash>/`:
 | guided conjunction expansion (MeTTa) | `experiments/llm-guided-miner/guided-conjunction-expansion.metta` | ~120 lines (half of them comments) |
 | py-call shim | `experiments/llm-guided-miner/minerllm_bridge.py` | 15 lines |
 | bridge (dedupe → rank → budget → trace) | `minerllm/bridge.py` | |
-| rankers + validator + prompts | `minerllm/rankers.py` | |
+| rankers + validator + prompts (incl. `llm-hybrid`, Step 7) | `minerllm/rankers.py` | |
 | LLM chain, providers, cache, mock | `minerllm/llm/` | no vendor SDKs |
 | harness + oracle | `minerllm/harness.py`, `minerllm/oracle.py` | |
+| dashboard API (live runs, replays, SSE, usage) | `minerllm/api/` | FastAPI |
+| dashboard page | `ui/` | React (Vite) |
+
+## Dashboard
+
+`make ui` builds the page and serves it at http://127.0.0.1:8000. It shows one run as it
+happens: the candidate funnel per level, live events from the miner and every LLM batch,
+API usage (requests, tokens, cache hits, retries, rate-limit waits, cost), the extracted
+patterns with shared variables marked and planted / reference-top-10 patterns flagged,
+and the evaluation's comparison chart.
+
+* **Run live** executes the same `python -m minerllm guided …` command (shown on the page)
+  and streams the trace above. Live runs are saved under `runs/ui-<id>/` and stay
+  replayable after a restart.
+* **Replay a recorded run** plays any trace from `results/raw/` (Steps 5–7) at 1×, 4× or
+  10×, with no keys and no network.
+
+The API adds no mining logic of its own ([ADR 0009](adr/0009-dashboard-over-the-cli.md));
+the whole system is described in [ARCHITECTURE.md](../ARCHITECTURE.md).
 
 ## How it is tested
 
@@ -66,6 +91,9 @@ Each run writes into `runs/<timestamp>-<config hash>/`:
 | upstream's `add-atom-nodup` collision (Issue 7) | `experiments/upstream-regression/tests/test-upstream-nodup.metta` |
 | evaluation metrics: tie-aware top-K, seed averaging, verdict rules | `tests/test_evaluate.py` |
 | validator, every mock fault mode, chain order/retries/cache, join extraction, prompts contain no data atoms | `tests/test_rankers.py`, `tests/test_llm_chain.py`, `tests/test_bridge.py` |
+| `llm-hybrid`: interleaving, averaged samples, first sample = `llm` prompt, outage = cardinality | `tests/test_rankers.py` |
+| keys loaded by explicit path (no python-dotenv needed); LLM arms refuse to start without keys; runs where no LLM answered are re-run and never counted; Groq paced like the evaluation | `tests/test_evaluate.py` |
+| dashboard API: usage accounting, replays, live runs (stand-in miner), SSE resume, saved runs survive a restart, input validation, keys never returned | `tests/test_api.py` |
 
 Verified equivalence with upstream (exhaustive, budget 100 %):
 
