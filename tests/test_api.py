@@ -291,3 +291,29 @@ def test_stale_ui_build_is_detected(tmp_path):
     assert ui_build_is_stale(src, dist) is None
     os.utime(src / "src" / "styles.css", (3000, 3000))      # edited after the build
     assert ui_build_is_stale(src, dist) == "ui/src/styles.css"
+
+
+def test_heldout_datasets_are_listed_and_replayable():
+    ds = {d["id"]: d for d in catalog.list_datasets()}
+    assert ds["heldout-galaxy400-s11"]["heldout"] is True and ds["university"]["heldout"] is False
+    assert len(ds["heldout-university-s1"]["planted"]) == 3
+    ids = {r["id"] for r in catalog.list_replays()}
+    assert "heldout-galaxy400-s11/llm-hybrid-groq-b30" in ids
+    ds_id, trace, rec = catalog.replay_paths("heldout-galaxy400-s11/llm-hybrid-groq-b30")
+    assert ds_id == "heldout-galaxy400-s11" and trace.exists() and rec.exists()
+
+
+def test_results_carry_step7_separately_from_the_preregistered_rows():
+    r = catalog.results_summary()
+    assert not any(x["family"].startswith("llm-hybrid") for x in r["rows"])
+    assert any(x["family"] == "llm-hybrid:groq" for x in r["exploratory"])
+    assert r["exploratory_checks"]["heldout-galaxy400-s11 / llm-hybrid:groq"]["heldout"] is True
+
+
+def test_runs_where_no_llm_answered_are_not_offered_as_replays(raw):
+    dead = record()
+    dead["trace_summary"] = {"batches": 3, "fallback_batches": 3}
+    (raw / "raw" / "university" / "llm-dead-b30.json").write_text(json.dumps(dead))
+    (raw / "raw" / "university" / "llm-dead-b30.trace.jsonl").write_text("\n".join(json.dumps(e) for e in TRACE))
+    ids = {r["id"] for r in catalog.list_replays()}
+    assert "university/llm-groq-b30" in ids and "university/llm-dead-b30" not in ids

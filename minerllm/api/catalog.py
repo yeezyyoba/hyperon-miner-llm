@@ -13,7 +13,7 @@ from functools import lru_cache
 from pathlib import Path
 
 from ..config import ROOT, MinerConfig
-from ..evaluate import DATASETS, PRICES, tie_aware_top
+from ..evaluate import ALL_DATASETS, HELDOUT, PRICES, no_llm_answer, tie_aware_top
 from ..patterns import canonical
 
 RESULTS = ROOT / "results"
@@ -30,6 +30,12 @@ DATASET_INFO = {
                         "The same graph with relation and entity names replaced by R1, e1, ..."),
     "galaxy400": ("Galaxy sample",
                   "400 atoms sampled from the upstream Galaxy dataset. No planted patterns."),
+    "heldout-university-s1": ("University graph s1 (held-out)",
+                              "A fresh graph from the same generator (seed 1). Step 7 test data."),
+    "heldout-university-s2": ("University graph s2 (held-out)",
+                              "A fresh graph from the same generator (seed 2). Step 7 test data."),
+    "heldout-galaxy400-s11": ("Galaxy sample s11 (held-out)",
+                              "A different 400-atom Galaxy sample. Step 7 test data."),
 }
 
 STRATEGIES = {
@@ -54,9 +60,9 @@ def _load_env() -> None:
 
 
 def config_for(dataset_id: str) -> MinerConfig:
-    if dataset_id not in DATASETS:
+    if dataset_id not in ALL_DATASETS:
         raise KeyError(dataset_id)
-    return MinerConfig.from_yaml(ROOT / DATASETS[dataset_id])
+    return MinerConfig.from_yaml(ROOT / ALL_DATASETS[dataset_id])
 
 
 def planted_for(cfg: MinerConfig) -> dict[str, str]:
@@ -69,13 +75,14 @@ def planted_for(cfg: MinerConfig) -> dict[str, str]:
 
 def list_datasets() -> list[dict]:
     out = []
-    for ds in DATASETS:
+    for ds in ALL_DATASETS:
         cfg = config_for(ds)
         title, blurb = DATASET_INFO.get(ds, (ds, ""))
         path = cfg.dataset_path()
         atoms = sum(1 for l in path.read_text().splitlines() if l.strip().startswith("(")) \
             if path.exists() else None
         out.append({"id": ds, "title": title, "description": blurb, "atoms": atoms,
+                    "heldout": ds in HELDOUT,
                     "minsup": cfg.minsup, "conjuncts": cfg.conjuncts,
                     "planted": [{"name": n, "pattern": p} for n, p in planted_for(cfg).items()]})
     return out
@@ -105,6 +112,7 @@ def _record_meta(path: str, mtime: float) -> dict:
     ranker = rec.get("ranker") or {}
     arm = rec.get("arm") or {}
     return {"n_patterns": rec.get("n_patterns"), "seconds": rec.get("seconds"),
+            "no_llm_answer": no_llm_answer(rec),
             "strategy": ranker.get("strategy") or arm.get("strategy"),
             "budget": ranker.get("budget", arm.get("budget")),
             "providers": ranker.get("providers") or [], "family": arm.get("family")}
@@ -122,11 +130,14 @@ def list_replays() -> list[dict]:
             if not rec.exists():
                 continue
             meta = _record_meta(str(rec), rec.stat().st_mtime)
-            if not meta["strategy"]:
+            if not meta["strategy"] or meta.get("no_llm_answer"):
                 continue
             out.append({"id": f"{ds_dir.name}/{label}", "dataset": ds_dir.name, "label": label, **meta})
-    rank = {"llm": 0, "llm-direct": 1, "cardinality": 2, "heuristic": 3, "random": 4, "exhaustive": 5}
-    out.sort(key=lambda r: (r["dataset"] != "university", r["dataset"],
+    for r in out:
+        r.pop("no_llm_answer", None)
+    rank = {"llm": 0, "llm-hybrid": 1, "llm-direct": 2, "cardinality": 3, "heuristic": 4,
+            "random": 5, "exhaustive": 6}
+    out.sort(key=lambda r: (r["dataset"] in HELDOUT, r["dataset"] != "university", r["dataset"],
                             rank.get(r["strategy"], 9), r["budget"] or 0, r["label"]))
     return list_saved_runs() + out
 
@@ -159,7 +170,7 @@ def list_saved_runs() -> list[dict]:
             meta = json.loads(meta_path.read_text())
         except json.JSONDecodeError:
             continue
-        if meta.get("dataset") not in DATASETS:
+        if meta.get("dataset") not in ALL_DATASETS:
             continue
         rec = _record_meta(str(files[1]), files[1].stat().st_mtime)
         out.append({"id": SAVED_PREFIX + d.name, "dataset": meta["dataset"], "label": d.name,
@@ -182,11 +193,11 @@ def replay_paths(replay_id: str) -> tuple[str, Path, Path]:
             raise KeyError(replay_id)
         files = _saved_files(d)
         ds = json.loads((d / SAVED_META).read_text()).get("dataset")
-        if not files or ds not in DATASETS:
+        if not files or ds not in ALL_DATASETS:
             raise KeyError(replay_id)
         return ds, files[0], files[1]
     ds, _, label = replay_id.partition("/")
-    if ds not in DATASETS or not label or "/" in label or label.startswith("."):
+    if ds not in ALL_DATASETS or not label or "/" in label or label.startswith("."):
         raise KeyError(replay_id)
     trace, rec = RAW / ds / f"{label}.trace.jsonl", RAW / ds / f"{label}.json"
     if not (trace.exists() and rec.exists()):
@@ -258,11 +269,17 @@ def _num(v: str):
 
 
 def results_summary() -> dict:
-    summary_csv, verdicts = RESULTS / "summary.csv", RESULTS / "verdicts.json"
-    rows = []
-    if summary_csv.exists():
-        with summary_csv.open() as fh:
-            rows = [{k: _num(v) if k not in ("dataset", "family") else v for k, v in r.items()}
+    def read(path: Path) -> list[dict]:
+        if not path.exists():
+            return []
+        with path.open() as fh:
+            return [{k: _num(v) if k not in ("dataset", "family") else v for k, v in r.items()}
                     for r in csv.DictReader(fh)]
-    return {"rows": rows,
-            "verdicts": json.loads(verdicts.read_text()) if verdicts.exists() else None}
+
+    verdicts, explore = RESULTS / "verdicts.json", RESULTS / "exploratory.json"
+    return {"rows": read(RESULTS / "summary.csv"),
+            "verdicts": json.loads(verdicts.read_text()) if verdicts.exists() else None,
+            # Step 7: exploratory, kept apart from the pre-registered rows above
+            "exploratory": read(RESULTS / "exploratory.csv"),
+            "exploratory_checks": (json.loads(explore.read_text()).get("checks")
+                                   if explore.exists() else None)}

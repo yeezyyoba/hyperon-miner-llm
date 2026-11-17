@@ -107,7 +107,7 @@ class Run:
 
 def live_command(req: RunRequest, out_dir: Path) -> list[str]:
     """The exact CLI invocation a live run executes (shown in the UI as well)."""
-    cmd = [sys.executable, "-m", "minerllm", "guided", "--config", str(catalog.DATASETS[req.dataset]),
+    cmd = [sys.executable, "-m", "minerllm", "guided", "--config", str(catalog.ALL_DATASETS[req.dataset]),
            "--strategy", req.strategy, "--budget", str(req.budget), "--top", "0",
            "--out", str(out_dir)]
     if req.providers:
