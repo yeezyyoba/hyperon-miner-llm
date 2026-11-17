@@ -100,7 +100,7 @@ def cmd_datagen(args) -> int:
 
 def cmd_galaxy(args) -> int:
     from .datasets import galaxy_subset
-    print(galaxy_subset(args.n, args.out, seed=args.seed))
+    print(galaxy_subset(args.n, args.out, seed=args.seed, name=args.name))
     return 0
 
 
@@ -140,7 +140,7 @@ def main(argv: list[str] | None = None) -> int:
 
     gm = sub.add_parser("guided", help="run the LLM-guided miner (or a baseline ranker)")
     gm.add_argument("--config", default="configs/university.yaml")
-    gm.add_argument("--strategy", default="llm", choices=["exhaustive", "random", "heuristic", "cardinality", "llm", "llm-direct"])
+    gm.add_argument("--strategy", default="llm", choices=["exhaustive", "random", "heuristic", "cardinality", "llm", "llm-direct", "llm-hybrid"])
     gm.add_argument("--budget", type=float, default=0.3, help="fraction of candidates verified")
     gm.add_argument("--providers", default=None,
                     help="comma-separated order, e.g. groq,gemini,nvidia; 'mock' runs offline "
@@ -173,6 +173,7 @@ def main(argv: list[str] | None = None) -> int:
     gx = sub.add_parser("galaxy", help="write a deterministic Galaxy subset")
     gx.add_argument("n", type=int)
     gx.add_argument("--seed", type=int, default=7)
+    gx.add_argument("--name", help="file name without .metta (default galaxy_<n>)")
     gx.add_argument("--out", default=str(ROOT / "experiments" / "data"))
     gx.set_defaults(func=cmd_galaxy)
 

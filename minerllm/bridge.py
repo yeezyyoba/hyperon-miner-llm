@@ -49,7 +49,8 @@ class _Session:
                                   batch_size=int(cfg.get("batch_size", 60)),
                                   timeout_s=float(cfg.get("timeout_s", 180)),
                                   workers=int(cfg.get("workers", 4)),
-                                  on_batch=self._on_batch)
+                                  on_batch=self._on_batch,
+                                  samples=int(cfg.get("samples", 3)))
         self.t0 = time.time()
         self.verify_t: dict[int, float] = {}
         self.totals = {"generated": 0, "unique": 0, "selected": 0, "kept": 0,

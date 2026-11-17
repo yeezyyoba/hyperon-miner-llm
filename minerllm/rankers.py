@@ -495,8 +495,94 @@ class LLMJoinRanker(Ranker):
         return result
 
 
+def interleave(first: list[int], second: list[int]) -> list[int]:
+    """Alternate two rankings (first, second, first, ...), skipping items already taken.
+
+    With a budget of k, each ranking contributes about k/2 of its best picks.
+    """
+    out, seen = [], set()
+    i = j = 0
+    take_first = True
+    while i < len(first) or j < len(second):
+        if (take_first and i < len(first)) or j >= len(second):
+            x, i = first[i], i + 1
+        else:
+            x, j = second[j], j + 1
+        if x in seen:                      # already taken from the other list: same turn
+            continue
+        seen.add(x)
+        out.append(x)
+        take_first = not take_first
+    return out
+
+
+SAMPLE_NOTE = "\n(Independent rating {k} of {n}: judge every join afresh.)\n"
+
+
+class LLMHybridRanker(LLMJoinRanker):
+    """llm-hybrid (exploratory, not pre-registered; docs/07-exploratory.md).
+
+    Motivated by the Step 6 traces: the join ranker keeps as many frequent patterns as
+    cardinality but *different* ones. Cardinality finds the high-support structural
+    patterns and misses the planted ones; the LLM dismisses same-relation joins and
+    sometimes finds planted ones. So the two orders are merged, half of the budget each:
+
+    * cardinality order (most-likely-frequent first), interleaved with
+    * the LLM join order, where each join's score is the mean of ``samples`` independent
+      ratings (the first uses the exact ``llm`` prompt, so cached answers are reused).
+
+    If every LLM call fails, the LLM order is the cardinality order, so the merge is the
+    cardinality baseline: the failure path is unchanged.
+    """
+
+    strategy = "llm-hybrid"
+
+    def __init__(self, client, samples: int = 3, **kw):
+        super().__init__(client, **kw)
+        self.samples = max(1, int(samples))
+
+    def _score_joins(self, stats: DatasetStats, result: RankResult) -> None:
+        joins = schema_joins(stats)
+        schema = stats.describe()
+        batches = [joins[b:b + self.batch_size] for b in range(0, len(joins), self.batch_size)]
+        prompts, owners = [], []
+        for k in range(self.samples):
+            for bt in batches:
+                text = JOIN_TEMPLATE.format(schema=schema, joins="\n".join(
+                    f"[{i}] {_fmt_join(j)}" for i, j in enumerate(bt)))
+                if k:
+                    text += SAMPLE_NOTE.format(k=k + 1, n=self.samples)
+                prompts.append((text, set(range(len(bt)))))
+                owners.append(bt)
+        t0 = time.time()
+        outs = run_batches(self.client, prompts, self.timeout_s, self.workers, self.on_batch)
+        result.llm_seconds += time.time() - t0
+        sums: dict[tuple, float] = {}
+        counts: dict[tuple, int] = {}
+        for bt, (prompt, ids), (resp, err, secs) in zip(owners, prompts, outs):
+            record, v = _record(0, "joins", len(bt), resp, err, secs, ids)
+            if resp is not None:
+                result.input_tokens += resp.input_tokens
+                result.output_tokens += resp.output_tokens
+            if v is not None and v.accepted:
+                for i, sc in v.scores.items():
+                    sums[bt[i]] = sums.get(bt[i], 0.0) + sc
+                    counts[bt[i]] = counts.get(bt[i], 0) + 1
+            result.batches.append(record)
+        self.join_scores = {j: sums[j] / counts[j] for j in sums}
+        self.top_joins = sorted(self.join_scores.items(), key=lambda kv: -kv[1])[:15]
+
+    def rank(self, cands, stats=None, level=0):
+        llm = super().rank(cands, stats, level)        # LLM join order, cardinality ties
+        result = RankResult(interleave(cardinality_order(cands, stats), llm.order), self.strategy,
+                            batches=llm.batches, llm_seconds=llm.llm_seconds,
+                            input_tokens=llm.input_tokens, output_tokens=llm.output_tokens)
+        return result
+
+
 def make_ranker(strategy: str, seed: int = 0, client=None, batch_size: int = 60,
-                timeout_s: float = 180.0, workers: int = 4, on_batch=None) -> Ranker:
+                timeout_s: float = 180.0, workers: int = 4, on_batch=None,
+                samples: int = 3) -> Ranker:
     if strategy == "exhaustive":
         return ExhaustiveRanker()
     if strategy == "random":
@@ -505,6 +591,11 @@ def make_ranker(strategy: str, seed: int = 0, client=None, batch_size: int = 60,
         return HeuristicRanker()
     if strategy == "cardinality":
         return CardinalityRanker()
+    if strategy == "llm-hybrid":
+        if client is None:
+            raise ValueError(f"{strategy} strategy needs an LLM client")
+        return LLMHybridRanker(client, samples=samples, batch_size=batch_size,
+                               timeout_s=timeout_s, workers=workers, on_batch=on_batch)
     if strategy in ("llm", "llm-direct"):
         if client is None:
             raise ValueError(f"{strategy} strategy needs an LLM client")

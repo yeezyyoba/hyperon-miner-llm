@@ -62,7 +62,7 @@ class MinerConfig:
 @dataclass
 class RankerConfig:
     """How the guided miner chooses which candidates to verify."""
-    strategy: str = "exhaustive"          # exhaustive | random | heuristic | llm | llm-direct
+    strategy: str = "exhaustive"          # exhaustive | random | heuristic | cardinality | llm | llm-direct | llm-hybrid
     budget: float = 1.0                   # fraction of unique candidates verified per level
     seed: int = 0
     providers: list | None = None          # None -> MINERLLM_PROVIDERS env, else groq,nvidia,gemini
@@ -72,9 +72,11 @@ class RankerConfig:
     workers: int = 4                      # LLM batches sent in parallel
     cache_dir: str | None = ".cache/llm"
     min_select: int = 1
+    samples: int = 3                      # llm-hybrid: independent LLM ratings averaged per join
 
     def __post_init__(self):
-        if self.strategy not in {"exhaustive", "random", "heuristic", "cardinality", "llm", "llm-direct"}:
+        if self.strategy not in {"exhaustive", "random", "heuristic", "cardinality", "llm",
+                                 "llm-direct", "llm-hybrid"}:
             raise ValueError(f"unknown strategy {self.strategy!r}")
         if not 0 < self.budget <= 1:
             raise ValueError("budget must be in (0, 1]")

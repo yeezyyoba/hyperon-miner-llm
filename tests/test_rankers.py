@@ -236,3 +236,83 @@ def test_cardinality_ranker_puts_likely_frequent_first():
     order = make_ranker("cardinality").rank(CANDS, STATS).order
     assert sorted(order) == list(range(len(CANDS)))
     assert order[0] == 1               # three unlinked USES clauses: huge expected support
+
+
+# ------------------------------------------------------------------ llm-hybrid (exploratory)
+
+from minerllm.rankers import LLMHybridRanker, cardinality_order, interleave  # noqa: E402
+
+
+def test_interleave_alternates_and_skips_duplicates():
+    assert interleave([1, 2, 3, 4], [3, 1, 4, 2]) == [1, 3, 2, 4]
+    assert interleave([0, 1, 2], [2, 1, 0]) == [0, 2, 1]
+    assert interleave([5, 6], []) == [5, 6] and interleave([], [7]) == [7]
+
+
+def test_interleave_gives_each_ranking_half_of_any_budget():
+    a, b = list(range(10)), list(range(10))[::-1]
+    top4 = interleave(a, b)[:4]
+    assert set(top4) == {0, 1, 9, 8}
+
+
+def test_hybrid_averages_independent_samples():
+    llm = MockLLM("gemini")
+    r = LLMHybridRanker(FallbackChain([llm]), samples=3, batch_size=60)
+    res = r.rank(CANDS, STATS, level=0)
+    assert llm.calls == 9                                    # 3 batches x 3 samples
+    assert len(res.batches) == 9 and res.fallback_batches == 0
+    assert sorted(res.order) == list(range(len(CANDS)))
+    r.rank(CANDS, STATS, level=1)
+    assert llm.calls == 9                                    # join scores reused at later levels
+
+
+def test_hybrid_sample_prompts_differ_but_the_first_matches_the_llm_ranker():
+    seen = []
+
+    class Spy(MockLLM):
+        def complete(self, prompt, system="", timeout=60.0):
+            seen.append(prompt)
+            return super().complete(prompt, system, timeout)
+
+    LLMHybridRanker(FallbackChain([Spy("gemini")]), samples=2, workers=1).rank(CANDS, STATS)
+    plain = []
+
+    class Spy2(Spy):
+        def complete(self, prompt, system="", timeout=60.0):
+            plain.append(prompt)
+            return MockLLM.complete(self, prompt, system, timeout)
+
+    LLMJoinRanker(FallbackChain([Spy2("gemini")]), workers=1).rank(CANDS, STATS)
+    assert seen[:3] == plain                                 # sample 1 == the llm prompts (cache reuse)
+    assert all("Independent rating 2 of 2" in p for p in seen[3:])
+
+
+def test_hybrid_merges_cardinality_and_llm_orders():
+    r = LLMHybridRanker(FallbackChain([MockLLM("gemini")]), samples=1)
+    r.join_scores = {(("ADVISED_BY", 2), ("TEACHES", 1)): 10.0,
+                     (("ADVISED_BY", 1), ("ENROLLED_IN", 1)): 10.0,
+                     (("ENROLLED_IN", 2), ("TEACHES", 2)): 10.0}
+    order = r.rank(CANDS, STATS).order
+    plain = LLMJoinRanker(FallbackChain([MockLLM("gemini")]))
+    plain.join_scores = dict(r.join_scores)
+    llm_order = plain.rank(CANDS, STATS).order
+    card = cardinality_order(CANDS, STATS)
+    assert llm_order != card                                 # the two signals disagree here
+    assert order == interleave(card, llm_order)
+    assert order[0] == card[0] and llm_order[0] in order[:2]
+
+
+def test_hybrid_outage_is_exactly_the_cardinality_baseline():
+    chain = FallbackChain([MockLLM("gemini", fault="fatal")], max_retries=0)
+    r = LLMHybridRanker(chain, samples=3).rank(CANDS, STATS)
+    assert r.order == cardinality_order(CANDS, STATS)
+    assert r.fallback_batches == len(r.batches) == 9
+
+
+def test_make_ranker_builds_hybrid_and_config_accepts_it():
+    from minerllm.config import RankerConfig
+    assert RankerConfig(strategy="llm-hybrid", budget=0.3).samples == 3
+    r = make_ranker("llm-hybrid", client=FallbackChain([MockLLM()]), samples=2)
+    assert isinstance(r, LLMHybridRanker) and r.samples == 2
+    with pytest.raises(ValueError):
+        make_ranker("llm-hybrid")
