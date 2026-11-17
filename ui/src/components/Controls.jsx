@@ -7,6 +7,8 @@ export default function Controls({ form, setForm, catalog, running, onStart, onC
   const set = (patch) => setForm((f) => ({ ...f, ...patch }));
   const providerList = catalog.providers?.providers ?? [];
   const replays = catalog.replays.filter((r) => r.dataset === form.dataset);
+  const saved = replays.filter((r) => r.source === "dashboard");
+  const recorded = replays.filter((r) => r.source !== "dashboard");
   const live = form.mode === "live";
   const llm = form.strategy.startsWith("llm");
 
@@ -105,11 +107,18 @@ export default function Controls({ form, setForm, catalog, running, onStart, onC
             <label className="field field--wide">
               <span className="field__label">Recorded run</span>
               <select value={form.replayId} onChange={(e) => set({ replayId: e.target.value })} disabled={running}>
-                {replays.map((r) => (
-                  <option key={r.id} value={r.id}>
-                    {replayLabel(r)}
-                  </option>
-                ))}
+                {saved.length > 0 && (
+                  <optgroup label="Your live runs">
+                    {saved.map((r) => (
+                      <option key={r.id} value={r.id}>{replayLabel(r)}</option>
+                    ))}
+                  </optgroup>
+                )}
+                <optgroup label="Evaluation runs">
+                  {recorded.map((r) => (
+                    <option key={r.id} value={r.id}>{replayLabel(r)}</option>
+                  ))}
+                </optgroup>
               </select>
             </label>
             <fieldset className="field">
@@ -143,7 +152,14 @@ export default function Controls({ form, setForm, catalog, running, onStart, onC
   );
 }
 
+const WHEN = new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+
 function replayLabel(r) {
+  if (r.source === "dashboard") {
+    const who = r.providers?.length ? ` with ${r.providers.map((p) => PROVIDER_NAMES[p] ?? p).join(", ")}` : "";
+    const when = r.started ? `${WHEN.format(new Date(r.started * 1000))}: ` : "";
+    return `${when}${STRATEGY_NAMES[r.strategy] ?? r.strategy}${r.strategy.startsWith("llm") ? who : ""}, ${Math.round((r.budget ?? 1) * 100)} %`;
+  }
   const who = r.providers?.length ? ` with ${r.providers.map((p) => PROVIDER_NAMES[p] ?? p).join(", ")}` : "";
   const repeat = r.label.match(/-r(\d)$/);
   const seed = r.label.match(/-s(\d)$/);

@@ -79,6 +79,8 @@ export default function App() {
       setRun({ ...EMPTY_RUN, id: created.id, status: "running", mode: created.mode });
       closeRef.current = followRun(created.id, onEvent, () => {
         api.usage().then(setSessionUsage).catch(() => {});
+        // a finished live run is saved on disk and becomes replayable
+        api.replays().then((replays) => setCatalog((c) => ({ ...c, replays }))).catch(() => {});
       });
     } catch (e) {
       setStartError(e.message);
@@ -139,7 +141,10 @@ export default function App() {
 }
 
 function pickReplay(replays, dataset, budget) {
-  const pool = replays.filter((r) => r.dataset === dataset);
+  // default to an evaluation run with real API calls; the user's own runs are one click away
+  const pool = replays.filter((r) => r.dataset === dataset && r.source !== "dashboard");
+  const real = pool.find((r) => r.label === "llm-groq-b30-r1" && Math.abs((r.budget ?? 0) - budget) < 1e-9);
+  if (real) return real;
   return (
     pool.find((r) => r.strategy === "llm" && Math.abs((r.budget ?? 0) - budget) < 1e-9) ??
     pool.find((r) => r.strategy === "llm") ??
