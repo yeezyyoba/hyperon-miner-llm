@@ -105,7 +105,6 @@ Six required steps, plus an exploratory follow-up:
 | 6. Results | [docs/06-results.md](docs/06-results.md) | generated tables, figures, verdicts, cost, failures, limitations |
 | 7. Follow-up (exploratory) | [docs/07-exploratory.md](docs/07-exploratory.md) | `llm-hybrid`: LLM + cardinality merged, tested on held-out data only |
 
-Presentation guide: [docs/presentation.md](docs/presentation.md).
 
 ### Issues found in upstream (petta-main @ `7461878`)
 
@@ -215,7 +214,7 @@ minerllm/                      Python package
 ui/                            React (Vite) dashboard: make ui
 configs/                       YAML miner configurations
 results/                       evaluation records, execution traces, summaries, figures
-docs/                          one document per assignment step + ADRs + presentation guide
+docs/                          one document per assignment step + ADRs
 patches/                       fixes ready to send upstream
 scripts/                       demo, doctor, test runner, issue reproduction, profiling
 tests/                         pytest suite

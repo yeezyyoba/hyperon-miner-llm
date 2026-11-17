@@ -42,3 +42,6 @@ ui/dist/
 
 # Scratch folder used by Claude sessions
 Claude outputs/
+
+# Personal presentation notes: kept locally, not published
+docs/presentation.md
