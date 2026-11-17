@@ -41,9 +41,18 @@ export default function Controls({ form, setForm, catalog, running, onStart, onC
         <label className="field">
           <span className="field__label">Dataset</span>
           <select value={form.dataset} onChange={(e) => changeDataset(e.target.value)} disabled={running}>
-            {catalog.datasets.map((d) => (
-              <option key={d.id} value={d.id}>{d.title}</option>
-            ))}
+            <optgroup label="Evaluation (Steps 5 and 6)">
+              {catalog.datasets.filter((d) => !d.heldout).map((d) => (
+                <option key={d.id} value={d.id}>{d.title}</option>
+              ))}
+            </optgroup>
+            {catalog.datasets.some((d) => d.heldout) && (
+              <optgroup label="Held-out (Step 7)">
+                {catalog.datasets.filter((d) => d.heldout).map((d) => (
+                  <option key={d.id} value={d.id}>{d.title}</option>
+                ))}
+              </optgroup>
+            )}
           </select>
         </label>
 

@@ -97,6 +97,9 @@ export default function App() {
     [catalog.datasets, runDataset],
   );
   const running = run.status === "running" || run.status === "cancelling";
+  // The comparison chart follows the dataset menu; the "this run" marker only when they match.
+  const chosen = catalog.datasets.find((d) => d.id === form.dataset);
+  const sameData = run.info?.dataset === form.dataset;
 
   return (
     <div className="app">
@@ -125,10 +128,11 @@ export default function App() {
         </div>
         <Comparison
           results={catalog.results}
-          dataset={runDataset}
-          datasetTitle={dataset?.title}
-          budget={run.info?.budget ?? form.budget}
-          highlight={run.result?.recall_at_10}
+          dataset={form.dataset}
+          heldout={!!chosen?.heldout}
+          datasetTitle={chosen?.title}
+          budget={sameData ? run.info?.budget ?? form.budget : form.budget}
+          highlight={sameData ? run.result?.recall_at_10 : null}
         />
       </main>
       <footer className="app__footer">
@@ -145,6 +149,8 @@ function pickReplay(replays, dataset, budget) {
   const pool = replays.filter((r) => r.dataset === dataset && r.source !== "dashboard");
   const real = pool.find((r) => r.label === "llm-groq-b30-r1" && Math.abs((r.budget ?? 0) - budget) < 1e-9);
   if (real) return real;
+  const hybrid = dataset.startsWith("heldout-") && pool.find((r) => r.label === "llm-hybrid-groq-b30");
+  if (hybrid) return hybrid;
   return (
     pool.find((r) => r.strategy === "llm" && Math.abs((r.budget ?? 0) - budget) < 1e-9) ??
     pool.find((r) => r.strategy === "llm") ??
