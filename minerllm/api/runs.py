@@ -207,7 +207,9 @@ class RunManager:
         if run.status == "cancelling":
             run.finish("cancelled")
             return
-        records = [p for p in run.out_dir.glob("*.json") if not p.name.endswith(".run.json")]
+        # the miner's record sits next to its trace (not dashboard.json or *.run.json)
+        files = catalog._saved_files(run.out_dir)
+        records = [files[1]] if files else []
         if records:
             try:
                 run.result = catalog.build_result(records[0], run.dataset)

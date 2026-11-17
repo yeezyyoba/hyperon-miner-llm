@@ -198,6 +198,21 @@ def fake_command(exit_code=0):
     return cmd
 
 
+def test_live_result_is_read_from_the_miner_record_not_other_json_files(raw, monkeypatch):
+    # a file that sorts before the record and has no patterns must never be read as the result
+    real_glob = runs.Path.glob
+
+    def glob_metadata_first(self, pattern):
+        found = list(real_glob(self, pattern))
+        return sorted(found, key=lambda p: p.name != catalog.SAVED_META)
+
+    monkeypatch.setattr(runs.Path, "glob", glob_metadata_first)
+    client = TestClient(create_app(RunManager(command=fake_command())))
+    run = client.post("/api/runs", json={"mode": "live", "dataset": "university"}).json()
+    done = wait_done(client, run["id"])
+    assert done["status"] == "done" and done["result"]["n_patterns"] == 2
+
+
 def test_live_run_streams_trace_and_counts_session_usage(raw):
     client = TestClient(create_app(RunManager(command=fake_command())))
     run = client.post("/api/runs", json={"mode": "live", "dataset": "university",
