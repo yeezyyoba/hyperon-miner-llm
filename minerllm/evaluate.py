@@ -38,6 +38,14 @@ DATASETS = {
     "university-anon": "configs/university-anon.yaml",
     "galaxy400": "configs/galaxy400.yaml",
 }
+# Exploratory follow-up (docs/07-exploratory.md): fresh datasets never used to design llm-hybrid.
+HELDOUT = {
+    "heldout-university-s1": "configs/heldout-university-s1.yaml",
+    "heldout-university-s2": "configs/heldout-university-s2.yaml",
+    "heldout-galaxy400-s11": "configs/heldout-galaxy400-s11.yaml",
+}
+ALL_DATASETS = {**DATASETS, **HELDOUT}
+EXPLORATORY = ("llm-hybrid",)          # strategies kept out of the pre-registered report
 BUDGETS = [0.1, 0.2, 0.3, 0.5]
 SEEDS = [0, 1, 2, 3, 4]
 PROVIDERS = ["groq", "nvidia", "gemini"]
@@ -124,11 +132,28 @@ def repeat_arms(providers=PROVIDERS, budget: float = 0.3, repeats: int = 3) -> l
             for p in providers for r in range(1, repeats + 1)]
 
 
+def explore_arms(providers=("groq", "nvidia"), budget: float = 0.3) -> list[Arm]:
+    """Exploratory follow-up at the pre-registered budget.
+
+    On the development datasets: only the new llm-hybrid arm (the rest exists already).
+    On the held-out datasets: every comparison arm, so the test is self-contained.
+    """
+    dev, held = tuple(DATASETS), tuple(HELDOUT)
+    arms = [Arm(f"llm-hybrid-{p}-{pct(budget)}", "llm-hybrid", budget, provider=p)
+            for p in providers]                                      # dev + held-out
+    arms += [Arm(f"cardinality-{pct(budget)}", "cardinality", budget, only=held),
+             Arm(f"heuristic-{pct(budget)}", "heuristic", budget, only=held)]
+    arms += [Arm(f"random-{pct(budget)}-s{s}", "random", budget, seed=s, only=held) for s in SEEDS]
+    arms += [Arm(f"llm-{p}-{pct(budget)}", "llm", budget, provider=p, only=held) for p in providers]
+    assert dev  # noqa: S101 - dev datasets get only the hybrid arms above
+    return arms
+
+
 def run_matrix(datasets: list[str], arms: list[Arm], upstream: bool = False,
                force: bool = False, log=print) -> None:
     from .harness import run_guided, run_upstream
     for ds in datasets:
-        cfg = MinerConfig.from_yaml(ROOT / DATASETS[ds])
+        cfg = MinerConfig.from_yaml(ROOT / ALL_DATASETS[ds])
         out = RAW / ds
         out.mkdir(parents=True, exist_ok=True)
         if upstream and (force or not (out / "reference.json").exists()):
@@ -198,7 +223,7 @@ def metrics_for(ds: str) -> list[dict]:
     ref_scores = {p: v["score"] for p, v in ref.items() if v["score"] is not None}
     frequent = set(ref)
     tops = {k: tie_aware_top(ref_scores, k) for k in K_VALUES}
-    cfg = MinerConfig.from_yaml(ROOT / DATASETS[ds])
+    cfg = MinerConfig.from_yaml(ROOT / ALL_DATASETS[ds])
     truth_path = cfg.dataset_path().with_suffix(".truth.json")
     planted = ({canonical(p) for p in json.loads(truth_path.read_text())["planted"].values()}
                if truth_path.exists() else set())
@@ -243,10 +268,15 @@ def metrics_for(ds: str) -> list[dict]:
     return rows
 
 
+def _exploratory(row: dict) -> bool:
+    return str(row.get("strategy") or "").startswith(EXPLORATORY)
+
+
 def collect() -> list[dict]:
+    """Rows for the pre-registered report: pre-registered datasets and methods only."""
     rows = []
     for ds in DATASETS:
-        rows += metrics_for(ds)
+        rows += [r for r in metrics_for(ds) if not _exploratory(r)]
     return rows
 
 
@@ -568,10 +598,107 @@ def report(log=print) -> dict:
     return v
 
 
+# --------------------------------------------------------------------------- exploratory
+
+
+def explore_report(budget: float = 0.3, log=print) -> dict:
+    """Separate report for the exploratory follow-up (docs/07-exploratory.md).
+
+    Never touches the pre-registered tables or verdicts. Applies the H1 bar (recall@10
+    >= 90 % and above every cheap baseline) mechanically, labelled as exploratory.
+    """
+    rows = []
+    for ds in ALL_DATASETS:
+        rows += [r for r in metrics_for(ds) if abs(r["budget"] - budget) < 1e-9]
+    if not rows:
+        log("no exploratory results yet: run `make eval-explore`")
+        return {}
+    summary = summarize(rows)
+    write_csv(summary, RESULTS / "exploratory.csv")
+
+    def get(ds, fam):
+        return next((x for x in summary if x["dataset"] == ds and x["family"] == fam), None)
+
+    checks = {}
+    for ds in ALL_DATASETS:
+        base = [x for x in (get(ds, "cardinality"), get(ds, "heuristic"), get(ds, "random"))
+                if x and x["recall@10"] is not None]
+        if not base:
+            continue
+        best = max(base, key=lambda x: x["recall@10"])
+        for fam in sorted({x["family"] for x in summary if x["dataset"] == ds
+                           and x["family"].split(":")[0] in ("llm", "llm-hybrid")}):
+            x = get(ds, fam)
+            if x["recall@10"] is None:
+                continue
+            r = x["recall@10"]
+            verdict = ("meets the H1 bar" if r >= 0.9 and r > best["recall@10"] else
+                       "beats every baseline, below 90 %" if r > best["recall@10"] else
+                       "ties the best baseline" if abs(r - best["recall@10"]) < 1e-9 else
+                       "below the best baseline")
+            checks[f"{ds} / {fam}"] = {"dataset": ds, "family": fam, "heldout": ds in HELDOUT,
+                                       "recall@10": r, "best_baseline": best["family"],
+                                       "best_baseline_recall@10": best["recall@10"],
+                                       "planted_found": x.get("planted_found"),
+                                       "verdict": verdict}
+    out = {"budget": budget, "note": "exploratory, not pre-registered (docs/07-exploratory.md)",
+           "checks": checks}
+    (RESULTS / "exploratory.json").write_text(json.dumps(out, indent=2))
+    text = explore_tables(summary, checks, budget)
+    (RESULTS / "exploratory.md").write_text("# Exploratory follow-up (generated)\n\n" + text + "\n")
+    doc = ROOT / "docs" / "07-exploratory.md"
+    if doc.exists():
+        _replace_block(doc, "EXPLORATORY", text)
+    log(f"exploratory: {len(rows)} runs, {len(checks)} LLM checks -> results/exploratory.md")
+    return out
+
+
+def explore_tables(summary: list[dict], checks: dict, budget: float) -> str:
+    order = ["cardinality", "heuristic", "random", "llm:groq", "llm:nvidia",
+             "llm-hybrid:groq", "llm-hybrid:nvidia"]
+    lines = []
+    for title, group in (("Held-out datasets (the test)", HELDOUT),
+                         ("Development datasets (design only; not evidence)", DATASETS)):
+        ds_list = [d for d in group if any(x["dataset"] == d for x in summary)]
+        if not ds_list:
+            continue
+        lines += [f"### {title}", "", f"Recall@10 at {budget * 100:.0f} % budget "
+                  "(planted patterns found in brackets; ± = sd over seeds/repeats):", "",
+                  "| method | " + " | ".join(ds_list) + " |", "|---|" + "---:|" * len(ds_list)]
+        fams = sorted({x["family"] for x in summary if x["dataset"] in ds_list},
+                      key=lambda f: (order.index(f) if f in order else 99, f))
+        for fam in fams:
+            cells = []
+            for ds in ds_list:
+                x = next((y for y in summary if y["dataset"] == ds and y["family"] == fam), None)
+                if not x or x["recall@10"] is None:
+                    cells.append("–")
+                    continue
+                c = f"{x['recall@10'] * 100:.0f} %"
+                if x["runs"] > 1 and x.get("recall@10_sd"):
+                    c += f" ± {x['recall@10_sd'] * 100:.0f}"
+                if x.get("planted_found") is not None:
+                    c += f" ({x['planted_found']:.1f}/3)" if x["runs"] > 1 else f" ({x['planted_found']:.0f}/3)"
+                cells.append(c)
+            lines.append(f"| {fam} | " + " | ".join(cells) + " |")
+        lines.append("")
+    held = [c for c in checks.values() if c["heldout"]]
+    if held:
+        lines += ["### Checks against the H1 bar (held-out only)", "",
+                  "| dataset / method | recall@10 | best baseline | verdict |", "|---|---:|---|---|"]
+        for c in held:
+            lines.append(f"| {c['dataset']} / {c['family']} | {c['recall@10'] * 100:.0f} % | "
+                         f"{c['best_baseline']} {c['best_baseline_recall@10'] * 100:.0f} % | "
+                         f"{c['verdict']} |")
+        lines.append("")
+    return "\n".join(lines)
+
+
 def main(argv=None) -> int:
     import argparse
     ap = argparse.ArgumentParser(prog="minerllm eval")
-    ap.add_argument("part", choices=["baselines", "llm", "repeats", "report"])
+    ap.add_argument("part", choices=["baselines", "llm", "repeats", "report", "explore",
+                                     "explore-report"])
     ap.add_argument("--repeats", type=int, default=3, help="for `repeats`: extra LLM samples")
     ap.add_argument("--datasets", default=",".join(DATASETS))
     ap.add_argument("--providers", default=",".join(PROVIDERS))
@@ -582,6 +709,15 @@ def main(argv=None) -> int:
     budgets = [float(b) for b in args.budgets.split(",")]
     ds = [d for d in args.datasets.split(",") if d]
     log = lambda m: print(m, file=sys.stderr, flush=True)  # noqa: E731
+    if args.part in ("explore", "explore-report"):
+        if args.part == "explore":
+            provs = [p for p in args.providers.split(",") if p] if args.providers != ",".join(PROVIDERS) \
+                else ["groq", "nvidia"]
+            # held-out datasets first get their reference + upstream run, like Step 5
+            run_matrix(list(HELDOUT), [], upstream=True, force=False, log=log)
+            run_matrix(list(DATASETS) + list(HELDOUT), explore_arms(provs), force=args.force, log=log)
+        explore_report(log=log)
+        return 0
     if args.part == "baselines":
         run_matrix(ds, baseline_arms(budgets), upstream=True, force=args.force, log=log)
     elif args.part == "repeats":

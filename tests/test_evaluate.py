@@ -79,3 +79,45 @@ def test_repeat_arms_disable_the_cache_and_group_with_the_original():
     assert [a.name for a in arms] == ["llm-groq-b30-r1", "llm-groq-b30-r2"]
     assert all(a.ranker().cache_dir is None and a.family == "llm:groq" for a in arms)
     assert llm_arms(["groq"], [0.3])[0].ranker().cache_dir == ".cache/llm"
+
+
+# ------------------------------------------------------------------ exploratory follow-up
+
+def test_explore_arms_hybrid_everywhere_baselines_only_on_heldout():
+    from minerllm.evaluate import HELDOUT, explore_arms
+    arms = {a.name: a for a in explore_arms(["groq", "nvidia"])}
+    assert arms["llm-hybrid-groq-b30"].only == () and arms["llm-hybrid-groq-b30"].family == "llm-hybrid:groq"
+    for name in ("cardinality-b30", "heuristic-b30", "random-b30-s4", "llm-nvidia-b30"):
+        assert arms[name].only == tuple(HELDOUT)
+    assert arms["llm-hybrid-groq-b30"].ranker().workers == 1          # Groq stays sequential
+
+
+def test_hybrid_runs_never_enter_the_preregistered_report(monkeypatch):
+    import minerllm.evaluate as ev
+    fake = {"university": [dict(_row("university", "llm:groq", 0.3, 0.3), strategy="llm"),
+                           dict(_row("university", "llm-hybrid:groq", 0.3, 0.9), strategy="llm-hybrid")],
+            "university-anon": [], "galaxy400": []}
+    monkeypatch.setattr(ev, "metrics_for", lambda ds: fake.get(ds, []))
+    fams = {r["family"] for r in ev.collect()}
+    assert fams == {"llm:groq"}
+
+
+def test_explore_report_applies_the_h1_bar_to_heldout(monkeypatch, tmp_path):
+    import minerllm.evaluate as ev
+    ds = "heldout-university-s1"
+    rows = {ds: [dict(_row(ds, "cardinality", 0.3, 0.6), strategy="cardinality"),
+                 dict(_row(ds, "random", 0.3, 0.2), strategy="random"),
+                 dict(_row(ds, "heuristic", 0.3, 0.0), strategy="heuristic"),
+                 dict(_row(ds, "llm:groq", 0.3, 0.4), strategy="llm"),
+                 dict(_row(ds, "llm-hybrid:groq", 0.3, 0.8), strategy="llm-hybrid"),
+                 dict(_row(ds, "llm-hybrid:nvidia", 0.3, 0.95), strategy="llm-hybrid")]}
+    monkeypatch.setattr(ev, "metrics_for", lambda d: rows.get(d, []))
+    monkeypatch.setattr(ev, "RESULTS", tmp_path)
+    monkeypatch.setattr(ev, "ROOT", tmp_path)                 # no docs to patch here
+    out = ev.explore_report(log=lambda m: None)
+    c = out["checks"]
+    assert c[f"{ds} / llm:groq"]["verdict"] == "below the best baseline"
+    assert c[f"{ds} / llm-hybrid:groq"]["verdict"] == "beats every baseline, below 90 %"
+    assert c[f"{ds} / llm-hybrid:nvidia"]["verdict"] == "meets the H1 bar"
+    assert c[f"{ds} / llm-hybrid:groq"]["best_baseline"] == "cardinality"
+    assert (tmp_path / "exploratory.md").read_text().startswith("# Exploratory follow-up")
