@@ -1,0 +1,54 @@
+{
+  "label": "llm-hybrid-groq-b30-r2",
+  "config": {
+    "dataset": "experiments/data/heldout/university_s2_st80",
+    "minsup": 10,
+    "depth": 1,
+    "surp_mode": "isurp",
+    "normalize": true,
+    "db_ratio": 0.5,
+    "timeout": 1800,
+    "extra": {}
+  },
+  "ok": false,
+  "returncode": -1,
+  "timed_out": true,
+  "seconds": 1800.171,
+  "n_patterns": 0,
+  "patterns": [],
+  "verification": {
+    "checked": 0,
+    "ok": true,
+    "mismatches": []
+  },
+  "ranker": {
+    "strategy": "llm-hybrid",
+    "budget": 0.3,
+    "seed": 2,
+    "providers": [
+      "groq"
+    ],
+    "batch_size": 60,
+    "max_retries": 4,
+    "timeout_s": 180.0,
+    "workers": 1,
+    "cache_dir": null,
+    "min_select": 1,
+    "samples": 3
+  },
+  "trace_summary": {},
+  "arm": {
+    "name": "llm-hybrid-groq-b30-r2",
+    "strategy": "llm-hybrid",
+    "budget": 0.3,
+    "seed": 2,
+    "provider": "groq",
+    "only": [
+      "heldout-university-s1",
+      "heldout-university-s2",
+      "heldout-galaxy400-s11"
+    ],
+    "repeat": 2,
+    "family": "llm-hybrid:groq"
+  }
+}
