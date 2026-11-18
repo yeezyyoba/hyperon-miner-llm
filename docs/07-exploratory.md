@@ -94,6 +94,11 @@ tied cardinality where the protocol run had beaten it. To measure that variance:
   re-run (cardinality and heuristic are deterministic; random already has 5 seeds);
 * the results are reported as they come out, whichever way they go. The dashboard
   re-runs stay in the run log only and are not added to the tables.
+* **Added 18 Nov, after the first repeat attempt and before looking at any repeat's
+  recall:** on the held-out datasets, an LLM run where **more than a third of its batches
+  fell back** to the cardinality order is re-run and left out of the metrics, like a failed
+  or timed-out run. Such a run mostly tests cardinality, not the LLM. Steps 5–6 are not
+  affected (their summary and verdicts recompute identically).
 
 ## Run log
 
@@ -114,6 +119,27 @@ tied cardinality where the protocol run had beaten it. To measure that variance:
   Groq scored the advisor-course joins lower that time, so those 2-clause pieces fell outside
   the level-1 budget and the planted 3-clause pattern could not be generated. One run per arm
   is not enough to say how often the hybrid wins; repeats are the next step.
+
+* **First repeat attempt (17 Nov, afternoon): partly degraded.** University s1 completed
+  cleanly (Groq answered every batch). From university s2 on, Groq answers slowed to
+  10–20 minutes per run with many failed batches (most likely the free tier's usage limit
+  after a day of runs), two Groq hybrid runs hit the 30-minute timeout, and the run stopped
+  when NVIDIA's `llm-nvidia-b30-r1` on Galaxy got no answer at all. Runs re-done under the
+  rules above (fallback counts only; their recall was not inspected):
+
+  | dataset | run | batches fallen back | reason |
+  |---|---|---:|---|
+  | university s2 | `llm-groq-b30-r1` | 2/3 | over 1/3 fell back |
+  | university s2 | `llm-groq-b30-r2` | 2/3 | over 1/3 fell back |
+  | university s2 | `llm-hybrid-groq-b30-r1` | 4/9 | over 1/3 fell back |
+  | university s2 | `llm-hybrid-groq-b30-r2` | – | timed out (30 min) |
+  | university s2 | `llm-hybrid-nvidia-b30-r2` | 5/9 | over 1/3 fell back |
+  | galaxy s11 | `llm-groq-b30-r1` | 2/3 | over 1/3 fell back |
+  | galaxy s11 | `llm-hybrid-groq-b30-r1` | – | timed out (30 min) |
+  | galaxy s11 | `llm-nvidia-b30-r1` | 3/3 | no LLM answer |
+
+  The galaxy s11 second repeats (`-r2`, four runs) had not started. The original records of
+  this attempt are in the git history (commit "results: first repeat attempt").
 
 ## Results
 

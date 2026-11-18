@@ -127,12 +127,27 @@ def no_llm_answer(rec: dict) -> bool:
             and ts.get("fallback_batches", 0) >= ts["batches"])
 
 
+def degraded_llm_run(rec: dict) -> bool:
+    """An LLM arm where more than a third of the batches fell back to the cardinality order.
+
+    Step 7 rule (docs/07, fixed before looking at any repeat's recall): on the held-out
+    datasets such a run mostly tests cardinality, not the LLM, so it is re-run and left out
+    of the metrics. The pre-registered Steps 5-6 are not affected.
+    """
+    strategy = (rec.get("ranker") or rec.get("arm") or {}).get("strategy") or ""
+    ts = rec.get("trace_summary") or {}
+    b = ts.get("batches", 0)
+    return strategy.startswith("llm") and b > 0 and ts.get("fallback_batches", 0) * 3 > b
+
+
 def _done(path: Path) -> bool:
     if not path.exists():
         return False
     try:
         rec = json.loads(path.read_text())
     except json.JSONDecodeError:
+        return False
+    if path.parent.name in HELDOUT and degraded_llm_run(rec):
         return False
     return bool(rec.get("ok")) and not no_llm_answer(rec)
 
@@ -283,6 +298,10 @@ def metrics_for(ds: str) -> list[dict]:
         if "config" not in rec or f.stem in ("frequent-b100", "reference"):
             continue
         if no_llm_answer(rec):                  # ran the fallback order, not the LLM's
+            continue
+        if not rec.get("ok"):                   # failed or timed out: no result, re-run on resume
+            continue
+        if ds in HELDOUT and degraded_llm_run(rec):   # Step 7 rule: mostly cardinality, re-run
             continue
         label = f.stem
         found = {p["pattern"] for p in rec["patterns"]}

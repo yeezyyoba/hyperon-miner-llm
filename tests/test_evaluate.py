@@ -190,3 +190,40 @@ def test_explore_repeats_are_fresh_heldout_samples_grouped_with_the_first_run():
     assert {a.family for a in reps} == first                        # same groups -> mean ± sd
     names = [a.name for a in reps]
     assert "llm-hybrid-groq-b30-r2" in names and len(set(names)) == len(names)
+
+
+def test_failed_or_timed_out_runs_are_not_counted_as_zero_recall(tmp_path, monkeypatch):
+    import json
+    import minerllm.evaluate as ev
+    ds = tmp_path / "university"
+    ds.mkdir()
+    (ds / "reference.json").write_text(json.dumps({"patterns": {"(, (A $v0))": {"support": 5, "score": 0.9}}}))
+    good = {"config": {}, "ok": True, "n_patterns": 1, "seconds": 1.0,
+            "patterns": [{"pattern": "(, (A $v0))", "support": 5, "surprisingness": 0.9}],
+            "arm": {"strategy": "cardinality", "family": "cardinality", "budget": 0.3}}
+    timed_out = dict(good, ok=False, timed_out=True, n_patterns=0, patterns=[],
+                     arm={"strategy": "llm-hybrid", "family": "llm-hybrid:groq", "budget": 0.3})
+    (ds / "cardinality-b30.json").write_text(json.dumps(good))
+    (ds / "llm-hybrid-groq-b30-r2.json").write_text(json.dumps(timed_out))
+    monkeypatch.setattr(ev, "RAW", tmp_path)
+    rows = ev.metrics_for("university")
+    assert [r["arm"] for r in rows] == ["cardinality-b30"]
+    assert ev._done(ds / "llm-hybrid-groq-b30-r2.json") is False     # re-run on resume
+
+
+def test_heldout_runs_with_over_a_third_fallen_back_are_rerun_but_step6_is_untouched(tmp_path, monkeypatch):
+    import json
+    import minerllm.evaluate as ev
+    from minerllm.evaluate import degraded_llm_run
+    mk = lambda f, b: {"ok": True, "ranker": {"strategy": "llm-hybrid"},
+                       "trace_summary": {"batches": b, "fallback_batches": f}}
+    assert degraded_llm_run(mk(4, 9)) and not degraded_llm_run(mk(3, 9)) and not degraded_llm_run(mk(1, 3))
+    assert not degraded_llm_run({"ok": True, "ranker": {"strategy": "cardinality"},
+                                 "trace_summary": {"batches": 0}})
+    held = tmp_path / "heldout-university-s2"
+    dev = tmp_path / "university"
+    held.mkdir(); dev.mkdir()
+    (held / "a.json").write_text(json.dumps(mk(4, 9)))
+    (dev / "a.json").write_text(json.dumps(mk(4, 9)))
+    assert ev._done(held / "a.json") is False          # held-out: re-run
+    assert ev._done(dev / "a.json") is True            # pre-registered datasets: unchanged
